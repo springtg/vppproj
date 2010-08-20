@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Danh sach nhung thong tin Message-->
+<!DOCTYPE AppMessage[
+  <!ELEMENT AppMessage  ANY>
+  <!ELEMENT AppMsg  ANY>
+  <!ELEMENT MsgID ANY>
+  <!ELEMENT MsgContent ANY>
+  <!ELEMENT MsgType ANY>
+  <!ATTLIST AppMsg MsgID ID #REQUIRED>
+]>
+<AppMessage>
+  <AppMsg MsgID = "Msg_E_DB_00001">
+    <MsgContent>cap nhat DB </MsgContent>
+    <MsgType>E</MsgType>
+  </AppMsg>
+  <AppMsg MsgID = "Msg_I_DB_00001">
+    <MsgContent>cap nhat DB thanh công</MsgContent>
+    <MsgType>I</MsgType>
+  </AppMsg>
+</AppMessage>
+
+

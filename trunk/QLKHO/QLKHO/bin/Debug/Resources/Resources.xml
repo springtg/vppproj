@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sections>
+  <comment>Thong tin tai nguyen</comment>
+  <section name="FLASHSCREEN_FORM">
+    <item key="FLASHSCREEN_FORM" id="CREATE_NAME_COLUMN" value="Create Client"/>
+    <item key="FLASHSCREEN_FORM" id="UPDATE_NAME_COLUMN" value="Edit Client"/>
+  </section>
+  <comment>Cau hinh cho PDF viewer</comment>
+  <section name="PDFVIEWER">
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBOPEN_TEXT" value="Open file"></item>
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBOPEN_TOOLTIPTEXT" value="Open file"></item>
+    
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBPREVIOUSPAGE_TEXT" value="Previous page"></item>
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBPREVIOUSPAGE_TOOLTIPTEXT" value="Previous page"></item>
+    
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBNEXTPAGE_TEXT" value="Next page"></item>
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBNEXTPAGE_TOOLTIPTEXT" value="Next page"></item>
+    
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBSEARCH_TEXT" value="Search"></item>
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBSEARCH_TOOLTIPTEXT" value="Search"></item>
+    <item key="PDFVIEWER" id ="TOOLSTRIPBUTTON_TSBABOUT_TEXT" value="About"></item>
+    
+    <item key="PDFVIEWER" id="TOOLSTRIPSTATUSLABEL_STATUSLABEL_TEXT" value="Ready"></item>
+    <item key="PDFVIEWER" id="TOOLSTRIPSTATUSLABEL_STATUSLABEL_TEXT_1" value="Exportando pagina {0} de {1}..."></item>
+
+    <item key="PDFVIEWER" id="TABCONTROL_TABPAGE1_TEXT" value="Bookmarks"></item>
+    <item key="PDFVIEWER" id="TABCONTROL_TABPAGE2_TEXT" value="Thumbnails"></item>
+    
+    
+    <item key="PDFVIEWER" id="TABCONTROL_TPVPDF_TEXT" value="PDF View"></item>
+    <item key="PDFVIEWER" id="TABCONTROL_TPVTEXT_TEXT" value="Text View"></item>
+    <item key="PDFVIEWER" id="TABCONTROL_TPVIMAGES_TEXT" value="Images"></item>
+
+    <item key="PDFVIEWER" id="TOOLSTRIPBUTTON_TSIMAGESUPDATELIST_TEXT" value="Update List"></item>
+    <item key="PDFVIEWER" id="TOOLSTRIPBUTTON_TSIMAGESUSAVE_TEXT" value="Save image"></item>
+    
+    <item key="PDFVIEWER" id="FORM_FRMPDFVIEWER_TEXT" value="xPDF Viewer"></item>
+    
+    
+  </section>
+  
+</Sections>
