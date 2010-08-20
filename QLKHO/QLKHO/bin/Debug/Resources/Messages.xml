@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Trong Noi dung cua Msg thi Msg Type co nhung loai sau day:         
+        UNDEFINED => U
+        WARNING  => W
+        INFORM   => I
+        ERROR    => E
+        CONFIRM  => C
+        NONE     => N
+        va ID cua msg se duoc dat nhu sau: Ten Component + _ + Msg Type + _ + So thu tu(bat dau la 000)
+        Vi du:GMS002_E_000 -->
+<VXSOFT_ERP_MESSAGE>
+  <!--START: message cua GMS002 _ Quan ly thong tin cua cac module cua ung dung-->
+  <MSG MsgId="GMS002_E_001" MsgValue="You must fill in client for name." />
+  <!--END: message cua GMS002 _ Quan ly thong tin cua cac module cua ung dung-->
+
+  
+  <!--START: message cua SQLLOGIN _ hien thi thong tin msg-->
+  <MSG MsgId="SQLLOGIN_I_000" MsgValue="Nạp thông tin tài nguyên....." />
+  <!--END: message cua SQLLOGIN _ hien thi thong tin msg-->
+  
+  <!--START:Component Login -->
+  <!--START: message cua FLASHSCREEN _ hien thi thong tin msg-->
+  <MSG MsgId="FLASHSCREEN_E_000" MsgValue="Có lỗi, Không tìm thấy tâp tin cấu hình ứng dụng. Chương trình sẽ tắt ngây bây giờ" />
+  <MSG MsgId="FLASHSCREEN_E_001" MsgValue="Có lỗi khi nạp tập tin tài nguyên 'Resources\\Messages.xml' vào ứng dụng." />
+  <MSG MsgId="FLASHSCREEN_E_002" MsgValue="Có lỗi, Không thể kết thiết lập kết nối đến máy chủ." />
+  <!--END: message cua FLASHSCREEN _ hien thi thong tin msg-->
+
+  <!--END:Component Login -->
+  
+</VXSOFT_ERP_MESSAGE>
