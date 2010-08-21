@@ -160,6 +160,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\spellcheck.png" />
+    <None Include="Resources\warehause.png" />
+    <None Include="Resources\NCC.png" />
+    <None Include="Resources\reminders.png" />
+    <None Include="Resources\report1.png" />
     <None Include="Resources\XuatKho.png" />
     <None Include="Resources\NhapKho2.png" />
     <None Include="Resources\NhapKho1.png" />
@@ -170,6 +175,13 @@
     <None Include="Resources\Config.png" />
     <None Include="Resources\ark2.png" />
     <None Include="Resources\ChuyenKho.png" />
+    <None Include="Resources\lists.png" />
+    <None Include="Resources\kdmconfig.png" />
+    <None Include="Resources\kexi.png" />
+    <None Include="Resources\lassists.png" />
+    <None Include="Resources\Login Manager.png" />
+    <None Include="Resources\kthememgr.png" />
+    <None Include="Resources\folder_tar.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />
