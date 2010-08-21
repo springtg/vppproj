@@ -18,8 +18,8 @@ namespace QLKHO
             FLASHSCREEN _flash = new FLASHSCREEN();
             if (_flash.ShowDialog() == DialogResult.OK)
             {
-                //_ConfigItem = 
 
+                //_ConfigItem = 
             }
             else
             {

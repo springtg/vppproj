@@ -8,7 +8,7 @@ using COREBASE.COMMAND.LogUtils;
 
 namespace COREBASE.FORM
 {
-    public partial class BASEFORM : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class BASEFORM : DevExpress.XtraEditors.XtraForm
     {
         public const string EVENT_LOAD_FORM = "EVENTLOADFORM";
         public const string EVENT_CLOSE_FORM = "EVENTCLOSEFORM";
