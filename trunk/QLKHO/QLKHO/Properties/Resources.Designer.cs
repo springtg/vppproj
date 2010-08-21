@@ -88,9 +88,51 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap folder_tar {
+            get {
+                object obj = ResourceManager.GetObject("folder_tar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap infoUser {
             get {
                 object obj = ResourceManager.GetObject("infoUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap kdmconfig {
+            get {
+                object obj = ResourceManager.GetObject("kdmconfig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap kexi {
+            get {
+                object obj = ResourceManager.GetObject("kexi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap kthememgr {
+            get {
+                object obj = ResourceManager.GetObject("kthememgr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lassists {
+            get {
+                object obj = ResourceManager.GetObject("lassists", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lists {
+            get {
+                object obj = ResourceManager.GetObject("lists", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -102,9 +144,23 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Login_Manager {
+            get {
+                object obj = ResourceManager.GetObject("Login Manager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Login150 {
             get {
                 object obj = ResourceManager.GetObject("Login150", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap NCC {
+            get {
+                object obj = ResourceManager.GetObject("NCC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,9 +172,37 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap reminders {
+            get {
+                object obj = ResourceManager.GetObject("reminders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap report1 {
+            get {
+                object obj = ResourceManager.GetObject("report1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap spellcheck {
+            get {
+                object obj = ResourceManager.GetObject("spellcheck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap UserControl {
             get {
                 object obj = ResourceManager.GetObject("UserControl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap warehause {
+            get {
+                object obj = ResourceManager.GetObject("warehause", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
