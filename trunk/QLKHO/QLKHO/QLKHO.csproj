@@ -177,7 +177,7 @@
     <Content Include="bin\Debug\Resources\rsMessage.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FORM\" />
+    <Folder Include="FORM\SYSTEM\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
