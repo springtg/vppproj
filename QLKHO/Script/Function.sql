@@ -35,6 +35,9 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[nextI
 DROP FUNCTION [dbo].[nextINVENTORYID]
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[nextINVENTORY_DETAILID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[nextINVENTORY_DETAILID]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[nextROLEID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[nextROLEID]
+
 
 go
 -- =============================================
@@ -43,7 +46,7 @@ go
 -- Description: Tao ID ke tiep VPP_SUPPLIER theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextSUPPLIERID](@id int = 0) 
-returns char(5)
+returns char(6)
 AS
 begin
  return 'NCC' + right('000'+convert(varchar(10),@id),3)
@@ -69,10 +72,10 @@ go
 -- Description: Tao ID ke tiep VPP_GROUP theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextGROUPID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'NH' + right('000'+convert(varchar(10),@id),3)
+ return 'NH' + right('00000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -82,10 +85,10 @@ go
 -- Description: Tao ID ke tiep VPP_ITEM theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextITEMID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'MH' + right('000'+convert(varchar(10),@id),3)
+ return 'MH' + right('00000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -111,7 +114,7 @@ CREATE FUNCTION [dbo].[nextWARE_HOUSEID](@id int = 0)
 returns char(5)
 AS
 begin
- return 'KHO' + right('000'+convert(varchar(10),@id),3)
+ return 'KHO' + right('00'+convert(varchar(10),@id),3)
 end
 
 go
@@ -150,7 +153,7 @@ CREATE FUNCTION [dbo].[nextUSER_ROLEID](@id int = 0)
 returns char(5)
 AS
 begin
- return 'QND' + right('000'+convert(varchar(10),@id),3)
+ return 'QND' + right('00'+convert(varchar(10),@id),3)
 end
 
 go
@@ -160,10 +163,10 @@ go
 -- Description: Tao ID ke tiep VPP_TAKE_IN theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextTAKE_INID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'NK' + right('000'+convert(varchar(10),@id),3)
+ return 'NK' + right('00000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -173,10 +176,10 @@ go
 -- Description: Tao ID ke tiep VPP_TAKE_IN_DETAIL theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextTAKE_IN_DETAILID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'CHK' + right('000'+convert(varchar(10),@id),3)
+ return 'CHK' + right('000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -189,7 +192,7 @@ CREATE FUNCTION [dbo].[nextTAKE_OUTID](@id int = 0)
 returns char(5)
 AS
 begin
- return 'XK' + right('000'+convert(varchar(10),@id),3)
+ return 'XK' + right('00000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -199,10 +202,10 @@ go
 -- Description: Tao ID ke tiep VPP_TAKE_OUT_DETAIL theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextTAKE_OUT_DETAILID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'CXK' + right('000'+convert(varchar(10),@id),3)
+ return 'CXK' + right('0000000'+convert(varchar(10),@id),3)
 end
 
 go
@@ -212,21 +215,34 @@ go
 -- Description: Tao ID ke tiep VPP_INVENTORY theo 1 dinh dang nao do
 -- =============================================
 CREATE FUNCTION [dbo].[nextINVENTORYID](@id int = 0) 
-returns char(5)
+returns char(10)
 AS
 begin
- return 'TK' + right('000'+convert(varchar(10),@id),3)
+ return 'TK' + right('00000000'+convert(varchar(10),@id),3)
 end
 
 go
 -- =============================================
 -- Author:  Thanh Xuan
 -- Create date: 19/08/2010
--- Description: Tao ID ke tiep VPP_INVENTORY_DETAIL theo 1 dinh dang nao do
+-- Description: Tao ID ke tiep VPP_ROLE theo 1 dinh dang nao do
 -- =============================================
-CREATE FUNCTION [dbo].[nextINVENTORY_DETAILID](@id int = 0) 
+go
+CREATE FUNCTION [dbo].[nextROLEID](@id int = 0) 
 returns char(5)
 AS
 begin
- return 'CTK' + right('000'+convert(varchar(10),@id),3)
+ return 'Q' + right('0000'+convert(varchar(10),@id),3)
 end
+-- =============================================
+-- Author:  Thanh Xuan
+-- Create date: 19/08/2010
+-- Description: Tao ID ke tiep VPP_INVENTORY_DETAIL theo 1 dinh dang nao do
+-- =============================================
+CREATE FUNCTION [dbo].[nextINVENTORY_DETAILID](@id int = 0) 
+returns char(10)
+AS
+begin
+ return 'CTK' + right('0000000'+convert(varchar(10),@id),3)
+end
+go
