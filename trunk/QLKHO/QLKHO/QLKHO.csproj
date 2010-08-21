@@ -160,6 +160,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\XuatKho.png" />
+    <None Include="Resources\NhapKho2.png" />
+    <None Include="Resources\NhapKho1.png" />
+    <None Include="Resources\NhapKho.png" />
+    <None Include="Resources\UserControl.png" />
+    <None Include="Resources\AutoLock150.png" />
+    <None Include="Resources\infoUser.png" />
+    <None Include="Resources\Config.png" />
+    <None Include="Resources\ark2.png" />
+    <None Include="Resources\ChuyenKho.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />

@@ -60,6 +60,41 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap ark2 {
+            get {
+                object obj = ResourceManager.GetObject("ark2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap AutoLock150 {
+            get {
+                object obj = ResourceManager.GetObject("AutoLock150", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ChuyenKho {
+            get {
+                object obj = ResourceManager.GetObject("ChuyenKho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Config {
+            get {
+                object obj = ResourceManager.GetObject("Config", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap infoUser {
+            get {
+                object obj = ResourceManager.GetObject("infoUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap loading {
             get {
                 object obj = ResourceManager.GetObject("loading", resourceCulture);
@@ -70,6 +105,27 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap Login150 {
             get {
                 object obj = ResourceManager.GetObject("Login150", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap NhapKho {
+            get {
+                object obj = ResourceManager.GetObject("NhapKho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserControl {
+            get {
+                object obj = ResourceManager.GetObject("UserControl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap XuatKho {
+            get {
+                object obj = ResourceManager.GetObject("XuatKho", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
