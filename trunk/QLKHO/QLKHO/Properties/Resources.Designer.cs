@@ -66,5 +66,12 @@ namespace QLKHO.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Login150 {
+            get {
+                object obj = ResourceManager.GetObject("Login150", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -160,6 +160,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />
     <Content Include="bin\Debug\Resources\Resources.xml" />
