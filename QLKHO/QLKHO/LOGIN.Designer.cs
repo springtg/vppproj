@@ -35,6 +35,8 @@
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.lstMember = new DevExpress.XtraEditors.ListBoxControl();
             this.pcbLogo = new DevExpress.XtraEditors.PictureEdit();
+            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstMember)).BeginInit();
@@ -91,6 +93,7 @@
             this.lstMember.Name = "lstMember";
             this.lstMember.Size = new System.Drawing.Size(259, 144);
             this.lstMember.TabIndex = 11;
+            this.lstMember.SelectedIndexChanged += new System.EventHandler(this.lstMember_SelectedIndexChanged);
             // 
             // pcbLogo
             // 
@@ -99,11 +102,31 @@
             this.pcbLogo.Size = new System.Drawing.Size(165, 148);
             this.pcbLogo.TabIndex = 12;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(296, 245);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 13;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(377, 245);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExist_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 307);
+            this.ClientSize = new System.Drawing.Size(571, 288);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pcbLogo);
             this.Controls.Add(this.lstMember);
             this.Controls.Add(this.txtPassword);
@@ -133,6 +156,8 @@
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.ListBoxControl lstMember;
         private DevExpress.XtraEditors.PictureEdit pcbLogo;
+        private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
     }
 }
 
