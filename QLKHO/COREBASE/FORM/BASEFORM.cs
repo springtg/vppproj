@@ -19,6 +19,7 @@ namespace COREBASE.FORM
 
         #region "Cac bien dung cho ke thua"
         protected COMMAND.Config.ConfigItem _ConfigItem = null;
+
         #endregion
 
         public BASEFORM()
@@ -843,6 +844,7 @@ namespace COREBASE.FORM
             get { return _rtnValue; }
         }
         #endregion
+
 
     }
 }
