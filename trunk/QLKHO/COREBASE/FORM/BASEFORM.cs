@@ -267,7 +267,7 @@ namespace COREBASE.FORM
         #endregion
 
         #region "lay thong tin tu file config va set den bien toan cuc"
-        
+
         /// <summary>
         /// Doc thong tin cau hinh tu file config
         /// </summary>
@@ -418,7 +418,7 @@ namespace COREBASE.FORM
             //_Config.WriteSetting("ShowNetwork");
             _Config.WriteSetting("xpdfrc", configItem.Xpdfrc);
         }
-        
+
         #endregion
 
         #region "Convert function"
@@ -511,6 +511,28 @@ namespace COREBASE.FORM
         {
             return COMMAND.Convert.Convert.getDateTimetoFormatyyyyMMdd();
         }
+
+        protected object CnvChangeType(object value, System.Type convertType)
+        {
+            return COMMAND.Convert.Convert.CnvChangeType(value, convertType);
+
+        }
+        protected object CnvChangeType(object value, System.Type convertType, System.IFormatProvider provider)
+        {
+            return COMMAND.Convert.Convert.CnvChangeType(value, convertType, provider);
+
+        }
+        protected object CnvChangeType(object value, System.TypeCode typeCode)
+        {
+            return COMMAND.Convert.Convert.CnvChangeType(value, typeCode);
+
+        }
+        protected object CnvChangeType(object value, System.TypeCode typeCode, System.IFormatProvider provider)
+        {
+            return COMMAND.Convert.Convert.CnvChangeType(value, typeCode, provider);
+
+        }
+
         #endregion
 
         #region "Phuong thuc MessageBox"
@@ -818,7 +840,7 @@ namespace COREBASE.FORM
         /// </summary>
         protected object returnValue
         {
-            get {return _rtnValue; }
+            get { return _rtnValue; }
         }
         #endregion
 

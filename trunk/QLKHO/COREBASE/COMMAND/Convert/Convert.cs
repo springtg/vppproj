@@ -396,6 +396,31 @@ namespace COREBASE.COMMAND.Convert
             }
         }
 
+        /// <summary>
+        /// chuyen doi kieu du lieu cua object
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="convertType"></param>
+        /// <returns></returns>
+        public static object CnvChangeType(object value, System.Type convertType)
+        { 
+            return System.Convert.ChangeType(value, convertType);
+        }
+
+        public static object CnvChangeType(object value, System.Type convertType, System.IFormatProvider provider)
+        {
+            return System.Convert.ChangeType(value, convertType, provider);
+        }
+
+        public static object CnvChangeType(object value, System.TypeCode typeCode)
+        {
+            return System.Convert.ChangeType(value, typeCode);
+        }
+
+        public static object CnvChangeType(object value, System.TypeCode typeCode, System.IFormatProvider provider)
+        {
+            return System.Convert.ChangeType(value, typeCode,provider);
+        }
 
         public static byte[] CnvFromBase64String(string s)
         {
