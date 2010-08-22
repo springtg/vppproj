@@ -23,6 +23,7 @@
   <MSG MsgId="FLASHSCREEN_E_000" MsgValue="Có lỗi, Không tìm thấy tâp tin cấu hình ứng dụng. Chương trình sẽ tắt ngây bây giờ" />
   <MSG MsgId="FLASHSCREEN_E_001" MsgValue="Có lỗi khi nạp tập tin tài nguyên 'Resources\\Messages.xml' vào ứng dụng." />
   <MSG MsgId="FLASHSCREEN_E_002" MsgValue="Có lỗi, Không thể kết thiết lập kết nối đến máy chủ." />
+  <MSG MsgId="FLASHSCREEN_E_003" MsgValue="Có lỗi, Không tìm thấy {0}." />
   <!--END: message cua FLASHSCREEN _ hien thi thong tin msg-->
 
   <!--END:Component Login -->
