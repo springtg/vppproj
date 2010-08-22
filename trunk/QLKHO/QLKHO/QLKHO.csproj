@@ -65,6 +65,8 @@
     <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,11 +86,23 @@
     <Compile Include="FLASHSCREEN.Designer.cs">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmNCC.Designer.cs">
+      <DependentUpon>frmNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongtinUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongtinUser.Designer.cs">
+      <DependentUpon>frmThongtinUser.cs</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
@@ -100,6 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FLASHSCREEN.resx">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmNCC.resx">
+      <DependentUpon>frmNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -118,7 +135,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,6 +179,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\new.png" />
     <None Include="Resources\spellcheck.png" />
     <None Include="Resources\warehause.png" />
     <None Include="Resources\NCC.png" />
@@ -182,6 +202,9 @@
     <None Include="Resources\Login Manager.png" />
     <None Include="Resources\kthememgr.png" />
     <None Include="Resources\folder_tar.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\del.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />
