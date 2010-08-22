@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -61,7 +62,6 @@
             this.bar4tab1btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4tab2btn1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4tab2btn2 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,7 +76,7 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
@@ -86,6 +86,8 @@
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar1tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).BeginInit();
@@ -168,9 +170,9 @@
             this.bar4tab1btn3,
             this.bar4tab2btn1,
             this.bar4tab2btn2,
-            this.bar4tab2btn3});
+            this.bar1tab2btn3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 42;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.bar1,
@@ -178,7 +180,7 @@
             this.ribbonPage3,
             this.ribbonPage4});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.ribbonPage2;
+            this.ribbon.SelectedPage = this.ribbonPage4;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -218,6 +220,7 @@
             this.bar1tab2btn1.Id = 10;
             this.bar1tab2btn1.LargeGlyph = global::QLKHO.Properties.Resources.Config;
             this.bar1tab2btn1.Name = "bar1tab2btn1";
+            this.bar1tab2btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab2btn1_ItemClick);
             // 
             // bar1tab1btn2
             // 
@@ -382,13 +385,6 @@
             this.bar4tab2btn2.LargeGlyph = global::QLKHO.Properties.Resources.lists;
             this.bar4tab2btn2.Name = "bar4tab2btn2";
             // 
-            // bar4tab2btn3
-            // 
-            this.bar4tab2btn3.Caption = "Tổng hợp xuất";
-            this.bar4tab2btn3.Id = 41;
-            this.bar4tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.reminders;
-            this.bar4tab2btn3.Name = "bar4tab2btn3";
-            // 
             // bar1
             // 
             this.bar1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -498,12 +494,17 @@
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.bar4tab2btn1);
             this.ribbonPageGroup11.ItemLinks.Add(this.bar4tab2btn2, false, "", "", true);
-            this.ribbonPageGroup11.ItemLinks.Add(this.bar4tab2btn3);
+            this.ribbonPageGroup11.ItemLinks.Add(this.bar1tab2btn3);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Tổng hợp";
             // 
             // tabMdi
             // 
+            this.tabMdi.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.tabMdi.HeaderButtons = ((DevExpress.XtraTab.TabButtons)((((DevExpress.XtraTab.TabButtons.Prev | DevExpress.XtraTab.TabButtons.Next)
+                        | DevExpress.XtraTab.TabButtons.Close)
+                        | DevExpress.XtraTab.TabButtons.Default)));
+            this.tabMdi.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Always;
             this.tabMdi.MdiParent = this;
             // 
             // navBarControl1
@@ -585,6 +586,20 @@
             this.navBarItem5.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
             this.navBarItem5.Name = "navBarItem5";
             // 
+            // bar4tab2btn3
+            // 
+            this.bar4tab2btn3.Caption = "Tổng hợp xuất";
+            this.bar4tab2btn3.Id = 41;
+            this.bar4tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.reminders;
+            this.bar4tab2btn3.Name = "bar4tab2btn3";
+            // 
+            // bar1tab2btn3
+            // 
+            this.bar1tab2btn3.Caption = "Xuất tổng hợp";
+            this.bar1tab2btn3.Id = 44;
+            this.bar1tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.report1;
+            this.bar1tab2btn3.Name = "bar1tab2btn3";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,6 +613,7 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý kho";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).EndInit();
@@ -664,6 +680,7 @@
         private DevExpress.XtraBars.BarButtonItem bar4tab1btn3;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn1;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn2;
+        private DevExpress.XtraBars.BarButtonItem bar1tab2btn3;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn3;
     }
 }

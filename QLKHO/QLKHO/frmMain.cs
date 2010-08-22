@@ -41,8 +41,24 @@ namespace QLKHO
 
         private void navBarControl1_Click(object sender, EventArgs e)
         {
+
                     }
 
+        private void bar1tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+            frmThongtinUser frm = new frmThongtinUser();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+     
 
   
      
