@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data;
 
 
 namespace QLKHO
@@ -7,10 +8,16 @@ namespace QLKHO
     public partial class frmLogin : COREBASE.FORM.BASEFORM
     {
         private bool listUserLoaded = false;
+        DataTable tbUser = null;
 
         public frmLogin()
         {
             InitializeComponent();
+        }
+        public frmLogin(COREBASE.COMMAND.Config.ConfigItem _confItem)
+        {
+            InitializeComponent();
+            
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -18,33 +25,16 @@ namespace QLKHO
             FLASHSCREEN _flash = new FLASHSCREEN();
             if (_flash.ShowDialog() == DialogResult.OK)
             {
-
-                //_ConfigItem = 
+                tbUser = (DataTable)_flash.TbUser;
+                lstMember.DisplayMember = "Name_Dis";
+                lstMember.ValueMember = "ID";
+                lstMember.DataSource = tbUser;
+                _ConfigItem = _flash.getConfig;
             }
             else
             {
                 Close();
             }
-            //LoginInfo = new CUserLoginInfo();
-            //providerSQL = new VXS.ERP.UTL0001.SQL.CAccessSQL(ConfigSystem);
-            //if (providerSQL.CheckConnect())
-            //{
-            //    ShowBTN1("Trợ Giúp", "Help");
-            //   // LoadUser(providerSQL);
-            //}
-            //else
-            //{
-            //    //ConfigForm.ConfigForm config = new ConfigForm.ConfigForm();
-            //    //config.FormClosed += new FormClosedEventHandler(config_FormClosed);
-            //    //config.Show(0);
-
-            //}
-            //UTL0002.MDIPARENT mdi = new VXS.ERP.UTL0002.MDIPARENT();
-            //mdi.Show();
-
-            //GSM0002.GSM0002 gsm = new GSM0002.GSM0002();
-            //gsm.Show();
-
         }
 
         void config_FormClosed(object sender, FormClosedEventArgs e)
@@ -77,31 +67,33 @@ namespace QLKHO
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //if (!ValidateForm())
-            //{
-            //    return;
-            //}
-            //if (UserLogin())
-            //{
-            //    MainProject.MainMDIPaarent1 formmain = new MainProject.MainMDIPaarent1();
-            //    formmain.Username = dtLoginInfo.Rows[0]["UserName"].ToString().Trim();
-            //    formmain.FullName = dtLoginInfo.Rows[0]["FullName"].ToString().Trim();
-            //    formmain.ID = int.Parse(dtLoginInfo.Rows[0]["ID"].ToString().Trim());
-            //    formmain.AuthenticationID = int.Parse(dtLoginInfo.Rows[0]["AuthenticationID"].ToString().Trim());
-            //    userLoginInfo.FullName = formmain.FullName;
-            //    userLoginInfo.UserName = formmain.Username;
-            //    userLoginInfo.ID = formmain.ID;
-            //    userLoginInfo.Authentication = formmain.AuthenticationID;
-            //    formmain.UserLoginInfo = userLoginInfo;
-            //    formmain.Show();
-            //    this.Hide();
-            //    formmain.FormClosed += new FormClosedEventHandler(formmain_FormClosed);
+            if (!ValidateForm())
+            {
+                return;
+            }
+            if (COREBASE.COMMAND.VPP_COMMAND.CUser.LoginUser(_ConfigItem,txtUserName.Text,txtPassword.Text))
+            {
+                frmMain frmmain = new frmMain();
+                //formmain.Username = dtLoginInfo.Rows[0]["UserName"].ToString().Trim();
+                //formmain.FullName = dtLoginInfo.Rows[0]["FullName"].ToString().Trim();
+                //formmain.ID = int.Parse(dtLoginInfo.Rows[0]["ID"].ToString().Trim());
+                //formmain.AuthenticationID = int.Parse(dtLoginInfo.Rows[0]["AuthenticationID"].ToString().Trim());
+                //userLoginInfo.FullName = formmain.FullName;
+                //userLoginInfo.UserName = formmain.Username;
+                //userLoginInfo.ID = formmain.ID;
+                //userLoginInfo.Authentication = formmain.AuthenticationID;
+                //formmain.UserLoginInfo = userLoginInfo;
+                this.Hide();
+                frmmain.FormClosed += new FormClosedEventHandler(formmain_FormClosed);
+                frmmain.Show();                
+                
+                
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Đăng Nhập Không Thành Công!", MessageBoxManager.Caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Đăng Nhập Không Thành Công!", MessageBoxManager.Caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -151,18 +143,18 @@ namespace QLKHO
 
         private bool ValidateForm()
         {
-            //if (txtUserName.Text.Trim().Equals(""))
-            //{
-            //    MessageBox.Show("Bạn Chưa nhập 'Tên Đăng Nhập'", MessageBoxManager.Caption);
-            //    txtUserName.Focus();
-            //    return false;
-            //}
-            //if (txtPassword.Text.Trim().Equals(""))
-            //{
-            //    MessageBox.Show("Bạn Chưa nhập 'Mật Khẩu'", MessageBoxManager.Caption);
-            //    txtPassword.Focus();
-            //    return false;
-            //}
+            if (txtUserName.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Bạn Chưa nhập 'Tên Đăng Nhập'", MessageBoxManager.Caption);
+                txtUserName.Focus();
+                return false;
+            }
+            if (txtPassword.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Bạn Chưa nhập 'Mật Khẩu'", MessageBoxManager.Caption);
+                txtPassword.Focus();
+                return false;
+            }
             return true;
         }
     }
