@@ -17,7 +17,7 @@ namespace QLKHO.BUSOBJECT
 
         private string _idDis;
 
-        public string IdDis
+        public string Id_Dis
         {
             get { return _idDis; }
             set { _idDis = value; }
