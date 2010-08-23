@@ -6,9 +6,11 @@ namespace QLKHO
 {
     public partial class frmMain : COREBASE.FORM.BASEMDIPARENT// DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmMain()
+        
+        public frmMain(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             InitializeComponent();
+            _ConfigItem = _ConfItem; 
         }
 
         private void barEditItem1_EditValueChanged(object sender, EventArgs e)

@@ -73,7 +73,12 @@ namespace QLKHO
             }
             if (COREBASE.COMMAND.VPP_COMMAND.CUser.LoginUser(_ConfigItem,txtUserName.Text,txtPassword.Text))
             {
-                frmMain frmmain = new frmMain();
+                DataRow rw = tbUser.Rows[lstMember.SelectedIndex];
+                _ConfigItem.Login_FullName = CnvToString(rw["Name_Dis"]);
+                _ConfigItem.Login_ID = CnvToInt32(rw["Id"]);
+                _ConfigItem.Login_UserName = CnvToString(rw["Name"]);
+                frmMain frmmain = new frmMain(_ConfigItem);
+
                 //formmain.Username = dtLoginInfo.Rows[0]["UserName"].ToString().Trim();
                 //formmain.FullName = dtLoginInfo.Rows[0]["FullName"].ToString().Trim();
                 //formmain.ID = int.Parse(dtLoginInfo.Rows[0]["ID"].ToString().Trim());
@@ -85,10 +90,7 @@ namespace QLKHO
                 //formmain.UserLoginInfo = userLoginInfo;
                 this.Hide();
                 frmmain.FormClosed += new FormClosedEventHandler(formmain_FormClosed);
-                frmmain.Show();                
-                
-                
-
+                frmmain.Show();
             }
             else
             {
