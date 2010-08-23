@@ -89,7 +89,7 @@ namespace QLKHO.BUSOBJECT
 
         private System.DateTime _crtDt;
 
-        public System.DateTime CrtDt
+        public System.DateTime Crt_Dt
         {
             get { return _crtDt; }
             set { _crtDt = value; }
@@ -97,7 +97,7 @@ namespace QLKHO.BUSOBJECT
 
         private string _crtBy;
 
-        public string CrtBy
+        public string Crt_By
         {
             get { return _crtBy; }
             set { _crtBy = value; }
@@ -105,7 +105,7 @@ namespace QLKHO.BUSOBJECT
 
         private System.DateTime _modDt;
 
-        public System.DateTime ModDt
+        public System.DateTime Mod_Dt
         {
             get { return _modDt; }
             set { _modDt = value; }
@@ -113,7 +113,7 @@ namespace QLKHO.BUSOBJECT
 
         private string _modBy;
 
-        public string ModBy
+        public string Mod_By
         {
             get { return _modBy; }
             set { _modBy = value; }
@@ -121,7 +121,7 @@ namespace QLKHO.BUSOBJECT
 
         private int _isDel;
 
-        public int IsDel
+        public int Is_Del
         {
             get { return _isDel; }
             set { _isDel = value; }
