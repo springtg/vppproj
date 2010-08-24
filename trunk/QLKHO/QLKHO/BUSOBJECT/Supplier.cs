@@ -103,9 +103,9 @@ namespace QLKHO.BUSOBJECT
             set { _crtBy = value; }
         }
 
-        private System.DateTime _modDt;
+        private System.DateTime? _modDt;
 
-        public System.DateTime Mod_Dt
+        public System.DateTime? Mod_Dt
         {
             get { return _modDt; }
             set { _modDt = value; }
