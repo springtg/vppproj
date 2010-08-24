@@ -320,6 +320,7 @@
             this.bntAdd.Size = new System.Drawing.Size(75, 23);
             this.bntAdd.TabIndex = 1;
             this.bntAdd.Text = "Thêm";
+            this.bntAdd.Click += new System.EventHandler(this.bntAdd_Click);
             // 
             // btnCancel
             // 
