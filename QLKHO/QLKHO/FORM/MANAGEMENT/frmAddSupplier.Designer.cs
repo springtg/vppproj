@@ -29,96 +29,98 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.tc = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.txtAddress1 = new DevExpress.XtraEditors.TextEdit();
+            this.p3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPhone2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAddress2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtPhone1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtFax = new DevExpress.XtraEditors.TextEdit();
+            this.c = new DevExpress.XtraEditors.LabelControl();
+            this.p1 = new DevExpress.XtraEditors.LabelControl();
+            this.f = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
+            this.e = new DevExpress.XtraEditors.LabelControl();
+            this.w = new DevExpress.XtraEditors.LabelControl();
+            this.t = new DevExpress.XtraEditors.LabelControl();
+            this.n = new DevExpress.XtraEditors.LabelControl();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.txtWeb = new DevExpress.XtraEditors.TextEdit();
+            this.txtTax = new DevExpress.XtraEditors.TextEdit();
+            this.txtCredit = new DevExpress.XtraEditors.TextEdit();
+            this.txtDebit = new DevExpress.XtraEditors.TextEdit();
+            this.bntAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeb.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.350731F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.64927F));
-            this.tableLayoutPanel1.Controls.Add(this.labelControl8, 0, 10);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.82255F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
+            this.tableLayoutPanel1.Controls.Add(this.tc, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.labelControl2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl1, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit1, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit5, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit6, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl5, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl6, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtAddress1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.p3, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtPhone2, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtAddress2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtPhone1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtFax, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.c, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.p1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.f, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.labelControl3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl7, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl9, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl10, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.labelControl11, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit7, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit8, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit9, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit10, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.textEdit11, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.e, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.w, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.t, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.n, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtWeb, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.txtTax, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.txtCredit, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.txtDebit, 1, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.60241F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.39759F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 343);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 278);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // labelControl8
+            // tc
             // 
-            this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl8.Location = new System.Drawing.Point(3, 325);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(34, 15);
-            this.labelControl8.TabIndex = 15;
-            this.labelControl8.Text = "Tên";
+            this.tc.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.tc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc.Location = new System.Drawing.Point(3, 250);
+            this.tc.Name = "tc";
+            this.tc.Size = new System.Drawing.Size(61, 25);
+            this.tc.TabIndex = 15;
+            this.tc.Text = "TK có:";
             // 
             // labelControl2
             // 
@@ -127,97 +129,97 @@
             this.labelControl2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelControl2.Location = new System.Drawing.Point(3, 3);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(34, 34);
+            this.labelControl2.Size = new System.Drawing.Size(61, 20);
             this.labelControl2.TabIndex = 9;
-            this.labelControl2.Text = "Tên";
+            this.labelControl2.Text = "Tên:";
             // 
-            // textEdit4
+            // txtName
             // 
-            this.textEdit4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit4.Location = new System.Drawing.Point(43, 3);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(433, 20);
-            this.textEdit4.TabIndex = 5;
+            this.txtName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtName.Location = new System.Drawing.Point(70, 3);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(406, 20);
+            this.txtName.TabIndex = 5;
             // 
-            // textEdit2
+            // txtAddress1
             // 
-            this.textEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit2.Location = new System.Drawing.Point(43, 43);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(433, 20);
-            this.textEdit2.TabIndex = 1;
+            this.txtAddress1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress1.Location = new System.Drawing.Point(70, 29);
+            this.txtAddress1.Name = "txtAddress1";
+            this.txtAddress1.Size = new System.Drawing.Size(406, 20);
+            this.txtAddress1.TabIndex = 1;
             // 
-            // labelControl1
+            // p3
             // 
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(3, 159);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(34, 56);
-            this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Tên";
+            this.p3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.p3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p3.Location = new System.Drawing.Point(3, 103);
+            this.p3.Name = "p3";
+            this.p3.Size = new System.Drawing.Size(61, 18);
+            this.p3.TabIndex = 3;
+            this.p3.Text = "Điện thoại 2:";
             // 
-            // textEdit1
+            // txtPhone2
             // 
-            this.textEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit1.Location = new System.Drawing.Point(43, 159);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(433, 20);
-            this.textEdit1.TabIndex = 2;
+            this.txtPhone2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhone2.Location = new System.Drawing.Point(70, 103);
+            this.txtPhone2.Name = "txtPhone2";
+            this.txtPhone2.Size = new System.Drawing.Size(406, 20);
+            this.txtPhone2.TabIndex = 2;
             // 
-            // textEdit3
+            // txtAddress2
             // 
-            this.textEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit3.Location = new System.Drawing.Point(43, 78);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(433, 20);
-            this.textEdit3.TabIndex = 6;
+            this.txtAddress2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress2.Location = new System.Drawing.Point(70, 53);
+            this.txtAddress2.Name = "txtAddress2";
+            this.txtAddress2.Size = new System.Drawing.Size(406, 20);
+            this.txtAddress2.TabIndex = 6;
             // 
-            // textEdit5
+            // txtPhone1
             // 
-            this.textEdit5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit5.Location = new System.Drawing.Point(43, 113);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(433, 20);
-            this.textEdit5.TabIndex = 7;
+            this.txtPhone1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhone1.Location = new System.Drawing.Point(70, 77);
+            this.txtPhone1.Name = "txtPhone1";
+            this.txtPhone1.Size = new System.Drawing.Size(406, 20);
+            this.txtPhone1.TabIndex = 7;
             // 
-            // textEdit6
+            // txtFax
             // 
-            this.textEdit6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit6.Location = new System.Drawing.Point(43, 221);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(433, 20);
-            this.textEdit6.TabIndex = 8;
+            this.txtFax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFax.Location = new System.Drawing.Point(70, 127);
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(406, 20);
+            this.txtFax.TabIndex = 8;
             // 
-            // labelControl4
+            // c
             // 
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl4.Location = new System.Drawing.Point(3, 78);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(34, 29);
-            this.labelControl4.TabIndex = 11;
-            this.labelControl4.Text = "Tên";
+            this.c.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.c.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c.Location = new System.Drawing.Point(3, 53);
+            this.c.Name = "c";
+            this.c.Size = new System.Drawing.Size(61, 18);
+            this.c.TabIndex = 11;
+            this.c.Text = "Địa chỉ 2:";
             // 
-            // labelControl5
+            // p1
             // 
-            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl5.Location = new System.Drawing.Point(3, 113);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(34, 40);
-            this.labelControl5.TabIndex = 12;
-            this.labelControl5.Text = "Tên";
+            this.p1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.p1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p1.Location = new System.Drawing.Point(3, 77);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(61, 20);
+            this.p1.TabIndex = 12;
+            this.p1.Text = "Điện thoại 1:";
             // 
-            // labelControl6
+            // f
             // 
-            this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl6.Location = new System.Drawing.Point(3, 221);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(34, 18);
-            this.labelControl6.TabIndex = 13;
-            this.labelControl6.Text = "Tên";
+            this.f.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.f.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.f.Location = new System.Drawing.Point(3, 127);
+            this.f.Name = "f";
+            this.f.Size = new System.Drawing.Size(61, 18);
+            this.f.TabIndex = 13;
+            this.f.Text = "Fax:";
             // 
             // labelControl3
             // 
@@ -225,112 +227,130 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl3.Location = new System.Drawing.Point(3, 43);
+            this.labelControl3.Location = new System.Drawing.Point(3, 29);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(34, 29);
+            this.labelControl3.Size = new System.Drawing.Size(61, 18);
             this.labelControl3.TabIndex = 10;
-            this.labelControl3.Text = "Tên";
+            this.labelControl3.Text = "Địa chỉ 1:";
             // 
-            // labelControl7
+            // e
             // 
-            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl7.Location = new System.Drawing.Point(3, 245);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(34, 14);
-            this.labelControl7.TabIndex = 16;
-            this.labelControl7.Text = "Tên";
+            this.e.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.e.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.e.Location = new System.Drawing.Point(3, 151);
+            this.e.Name = "e";
+            this.e.Size = new System.Drawing.Size(61, 20);
+            this.e.TabIndex = 16;
+            this.e.Text = "Email";
             // 
-            // labelControl9
+            // w
             // 
-            this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl9.Location = new System.Drawing.Point(3, 265);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(34, 14);
-            this.labelControl9.TabIndex = 17;
-            this.labelControl9.Text = "Tên";
+            this.w.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.w.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.w.Location = new System.Drawing.Point(3, 177);
+            this.w.Name = "w";
+            this.w.Size = new System.Drawing.Size(61, 19);
+            this.w.TabIndex = 17;
+            this.w.Text = "Website:";
             // 
-            // labelControl10
+            // t
             // 
-            this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl10.Location = new System.Drawing.Point(3, 285);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(34, 14);
-            this.labelControl10.TabIndex = 18;
-            this.labelControl10.Text = "Tên";
+            this.t.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.t.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.t.Location = new System.Drawing.Point(3, 202);
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(61, 18);
+            this.t.TabIndex = 18;
+            this.t.Text = "Mã thuế:";
             // 
-            // labelControl11
+            // n
             // 
-            this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl11.Location = new System.Drawing.Point(3, 305);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(34, 14);
-            this.labelControl11.TabIndex = 19;
-            this.labelControl11.Text = "Tên";
+            this.n.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.n.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.n.Location = new System.Drawing.Point(3, 226);
+            this.n.Name = "n";
+            this.n.Size = new System.Drawing.Size(61, 18);
+            this.n.TabIndex = 19;
+            this.n.Text = "TK nợ:";
             // 
-            // textEdit7
+            // txtEmail
             // 
-            this.textEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit7.Location = new System.Drawing.Point(43, 245);
-            this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Size = new System.Drawing.Size(433, 20);
-            this.textEdit7.TabIndex = 20;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Location = new System.Drawing.Point(70, 151);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(406, 20);
+            this.txtEmail.TabIndex = 20;
             // 
-            // textEdit8
+            // txtWeb
             // 
-            this.textEdit8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit8.Location = new System.Drawing.Point(43, 265);
-            this.textEdit8.Name = "textEdit8";
-            this.textEdit8.Size = new System.Drawing.Size(433, 20);
-            this.textEdit8.TabIndex = 21;
+            this.txtWeb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWeb.Location = new System.Drawing.Point(70, 177);
+            this.txtWeb.Name = "txtWeb";
+            this.txtWeb.Size = new System.Drawing.Size(406, 20);
+            this.txtWeb.TabIndex = 21;
             // 
-            // textEdit9
+            // txtTax
             // 
-            this.textEdit9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit9.Location = new System.Drawing.Point(43, 285);
-            this.textEdit9.Name = "textEdit9";
-            this.textEdit9.Size = new System.Drawing.Size(433, 20);
-            this.textEdit9.TabIndex = 22;
+            this.txtTax.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTax.Location = new System.Drawing.Point(70, 202);
+            this.txtTax.Name = "txtTax";
+            this.txtTax.Size = new System.Drawing.Size(406, 20);
+            this.txtTax.TabIndex = 22;
             // 
-            // textEdit10
+            // txtCredit
             // 
-            this.textEdit10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit10.Location = new System.Drawing.Point(43, 305);
-            this.textEdit10.Name = "textEdit10";
-            this.textEdit10.Size = new System.Drawing.Size(433, 20);
-            this.textEdit10.TabIndex = 23;
+            this.txtCredit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCredit.Location = new System.Drawing.Point(70, 226);
+            this.txtCredit.Name = "txtCredit";
+            this.txtCredit.Size = new System.Drawing.Size(406, 20);
+            this.txtCredit.TabIndex = 23;
             // 
-            // textEdit11
+            // txtDebit
             // 
-            this.textEdit11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit11.Location = new System.Drawing.Point(43, 325);
-            this.textEdit11.Name = "textEdit11";
-            this.textEdit11.Size = new System.Drawing.Size(433, 20);
-            this.textEdit11.TabIndex = 24;
+            this.txtDebit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDebit.Location = new System.Drawing.Point(70, 250);
+            this.txtDebit.Name = "txtDebit";
+            this.txtDebit.Size = new System.Drawing.Size(406, 20);
+            this.txtDebit.TabIndex = 24;
+            // 
+            // bntAdd
+            // 
+            this.bntAdd.Location = new System.Drawing.Point(159, 302);
+            this.bntAdd.Name = "bntAdd";
+            this.bntAdd.Size = new System.Drawing.Size(75, 23);
+            this.bntAdd.TabIndex = 1;
+            this.bntAdd.Text = "Thêm";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(249, 302);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Hủy";
             // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 370);
+            this.ClientSize = new System.Drawing.Size(479, 336);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.bntAdd);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAddSupplier";
-            this.Text = "frmAddSupplier";
+            this.Text = "Thông tin nhàcung cấp";
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeb.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,28 +358,30 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtPhone2;
+        private DevExpress.XtraEditors.LabelControl p3;
+        private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
-        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraEditors.TextEdit txtAddress1;
+        private DevExpress.XtraEditors.TextEdit txtAddress2;
+        private DevExpress.XtraEditors.TextEdit txtPhone1;
+        private DevExpress.XtraEditors.TextEdit txtFax;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.TextEdit textEdit7;
-        private DevExpress.XtraEditors.TextEdit textEdit8;
-        private DevExpress.XtraEditors.TextEdit textEdit9;
-        private DevExpress.XtraEditors.TextEdit textEdit10;
-        private DevExpress.XtraEditors.TextEdit textEdit11;
+        private DevExpress.XtraEditors.LabelControl c;
+        private DevExpress.XtraEditors.LabelControl p1;
+        private DevExpress.XtraEditors.LabelControl f;
+        private DevExpress.XtraEditors.LabelControl tc;
+        private DevExpress.XtraEditors.LabelControl e;
+        private DevExpress.XtraEditors.LabelControl w;
+        private DevExpress.XtraEditors.LabelControl t;
+        private DevExpress.XtraEditors.LabelControl n;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.TextEdit txtWeb;
+        private DevExpress.XtraEditors.TextEdit txtTax;
+        private DevExpress.XtraEditors.TextEdit txtCredit;
+        private DevExpress.XtraEditors.TextEdit txtDebit;
+        private DevExpress.XtraEditors.SimpleButton bntAdd;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
 
 
     }
