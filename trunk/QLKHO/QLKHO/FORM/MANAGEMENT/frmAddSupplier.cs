@@ -76,6 +76,7 @@ namespace QLKHO.FORM.MANAGEMENT
             if (Insert() != 0)
                 ShowMessageBox("FORMMAIN_001");
             else ShowMessageBox("FORMMAIN_002");
+            this.Close();
         }
 
 
