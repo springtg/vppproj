@@ -31,9 +31,12 @@ namespace QLKHO.FORM.MANAGEMENT
         public void BidingGrid() {
             lSupplier = Dao.GetUserList();
             grdSupplier.DataSource = lSupplier;
+        }
 
-
-
+        private void bntAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmAddSupplier frm = new frmAddSupplier();
+            frm.ShowDialog();
         }
 
        
