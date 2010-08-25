@@ -9,7 +9,7 @@ using DevExpress.XtraEditors;
 
 namespace QLKHO.FORM.MANAGEMENT
 {
-    public partial class frmPhongBan : DevExpress.XtraEditors.XtraForm
+    public partial class frmPhongBan : COREBASE.FORM.BASEFORM
     {
         public frmPhongBan()
         {
