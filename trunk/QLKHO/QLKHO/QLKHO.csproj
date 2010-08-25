@@ -80,17 +80,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUSOBJECT\Supplier.cs" />
+    <Compile Include="BUSOBJECT\User.cs" />
+    <Compile Include="DATAOBJECT\SupplierDao.cs" />
+    <Compile Include="DATAOBJECT\UserDao.cs" />
     <Compile Include="FLASHSCREEN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FLASHSCREEN.Designer.cs">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmAddSupplier.Designer.cs">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\MANAGEMENT\frmNCC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmNCC.Designer.cs">
       <DependentUpon>frmNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmPhongBan.Designer.cs">
+      <DependentUpon>frmPhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -115,8 +131,14 @@
     <EmbeddedResource Include="FLASHSCREEN.resx">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmAddSupplier.resx">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmNCC.resx">
       <DependentUpon>frmNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmPhongBan.resx">
+      <DependentUpon>frmPhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
