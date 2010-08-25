@@ -46,8 +46,16 @@ namespace QLKHO.FORM.MANAGEMENT
             BidingGrid();
         }
 
+        private void bntUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //DataRow row = grdSupplier.get
+    
+         //   MessageBox.Show(row.ItemArray[4].ToString());
+        }
 
+        private void grdSupplier_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
