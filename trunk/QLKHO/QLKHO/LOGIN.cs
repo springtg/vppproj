@@ -52,12 +52,16 @@ namespace QLKHO
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            CheckLogin();
+        }
+        private void CheckLogin() {
             AppDebug("sdfdsfds");
             if (!ValidateForm())
             {
                 return;
             }
-            if (COREBASE.COMMAND.VPP_COMMAND.CUser.LoginUser(_ConfigItem,txtUserName.Text,txtPassword.Text))
+            if (COREBASE.COMMAND.VPP_COMMAND.CUser.LoginUser(_ConfigItem, txtUserName.Text, txtPassword.Text))
             {
                 DataRow rw = tbUser.Rows[lstMember.SelectedIndex];
                 _ConfigItem.Login_FullName = CnvToString(rw["Name_Dis"]);
@@ -82,9 +86,7 @@ namespace QLKHO
             {
                 MessageBox.Show("Đăng Nhập Không Thành Công!", MessageBoxManager.Caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
-
         void formmain_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.txtPassword.Text = "";
@@ -122,6 +124,12 @@ namespace QLKHO
                 return false;
             }
             return true;
+        }
+
+        private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                CheckLogin();
         }
     }
 }

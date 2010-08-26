@@ -80,14 +80,15 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnUpdate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
             // btnAdd
             // 
             this.btnAdd.Caption = "Thêm";
+            this.btnAdd.Glyph = global::QLKHO.Properties.Resources._new;
             this.btnAdd.Id = 0;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
@@ -95,12 +96,14 @@
             // btnUpdate
             // 
             this.btnUpdate.Caption = "Cập nhật";
+            this.btnUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
             this.btnUpdate.Id = 1;
             this.btnUpdate.Name = "btnUpdate";
             // 
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -121,7 +124,7 @@
             // 
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Size = new System.Drawing.Size(827, 24);
+            this.barDockControl1.Size = new System.Drawing.Size(827, 42);
             // 
             // barDockControlBottom
             // 
@@ -132,23 +135,23 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 377);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 359);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(827, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 377);
+            this.barDockControlRight.Location = new System.Drawing.Point(827, 42);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 359);
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 24);
+            this.gridControl1.Location = new System.Drawing.Point(0, 42);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(827, 377);
+            this.gridControl1.Size = new System.Drawing.Size(827, 359);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
