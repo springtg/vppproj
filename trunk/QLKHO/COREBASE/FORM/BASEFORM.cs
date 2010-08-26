@@ -373,7 +373,7 @@ namespace COREBASE.FORM
         /// <param name="sFieldID"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        private object GetOriginalItemData(DataRow dtrRow, string sFieldID)
+        protected object GetOriginalItemData(DataRow dtrRow, string sFieldID)
         {
             if (isNewRow(dtrRow))
             {

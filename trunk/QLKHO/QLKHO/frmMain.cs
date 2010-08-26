@@ -117,10 +117,13 @@ namespace QLKHO
 
         private void bar2tab2btn4_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-            frmNCC frm = new frmNCC(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
+            //DONVI
+            if (!IsExist("frmDonVi"))
+            {
+                frmDonVi f = new frmDonVi(_ConfigItem);
+                f.MdiParent = this;
+                f.Show();
+            }
         }
         #endregion
 

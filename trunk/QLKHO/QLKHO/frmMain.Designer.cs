@@ -80,13 +80,13 @@
             this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -560,24 +560,6 @@
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup2.Name = "navBarGroup2";
             // 
-            // navBarItem3
-            // 
-            this.navBarItem3.Caption = "Báo cáo tồn";
-            this.navBarItem3.LargeImage = global::QLKHO.Properties.Resources.lists;
-            this.navBarItem3.Name = "navBarItem3";
-            // 
-            // navBarItem4
-            // 
-            this.navBarItem4.Caption = "Báo cáo VVP";
-            this.navBarItem4.LargeImage = global::QLKHO.Properties.Resources.report1;
-            this.navBarItem4.Name = "navBarItem4";
-            // 
-            // navBarItem6
-            // 
-            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
-            this.navBarItem6.LargeImage = global::QLKHO.Properties.Resources.reminders;
-            this.navBarItem6.Name = "navBarItem6";
-            // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Quản lý kho";
@@ -596,11 +578,29 @@
             this.navBarItem2.LargeImage = global::QLKHO.Properties.Resources.XuatKho;
             this.navBarItem2.Name = "navBarItem2";
             // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "Báo cáo tồn";
+            this.navBarItem3.LargeImage = global::QLKHO.Properties.Resources.lists;
+            this.navBarItem3.Name = "navBarItem3";
+            // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Caption = "Báo cáo VVP";
+            this.navBarItem4.LargeImage = global::QLKHO.Properties.Resources.report1;
+            this.navBarItem4.Name = "navBarItem4";
+            // 
             // navBarItem5
             // 
             this.navBarItem5.Caption = "Chuyển kho";
             this.navBarItem5.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
             this.navBarItem5.Name = "navBarItem5";
+            // 
+            // navBarItem6
+            // 
+            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
+            this.navBarItem6.LargeImage = global::QLKHO.Properties.Resources.reminders;
+            this.navBarItem6.Name = "navBarItem6";
             // 
             // bar4tab2btn3
             // 
