@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+            this.grvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,7 +44,7 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bntAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bntUpdate = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -53,17 +53,16 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridView1
+            // grvSupplier
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grvSupplier.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ID,
             this.gridColumn1,
             this.gridColumn2,
@@ -73,13 +72,13 @@
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8});
-            gridView1.GridControl = this.grdSupplier;
-            gridView1.Name = "gridView1";
-            gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            gridView1.OptionsBehavior.AutoSelectAllInEditor = false;
-            gridView1.OptionsBehavior.AutoUpdateTotalSummary = false;
-            gridView1.OptionsBehavior.Editable = false;
+            this.grvSupplier.GridControl = this.grdSupplier;
+            this.grvSupplier.Name = "grvSupplier";
+            this.grvSupplier.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.grvSupplier.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.grvSupplier.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.grvSupplier.OptionsBehavior.AutoUpdateTotalSummary = false;
+            this.grvSupplier.OptionsBehavior.Editable = false;
             // 
             // ID
             // 
@@ -155,13 +154,13 @@
             // 
             this.grdSupplier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdSupplier.Location = new System.Drawing.Point(0, 42);
-            this.grdSupplier.MainView = gridView1;
+            this.grdSupplier.MainView = this.grvSupplier;
             this.grdSupplier.MenuManager = this.barManager1;
             this.grdSupplier.Name = "grdSupplier";
             this.grdSupplier.Size = new System.Drawing.Size(852, 384);
             this.grdSupplier.TabIndex = 4;
             this.grdSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            gridView1});
+            this.grvSupplier});
             this.grdSupplier.Click += new System.EventHandler(this.grdSupplier_Click);
             // 
             // barManager1
@@ -179,7 +178,7 @@
             this.barButtonItem2,
             this.barButtonItem3,
             this.bntUpdate,
-            this.barButtonItem5});
+            this.btnDelete});
             this.barManager1.MaxItemId = 8;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
@@ -193,7 +192,7 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.Caption | DevExpress.XtraBars.BarLinkUserDefines.PaintStyle))), this.bntAdd, "Thêm", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bntUpdate, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
             // bntAdd
@@ -213,12 +212,13 @@
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntUpdate_ItemClick);
             // 
-            // barButtonItem5
+            // btnDelete
             // 
-            this.barButtonItem5.Caption = "Xóa";
-            this.barButtonItem5.Glyph = global::QLKHO.Properties.Resources.del;
-            this.barButtonItem5.Id = 6;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
+            this.btnDelete.Id = 6;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmNCC";
             this.Text = "frmNCC";
-            ((System.ComponentModel.ISupportInitialize)(gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -307,7 +307,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem bntUpdate;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
         private DevExpress.XtraGrid.GridControl grdSupplier;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -319,6 +319,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn ID;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvSupplier;
 
     }
 }
