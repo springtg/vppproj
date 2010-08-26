@@ -55,20 +55,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 184);
+            this.label2.Location = new System.Drawing.Point(212, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Tên Đăng Nhập";
+            this.label2.Text = "Tên Đăng Nhập:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(243, 208);
+            this.label3.Location = new System.Drawing.Point(243, 212);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Mật Khẩu";
+            this.label3.Text = "Mật Khẩu:";
             // 
             // txtUserName
             // 
@@ -81,10 +81,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.EnterMoveNextControl = true;
             this.txtPassword.Location = new System.Drawing.Point(296, 209);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(261, 20);
+            this.txtPassword.Properties.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(259, 20);
             this.txtPassword.TabIndex = 6;
             // 
             // lstMember
@@ -97,27 +97,31 @@
             // 
             // pcbLogo
             // 
-            this.pcbLogo.Location = new System.Drawing.Point(12, 29);
+            this.pcbLogo.Location = new System.Drawing.Point(11, 34);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(165, 148);
             this.pcbLogo.TabIndex = 0;
             // 
             // btnLogin
             // 
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Location = new System.Drawing.Point(296, 245);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(80, 25);
             this.btnLogin.TabIndex = 7;
-            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Text = "Đăng &nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(377, 245);
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Location = new System.Drawing.Point(381, 245);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(80, 25);
             this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "Thoát";
+            this.btnExit.Text = "&Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExist_Click);
             // 
             // frmLogin
@@ -134,10 +138,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(579, 315);
+            this.MinimumSize = new System.Drawing.Size(579, 315);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstMember)).EndInit();
