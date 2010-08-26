@@ -5,6 +5,7 @@ using System.Drawing;
 using COREBASE.COMMAND.MessageUtils;
 using System.Collections;
 using COREBASE.COMMAND.LogUtils;
+using DevExpress.XtraEditors;
 
 namespace COREBASE.FORM
 {
@@ -59,7 +60,7 @@ namespace COREBASE.FORM
         /// </summary>
         /// <param name="baseCtrl"></param>
         /// <remarks></remarks>
-        protected virtual void AssignTagValue(Control baseCtrl)
+        protected virtual void AssignTagValueOnControl(Control baseCtrl)
         {
             if ((baseCtrl == null))
             {
@@ -102,7 +103,59 @@ namespace COREBASE.FORM
                                 }
                 if (ctr.HasChildren)
                 {
-                    AssignTagValue(ctr);
+                    AssignTagValueOnControl(ctr);
+                }
+            }
+        }
+        protected virtual void AssignTagValueOnDXControl(Control baseCtrl)
+        {
+            if ((baseCtrl == null))
+            {
+                return;
+            }
+            foreach (Control ctr in baseCtrl.Controls)
+            {
+                if ((ctr.GetType() == typeof(TextEdit)))
+                {
+                    TextEdit textBox = (TextEdit)ctr;
+                    textBox.Tag = textBox.Text;
+                }
+                else
+                    if (ctr.GetType().Equals(typeof(RichTextBox)))
+                    {
+                        RichTextBox richtextbox = (RichTextBox)ctr;
+                        richtextbox.Tag = richtextbox.Text;
+                    }
+                    else
+                        if ((ctr.GetType() == typeof(System.Windows.Forms.ComboBox)))
+                        {
+                            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)ctr;
+                            comboBox.Tag = comboBox.SelectedValue;
+                        }
+                        else
+                            if ((ctr.GetType() == typeof(CheckEdit)))
+                            {
+                                //Xu ly la kieu check box                                 
+                                CheckEdit checkEdit = (CheckEdit)ctr;
+                                if(checkEdit.StyleController.che
+                                checkEdit.Tag = checkEdit.Checked;
+
+                                RadioButton radio = (RadioButton)ctr;
+                                radio.Tag = radio.Checked;
+                            }
+                            else
+                                if ((ctr.GetType() == typeof(DataGridView)))
+                                {
+                                    DataGridView gcTemp = (DataGridView)(object)ctr;
+                                    DataTable dt = (DataTable)(gcTemp.DataSource);
+                                    if (!(dt == null))
+                                    {
+                                        dt.AcceptChanges();
+                                    }
+                                }
+                if (ctr.HasChildren)
+                {
+                    AssignTagValueOnDXControl(ctr);
                 }
             }
         }
@@ -175,6 +228,75 @@ namespace COREBASE.FORM
                 if (ctrl.HasChildren)
                 {
                     if (HasChangedOnControl(ctrl))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        protected virtual bool HasChangedOnDXControl(Control baseControl)
+        {
+            if ((baseControl == null))
+            {
+                return false;
+            }
+            foreach (Control ctrl in baseControl.Controls)
+            {
+                if ((ctrl.GetType() == typeof(TextEdit)))
+                {
+                    TextEdit textBox = (TextEdit)ctrl;
+                    if (!textBox.Text.Trim().Equals(textBox.Tag.ToString().Trim()))
+                    {
+                        return true;
+                    }
+                }
+                else
+                    if (ctrl.GetType().Equals(typeof(RichTextBox)))
+                    {
+                        RichTextBox richtextbox = (RichTextBox)ctrl;
+                        richtextbox.Tag = richtextbox.Text;
+                    }
+                    else
+                        if ((ctrl.GetType() == typeof(System.Windows.Forms.ComboBox)))
+                        {
+                            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)ctrl;
+                            if ((!(comboBox.Tag == null)
+                                        && !(comboBox.SelectedValue == null)))
+                            {
+                                if (!comboBox.Tag.Equals(comboBox.SelectedValue))
+                                {
+                                    return true;
+                                }
+                            }
+                            else
+                                if (!((comboBox.Tag == null)
+                                        && (comboBox.SelectedValue == null)))
+                                {
+                                    return true;
+                                }
+                        }
+                        else
+                            if ((ctrl.GetType() == typeof(RadioButton)))
+                            {
+                                RadioButton radio = (RadioButton)ctrl;
+                                if (!(bool.Parse(radio.Tag.ToString().Trim()) == radio.Checked))
+                                {
+                                    return true;
+                                }
+                            }
+                            else
+                                if ((ctrl.GetType() == typeof(DataGridView)))
+                                {
+                                    DataGridView grd = (DataGridView)(object)ctrl;
+                                    if (HasChangedOnGrid(grd))
+                                    {
+                                        return true;
+                                    }
+                                }
+                if (ctrl.HasChildren)
+                {
+                    if (HasChangedOnDXControl(ctrl))
                     {
                         return true;
                     }
@@ -845,6 +967,26 @@ namespace COREBASE.FORM
         }
         #endregion
 
+        #region "Xu ly doi tuong datagridview"
 
+        //protected int[] getRowSeleteIndex(DevExpress.XtraGrid.Views.Grid.GridView objGridView)
+        //{
+        //    try
+        //    {
+        //        int[] rs;
+        //        for (int i = objGridView.SelectedRowsCount - 1; i >= 0; i--)
+        //        {
+        //            rs = objGridView.GetSelectedRows()[i];
+        //        }
+        //        return rs;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //TODO: Ghi log cho nay nhe
+        //        return null;
+        //    }
+        //}
+
+        #endregion
     }
 }
