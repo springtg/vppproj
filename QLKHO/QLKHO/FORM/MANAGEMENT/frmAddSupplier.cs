@@ -30,14 +30,8 @@ namespace QLKHO.FORM.MANAGEMENT
         }
 
         void frmAddSupplier_Load(object sender, EventArgs e)
-        {            
-            //Neu la them moi, thi neu obj ra
-            if (supplier == null)
-            {
-                Dao = new SupplierDao(_ConfigItem);
-                supplier = new Supplier();
-            }
-            else//Neu la edit lay thong tin hien thi len form
+        {
+            if (supplier != null)//Neu la edit lay thong tin hien thi len form
             {
                 SetFormSupplier(supplier);
             }
@@ -92,27 +86,43 @@ namespace QLKHO.FORM.MANAGEMENT
                 AppError("frmAddSupplier:GetFormSupplier():" + ex);
             }
         }
-        
-        private int Insert()
+
+        private void Insert()
         {
             try
             {
-                return Dao.Insert(supplier: supplier);
+                Dao = new SupplierDao(_ConfigItem);
+                if (supplier == null)
+                {
+                    GetFormSupplier();
+                    if (Dao.Insert(supplier) != 0)
+                    {
+                        AssignTagValueOnDXControl(this);
+                        ShowMessageBox("FORMMAIN_001");
+                        this.Close();
+                    }
+                    else ShowMessageBox("FORMMAIN_002");
+                }
+                else
+                {
+                    GetFormSupplier();
+                    if (Dao.Update(supplier))
+                    {
+                        AssignTagValueOnDXControl(this);
+                        ShowMessageBox("FRMADDSUPPLIER_I_001", COREBASE.COMMAND.MessageUtils.MessageType.INFORM);
+                        this.Close();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 AppError("frmAddSupplier:Insert():" + ex);
-                return 0;
             }
         }
 
         private void bntAdd_Click(object sender, EventArgs e)
         {
-            GetFormSupplier();
-            if (Insert() != 0)
-                ShowMessageBox("FORMMAIN_001");
-            else ShowMessageBox("FORMMAIN_002");
-            this.Close();
+            Insert();
         }
 
         private void frmAddSupplier_FormClosing(object sender, FormClosingEventArgs e)
@@ -123,6 +133,14 @@ namespace QLKHO.FORM.MANAGEMENT
                 {
                     e.Cancel = true;
                 }
+                else
+                {
+                    DialogResult = System.Windows.Forms.DialogResult.Yes;
+                }
+            }
+            else
+            {
+                DialogResult = System.Windows.Forms.DialogResult.Yes;
             }
         }
 
