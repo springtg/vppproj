@@ -96,8 +96,8 @@ namespace QLKHO.FORM.MANAGEMENT
                     "@Remark"};
                 object[] arrParaValue = new object[] {
                     row["Name"],
-                    row["Crt_Dt"],
-                    row["Crt_By"],
+                    DateTime.Now,
+                    _ConfigItem.Login_UserName,
                     row["Remark"]
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
@@ -122,8 +122,8 @@ namespace QLKHO.FORM.MANAGEMENT
                 object[] arrParaValue = new object[] {
                     row["Id"],
                     row["Name"],
-                    row["Crt_Dt"],
-                    row["Crt_By"],
+                    DateTime.Now,
+                    _ConfigItem.Login_UserName,
                     row["Remark"]
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);

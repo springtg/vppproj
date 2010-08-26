@@ -60,42 +60,42 @@ namespace QLKHO
                 
                 bg.ReportProgress(1, "Đang tìm tập tin cấu hình!");
                 //Kiem tra tap tinh cau hinh
-                WaitTime(1);
+                //WaitTime(1);
                 if (File.Exists(Application.StartupPath + @"\QLKHO.exe.config"))
                 {
                     bg.ReportProgress(1, "Đang đọc tập tin cấu hình, nạp vào chương trình.");
                     _ConfigItem = LoadConfigFileInfo();
-                    WaitTime(1);
+                   // WaitTime(1);
                 }
                 else
                 {
                     ShowMessageBox("FLASHSCREEN_E_000");
                     Close();
-                    WaitTime(1);
+                    //WaitTime(1);
                     bg.ReportProgress(1, EVENT_CLOSE_APP);
                 }
                 //load thong tin resource: Neu khong co thong tin tai nguyenm dung lai thong bao loi, ket thuc
                 bg.ReportProgress(1, "Kiểm tra thông tin tài nguyên!");
                 //AppDebug("dskfjdlfj");
-                WaitTime(1);
+                //WaitTime(1);
                 if (File.Exists( Application.StartupPath + "\\Resources\\Messages.xml"))
                 {
                     bg.ReportProgress(1, "'Messages.xml' đã được nạp vào chương trình!");
-                    WaitTime(1);
+                    //WaitTime(1);
                 }
                 else
                 {
                     ShowMessageBox("FLASHSCREEN_E_001");
                     Close();
-                    WaitTime(1);
+                   // WaitTime(1);
                     bg.ReportProgress(1, EVENT_CLOSE_APP);
                 }
                 //load tap hop cac component hien co tai thu muc chuong trinh: Neu khong co cac component bat buoc, thong bao loi, va dung lai
                 bg.ReportProgress(3, "Đang đọc các thành phần của ứng dụng!");
-                WaitTime(1);
+               // WaitTime(1);
                 if (File.Exists(Application.StartupPath + "\\COREBASE.dll"))
                 {
-                    WaitTime(2);
+                    //WaitTime(2);
                     bg.ReportProgress(1, "'COREBASE.dll' đang nạp vào ứng dụng.");
                 }
                 else
@@ -104,24 +104,24 @@ namespace QLKHO
                     obj[0] ="COREBASE.dll";
                     ShowMessageBox("FLASHSCREEN_E_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, obj);
                     Close();
-                    WaitTime(1);
+                    //WaitTime(1);
                     bg.ReportProgress(1, EVENT_CLOSE_APP);
                 }
                 
                 //kiem tra ket noi voi server: Neu ket noi khong duoc, thong bao loi, dung lai
                 bg.ReportProgress(3, "Đang thử thiết lập kết nối đến máy chủ!");
-                WaitTime(1);
+                //WaitTime(1);
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
                 if (_providerSQL.CheckConnect())
                 {
                     bg.ReportProgress(3, "Kết nối đến máy chủ thành công!");
-                    WaitTime(1);
+                   // WaitTime(1);
                 }
                 else
                 {
                     ShowMessageBox("FLASHSCREEN_E_002");
                     Close();
-                    WaitTime(1);
+                    //WaitTime(1);
                     bg.ReportProgress(1, EVENT_CLOSE_APP);
                     //TODO:Thong bao, ke noi khong duoc; ket thuc form
                     //TODO: neu co the, bat form cau hinh de nguoi dung edit lai.
@@ -137,7 +137,7 @@ namespace QLKHO
                 
                 //Lay thong tin nguoi dung load len
                 bg.ReportProgress(3, "Đang đọc danh sách người dùng!");
-                WaitTime(1);
+               // WaitTime(1);
                 tbUser = COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_ConfigItem);
                 if (tbUser.Rows.Count < 1)
                 {
@@ -145,7 +145,7 @@ namespace QLKHO
                 }                
                 //Chuan bi thu muc ghi log
                 bg.ReportProgress(3, "Đang kiểm tra thông tin nhật ký!");
-                WaitTime(1);
+                //WaitTime(1);
                 bg.ReportProgress(100,string.Empty);
                 DialogResult = DialogResult.OK;
             }

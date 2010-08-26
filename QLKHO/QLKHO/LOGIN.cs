@@ -49,21 +49,6 @@ namespace QLKHO
             //}
         }
 
-        //private void LoadUser(VXS.ERP.UTL0001.SQL.CAccessSQL provider)
-        //{
-        //    //try
-        //    //{
-        //    //    lstMember.DataSource = provider.GetDataByStoredProcedure("sp_Select_ListMember");
-        //    //    lstMember.DisplayMember = "FullName";
-        //    //    lstMember.ValueMember = "UserName";
-        //    //    listUserLoaded=true;
-        //    //}
-        //    //catch
-        //    //{
-        //    //    listUserLoaded = false;
-        //    //}
-
-        //}
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -104,28 +89,6 @@ namespace QLKHO
         {
             this.txtPassword.Text = "";
             this.Show();
-        }
-
-        private bool UserLogin()
-        {
-            //try
-            //{
-            //    UTLDB.UTLDB provider = new UTLDB.UTLDB();
-            //    string[] paraname = {"@username",   "@password"};
-            //    string[] paravalue = {this.txtUserName.Text, UTLCOMMAND.CryptorEngine.Encrypt( this.txtPassword.Text.Trim(),true)};
-            //    dtLoginInfo = new DataTable();
-            //    dtLoginInfo = provider.GetDataByStoredProcedure("sp_Login", paraname, paravalue);
-            //    if (dtLoginInfo.Rows.Count < 1)
-            //    {
-            //        return false;
-            //    }
-            return true;
-            //}
-            //catch
-            //{
-            //    dtLoginInfo = null;
-            //    return  false;
-            //}
         }
 
         private void btnExist_Click(object sender, EventArgs e)

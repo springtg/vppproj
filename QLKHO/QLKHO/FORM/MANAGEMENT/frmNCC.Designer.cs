@@ -284,7 +284,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmNCC";
-            this.Text = "frmNCC";
+            this.Text = "Nhà Cung Cấp";
             ((System.ComponentModel.ISupportInitialize)(this.grvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
