@@ -127,7 +127,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Remark"]
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-                _sql.ExecuteNonQuery("SP_UPD_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
+                _sql.ExecuteNonQuery("USP_UPD_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
                 return true;
             }
             catch (Exception ex)
@@ -141,6 +141,46 @@ namespace QLKHO.FORM.MANAGEMENT
             DataTable tbl = (DataTable)gridControl1.DataSource;
             DataRow r = tbl.NewRow();
             tbl.Rows.Add(r);
+        }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+
+                int[] _IndexRowSelected = gridView1.GetSelectedRows();
+
+                int _CurIndexRow = _IndexRowSelected[0];
+                DataTable tmp = (DataTable)gridControl1.DataSource;
+                Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                gridControl1.DataSource = LoadData();
+            }
+            catch (Exception ex)
+            {
+                //TODO: Ghi log tai day nhe
+                throw ex;
+            }
+        }
+
+        private void gridView1_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)System.Windows.Forms.Keys.Delete))
+            {
+                try
+                {
+
+                    int[] _IndexRowSelected = gridView1.GetSelectedRows();
+                    int _CurIndexRow = _IndexRowSelected[0];
+                    DataTable tmp = (DataTable)gridControl1.DataSource;
+                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                    gridControl1.DataSource = LoadData();
+                }
+                catch (Exception ex)
+                {
+                    //TODO: Ghi log tai day nhe
+                    throw ex;
+                }
+            }
         }
 
     }
