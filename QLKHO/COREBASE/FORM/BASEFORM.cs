@@ -26,6 +26,10 @@ namespace COREBASE.FORM
         public BASEFORM()
         {
             InitializeComponent();
+            if (!DesignMode)
+            {
+                Logger.Configure();
+            }
         }
 
         #region "Thuoc tinh chung thuc Assembly cua cung dung"

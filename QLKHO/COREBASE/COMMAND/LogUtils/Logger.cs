@@ -137,52 +137,52 @@ namespace COREBASE.COMMAND.LogUtils
 
             public void Debug(object screenId, object userId, object msg)
             {
-                Logger._logger.Debug(string.Format(Convert.Convert.CnvToString( screenId), userId, msg));
+                Logger._logger.Debug(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg));
             }
 
             public void Debug(object screenId, object userId, object msg, System.Exception ex)
             {
-                Logger._logger.Debug(string.Format(Convert.Convert.CnvToString(screenId), userId, msg), ex);
+                Logger._logger.Debug(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ", Convert.Convert.CnvToString(screenId), userId, msg), ex);
             }
 
             public void Error(object screenId, object userId, object msg)
             {
-                Logger._logger.Error(string.Format(Convert.Convert.CnvToString(screenId), userId, msg));
+                Logger._logger.Error(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg));
             }
 
             public void Error(object screenId, object userId, object msg, System.Exception ex)
             {
-                Logger._logger.Error(string.Format(Convert.Convert.CnvToString(screenId), userId, msg), ex);
+                Logger._logger.Error(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg), ex);
             }
 
             public void Fatal(object screenId, object userId, object msg)
             {
-                Logger._logger.Fatal(string.Format(Convert.Convert.CnvToString(screenId), userId, msg));
+                Logger._logger.Fatal(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg));
             }
 
             public void Fatal(object screenId, object userId, object msg, System.Exception ex)
             {
-                Logger._logger.Fatal(string.Format(Convert.Convert.CnvToString(screenId), userId, msg), ex);
+                Logger._logger.Fatal(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg), ex);
             }
 
             public void Info(object screenId, object userId, object msg)
             {
-                Logger._logger.Info(string.Format(Convert.Convert.CnvToString(screenId), userId, msg));
+                Logger._logger.Info(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg));
             }
 
             public void Info(object screenId, object userId, object msg, System.Exception ex)
             {
-                Logger._logger.Info(string.Format(Convert.Convert.CnvToString(screenId), userId, msg), ex);
+                Logger._logger.Info(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg), ex);
             }
 
             public void Warn(object screenId, object userId, object msg)
             {
-                Logger._logger.Warn(string.Format(Convert.Convert.CnvToString(screenId), userId, msg));
+                Logger._logger.Warn(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg));
             }
 
             public void Warn(object screenId, object userId, object msg, System.Exception ex)
             {
-                Logger._logger.Warn(string.Format(Convert.Convert.CnvToString(screenId), userId, msg), ex);
+                Logger._logger.Warn(string.Format("SCREENID = {0}  : USERID = {1}  : MSG = {2} ",Convert.Convert.CnvToString( screenId), userId, msg), ex);
             }
         }
 
