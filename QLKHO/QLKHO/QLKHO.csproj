@@ -96,6 +96,12 @@
     <Compile Include="FORM\MANAGEMENT\frmAddSupplier.Designer.cs">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmDonVi.Designer.cs">
+      <DependentUpon>frmDonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\MANAGEMENT\frmNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmAddSupplier.resx">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmDonVi.resx">
+      <DependentUpon>frmDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmNCC.resx">
       <DependentUpon>frmNCC.cs</DependentUpon>
