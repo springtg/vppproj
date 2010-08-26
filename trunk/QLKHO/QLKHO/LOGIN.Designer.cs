@@ -49,7 +49,7 @@
             this.label1.Location = new System.Drawing.Point(183, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách Nhân viên";
             // 
             // label2
@@ -58,7 +58,7 @@
             this.label2.Location = new System.Drawing.Point(212, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Tên Đăng Nhập";
             // 
             // label3
@@ -67,7 +67,7 @@
             this.label3.Location = new System.Drawing.Point(243, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 5;
             this.label3.Text = "Mật Khẩu";
             // 
             // txtUserName
@@ -76,7 +76,7 @@
             this.txtUserName.Location = new System.Drawing.Point(296, 183);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(259, 20);
-            this.txtUserName.TabIndex = 9;
+            this.txtUserName.TabIndex = 4;
             this.txtUserName.ToolTip = "Gõ tên đăng nhập";
             // 
             // txtPassword
@@ -85,14 +85,14 @@
             this.txtPassword.Location = new System.Drawing.Point(296, 209);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(261, 20);
-            this.txtPassword.TabIndex = 10;
+            this.txtPassword.TabIndex = 6;
             // 
             // lstMember
             // 
             this.lstMember.Location = new System.Drawing.Point(296, 33);
             this.lstMember.Name = "lstMember";
             this.lstMember.Size = new System.Drawing.Size(259, 144);
-            this.lstMember.TabIndex = 11;
+            this.lstMember.TabIndex = 2;
             this.lstMember.SelectedIndexChanged += new System.EventHandler(this.lstMember_SelectedIndexChanged);
             // 
             // pcbLogo
@@ -100,14 +100,14 @@
             this.pcbLogo.Location = new System.Drawing.Point(12, 29);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(165, 148);
-            this.pcbLogo.TabIndex = 12;
+            this.pcbLogo.TabIndex = 0;
             // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(296, 245);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 13;
+            this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -116,7 +116,7 @@
             this.btnExit.Location = new System.Drawing.Point(377, 245);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 13;
+            this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExist_Click);
             // 
