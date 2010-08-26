@@ -30,4 +30,9 @@
 
   <!--END:Component Login -->
   
+  
+  <!--START: FORM THEM NHA CUNG CAP-->
+  <MSG MsgId="FRMADDSUPPLIER_C_001" MsgValue ="Du lieu da bi thay sua doi, ban co muon luu lai khong?"/>
+  <!--END: FORM THEM NHA CUNG CAP-->
+  
 </VXSOFT_ERP_MESSAGE>

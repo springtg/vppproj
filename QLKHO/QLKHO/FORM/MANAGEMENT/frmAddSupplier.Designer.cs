@@ -53,6 +53,7 @@
             this.txtDebit = new DevExpress.XtraEditors.TextEdit();
             this.bntAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -330,6 +332,15 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Hủy";
             // 
+            // checkEdit1
+            // 
+            this.checkEdit1.EditValue = System.Drawing.Color.Empty;
+            this.checkEdit1.Location = new System.Drawing.Point(374, 300);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "checkEdit2";
+            this.checkEdit1.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit1.TabIndex = 3;
+            // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,8 +349,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.bntAdd);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.checkEdit1);
             this.Name = "frmAddSupplier";
             this.Text = "Thông tin nhàcung cấp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddSupplier_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).EndInit();
@@ -352,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +397,7 @@
         private DevExpress.XtraEditors.TextEdit txtDebit;
         private DevExpress.XtraEditors.SimpleButton bntAdd;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
 
 
     }

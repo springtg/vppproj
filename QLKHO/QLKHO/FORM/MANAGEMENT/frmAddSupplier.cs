@@ -15,19 +15,55 @@ namespace QLKHO.FORM.MANAGEMENT
     public partial class frmAddSupplier : COREBASE.FORM.BASEFORM
     {
         SupplierDao Dao;
-        Supplier supplier;
-        public frmAddSupplier(ConfigItem _config)
+        Supplier supplier = null;
+
+        public frmAddSupplier(ConfigItem _config, Supplier _SupperCurrEdit)
         {
-            _ConfigItem = _config;
-            Dao = new SupplierDao(_ConfigItem);
-            supplier = new Supplier();
             InitializeComponent();
+            //Neu la edit thi co gia tri supplier truyen qua. Neu khong co thi la them moi!
+            if (_SupperCurrEdit != null)
+            {
+                supplier = _SupperCurrEdit;
+            }
+            _ConfigItem = _config;
             this.Load += new EventHandler(frmAddSupplier_Load);
         }
 
         void frmAddSupplier_Load(object sender, EventArgs e)
-        {
+        {            
+            //Neu la them moi, thi neu obj ra
+            if (supplier == null)
+            {
+                Dao = new SupplierDao(_ConfigItem);
+                supplier = new Supplier();
+            }
+            else//Neu la edit lay thong tin hien thi len form
+            {
+                SetFormSupplier(supplier);
+            }
+            AssignTagValueOnDXControl(this);//gan gia tri ban dau cho form
+        }
 
+        private void SetFormSupplier(Supplier _SupperCurrEdit)
+        {
+            try
+            {
+                txtName.Text = _SupperCurrEdit.Name;
+                txtPhone1.Text = _SupperCurrEdit.Phone;
+                txtPhone2.Text = _SupperCurrEdit.Phone1;
+                txtAddress1.Text = _SupperCurrEdit.Address;
+                txtAddress2.Text = _SupperCurrEdit.Address1;
+                txtFax.Text = _SupperCurrEdit.Fax;
+                txtEmail.Text = _SupperCurrEdit.Email;
+                txtWeb.Text = _SupperCurrEdit.Website;
+                txtTax.Text = _SupperCurrEdit.TaxCode;
+                txtCredit.Text = _SupperCurrEdit.Credit;
+                txtDebit.Text = _SupperCurrEdit.Debit;
+            }
+            catch (Exception ex)
+            {
+                AppError("frmAddSupplier:GetFormSupplier():" + ex);
+            }
         }
 
         private void GetFormSupplier()
@@ -55,8 +91,8 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 AppError("frmAddSupplier:GetFormSupplier():" + ex);
             }
-
         }
+        
         private int Insert()
         {
             try
@@ -77,6 +113,17 @@ namespace QLKHO.FORM.MANAGEMENT
                 ShowMessageBox("FORMMAIN_001");
             else ShowMessageBox("FORMMAIN_002");
             this.Close();
+        }
+
+        private void frmAddSupplier_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (HasChangedOnDXControl(this))
+            {
+                if (ShowMessageBox("FRMADDSUPPLIER_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM) == System.Windows.Forms.DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
 
 
