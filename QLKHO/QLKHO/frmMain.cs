@@ -13,6 +13,26 @@ namespace QLKHO
             _ConfigItem = _ConfItem; 
         }
 
+        private bool IsExist(string frmName)
+        {
+            if (tabMdi.Pages.Count < 1) return false;
+            for (int i = 0; i < tabMdi.Pages.Count; i++)
+            {
+                if (tabMdi.Pages[i].Text.Equals(frmName)) return true;
+            }
+            return false;
+        }
+
+        private int getIndexPages(string frmName)
+        {
+            if (tabMdi.Pages.Count < 1) return -1;
+            for (int i = 0; i < tabMdi.Pages.Count; i++)
+            {
+                if (tabMdi.Pages[i].Text.Equals(frmName)) return i;
+            }
+            return -1;
+        }
+
         private void barEditItem1_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -48,9 +68,16 @@ namespace QLKHO
         #region "Quản lý đối tượng"
         private void bar2tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNCC frm = new frmNCC(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
+            if (!IsExist("frmNCC"))
+            {
+                frmNCC frm = new frmNCC(_ConfigItem);
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                //TODO: active page suo mo roi
+            }
         }
 
         private void bar2tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
@@ -65,6 +92,8 @@ namespace QLKHO
         #region"Quản lý hàng hóa"
         private void bar2tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
+             
+
 
             frmNCC frm = new frmNCC(_ConfigItem);
             frm.MdiParent = this;
