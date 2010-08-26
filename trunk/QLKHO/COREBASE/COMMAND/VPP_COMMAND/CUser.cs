@@ -11,7 +11,7 @@ namespace COREBASE.COMMAND.VPP_COMMAND
        public static DataTable ListUser(COMMAND.Config.ConfigItem _confItem)
        {
            COMMAND.SQL.AccessSQL _sql = new SQL.AccessSQL(_confItem);
-           return _sql.GetDataByStoredProcedure("SP_SEL_USER");
+           return _sql.GetDataByStoredProcedure("USP_SEL_USER");
        }
 
        public static bool LoginUser(COMMAND.Config.ConfigItem _confItem, string strUserName, string strPassword)
@@ -19,7 +19,7 @@ namespace COREBASE.COMMAND.VPP_COMMAND
            COMMAND.SQL.AccessSQL _sql = new SQL.AccessSQL(_confItem);
            string[] arrParaName = new string[] {"@Name","@Password" };
            object[] arrParaValue = new string[] { strUserName,strPassword};
-           DataTable tb = _sql.GetDataByStoredProcedure("sp_Login", arrParaName, arrParaValue);
+           DataTable tb = _sql.GetDataByStoredProcedure("Usp_Login", arrParaName, arrParaValue);
            if (tb.Rows.Count > 0)
            {
                return true;

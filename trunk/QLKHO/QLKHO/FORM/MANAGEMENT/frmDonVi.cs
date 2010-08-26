@@ -26,7 +26,7 @@ namespace QLKHO.FORM.MANAGEMENT
             try
             {
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-                return _providerSQL.GetDataByStoredProcedure("SP_SEL_UNIT");
+                return _providerSQL.GetDataByStoredProcedure("USP_SEL_UNIT");
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     _id
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-                _sql.ExecuteNonQuery("SP_DEL_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
+                _sql.ExecuteNonQuery("USP_DEL_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
             }
             catch (Exception ex)
             {
@@ -101,7 +101,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Remark"]
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-                _sql.ExecuteNonQuery("SP_INS_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
+                _sql.ExecuteNonQuery("USP_INS_UNIT", arrNames: arrParaName, arrValues: arrParaValue);
             }
             catch (Exception ex)
             {
