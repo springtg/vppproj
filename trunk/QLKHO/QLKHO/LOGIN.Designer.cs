@@ -138,6 +138,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(579, 315);
             this.MinimumSize = new System.Drawing.Size(579, 315);
             this.Name = "frmLogin";
