@@ -107,6 +107,7 @@ namespace COREBASE.FORM
                 }
             }
         }
+        
         protected virtual void AssignTagValueOnDXControl(Control baseCtrl)
         {
             if ((baseCtrl == null))
@@ -135,12 +136,8 @@ namespace COREBASE.FORM
                         else
                             if ((ctr.GetType() == typeof(CheckEdit)))
                             {
-                                //Xu ly la kieu check box                                 
-                                CheckEdit checkEdit = (CheckEdit)ctr;
-                                if(checkEdit.StyleController.che
-                                checkEdit.Tag = checkEdit.Checked;
-
-                                RadioButton radio = (RadioButton)ctr;
+                                //Xu ly la kieu check box
+                                CheckEdit radio = (CheckEdit)ctr;
                                 radio.Tag = radio.Checked;
                             }
                             else
@@ -235,6 +232,7 @@ namespace COREBASE.FORM
             }
             return false;
         }
+       
         protected virtual bool HasChangedOnDXControl(Control baseControl)
         {
             if ((baseControl == null))
@@ -277,9 +275,9 @@ namespace COREBASE.FORM
                                 }
                         }
                         else
-                            if ((ctrl.GetType() == typeof(RadioButton)))
+                            if ((ctrl.GetType() == typeof(CheckEdit)))
                             {
-                                RadioButton radio = (RadioButton)ctrl;
+                                CheckEdit radio = (CheckEdit)ctrl;
                                 if (!(bool.Parse(radio.Tag.ToString().Trim()) == radio.Checked))
                                 {
                                     return true;
@@ -961,10 +959,13 @@ namespace COREBASE.FORM
         /// <summary>
         /// Lay doi tuong tra ve tu form truoc
         /// </summary>
-        protected object returnValue
+        public object returnValue
         {
             get { return _rtnValue; }
         }
+
+
+
         #endregion
 
         #region "Xu ly doi tuong datagridview"
