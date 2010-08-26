@@ -67,6 +67,7 @@ namespace QLKHO
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            AppDebug("sdfdsfds");
             if (!ValidateForm())
             {
                 return;

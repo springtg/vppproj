@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QLKHO.BUSOBJECT
 {
-    class Supplier
+   public class Supplier
     {
 
         private int _id;
