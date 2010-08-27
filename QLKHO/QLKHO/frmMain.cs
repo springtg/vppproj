@@ -68,7 +68,7 @@ namespace QLKHO
         #region "Quản lý đối tượng"
         private void bar2tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!IsExist("frmNCC"))
+           if ( !IsExist("frmNCC"))
             {
                 frmNCC frm = new frmNCC(_ConfigItem);
                 frm.MdiParent = this;
@@ -126,7 +126,21 @@ namespace QLKHO
             }
         }
         #endregion
-
+        #region "Quản lý tổ chức"
+        private void bar2tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!IsExist("frmPhongBan"))
+            {
+                frmPhongBan frm = new frmPhongBan(_ConfigItem);
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                //TODO: active page suo mo roi
+            }
+        }
+        #endregion
 
 
 

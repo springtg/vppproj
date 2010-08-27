@@ -335,12 +335,15 @@
             // 
             this.bar2tab3btn1.Caption = "Phòng ban";
             this.bar2tab3btn1.Id = 31;
+            this.bar2tab3btn1.LargeGlyph = global::QLKHO.Properties.Resources.PBan;
             this.bar2tab3btn1.Name = "bar2tab3btn1";
+            this.bar2tab3btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab3btn1_ItemClick);
             // 
             // bar2tab3btn2
             // 
             this.bar2tab3btn2.Caption = "Nhân viên";
             this.bar2tab3btn2.Id = 32;
+            this.bar2tab3btn2.LargeGlyph = global::QLKHO.Properties.Resources.kdmconfig;
             this.bar2tab3btn2.Name = "bar2tab3btn2";
             // 
             // bar3tab1btn3
