@@ -80,20 +80,20 @@
             this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -572,63 +572,13 @@
             this.navBarGroup2.Caption = "Báo cáo";
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
-            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem10),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem11),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem12),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13)});
             this.navBarGroup2.Name = "navBarGroup2";
-            // 
-            // navBarItem10
-            // 
-            this.navBarItem10.Caption = "navBarItem10";
-            this.navBarItem10.LargeImage = global::QLKHO.Properties.Resources.kexi;
-            this.navBarItem10.Name = "navBarItem10";
-            // 
-            // navBarItem11
-            // 
-            this.navBarItem11.Caption = "navBarItem11";
-            this.navBarItem11.LargeImage = global::QLKHO.Properties.Resources.lists;
-            this.navBarItem11.Name = "navBarItem11";
-            // 
-            // navBarItem12
-            // 
-            this.navBarItem12.Caption = "navBarItem12";
-            this.navBarItem12.LargeImage = global::QLKHO.Properties.Resources.lassists;
-            this.navBarItem12.Name = "navBarItem12";
-            // 
-            // navBarItem13
-            // 
-            this.navBarItem13.Caption = "navBarItem13";
-            this.navBarItem13.Name = "navBarItem13";
             // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Quản lý kho";
             this.navBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
-            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem8),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem9)});
             this.navBarGroup1.Name = "navBarGroup1";
-            // 
-            // navBarItem7
-            // 
-            this.navBarItem7.Caption = "Nhập kho";
-            this.navBarItem7.LargeImage = global::QLKHO.Properties.Resources.NhapKho;
-            this.navBarItem7.Name = "navBarItem7";
-            // 
-            // navBarItem8
-            // 
-            this.navBarItem8.Caption = "Xuất kho";
-            this.navBarItem8.LargeImage = global::QLKHO.Properties.Resources.XuatKho;
-            this.navBarItem8.Name = "navBarItem8";
-            // 
-            // navBarItem9
-            // 
-            this.navBarItem9.Caption = "Chuyển kho";
-            this.navBarItem9.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
-            this.navBarItem9.Name = "navBarItem9";
             // 
             // navBarItem1
             // 
@@ -665,6 +615,47 @@
             this.navBarItem6.Caption = "Báo cáo Phòng Ban";
             this.navBarItem6.LargeImage = global::QLKHO.Properties.Resources.reminders;
             this.navBarItem6.Name = "navBarItem6";
+            // 
+            // navBarItem7
+            // 
+            this.navBarItem7.Caption = "Nhập kho";
+            this.navBarItem7.LargeImage = global::QLKHO.Properties.Resources.NhapKho;
+            this.navBarItem7.Name = "navBarItem7";
+            // 
+            // navBarItem8
+            // 
+            this.navBarItem8.Caption = "Xuất kho";
+            this.navBarItem8.LargeImage = global::QLKHO.Properties.Resources.XuatKho;
+            this.navBarItem8.Name = "navBarItem8";
+            // 
+            // navBarItem9
+            // 
+            this.navBarItem9.Caption = "Chuyển kho";
+            this.navBarItem9.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
+            this.navBarItem9.Name = "navBarItem9";
+            // 
+            // navBarItem10
+            // 
+            this.navBarItem10.Caption = "navBarItem10";
+            this.navBarItem10.LargeImage = global::QLKHO.Properties.Resources.kexi;
+            this.navBarItem10.Name = "navBarItem10";
+            // 
+            // navBarItem11
+            // 
+            this.navBarItem11.Caption = "navBarItem11";
+            this.navBarItem11.LargeImage = global::QLKHO.Properties.Resources.lists;
+            this.navBarItem11.Name = "navBarItem11";
+            // 
+            // navBarItem12
+            // 
+            this.navBarItem12.Caption = "navBarItem12";
+            this.navBarItem12.LargeImage = global::QLKHO.Properties.Resources.lassists;
+            this.navBarItem12.Name = "navBarItem12";
+            // 
+            // navBarItem13
+            // 
+            this.navBarItem13.Caption = "navBarItem13";
+            this.navBarItem13.Name = "navBarItem13";
             // 
             // bar4tab2btn3
             // 
