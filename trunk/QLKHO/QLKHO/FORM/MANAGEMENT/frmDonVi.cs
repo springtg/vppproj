@@ -30,7 +30,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                //TODO: Ghi log cho nay
+                AppDebug(ex);
                 return null;
             }
         }
@@ -61,8 +61,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                //TODOL Ghi log cho nay
-                throw;
+                AppDebug(ex);
             }
         }
 
@@ -80,7 +79,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                throw ex;
+                AppDebug(ex);
             }
 
         }
@@ -105,7 +104,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                throw ex;
+                AppDebug(ex);
             }
         }
 
@@ -132,6 +131,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
+                AppDebug(ex);
                 return false;
             }
         }
@@ -157,8 +157,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                //TODO: Ghi log tai day nhe
-                throw ex;
+                AppDebug(ex);
             }
         }
 
@@ -177,8 +176,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 }
                 catch (Exception ex)
                 {
-                    //TODO: Ghi log tai day nhe
-                    throw ex;
+                    AppDebug(ex);
                 }
             }
         }
