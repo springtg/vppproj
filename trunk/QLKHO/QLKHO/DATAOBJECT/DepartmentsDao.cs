@@ -60,9 +60,7 @@ namespace QLKHO.DATAOBJECT
 
                 string[] arrParaName = new string[] {
                     "@Id",
-                     "@Name",
-	                "@Crt_Dt",
-	                "@Crt_By",
+                    "@Name",
 	                "@Mod_Dt",
 	                "@Mod_By",
 	                "@Is_Del",
@@ -88,7 +86,7 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] { "@Id" };
                 object[] arrParaValue = new object[] { _idSuppiler };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_DeleteVPP_SUPPLIER", arrParaName, arrParaValue);
+                _sql.ExecuteNonQuery("usp_DeleteVPP_DEPARTMENT", arrParaName, arrParaValue);
                 return true;
             }
             catch (Exception ex)
