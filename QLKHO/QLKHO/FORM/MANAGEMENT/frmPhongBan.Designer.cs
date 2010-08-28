@@ -45,11 +45,11 @@
             this.NamePB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Phone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Crt_By = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Mod_Dt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Mod_By = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Is_Del = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -204,6 +204,14 @@
             this.Crt_By.Visible = true;
             this.Crt_By.VisibleIndex = 3;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Ngày tạo";
+            this.gridColumn1.FieldName = "Crt_By";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            // 
             // Mod_Dt
             // 
             this.Mod_Dt.Caption = "Ngày sửa";
@@ -232,14 +240,6 @@
             this.Is_Del.Visible = true;
             this.Is_Del.VisibleIndex = 6;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Ngày tạo";
-            this.gridColumn1.FieldName = "Crt_By";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
-            // 
             // frmPhongBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,7 +250,9 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.KeyPreview = true;
             this.Name = "frmPhongBan";
+            this.Text = "Phòng Ban";
             this.Load += new System.EventHandler(this.frmPhongBan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartment)).EndInit();
