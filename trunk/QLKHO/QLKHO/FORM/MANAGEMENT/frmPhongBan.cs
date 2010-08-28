@@ -147,9 +147,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 //TODO: Ghi log tai day nhe
                 throw ex;
             }
-
         }
-
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)System.Windows.Forms.Keys.Delete))
