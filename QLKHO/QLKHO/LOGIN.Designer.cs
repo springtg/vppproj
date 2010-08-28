@@ -97,8 +97,13 @@
             // 
             // pcbLogo
             // 
+            this.pcbLogo.BackgroundImage = global::QLKHO.Properties.Resources.NoImg;
+            this.pcbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbLogo.Cursor = System.Windows.Forms.Cursors.Default;
             this.pcbLogo.Location = new System.Drawing.Point(11, 34);
             this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pcbLogo.Properties.Appearance.Options.UseBackColor = true;
             this.pcbLogo.Size = new System.Drawing.Size(165, 148);
             this.pcbLogo.TabIndex = 0;
             // 
