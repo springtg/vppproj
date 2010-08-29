@@ -185,7 +185,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NameCat", "Tên")});
             this.repositoryItemLookUpEdit1.DisplayMember = "NameCat";
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.ValueMember = "ID_Cat";
+            this.repositoryItemLookUpEdit1.ValueMember = "Id";
             // 
             // gridColumn3
             // 
