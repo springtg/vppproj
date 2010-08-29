@@ -159,11 +159,11 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 AppDebug(ex);
             }
-        }
+        }       
 
-        private void gridView1_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        private void gridView1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyChar.Equals((char)System.Windows.Forms.Keys.Delete))
+            if (e.KeyData.Equals(System.Windows.Forms.Keys.Delete))
             {
                 try
                 {
