@@ -10,7 +10,8 @@ namespace QLKHO.DATAOBJECT
     class CatalogDao
     {
         public ConfigItem confItem;
-        public CatalogDao(ConfigItem _conf) {
+        public CatalogDao(ConfigItem _conf)
+        {
             this.confItem = _conf;
         }
         public DataTable GetList()
@@ -20,7 +21,23 @@ namespace QLKHO.DATAOBJECT
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
                 dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGsAll");
-                
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
+        }
+
+        public DataTable GetListCombo()
+        {
+            DataTable dt = null;
+            try
+            {
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGForCombo");
+
             }
             catch (Exception ex)
             {
@@ -37,7 +54,7 @@ namespace QLKHO.DATAOBJECT
                     "@Id"
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGbyId",arrParaName,arrValue);
+                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGbyId", arrParaName, arrValue);
 
             }
             catch (Exception ex)
