@@ -2,150 +2,66 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using QLKHO.BUSOBJECT;
-using System.Data;
 using COREBASE.COMMAND.Config;
+using System.Data;
 
 namespace QLKHO.DATAOBJECT
 {
-    class SupplierDao
+    class CatalogDao
     {
         public ConfigItem confItem;
-        public SupplierDao(ConfigItem _confItem)
+        public CatalogDao(ConfigItem _conf)
         {
-            this.confItem = _confItem;
-
+            this.confItem = _conf;
         }
-        public IList<Supplier> GetUserList()
+        public DataTable GetList()
         {
-            IList<Supplier> lUser = null;
+            DataTable dt = null;
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                DataTable dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_SUPPLIER");
-                lUser = COREBASE.COMMAND.SQL.CMapping.MapList<Supplier>(dt);
+                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGsAll");
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lUser;
+            return dt;
         }
-        public int Insert(Supplier supplier)
+
+        public DataTable GetListCombo()
         {
-            int ma = 0;
+            DataTable dt = null;
             try
             {
-
-                string[] arrParaName = new string[] {"@Name",
-                    "@Phone",
-                    "@Phone1",
-                    "@Address",
-                    "@Address1",
-                    "@Fax",
-                    "@Email",
-                    "@Website",
-                    "@Crt_Dt",
-                    "@Crt_By",
-                    "@Mod_Dt",
-                    "@Mod_By",
-                    "@Is_Del",
-                    "@TaxCode",
-                    "@Credit",
-                    "@Debit"};
-                object[] arrParaValue = new object[] {
-                    supplier.Name,
-                    supplier.Phone,
-                    supplier.Phone1,
-                    supplier.Address,
-                    supplier.Address1,
-                    supplier.Fax,
-                    supplier.Email,
-                    supplier.Website,
-                    supplier.Crt_Dt,
-                    supplier.Crt_By,
-                    supplier.Mod_Dt,
-                    supplier.Mod_By,
-                    supplier.Is_Del,
-                    supplier.TaxCode,
-                    supplier.Credit,
-                    supplier.Debit
-
-                };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                ma = _sql.ExecuteInsert("usp_InsertVPP_SUPPLIER", arrNames: arrParaName, arrValues: arrParaValue);
+                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGForCombo");
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return ma;
+            return dt;
         }
-
-        public bool Update(Supplier supplier)
+        public DataTable GetList(object[] arrValue)
         {
+            DataTable dt = null;
             try
             {
-
                 string[] arrParaName = new string[] {
-                    "@Id",
-                    "@Name",
-                    "@Phone",
-                    "@Phone1",
-                    "@Address",
-                    "@Address1",
-                    "@Fax",
-                    "@Email",
-                    "@Website",
-                    "@Mod_Dt",
-                    "@Mod_By",
-                    "@TaxCode",
-                    "@Credit",
-                    "@Debit"};
-                object[] arrParaValue = new object[] {
-                    supplier.Id,
-                    supplier.Name,
-                    supplier.Phone,
-                    supplier.Phone1,
-                    supplier.Address,
-                    supplier.Address1,
-                    supplier.Fax,
-                    supplier.Email,
-                    supplier.Website,
-                    supplier.Mod_Dt,
-                    supplier.Mod_By,
-                    supplier.TaxCode,
-                    supplier.Credit,
-                    supplier.Debit
-
+                    "@Id"
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_UpdateVPP_SUPPLIER", arrNames: arrParaName, arrValues: arrParaValue);
-                return true;
+                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGbyId", arrParaName, arrValue);
+
             }
             catch (Exception ex)
             {
-                return true;
-
+                throw ex;
             }
-        }
-
-
-        public bool Delete(int _idSuppiler)
-        {
-            try
-            {
-                string[] arrParaName = new string[] { "@Id" };
-                object[] arrParaValue = new object[] { _idSuppiler };
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_DeleteVPP_SUPPLIER", arrParaName, arrParaValue);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                //TODO: Ghi log cho nay.
-                return false;
-            }
+            return dt;
         }
     }
 }
