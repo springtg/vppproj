@@ -15,5 +15,8 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             InitializeComponent();
         }
+
+
+
     }
 }
