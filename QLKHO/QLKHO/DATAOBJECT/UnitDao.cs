@@ -7,10 +7,10 @@ using System.Data;
 
 namespace QLKHO.DATAOBJECT
 {
-    class CatalogDao
+    class UnitDao
     {
         public ConfigItem confItem;
-        public CatalogDao(ConfigItem _conf)
+        public UnitDao(ConfigItem _conf)
         {
             this.confItem = _conf;
         }
@@ -20,7 +20,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGsAll");
+                dt = _sql.GetDataByStoredProcedure("USP_SEL_UNIT");
 
             }
             catch (Exception ex)
@@ -29,39 +29,65 @@ namespace QLKHO.DATAOBJECT
             }
             return dt;
         }
-
-        public DataTable GetListCombo()
+        public int Insert(object[] arrValue)
         {
-            DataTable dt = null;
-            try
-            {
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGForCombo");
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return dt;
-        }
-        public DataTable GetList(object[] arrValue)
-        {
-            DataTable dt = null;
+            int ma = 0;
             try
             {
                 string[] arrParaName = new string[] {
-                    "@Id"
-                };
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGbyId", arrParaName, arrValue);
+                    "@Name",
+                    "@Crt_Dt",
+                    "@Crt_By",
+                    "@Remark"};
 
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                ma = _sql.ExecuteInsert("USP_INS_UNIT", arrNames: arrParaName, arrValues: arrValue);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return dt;
+            return ma;
         }
+
+        public bool Update(object[] arrValue)
+        {
+            try
+            {
+                string[] arrParaName = new string[] {
+                    "@Id",
+                    "@Name",
+                    "@Crt_Dt",
+                    "@Crt_By",
+                    "@Remark"};
+
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                _sql.ExecuteNonQuery("USP_UPD_UNIT", arrNames: arrParaName, arrValues: arrValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return true;
+
+            }
+        }
+
+        public bool Delete(int _idSuppiler)
+        {
+            try
+            {
+                string[] arrParaName = new string[] { "@Id" };
+                object[] arrParaValue = new object[] { _idSuppiler };
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                _sql.ExecuteNonQuery("USP_DEL_UNIT", arrParaName, arrParaValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Ghi log cho nay.
+                return false;
+            }
+        }
+     
     }
 }
