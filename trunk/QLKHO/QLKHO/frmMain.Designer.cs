@@ -95,10 +95,12 @@
             this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemComboBox2
@@ -179,7 +181,7 @@
             this.bar4tab2btn2,
             this.bar1tab2btn3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 45;
+            this.ribbon.MaxItemId = 56;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.bar1,
@@ -195,35 +197,35 @@
             // 
             this.bar4tab1btn1.Caption = "Báo cáo nhập";
             this.bar4tab1btn1.Id = 0;
-            this.bar4tab1btn1.LargeGlyph = global::QLKHO.Properties.Resources.report1;
+            this.bar4tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab1btn1.LargeGlyph")));
             this.bar4tab1btn1.Name = "bar4tab1btn1";
             // 
             // bar4tab1btn2
             // 
             this.bar4tab1btn2.Caption = "Báo cáo xuât";
             this.bar4tab1btn2.Id = 1;
-            this.bar4tab1btn2.LargeGlyph = global::QLKHO.Properties.Resources.lists;
+            this.bar4tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab1btn2.LargeGlyph")));
             this.bar4tab1btn2.Name = "bar4tab1btn2";
             // 
             // bar1tab1btn1
             // 
             this.bar1tab1btn1.Caption = "Đăng nhập";
             this.bar1tab1btn1.Id = 8;
-            this.bar1tab1btn1.LargeGlyph = global::QLKHO.Properties.Resources.Login150;
+            this.bar1tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn1.LargeGlyph")));
             this.bar1tab1btn1.Name = "bar1tab1btn1";
             // 
             // bar1tab1bt2
             // 
             this.bar1tab1bt2.Caption = "Đăng xuất";
             this.bar1tab1bt2.Id = 9;
-            this.bar1tab1bt2.LargeGlyph = global::QLKHO.Properties.Resources.AutoLock150;
+            this.bar1tab1bt2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1bt2.LargeGlyph")));
             this.bar1tab1bt2.Name = "bar1tab1bt2";
             // 
             // bar1tab2btn1
             // 
             this.bar1tab2btn1.Caption = "Cấu hình";
             this.bar1tab2btn1.Id = 10;
-            this.bar1tab2btn1.LargeGlyph = global::QLKHO.Properties.Resources.Config;
+            this.bar1tab2btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab2btn1.LargeGlyph")));
             this.bar1tab2btn1.Name = "bar1tab2btn1";
             this.bar1tab2btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab2btn1_ItemClick);
             // 
@@ -231,7 +233,7 @@
             // 
             this.bar1tab1btn2.Caption = "Sao lưu && Phục hồi";
             this.bar1tab1btn2.Id = 11;
-            this.bar1tab1btn2.LargeGlyph = global::QLKHO.Properties.Resources.ark2;
+            this.bar1tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn2.LargeGlyph")));
             this.bar1tab1btn2.Name = "bar1tab1btn2";
             // 
             // barButtonItem7
@@ -259,35 +261,35 @@
             // 
             this.bar1tab1btn3.Caption = "Thông tin";
             this.bar1tab1btn3.Id = 20;
-            this.bar1tab1btn3.LargeGlyph = global::QLKHO.Properties.Resources.kdmconfig;
+            this.bar1tab1btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn3.LargeGlyph")));
             this.bar1tab1btn3.Name = "bar1tab1btn3";
             // 
             // bar1tab1btn4
             // 
             this.bar1tab1btn4.Caption = "Phân Quyền";
             this.bar1tab1btn4.Id = 21;
-            this.bar1tab1btn4.LargeGlyph = global::QLKHO.Properties.Resources.UserControl;
+            this.bar1tab1btn4.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn4.LargeGlyph")));
             this.bar1tab1btn4.Name = "bar1tab1btn4";
             // 
             // bar3tab1btn1
             // 
             this.bar3tab1btn1.Caption = "Nhập kho";
             this.bar3tab1btn1.Id = 22;
-            this.bar3tab1btn1.LargeGlyph = global::QLKHO.Properties.Resources.ark2;
+            this.bar3tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar3tab1btn1.LargeGlyph")));
             this.bar3tab1btn1.Name = "bar3tab1btn1";
             // 
             // bar3tab1btn2
             // 
             this.bar3tab1btn2.Caption = "Xuất kho";
             this.bar3tab1btn2.Id = 23;
-            this.bar3tab1btn2.LargeGlyph = global::QLKHO.Properties.Resources.XuatKho;
+            this.bar3tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar3tab1btn2.LargeGlyph")));
             this.bar3tab1btn2.Name = "bar3tab1btn2";
             // 
             // bar2tab1btn1
             // 
             this.bar2tab1btn1.Caption = "Nhà cung cấp";
             this.bar2tab1btn1.Id = 24;
-            this.bar2tab1btn1.LargeGlyph = global::QLKHO.Properties.Resources.NCC;
+            this.bar2tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab1btn1.LargeGlyph")));
             this.bar2tab1btn1.Name = "bar2tab1btn1";
             this.bar2tab1btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab1btn1_ItemClick);
             // 
@@ -295,7 +297,7 @@
             // 
             this.bar2tab1btn2.Caption = "Khách hàng";
             this.bar2tab1btn2.Id = 25;
-            this.bar2tab1btn2.LargeGlyph = global::QLKHO.Properties.Resources.Login_Manager;
+            this.bar2tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab1btn2.LargeGlyph")));
             this.bar2tab1btn2.Name = "bar2tab1btn2";
             this.bar2tab1btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab1btn2_ItemClick);
             // 
@@ -303,7 +305,7 @@
             // 
             this.bar2tab2btn1.Caption = "Danh mục";
             this.bar2tab2btn1.Id = 27;
-            this.bar2tab2btn1.LargeGlyph = global::QLKHO.Properties.Resources.kthememgr;
+            this.bar2tab2btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab2btn1.LargeGlyph")));
             this.bar2tab2btn1.Name = "bar2tab2btn1";
             this.bar2tab2btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab2btn1_ItemClick);
             // 
@@ -311,7 +313,7 @@
             // 
             this.bar2tab2btn2.Caption = "Nhóm danh mục";
             this.bar2tab2btn2.Id = 28;
-            this.bar2tab2btn2.LargeGlyph = global::QLKHO.Properties.Resources.folder_tar;
+            this.bar2tab2btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab2btn2.LargeGlyph")));
             this.bar2tab2btn2.Name = "bar2tab2btn2";
             this.bar2tab2btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab2btn2_ItemClick);
             // 
@@ -319,7 +321,7 @@
             // 
             this.bar2tab2btn3.Caption = "Hàng hóa";
             this.bar2tab2btn3.Id = 29;
-            this.bar2tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.warehause;
+            this.bar2tab2btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab2btn3.LargeGlyph")));
             this.bar2tab2btn3.Name = "bar2tab2btn3";
             this.bar2tab2btn3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab2btn3_ItemClick);
             // 
@@ -327,7 +329,7 @@
             // 
             this.bar2tab2btn4.Caption = "Đơn vị";
             this.bar2tab2btn4.Id = 30;
-            this.bar2tab2btn4.LargeGlyph = global::QLKHO.Properties.Resources.spellcheck;
+            this.bar2tab2btn4.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab2btn4.LargeGlyph")));
             this.bar2tab2btn4.Name = "bar2tab2btn4";
             this.bar2tab2btn4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab2btn4_ItemClick);
             // 
@@ -335,7 +337,7 @@
             // 
             this.bar2tab3btn1.Caption = "Phòng ban";
             this.bar2tab3btn1.Id = 31;
-            this.bar2tab3btn1.LargeGlyph = global::QLKHO.Properties.Resources.PBan;
+            this.bar2tab3btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab3btn1.LargeGlyph")));
             this.bar2tab3btn1.Name = "bar2tab3btn1";
             this.bar2tab3btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab3btn1_ItemClick);
             // 
@@ -343,14 +345,14 @@
             // 
             this.bar2tab3btn2.Caption = "Nhân viên";
             this.bar2tab3btn2.Id = 32;
-            this.bar2tab3btn2.LargeGlyph = global::QLKHO.Properties.Resources.kdmconfig;
+            this.bar2tab3btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab3btn2.LargeGlyph")));
             this.bar2tab3btn2.Name = "bar2tab3btn2";
             // 
             // bar3tab1btn3
             // 
             this.bar3tab1btn3.Caption = "Chuyển kho";
             this.bar3tab1btn3.Id = 33;
-            this.bar3tab1btn3.LargeGlyph = global::QLKHO.Properties.Resources.ChuyenKho;
+            this.bar3tab1btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar3tab1btn3.LargeGlyph")));
             this.bar3tab1btn3.Name = "bar3tab1btn3";
             // 
             // bar3tab1btn4
@@ -382,28 +384,28 @@
             // 
             this.bar4tab1btn3.Caption = "Báo cáo tồn";
             this.bar4tab1btn3.Id = 38;
-            this.bar4tab1btn3.LargeGlyph = global::QLKHO.Properties.Resources.kexi;
+            this.bar4tab1btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab1btn3.LargeGlyph")));
             this.bar4tab1btn3.Name = "bar4tab1btn3";
             // 
             // bar4tab2btn1
             // 
             this.bar4tab2btn1.Caption = "Báo cáo tồn theo thời gian";
             this.bar4tab2btn1.Id = 39;
-            this.bar4tab2btn1.LargeGlyph = global::QLKHO.Properties.Resources.lassists;
+            this.bar4tab2btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab2btn1.LargeGlyph")));
             this.bar4tab2btn1.Name = "bar4tab2btn1";
             // 
             // bar4tab2btn2
             // 
             this.bar4tab2btn2.Caption = "Báo cáo hàng hóa theo phòng ban";
             this.bar4tab2btn2.Id = 40;
-            this.bar4tab2btn2.LargeGlyph = global::QLKHO.Properties.Resources.lists;
+            this.bar4tab2btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab2btn2.LargeGlyph")));
             this.bar4tab2btn2.Name = "bar4tab2btn2";
             // 
             // bar1tab2btn3
             // 
             this.bar1tab2btn3.Caption = "Xuất tổng hợp";
             this.bar1tab2btn3.Id = 44;
-            this.bar1tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.report1;
+            this.bar1tab2btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab2btn3.LargeGlyph")));
             this.bar1tab2btn3.Name = "bar1tab2btn3";
             // 
             // bar1
@@ -592,67 +594,67 @@
             // navBarItem2
             // 
             this.navBarItem2.Caption = "Xuất kho";
-            this.navBarItem2.LargeImage = global::QLKHO.Properties.Resources.XuatKho;
+            this.navBarItem2.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.LargeImage")));
             this.navBarItem2.Name = "navBarItem2";
             // 
             // navBarItem3
             // 
             this.navBarItem3.Caption = "Báo cáo tồn";
-            this.navBarItem3.LargeImage = global::QLKHO.Properties.Resources.lists;
+            this.navBarItem3.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.LargeImage")));
             this.navBarItem3.Name = "navBarItem3";
             // 
             // navBarItem4
             // 
             this.navBarItem4.Caption = "Báo cáo VVP";
-            this.navBarItem4.LargeImage = global::QLKHO.Properties.Resources.report1;
+            this.navBarItem4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.LargeImage")));
             this.navBarItem4.Name = "navBarItem4";
             // 
             // navBarItem5
             // 
             this.navBarItem5.Caption = "Chuyển kho";
-            this.navBarItem5.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
+            this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
             // 
             // navBarItem6
             // 
             this.navBarItem6.Caption = "Báo cáo Phòng Ban";
-            this.navBarItem6.LargeImage = global::QLKHO.Properties.Resources.reminders;
+            this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
             this.navBarItem6.Name = "navBarItem6";
             // 
             // navBarItem7
             // 
             this.navBarItem7.Caption = "Nhập kho";
-            this.navBarItem7.LargeImage = global::QLKHO.Properties.Resources.NhapKho;
+            this.navBarItem7.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.LargeImage")));
             this.navBarItem7.Name = "navBarItem7";
             // 
             // navBarItem8
             // 
             this.navBarItem8.Caption = "Xuất kho";
-            this.navBarItem8.LargeImage = global::QLKHO.Properties.Resources.XuatKho;
+            this.navBarItem8.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.LargeImage")));
             this.navBarItem8.Name = "navBarItem8";
             // 
             // navBarItem9
             // 
             this.navBarItem9.Caption = "Chuyển kho";
-            this.navBarItem9.LargeImage = global::QLKHO.Properties.Resources.ChuyenKho;
+            this.navBarItem9.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem9.LargeImage")));
             this.navBarItem9.Name = "navBarItem9";
             // 
             // navBarItem10
             // 
             this.navBarItem10.Caption = "navBarItem10";
-            this.navBarItem10.LargeImage = global::QLKHO.Properties.Resources.kexi;
+            this.navBarItem10.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem10.LargeImage")));
             this.navBarItem10.Name = "navBarItem10";
             // 
             // navBarItem11
             // 
             this.navBarItem11.Caption = "navBarItem11";
-            this.navBarItem11.LargeImage = global::QLKHO.Properties.Resources.lists;
+            this.navBarItem11.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem11.LargeImage")));
             this.navBarItem11.Name = "navBarItem11";
             // 
             // navBarItem12
             // 
             this.navBarItem12.Caption = "navBarItem12";
-            this.navBarItem12.LargeImage = global::QLKHO.Properties.Resources.lassists;
+            this.navBarItem12.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem12.LargeImage")));
             this.navBarItem12.Name = "navBarItem12";
             // 
             // navBarItem13
@@ -664,8 +666,13 @@
             // 
             this.bar4tab2btn3.Caption = "Tổng hợp xuất";
             this.bar4tab2btn3.Id = 41;
-            this.bar4tab2btn3.LargeGlyph = global::QLKHO.Properties.Resources.reminders;
+            this.bar4tab2btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab2btn3.LargeGlyph")));
             this.bar4tab2btn3.Name = "bar4tab2btn3";
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
             // 
             // frmMain
             // 
@@ -682,11 +689,11 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý kho";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -758,5 +765,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem7;
         private DevExpress.XtraNavBar.NavBarItem navBarItem8;
         private DevExpress.XtraNavBar.NavBarItem navBarItem9;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
     }
 }
