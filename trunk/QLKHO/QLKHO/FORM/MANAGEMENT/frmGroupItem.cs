@@ -70,8 +70,6 @@ namespace QLKHO.FORM.MANAGEMENT
             }
 
         }
-
-
         private bool Update(DataRow row)
         {
             //"@Id",
@@ -131,7 +129,6 @@ namespace QLKHO.FORM.MANAGEMENT
                 throw;
             }
         }
-
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)System.Windows.Forms.Keys.Delete))
@@ -151,7 +148,6 @@ namespace QLKHO.FORM.MANAGEMENT
                 }
             }
         }
-
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
