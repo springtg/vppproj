@@ -87,13 +87,6 @@
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
@@ -556,14 +549,7 @@
             this.navBarItem3,
             this.navBarItem4,
             this.navBarItem5,
-            this.navBarItem6,
-            this.navBarItem7,
-            this.navBarItem8,
-            this.navBarItem9,
-            this.navBarItem10,
-            this.navBarItem11,
-            this.navBarItem12,
-            this.navBarItem13});
+            this.navBarItem6});
             this.navBarControl1.Location = new System.Drawing.Point(0, 143);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
@@ -577,12 +563,20 @@
             this.navBarGroup2.Caption = "Báo cáo";
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
+            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Quản lý kho";
             this.navBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
+            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarItem1
@@ -620,47 +614,6 @@
             this.navBarItem6.Caption = "Báo cáo Phòng Ban";
             this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
             this.navBarItem6.Name = "navBarItem6";
-            // 
-            // navBarItem7
-            // 
-            this.navBarItem7.Caption = "Nhập kho";
-            this.navBarItem7.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.LargeImage")));
-            this.navBarItem7.Name = "navBarItem7";
-            // 
-            // navBarItem8
-            // 
-            this.navBarItem8.Caption = "Xuất kho";
-            this.navBarItem8.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.LargeImage")));
-            this.navBarItem8.Name = "navBarItem8";
-            // 
-            // navBarItem9
-            // 
-            this.navBarItem9.Caption = "Chuyển kho";
-            this.navBarItem9.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem9.LargeImage")));
-            this.navBarItem9.Name = "navBarItem9";
-            // 
-            // navBarItem10
-            // 
-            this.navBarItem10.Caption = "navBarItem10";
-            this.navBarItem10.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem10.LargeImage")));
-            this.navBarItem10.Name = "navBarItem10";
-            // 
-            // navBarItem11
-            // 
-            this.navBarItem11.Caption = "navBarItem11";
-            this.navBarItem11.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem11.LargeImage")));
-            this.navBarItem11.Name = "navBarItem11";
-            // 
-            // navBarItem12
-            // 
-            this.navBarItem12.Caption = "navBarItem12";
-            this.navBarItem12.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem12.LargeImage")));
-            this.navBarItem12.Name = "navBarItem12";
-            // 
-            // navBarItem13
-            // 
-            this.navBarItem13.Caption = "navBarItem13";
-            this.navBarItem13.Name = "navBarItem13";
             // 
             // bar4tab2btn3
             // 
@@ -758,13 +711,6 @@
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn2;
         private DevExpress.XtraBars.BarButtonItem bar1tab2btn3;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn3;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem10;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem11;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem12;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem13;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem7;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem8;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem9;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
     }
 }
