@@ -20,7 +20,6 @@ namespace QLKHO.DATAOBJECT
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
                 dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_DEPARTMENT");
-                
             }
             catch (Exception ex)
             {
@@ -68,7 +67,7 @@ namespace QLKHO.DATAOBJECT
 	                "@Phone"};
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_UpdateVPP_SUPPLIER", arrNames: arrParaName, arrValues: arrValue);
+                _sql.ExecuteNonQuery("usp_UpdateVPP_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
                 return true;
             }
             catch (Exception ex)
