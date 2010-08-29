@@ -156,5 +156,25 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData.Equals(System.Windows.Forms.Keys.Delete))
+            {
+                try
+                {
+                    int[] _IndexRowSelected = gridView1.GetSelectedRows();
+                    int _CurIndexRow = _IndexRowSelected[0];
+                    DataTable tmp = (DataTable)grdItem.DataSource;
+                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                    LoadGird();
+                }
+                catch (Exception ex)
+                {
+                    //TODO: Ghi log tai day nhe
+                    throw ex;
+                }
+            }
+        }
+
     }
 }
