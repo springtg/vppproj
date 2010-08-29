@@ -157,7 +157,11 @@
             this.gridColumn6,
             this.gridColumn7});
             this.gridView1.GridControl = this.grdItem;
+            this.gridView1.GroupPanelText = "Kéo và thả cột vào đây để nhóm hiển thị";
             this.gridView1.Name = "gridView1";
+            this.gridView1.NewItemRowText = "Click vào đây để thêm dòng mới";
+            this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
@@ -197,6 +201,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
             this.lookUpGroup.DisplayMember = "Name";
             this.lookUpGroup.Name = "lookUpGroup";
+            this.lookUpGroup.NullText = "---Chọn giá trị---";
             this.lookUpGroup.ValueMember = "Id";
             // 
             // gridColumn4
@@ -218,6 +223,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
             this.lookUpUnit.DisplayMember = "Name";
             this.lookUpUnit.Name = "lookUpUnit";
+            this.lookUpUnit.NullText = "---Chọn giá trị---";
             this.lookUpUnit.ValueMember = "Id";
             // 
             // gridColumn5
@@ -239,6 +245,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
             this.lookUpSupplier.DisplayMember = "Name";
             this.lookUpSupplier.Name = "lookUpSupplier";
+            this.lookUpSupplier.NullText = "---Chọn giá trị---";
             this.lookUpSupplier.ValueMember = "Id";
             // 
             // gridColumn6
@@ -295,13 +302,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpGroup;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpUnit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpSupplier;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpGroup;
 
     }
 }

@@ -30,8 +30,7 @@ namespace QLKHO.FORM.MANAGEMENT
         void frmItem_Load(object sender, EventArgs e)
         {
             LoadGird();
-           
-        }
+                }
 
         public void LoadGird()
         {
