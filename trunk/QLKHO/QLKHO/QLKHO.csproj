@@ -82,6 +82,11 @@
   <ItemGroup>
     <Compile Include="BUSOBJECT\Supplier.cs" />
     <Compile Include="BUSOBJECT\User.cs" />
+    <Compile Include="DATAOBJECT\CatalogDao.cs" />
+    <Compile Include="DATAOBJECT\UnitDao.cs" />
+    <Compile Include="DATAOBJECT\ItemDao.cs" />
+    <Compile Include="DATAOBJECT\GroupItemDao.cs" />
+    <Compile Include="DATAOBJECT\DepartmentsDao.cs" />
     <Compile Include="DATAOBJECT\SupplierDao.cs" />
     <Compile Include="DATAOBJECT\UserDao.cs" />
     <Compile Include="FLASHSCREEN.cs">
@@ -101,6 +106,18 @@
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmDonVi.Designer.cs">
       <DependentUpon>frmDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmGroupItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmGroupItem.Designer.cs">
+      <DependentUpon>frmGroupItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmItem.Designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmNCC.cs">
       <SubType>Form</SubType>
@@ -142,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmDonVi.resx">
       <DependentUpon>frmDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmGroupItem.resx">
+      <DependentUpon>frmGroupItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmNCC.resx">
       <DependentUpon>frmNCC.cs</DependentUpon>
@@ -210,6 +233,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\NoImg.png" />
+    <None Include="Resources\PBan.png" />
     <None Include="Resources\new.png" />
     <None Include="Resources\spellcheck.png" />
     <None Include="Resources\warehause.png" />
