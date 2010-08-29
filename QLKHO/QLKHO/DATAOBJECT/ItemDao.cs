@@ -37,7 +37,7 @@ namespace QLKHO.DATAOBJECT
 
                 string[] arrParaName = new string[] {
                     "@Name",
-                   " @Id_Group_Pk",
+                   "@Id_Group_Pk",
 	                "@Crt_Dt",
 	                "@Crt_By",
 	                "@Is_Del",
