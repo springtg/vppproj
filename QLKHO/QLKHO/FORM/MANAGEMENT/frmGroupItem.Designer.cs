@@ -149,9 +149,10 @@
             this.gridColumn3,
             this.gridColumn4});
             this.gridView1.GridControl = this.grdGroup;
+            this.gridView1.GroupPanelText = "Kéo và thả cột vào đây để nhóm hiển thị";
             this.gridView1.Name = "gridView1";
+            this.gridView1.NewItemRowText = "Click vào đây để thêm dòng mới";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             // 
@@ -185,6 +186,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NameCat", "Tên")});
             this.repositoryItemLookUpEdit1.DisplayMember = "NameCat";
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.repositoryItemLookUpEdit1.NullText = "---Chọn giá trị---";
             this.repositoryItemLookUpEdit1.ValueMember = "Id";
             // 
             // gridColumn3
