@@ -193,6 +193,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap NoImg {
+            get {
+                object obj = ResourceManager.GetObject("NoImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap PBan {
             get {
                 object obj = ResourceManager.GetObject("PBan", resourceCulture);
