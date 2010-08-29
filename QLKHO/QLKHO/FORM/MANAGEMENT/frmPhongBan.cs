@@ -64,7 +64,6 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-
             try
             {
 
