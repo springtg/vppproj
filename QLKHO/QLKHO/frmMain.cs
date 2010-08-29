@@ -58,13 +58,9 @@ namespace QLKHO
             frmThongtinUser frm = new frmThongtinUser();
             frm.MdiParent = this;
             frm.Show();
-
+           
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
-        }
         #region "Quản lý đối tượng"
         private void bar2tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -92,17 +88,13 @@ namespace QLKHO
         #region"Quản lý hàng hóa"
         private void bar2tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-             
-
-
             frmNCC frm = new frmNCC(_ConfigItem);
             frm.MdiParent = this;
             frm.Show();
         }
         private void bar2tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-            frmNCC frm = new frmNCC(_ConfigItem);
+            frmGroupItem frm = new frmGroupItem(_ConfigItem);
             frm.MdiParent = this;
             frm.Show();
         }
@@ -110,7 +102,7 @@ namespace QLKHO
         private void bar2tab2btn3_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            frmNCC frm = new frmNCC(_ConfigItem);
+            frmItem frm = new frmItem(_ConfigItem);
             frm.MdiParent = this;
             frm.Show();
         }
