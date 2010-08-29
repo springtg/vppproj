@@ -177,6 +177,9 @@
             this.Id_Dis.Caption = "Mã";
             this.Id_Dis.FieldName = "Id_Dis";
             this.Id_Dis.Name = "Id_Dis";
+            this.Id_Dis.OptionsColumn.AllowEdit = false;
+            this.Id_Dis.OptionsColumn.AllowFocus = false;
+            this.Id_Dis.OptionsColumn.ReadOnly = true;
             this.Id_Dis.Visible = true;
             this.Id_Dis.VisibleIndex = 0;
             // 
@@ -201,6 +204,9 @@
             this.Crt_By.Caption = "Tạo bởi";
             this.Crt_By.FieldName = "Crt_By";
             this.Crt_By.Name = "Crt_By";
+            this.Crt_By.OptionsColumn.AllowEdit = false;
+            this.Crt_By.OptionsColumn.AllowFocus = false;
+            this.Crt_By.OptionsColumn.ReadOnly = true;
             this.Crt_By.Visible = true;
             this.Crt_By.VisibleIndex = 3;
             // 
@@ -237,6 +243,9 @@
             this.Is_Del.Caption = "Đã xóa";
             this.Is_Del.FieldName = "Is_Del";
             this.Is_Del.Name = "Is_Del";
+            this.Is_Del.OptionsColumn.AllowEdit = false;
+            this.Is_Del.OptionsColumn.AllowFocus = false;
+            this.Is_Del.OptionsColumn.ReadOnly = true;
             this.Is_Del.Visible = true;
             this.Is_Del.VisibleIndex = 6;
             // 
