@@ -160,6 +160,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // gridColumn1
             // 
@@ -202,6 +203,7 @@
             // 
             this.gridColumn4.Caption = "Đơn vị tính";
             this.gridColumn4.ColumnEdit = this.lookUpUnit;
+            this.gridColumn4.FieldName = "Id_Unit_Pk";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
