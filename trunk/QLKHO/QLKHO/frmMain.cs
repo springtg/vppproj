@@ -88,9 +88,10 @@ namespace QLKHO
         #region"Quản lý hàng hóa"
         private void bar2tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNCC frm = new frmNCC(_ConfigItem);
+            frmCatalog frm = new frmCatalog(_ConfigItem);
             frm.MdiParent = this;
             frm.Show();
+            
         }
         private void bar2tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -133,7 +134,16 @@ namespace QLKHO
             }
         }
         #endregion
-
+        #region "Hệ thống"
+        private void bar1tab1bt2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+        private void bar1tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
 
 
     }

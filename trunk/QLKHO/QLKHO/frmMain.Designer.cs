@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -80,20 +82,18 @@
             this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemComboBox2
@@ -141,6 +141,11 @@
             // 
             // ribbon
             // 
+            toolTipTitleItem1.Appearance.Image = global::QLKHO.Properties.Resources.Add;
+            toolTipTitleItem1.Appearance.Options.UseImage = true;
+            toolTipTitleItem1.Image = global::QLKHO.Properties.Resources.Add;
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            this.ribbon.ApplicationButtonSuperTip = superToolTip1;
             this.ribbon.ApplicationButtonText = null;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bar4tab1btn1,
@@ -183,8 +188,11 @@
             this.ribbonPage4});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbon.SelectedPage = this.ribbonPage2;
+            this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
+            this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // bar4tab1btn1
             // 
@@ -206,6 +214,7 @@
             this.bar1tab1btn1.Id = 8;
             this.bar1tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn1.LargeGlyph")));
             this.bar1tab1btn1.Name = "bar1tab1btn1";
+            this.bar1tab1btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab1btn1_ItemClick);
             // 
             // bar1tab1bt2
             // 
@@ -213,6 +222,7 @@
             this.bar1tab1bt2.Id = 9;
             this.bar1tab1bt2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1bt2.LargeGlyph")));
             this.bar1tab1bt2.Name = "bar1tab1bt2";
+            this.bar1tab1bt2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab1bt2_ItemClick);
             // 
             // bar1tab2btn1
             // 
@@ -569,6 +579,24 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Caption = "Báo cáo VVP";
+            this.navBarItem4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.LargeImage")));
+            this.navBarItem4.Name = "navBarItem4";
+            // 
+            // navBarItem6
+            // 
+            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
+            this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
+            this.navBarItem6.Name = "navBarItem6";
+            // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "Báo cáo tồn";
+            this.navBarItem3.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.LargeImage")));
+            this.navBarItem3.Name = "navBarItem3";
+            // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Quản lý kho";
@@ -591,29 +619,11 @@
             this.navBarItem2.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.LargeImage")));
             this.navBarItem2.Name = "navBarItem2";
             // 
-            // navBarItem3
-            // 
-            this.navBarItem3.Caption = "Báo cáo tồn";
-            this.navBarItem3.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.LargeImage")));
-            this.navBarItem3.Name = "navBarItem3";
-            // 
-            // navBarItem4
-            // 
-            this.navBarItem4.Caption = "Báo cáo VVP";
-            this.navBarItem4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.LargeImage")));
-            this.navBarItem4.Name = "navBarItem4";
-            // 
             // navBarItem5
             // 
             this.navBarItem5.Caption = "Chuyển kho";
             this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
-            // 
-            // navBarItem6
-            // 
-            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
-            this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
-            this.navBarItem6.Name = "navBarItem6";
             // 
             // bar4tab2btn3
             // 
@@ -621,11 +631,6 @@
             this.bar4tab2btn3.Id = 41;
             this.bar4tab2btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab2btn3.LargeGlyph")));
             this.bar4tab2btn3.Name = "bar4tab2btn3";
-            // 
-            // popupMenu1
-            // 
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbon;
             // 
             // frmMain
             // 
@@ -646,7 +651,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -711,6 +715,5 @@
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn2;
         private DevExpress.XtraBars.BarButtonItem bar1tab2btn3;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn3;
-        private DevExpress.XtraBars.PopupMenu popupMenu1;
     }
 }
