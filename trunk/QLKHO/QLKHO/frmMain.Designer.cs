@@ -350,6 +350,7 @@
             this.bar2tab3btn2.Id = 32;
             this.bar2tab3btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar2tab3btn2.LargeGlyph")));
             this.bar2tab3btn2.Name = "bar2tab3btn2";
+            this.bar2tab3btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2tab3btn2_ItemClick);
             // 
             // bar3tab1btn3
             // 

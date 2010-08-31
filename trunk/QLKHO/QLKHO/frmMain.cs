@@ -145,6 +145,20 @@ namespace QLKHO
         }
         #endregion
 
+        private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!IsExist("frmPhongBan"))
+            {
+                frmUser frm = new frmUser(_ConfigItem);
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                //TODO: active page suo mo roi
+            }
+        }
+
 
     }
 }
