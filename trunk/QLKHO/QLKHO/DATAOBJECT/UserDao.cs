@@ -21,7 +21,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                DataTable dt = _sql.GetDataByStoredProcedure("SP_SEL_USER");
+                DataTable dt = _sql.GetDataByStoredProcedure("USP_SEL_USER");
                 lUser = COREBASE.COMMAND.SQL.CMapping.MapList<User>(dt);
             }
             catch (Exception ex)
@@ -29,6 +29,21 @@ namespace QLKHO.DATAOBJECT
 
             }
             return lUser;
+        }
+        public DataTable GetList()
+        {
+            DataTable dt = null;
+            try
+            {
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                dt = _sql.GetDataByStoredProcedure("USP_SEL_USER");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
         }
     }
 }
