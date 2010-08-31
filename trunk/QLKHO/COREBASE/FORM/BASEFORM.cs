@@ -14,6 +14,13 @@ namespace COREBASE.FORM
         public const string EVENT_LOAD_FORM = "EVENTLOADFORM";
         public const string EVENT_CLOSE_FORM = "EVENTCLOSEFORM";
         public const string EVENT_CLOSE_APP = "EVENTCLOSEAPP";
+        public const string EVENT_FORM_LOAD = "LOAD";
+        public const string EVENT_FORM_NEW = "NEW";
+        public const string EVENT_FORM_UPDATE = "UPDATE";
+        public const string EVENT_FORM_DELETE = "DELETE";
+        public const string EVENT_FORM_CANCEL = "CANCEL";
+        public const string EVENT_FORM_NONE = "NONE";
+
         protected object _rtnValue;
 
         protected COMMAND.SQL.AccessSQL _providerSQL;
@@ -338,11 +345,7 @@ namespace COREBASE.FORM
         /// <returns></returns>
         protected bool isNewRow(DataRow dtRow)
         {
-            if (dtRow.RowState == DataRowState.Added)
-            {
-                return true;
-            }
-            return false;
+            return COMMAND.CDataTable.isNewRow(dtRow);
         }
         /// <summary>
         /// Kiem tra 1 dong la da bi xoa
@@ -351,11 +354,7 @@ namespace COREBASE.FORM
         /// <returns></returns>
         protected bool isDeletedRow(DataRow dtRow)
         {
-            if (dtRow.RowState == DataRowState.Deleted)
-            {
-                return true;
-            }
-            return false;
+            return COMMAND.CDataTable.isDeletedRow(dtRow);
         }
         /// <summary>
         /// Kiem tra 1 dong la da sua doi du lieu
@@ -364,11 +363,7 @@ namespace COREBASE.FORM
         /// <returns></returns>
         protected bool isModifedRow(DataRow dtRow)
         {
-            if (dtRow.RowState == DataRowState.Modified)
-            {
-                return true;
-            }
-            return false;
+            return COMMAND.CDataTable.isModifedRow(dtRow);
         }
         /// <summary>
         /// Lay gia tri truoc do cua row
@@ -379,14 +374,7 @@ namespace COREBASE.FORM
         /// <remarks></remarks>
         protected object GetOriginalItemData(DataRow dtrRow, string sFieldID)
         {
-            if (isNewRow(dtrRow))
-            {
-                return dtrRow[sFieldID];
-            }
-            else
-            {
-                return dtrRow[sFieldID, DataRowVersion.Original];
-            }
+            return COMMAND.CDataTable.GetOriginalItemData(dtrRow, sFieldID);
         }
 
         #endregion

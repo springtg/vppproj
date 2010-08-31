@@ -55,6 +55,25 @@ namespace COREBASE.COMMAND.SQL
         }
 
         /// <summary>
+        /// Thiet lap ket noi
+        /// </summary>
+        /// 
+        public void Connect(SqlConnection cn, Config.ConfigItem config)
+        {
+            try
+            {
+                if (cn == null) cn = new SqlConnection(config.StrConnection);
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+                cn = new SqlConnection(config.StrConnection);
+                cn.Open();
+            }
+            catch
+            {
+                cn.Dispose();
+            }
+        }
+        /// <summary>
         /// Kiem tra trang thai cua doi tuong Connection co ket noi hay khong?
         /// </summary>
         public bool CheckConnect()
@@ -101,6 +120,17 @@ namespace COREBASE.COMMAND.SQL
         {
             if (_sqlConnection.State != ConnectionState.Closed)
                 _sqlConnection.Close();
+        }
+
+        /// <summary>
+        /// Ngat ket noi
+        /// </summary>
+        /// 
+        public void Disconnect(SqlConnection cn)
+        {
+            if (cn == null) return;
+            if (cn.State != ConnectionState.Closed)
+                cn.Close();
         }
 
         /// <summary>
@@ -292,6 +322,35 @@ namespace COREBASE.COMMAND.SQL
                 Disconnect();
             }
         }
+
+        /// <summary>
+        /// Execute a procedure to update, delete, insert database( no param output)
+        /// </summary>
+        /// <param name="sProcedureName">Name of stored procedure</param>
+        /// <param name="arrNames">Array of parameter's name</param>
+        /// <param name="arrValues">Array of parameter's value</param>
+        public int ExecuteNonQuery(SqlConnection cn,string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            try
+            {
+                _sqlCommand = new SqlCommand(sProcedureName, cn);
+                _sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    _sqlCommand.Parameters.Add(par);
+                }
+
+                return _sqlCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Execute a procedure to update, delete, insert database( no param output)
         /// </summary>
@@ -355,6 +414,61 @@ namespace COREBASE.COMMAND.SQL
             {
                 if (cn.State != ConnectionState.Closed)
                     cn.Close();
+            }
+        }
+       
+        public int ExecuteInsert(string sProcedureName)
+        {
+            SqlConnection cn = new SqlConnection(configSys.StrConnection);
+            try
+            {
+                SqlCommand cm = new SqlCommand(sProcedureName, cn);
+                cm.CommandType = CommandType.StoredProcedure;
+                // If connection is not connected then connect
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
+                SqlParameter Id = new SqlParameter("@ID", SqlDbType.Int, 4);
+                Id.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(Id);
+                cm.ExecuteNonQuery();
+                return (int)Id.Value;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                    cn.Close();
+            }
+        }
+
+        public int ExecuteInsert(SqlConnection cn,string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            try
+            {
+                SqlCommand cm = new SqlCommand(sProcedureName, cn);
+                cm.CommandType = CommandType.StoredProcedure;
+                // If connection is not connected then connect
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
+
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    cm.Parameters.Add(par);
+                }
+                SqlParameter Id = new SqlParameter("@ID", SqlDbType.Int, 4);
+                Id.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(Id);
+                cm.ExecuteNonQuery();
+                return (int)Id.Value;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
             }
         }
 
