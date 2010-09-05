@@ -72,7 +72,7 @@ namespace QLKHO.DATAOBJECT
             }
             catch (Exception ex)
             {
-                return true;
+                throw ex;
 
             }
         }
@@ -91,7 +91,7 @@ namespace QLKHO.DATAOBJECT
             catch (Exception ex)
             {
                 //TODO: Ghi log cho nay.
-                return false;
+                throw ex;
             }
         }
 

@@ -26,7 +26,7 @@ namespace QLKHO.DATAOBJECT
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             return lUser;
         }

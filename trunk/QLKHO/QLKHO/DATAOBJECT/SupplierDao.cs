@@ -125,7 +125,7 @@ namespace QLKHO.DATAOBJECT
             }
             catch (Exception ex)
             {
-                return true;
+                throw ex;
 
             }
         }
