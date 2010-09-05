@@ -78,11 +78,11 @@ namespace QLKHO.DATAOBJECT
             {
                 string[] arrParaName = new string[] {
                     "@Id",
-                        "@Name_Dis",
+                    "@Name_Dis",
                     "@Name",
-                   "@Password",
-	                "@Crt_Dt",
-	                "@Crt_By",
+                    "@Password",
+	                "@Mod_Dt",
+	                "@Mod_By",
 	                "@Is_Del",
 	                "@Remark",
                     "@Phone",
