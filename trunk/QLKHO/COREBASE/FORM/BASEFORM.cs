@@ -646,6 +646,10 @@ namespace COREBASE.FORM
 
         }
 
+        protected DateTime CnvToDateTime(object value)
+        {
+            return COMMAND.Convert.Convert.CnvToDateTime(CnvToString(value), "yyyy/MM/dd");
+        }
         #endregion
 
         #region "Phuong thuc MessageBox"
@@ -979,6 +983,53 @@ namespace COREBASE.FORM
         //        return null;
         //    }
         //}
+
+        #endregion
+
+        #region "Xu ly control"
+        protected object getValue(DevExpress.XtraEditors.ComboBoxEdit cboControl, string strValueMember)
+        {
+            try
+            {
+                DataRow dr = (DataRow)cboControl.SelectedItem;
+                return dr[strValueMember];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected object getValue(DevExpress.XtraEditors.GridLookUpEdit cboControl, string strValueMember)
+        {
+            try
+            {
+                DataRow dr = (DataRow)cboControl.GetSelectedDataRow();
+                return dr[strValueMember];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected object getValue(LookUpEdit lueControl, string strColName)
+        {
+            try
+            {
+                DataRow dr = ((DataRowView)lueControl.GetSelectedDataRow()).Row;
+                return dr[strColName];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected object getSummaryValue()
+        {
+            return null;
+        }
 
         #endregion
     }

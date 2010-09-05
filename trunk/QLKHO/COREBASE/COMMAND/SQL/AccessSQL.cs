@@ -142,6 +142,7 @@ namespace COREBASE.COMMAND.SQL
         public DataTable GetDataByStoredProcedure(string sProcedureName)
         {
             DataTable dt = new DataTable();
+            dt.TableName = "TBL_RESULT";
             Connect();
             try
             {
