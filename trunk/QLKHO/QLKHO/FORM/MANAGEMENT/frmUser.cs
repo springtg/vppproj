@@ -26,41 +26,43 @@ namespace QLKHO.FORM.MANAGEMENT
         void frmUser_Load(object sender, EventArgs e)
         {
             LoadGrid();
-              PrintPreviewRibbonFormEx previewForm = new PrintPreviewRibbonFormEx();
+            PrintPreviewRibbonFormEx previewForm = new PrintPreviewRibbonFormEx();
 
-    // Assign a Printing System to a Preview form.
-    previewForm.PrintingSystem = printingSystem1;
+            // Assign a Printing System to a Preview form.
+            previewForm.PrintingSystem = printingSystem1;
 
-    // Create a simple document.
-    printingSystem1.Begin();
-    printingSystem1.Graph.Modifier = BrickModifier.Detail;
-    printingSystem1.Graph.DrawString("Ribbon Preview Form", Color.Black, 
-        new RectangleF(0, 20, 200, 20), BorderSide.None);
-    printingSystem1.End();
+            // Create a simple document.
+            printingSystem1.Begin();
+            printingSystem1.Graph.Modifier = BrickModifier.Detail;
+            printingSystem1.Graph.DrawString("Ribbon Preview Form", Color.Black,
+                new RectangleF(0, 20, 200, 20), BorderSide.None);
+            printingSystem1.End();
 
-    // Show the Print Preview form with a Ribbon.
-    previewForm.Show();
+            // Show the Print Preview form with a Ribbon.
+            previewForm.Show();
         }
-        private void LoadGrid() {
+        private void LoadGrid()
+        {
             grvUser.DataSource = DaoUser.GetList();
         }
         private void Insert(DataRow row)
         {
-                   //   "@Name_Dis",
-                   // "@Name",
-                   //"@Password",
-                   // "@Crt_Dt",
-                   // "@Crt_By",
-                   // "@Is_Del",
-                   // "@Remark",
-                   // "@Phone",
-                   // "@Address"
-          
+            //   "@Name_Dis",
+            // "@Name",
+            //"@Password",
+            // "@Crt_Dt",
+            // "@Crt_By",
+            // "@Is_Del",
+            // "@Remark",
+            // "@Phone",
+            // "@Address"
+
             try
             {
                 object[] arrParaValue = new object[] {
-                    row["Name"],
+                   
                     row["Name_Dis"],
+                    row["Name"],
                     row["Password"],
                     DateTime.Now,
                     _ConfigItem.Login_UserName,
@@ -90,16 +92,16 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private bool Update(DataRow row)
         {
-        //   "@Id",
-        //                "@Name_Dis",
-        //            "@Name",
-        //           "@Password",
-        //            "@Crt_Dt",
-        //            "@Crt_By",
-        //            "@Is_Del",
-        //            "@Remark",
-        //            "@Phone",
-        //            "@Address"
+            //   "@Id",
+            //                "@Name_Dis",
+            //            "@Name",
+            //           "@Password",
+            //            "@Crt_Dt",
+            //            "@Crt_By",
+            //            "@Is_Del",
+            //            "@Remark",
+            //            "@Phone",
+            //            "@Address"
             try
             {
                 object[] arrParaValue = new object[] {
