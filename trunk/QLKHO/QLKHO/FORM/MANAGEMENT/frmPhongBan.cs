@@ -89,7 +89,7 @@ namespace QLKHO.FORM.MANAGEMENT
             catch (Exception ex)
             {
                 //TODOL Ghi log cho nay
-                throw;
+                throw ex;
             }
         }
         private void Delete(int _id)
@@ -125,7 +125,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
 

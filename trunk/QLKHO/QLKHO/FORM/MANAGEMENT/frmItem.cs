@@ -152,7 +152,7 @@ namespace QLKHO.FORM.MANAGEMENT
             catch (Exception ex)
             {
                 //TODOL Ghi log cho nay
-                throw;
+                throw ex;
             }
         }
 
