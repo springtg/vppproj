@@ -96,7 +96,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
@@ -126,7 +126,7 @@ namespace QLKHO.FORM.MANAGEMENT
             catch (Exception ex)
             {
                 //TODOL Ghi log cho nay
-                throw;
+                throw ex;
             }
         }
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)

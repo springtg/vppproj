@@ -121,7 +121,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
 

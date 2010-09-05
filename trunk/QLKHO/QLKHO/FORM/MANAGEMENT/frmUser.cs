@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLKHO.DATAOBJECT;
+using DevExpress.XtraPrinting.Preview;
+using DevExpress.XtraPrinting;
 
 namespace QLKHO.FORM.MANAGEMENT
 {
@@ -24,6 +26,20 @@ namespace QLKHO.FORM.MANAGEMENT
         void frmUser_Load(object sender, EventArgs e)
         {
             LoadGrid();
+              PrintPreviewRibbonFormEx previewForm = new PrintPreviewRibbonFormEx();
+
+    // Assign a Printing System to a Preview form.
+    previewForm.PrintingSystem = printingSystem1;
+
+    // Create a simple document.
+    printingSystem1.Begin();
+    printingSystem1.Graph.Modifier = BrickModifier.Detail;
+    printingSystem1.Graph.DrawString("Ribbon Preview Form", Color.Black, 
+        new RectangleF(0, 20, 200, 20), BorderSide.None);
+    printingSystem1.End();
+
+    // Show the Print Preview form with a Ribbon.
+    previewForm.Show();
         }
         private void LoadGrid() {
             grvUser.DataSource = DaoUser.GetList();
