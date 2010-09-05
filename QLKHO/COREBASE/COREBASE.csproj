@@ -70,7 +70,9 @@
     <Compile Include="COMMAND\SQL\CDataMapper.cs" />
     <Compile Include="COMMAND\SQL\CMapping.cs" />
     <Compile Include="COMMAND\SQL\SQLHelper.cs" />
+    <Compile Include="COMMAND\VPP_COMMAND\CTakeIn.cs" />
     <Compile Include="COMMAND\VPP_COMMAND\CUser.cs" />
+    <Compile Include="COMMAND\VPP_COMMAND\CWareHouse.cs" />
     <Compile Include="CValidator.cs" />
     <Compile Include="COMMAND\LogUtils\IAppLog.cs" />
     <Compile Include="COMMAND\LogUtils\IVXSERPLog.cs" />
