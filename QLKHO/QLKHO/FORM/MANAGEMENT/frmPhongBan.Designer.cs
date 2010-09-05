@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.components = new System.ComponentModel.Container();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bntUpdate = new DevExpress.XtraBars.BarButtonItem();
@@ -212,7 +213,7 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Ngày tạo";
-            this.gridColumn1.FieldName = "Crt_By";
+            this.gridColumn1.FieldName = "Crt_Date";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;

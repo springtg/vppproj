@@ -47,9 +47,11 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.printingSystem1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -147,6 +149,14 @@
             this.gridView1.GroupPanelText = "Kéo và thả cột vào đây để nhóm hiển thị";
             this.gridView1.Name = "gridView1";
             this.gridView1.NewItemRowText = "Click vào đây để thêm dòng mới";
+            this.gridView1.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsPrint.EnableAppearanceOddRow = true;
+            this.gridView1.OptionsPrint.ExpandAllDetails = true;
+            this.gridView1.OptionsPrint.PrintDetails = true;
+            this.gridView1.OptionsPrint.PrintFilterInfo = true;
+            this.gridView1.OptionsPrint.PrintPreview = true;
+            this.gridView1.OptionsPrint.SplitCellPreviewAcrossPages = true;
+            this.gridView1.OptionsPrint.UsePrintStyles = true;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
@@ -223,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.printingSystem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,5 +258,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraPrinting.PrintingSystem printingSystem1;
     }
 }
