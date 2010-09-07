@@ -128,6 +128,7 @@ namespace COREBASE.COMMAND.SQL
         /// 
         public void Disconnect(SqlConnection cn)
         {
+            
             if (cn == null) return;
             if (cn.State != ConnectionState.Closed)
                 cn.Close();
@@ -454,6 +455,34 @@ namespace COREBASE.COMMAND.SQL
                 // If connection is not connected then connect
                 if (cn.State != ConnectionState.Open)
                     cn.Open();
+
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    cm.Parameters.Add(par);
+                }
+                SqlParameter Id = new SqlParameter("@ID", SqlDbType.Int, 4);
+                Id.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(Id);
+                cm.ExecuteNonQuery();
+                return (int)Id.Value;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ExecuteInsert(SqlTransaction tr, string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            try
+            {
+                SqlCommand cm = new SqlCommand(sProcedureName, tr.Connection);
+                cm.CommandType = CommandType.StoredProcedure;
+                // If connection is not connected then connect
+                if (tr.Connection.State != ConnectionState.Open)
+                    tr.Connection.Open();
 
                 SqlParameter par = null;
                 for (int i = 0; i < arrNames.Length; i++)
