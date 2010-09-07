@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
@@ -65,19 +61,20 @@ namespace QLKHO.FORM.NHAPXUAT
                 _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
                 _providerSQL.Connect(_sqlConnection, _ConfigItem);
-                string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis" };
-                object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis };
+                string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis", "@Remark" };
+                object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis ,""};
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, "USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
                 {
                     arrName = new string[] { 
-                        "@Item_Take_In_Pk", 
+                        "@Take_In_Pk", 
                         "@Crt_By", 
                         "@Remark", 
                         "@Number_Bill", 
                         "@Number_Real",
                         "@Price", 
                         "@Vat" ,
+                        "@Item_Pk",
                         "@Unit_Pk"
                     };
                     arrValue = new object[] {
@@ -86,8 +83,9 @@ namespace QLKHO.FORM.NHAPXUAT
                         string.Empty,
                         tbDetail.Rows[i]["Number_Bill"],
                         tbDetail.Rows[i]["Number_Real"],
-                        tbDetail.Rows[i]["Unit_Price"],
+                        tbDetail.Rows[i]["Price"],
                         tbDetail.Rows[i]["Vat"],
+                        tbDetail.Rows[i]["Item_Pk"],
                         tbDetail.Rows[i]["Unit_Pk"]
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
@@ -143,12 +141,14 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             if (CurrStateForm.Equals(EVENT_FORM_NEW))
             {
-                DataRow dr = (DataRow)cboWareHouse.GetSelectedDataRow();
+                DataRow dr = ((DataRowView)cboWareHouse.GetSelectedDataRow()).Row;
                 int l_WareHouse = CnvToInt32(dr["Id"]);
                 DateTime l_date = txtTakeInDate.DateTime;
                 DataTable l_Detail = (DataTable)grdTakeInDetail.DataSource;
+                dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
+                int l_supplier = CnvToInt32(dr["Id"]);
                 //grvTakeInDetail.GroupSummary[0].SummaryValue
-                // TakeIn
+                TakeIn(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text);
             }
         }
 
