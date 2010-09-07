@@ -9,7 +9,11 @@ namespace COREBASE.COMMAND.SQL
         private SqlCommand _sqlCommand;
         private SqlDataAdapter _sqlDataAdapter;
         private Config.ConfigItem configSys;
-
+        private SqlTransaction _sqlTransaction = null;
+        
+        public AccessSQL()
+        {
+        }
         public AccessSQL(Config.ConfigItem configSystem)
         {
             configSys = configSystem;
@@ -128,7 +132,7 @@ namespace COREBASE.COMMAND.SQL
         /// 
         public void Disconnect(SqlConnection cn)
         {
-            
+
             if (cn == null) return;
             if (cn.State != ConnectionState.Closed)
                 cn.Close();
@@ -147,17 +151,21 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
                 using (SqlDataAdapter da = new SqlDataAdapter())
                 {
                     da.SelectCommand = _sqlCommand;
                     da.Fill(dt);
                 }
+                _sqlTransaction.Commit();
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
+
             }
             finally
             {
@@ -165,27 +173,31 @@ namespace COREBASE.COMMAND.SQL
             }
             return dt;
         }
-        
+
         public DataSet GetDataByStoredProcedure_DS(string sProcedureName)
         {
             DataSet ds = new DataSet();
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
                 using (SqlDataAdapter da = new SqlDataAdapter())
                 {
                     da.SelectCommand = _sqlCommand;
-                    da.Fill(ds,"Result");
+                    da.Fill(ds, "Result");
                 }
+                _sqlTransaction.Commit();
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 Disconnect();
             }
             return ds;
@@ -202,7 +214,8 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
                 SqlParameter par = null;
                 for (int i = 0; i < arrNames.Length; i++)
@@ -216,13 +229,16 @@ namespace COREBASE.COMMAND.SQL
                     da.SelectCommand = _sqlCommand;
                     da.Fill(dt);
                 }
+                _sqlTransaction.Commit();
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 Disconnect();
             }
             return dt;
@@ -238,7 +254,8 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
                 GetParamenter(dataParam);
                 using (SqlDataAdapter da = new SqlDataAdapter())
@@ -246,13 +263,16 @@ namespace COREBASE.COMMAND.SQL
                     da.SelectCommand = _sqlCommand;
                     da.Fill(dt);
                 }
+                _sqlTransaction.Commit();
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 Disconnect();
             }
             return dt;
@@ -270,7 +290,8 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
                 SqlParameter par = null;
                 for (int i = 0; i < arrNames.Length; i++)
@@ -280,14 +301,17 @@ namespace COREBASE.COMMAND.SQL
                 }
 
                 objResult = _sqlCommand.ExecuteScalar();
+                _sqlTransaction.Commit();
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
-
+                
+                Disconnect();
             }
             return objResult;
         }
@@ -303,7 +327,8 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter par = null;
@@ -312,15 +337,18 @@ namespace COREBASE.COMMAND.SQL
                     par = new SqlParameter(arrNames[i], arrValues[i]);
                     _sqlCommand.Parameters.Add(par);
                 }
-
-                return _sqlCommand.ExecuteNonQuery();
+                int rs = _sqlCommand.ExecuteNonQuery();
+                _sqlTransaction.Commit();
+                return rs;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 Disconnect();
             }
         }
@@ -331,11 +359,12 @@ namespace COREBASE.COMMAND.SQL
         /// <param name="sProcedureName">Name of stored procedure</param>
         /// <param name="arrNames">Array of parameter's name</param>
         /// <param name="arrValues">Array of parameter's value</param>
-        public int ExecuteNonQuery(SqlConnection cn,string sProcedureName, string[] arrNames, object[] arrValues)
+        public int ExecuteNonQuery(SqlConnection cn, string sProcedureName, string[] arrNames, object[] arrValues)
         {
             try
             {
-                _sqlCommand = new SqlCommand(sProcedureName, cn);
+                _sqlTransaction = cn.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, cn,_sqlTransaction);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter par = null;
@@ -345,11 +374,22 @@ namespace COREBASE.COMMAND.SQL
                     _sqlCommand.Parameters.Add(par);
                 }
 
-                return _sqlCommand.ExecuteNonQuery();
+                int rs = _sqlCommand.ExecuteNonQuery();
+                _sqlTransaction.Commit();
+                return rs;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
+            }
+            finally
+            {
+                
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
             }
         }
 
@@ -363,19 +403,22 @@ namespace COREBASE.COMMAND.SQL
             Connect();
             try
             {
+                _sqlTransaction = _sqlConnection.BeginTransaction();
                 _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection);
                 _sqlCommand.CommandType = CommandType.StoredProcedure;
-
                 GetParamenter(dataParam);
-
-                return _sqlCommand.ExecuteNonQuery();
+                int rs = _sqlCommand.ExecuteNonQuery();
+                _sqlTransaction.Commit();
+                return rs;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 Disconnect();
             }
         }
@@ -390,7 +433,8 @@ namespace COREBASE.COMMAND.SQL
             SqlConnection cn = new SqlConnection(configSys.StrConnection);
             try
             {
-                SqlCommand cm = new SqlCommand(sProcedureName, cn);
+                _sqlTransaction = cn.BeginTransaction();
+                SqlCommand cm = new SqlCommand(sProcedureName, cn, _sqlTransaction);
                 cm.CommandType = CommandType.StoredProcedure;
                 // If connection is not connected then connect
                 if (cn.State != ConnectionState.Open)
@@ -406,25 +450,29 @@ namespace COREBASE.COMMAND.SQL
                 Id.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(Id);
                 cm.ExecuteNonQuery();
+                _sqlTransaction.Commit();
                 return (int)Id.Value;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 if (cn.State != ConnectionState.Closed)
                     cn.Close();
             }
         }
-       
+
         public int ExecuteInsert(string sProcedureName)
         {
             SqlConnection cn = new SqlConnection(configSys.StrConnection);
             try
             {
-                SqlCommand cm = new SqlCommand(sProcedureName, cn);
+                _sqlTransaction = cn.BeginTransaction();
+                SqlCommand cm = new SqlCommand(sProcedureName, cn, _sqlTransaction);
                 cm.CommandType = CommandType.StoredProcedure;
                 // If connection is not connected then connect
                 if (cn.State != ConnectionState.Open)
@@ -433,24 +481,28 @@ namespace COREBASE.COMMAND.SQL
                 Id.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(Id);
                 cm.ExecuteNonQuery();
+                _sqlTransaction.Commit();
                 return (int)Id.Value;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
                 throw ex;
             }
             finally
             {
+                
                 if (cn.State != ConnectionState.Closed)
                     cn.Close();
             }
         }
 
-        public int ExecuteInsert(SqlConnection cn,string sProcedureName, string[] arrNames, object[] arrValues)
+        public int ExecuteInsert(SqlConnection cn, string sProcedureName, string[] arrNames, object[] arrValues)
         {
             try
             {
-                SqlCommand cm = new SqlCommand(sProcedureName, cn);
+                _sqlTransaction = cn.BeginTransaction();
+                SqlCommand cm = new SqlCommand(sProcedureName, cn, _sqlTransaction);
                 cm.CommandType = CommandType.StoredProcedure;
                 // If connection is not connected then connect
                 if (cn.State != ConnectionState.Open)
@@ -466,10 +518,60 @@ namespace COREBASE.COMMAND.SQL
                 Id.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(Id);
                 cm.ExecuteNonQuery();
+                _sqlTransaction.Commit();
                 return (int)Id.Value;
             }
             catch (SqlException ex)
             {
+                _sqlTransaction.Rollback();
+                throw ex;
+            }
+        }
+        public int ExecuteInsert(SqlConnection p_SqlConnection, SqlTransaction p_SqlTransaction, string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            try
+            {
+                SqlCommand cm = new SqlCommand(sProcedureName, p_SqlConnection, p_SqlTransaction);
+                cm.CommandType = CommandType.StoredProcedure;
+                // If connection is not connected then connect
+                if (p_SqlConnection.State != ConnectionState.Open)
+                    p_SqlConnection.Open();
+
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    cm.Parameters.Add(par);
+                }
+                SqlParameter Id = new SqlParameter("@ID", SqlDbType.Int, 4);
+                Id.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(Id);
+                cm.ExecuteNonQuery();
+                return (int)Id.Value;
+            }
+            catch (SqlException ex)
+            {
+                p_SqlTransaction.Rollback();
+                throw ex;
+            }
+        }
+        public int ExecuteNonQuery(SqlConnection p_SqlConnection, SqlTransaction p_SqlTransaction, string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            try
+            {
+                SqlCommand cm = new SqlCommand(sProcedureName, p_SqlConnection, p_SqlTransaction);
+                cm.CommandType = CommandType.StoredProcedure;
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    cm.Parameters.Add(par);
+                }
+                return  cm.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                p_SqlTransaction.Rollback();
                 throw ex;
             }
         }
@@ -478,7 +580,7 @@ namespace COREBASE.COMMAND.SQL
         {
             try
             {
-                SqlCommand cm = new SqlCommand(sProcedureName, tr.Connection);
+                SqlCommand cm = new SqlCommand(sProcedureName, tr.Connection, tr);
                 cm.CommandType = CommandType.StoredProcedure;
                 // If connection is not connected then connect
                 if (tr.Connection.State != ConnectionState.Open)
@@ -494,12 +596,15 @@ namespace COREBASE.COMMAND.SQL
                 Id.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(Id);
                 cm.ExecuteNonQuery();
+                tr.Commit();
                 return (int)Id.Value;
             }
             catch (SqlException ex)
             {
+                tr.Rollback();
                 throw ex;
             }
+            
         }
 
         /// <summary>
