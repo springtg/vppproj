@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNew = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -53,6 +52,8 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtSuppierID = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtTakeInBillNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txttakeInRemark = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -104,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierTaxCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuppierID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTakeInBillNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttakeInRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTakeInCurrency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInID.Properties)).BeginInit();
@@ -156,23 +158,25 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnUpdate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnNew),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnCancel)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCancel, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
-            // btnAdd
+            // btnNew
             // 
-            this.btnAdd.Caption = "Thêm";
-            this.btnAdd.Id = 0;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
+            this.btnNew.Caption = "Tạo Mới";
+            this.btnNew.Glyph = global::QLKHO.Properties.Resources._new;
+            this.btnNew.Id = 4;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNew_ItemClick);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Caption = "Cập Nhật";
+            this.btnUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
             this.btnUpdate.Id = 1;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
@@ -180,20 +184,23 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
-            // btnNew
+            // btnAdd
             // 
-            this.btnNew.Caption = "Tạo Mới";
-            this.btnNew.Id = 4;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNew_ItemClick);
+            this.btnAdd.Caption = "Lưu";
+            this.btnAdd.Glyph = global::QLKHO.Properties.Resources.save_icon;
+            this.btnAdd.Id = 0;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // btnCancel
             // 
             this.btnCancel.Caption = "Hủy Bỏ";
+            this.btnCancel.Glyph = global::QLKHO.Properties.Resources.Cancel;
             this.btnCancel.Id = 5;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
@@ -214,7 +221,7 @@
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(872, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(872, 42);
             // 
             // barDockControlBottom
             // 
@@ -225,27 +232,27 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 466);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 446);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(872, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 466);
+            this.barDockControlRight.Location = new System.Drawing.Point(872, 42);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 446);
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 22);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 42);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(872, 466);
+            this.splitContainerControl1.Size = new System.Drawing.Size(872, 446);
             this.splitContainerControl1.SplitterPosition = 122;
             this.splitContainerControl1.TabIndex = 9;
             // 
@@ -274,6 +281,8 @@
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl4);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSuppierID);
             this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.txtTakeInBillNumber);
+            this.splitContainerControl2.Panel2.Controls.Add(this.labelControl5);
             this.splitContainerControl2.Panel2.Controls.Add(this.txttakeInRemark);
             this.splitContainerControl2.Panel2.Controls.Add(this.labelControl10);
             this.splitContainerControl2.Panel2.Controls.Add(this.labelControl11);
@@ -294,6 +303,7 @@
             // 
             this.txtSupplierPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSupplierPhone.Enabled = false;
             this.txtSupplierPhone.Location = new System.Drawing.Point(240, 70);
             this.txtSupplierPhone.MenuManager = this.barManager1;
             this.txtSupplierPhone.Name = "txtSupplierPhone";
@@ -302,6 +312,7 @@
             // 
             // txtSupplierTaxCode
             // 
+            this.txtSupplierTaxCode.Enabled = false;
             this.txtSupplierTaxCode.Location = new System.Drawing.Point(50, 68);
             this.txtSupplierTaxCode.MenuManager = this.barManager1;
             this.txtSupplierTaxCode.Name = "txtSupplierTaxCode";
@@ -312,6 +323,7 @@
             // 
             this.txtSupplierAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSupplierAddress.Enabled = false;
             this.txtSupplierAddress.Location = new System.Drawing.Point(50, 40);
             this.txtSupplierAddress.MenuManager = this.barManager1;
             this.txtSupplierAddress.Name = "txtSupplierAddress";
@@ -371,12 +383,28 @@
             this.txtSuppierID.TabIndex = 6;
             this.txtSuppierID.TabStop = false;
             // 
+            // txtTakeInBillNumber
+            // 
+            this.txtTakeInBillNumber.Location = new System.Drawing.Point(194, 69);
+            this.txtTakeInBillNumber.MenuManager = this.barManager1;
+            this.txtTakeInBillNumber.Name = "txtTakeInBillNumber";
+            this.txtTakeInBillNumber.Size = new System.Drawing.Size(98, 20);
+            this.txtTakeInBillNumber.TabIndex = 15;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(153, 71);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(30, 13);
+            this.labelControl5.TabIndex = 14;
+            this.labelControl5.Text = "Số HĐ";
+            // 
             // txttakeInRemark
             // 
             this.txttakeInRemark.Location = new System.Drawing.Point(48, 71);
             this.txttakeInRemark.MenuManager = this.barManager1;
             this.txttakeInRemark.Name = "txttakeInRemark";
-            this.txttakeInRemark.Size = new System.Drawing.Size(243, 20);
+            this.txttakeInRemark.Size = new System.Drawing.Size(99, 20);
             this.txttakeInRemark.TabIndex = 13;
             // 
             // labelControl10
@@ -501,7 +529,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(200, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(672, 338);
+            this.panelControl2.Size = new System.Drawing.Size(672, 318);
             this.panelControl2.TabIndex = 2;
             // 
             // grdTakeInDetail
@@ -520,7 +548,7 @@
             this.repositoryItemPopupContainerEdit1,
             this.repositoryItemGridLookUpEdit1,
             this.repositoryItemGridLookUpEdit2});
-            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 334);
+            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 314);
             this.grdTakeInDetail.TabIndex = 0;
             this.grdTakeInDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTakeInDetail});
@@ -547,6 +575,7 @@
             this.grvTakeInDetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grvTakeInDetail.OptionsView.ShowFooter = true;
             this.grvTakeInDetail.OptionsView.ShowGroupPanel = false;
+            this.grvTakeInDetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grvTakeInDetail_KeyDown);
             // 
             // bandedGridColumn1
             // 
@@ -770,7 +799,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 338);
+            this.panelControl1.Size = new System.Drawing.Size(200, 318);
             this.panelControl1.TabIndex = 1;
             // 
             // lstTakeIn
@@ -778,7 +807,7 @@
             this.lstTakeIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstTakeIn.Location = new System.Drawing.Point(2, 2);
             this.lstTakeIn.Name = "lstTakeIn";
-            this.lstTakeIn.Size = new System.Drawing.Size(196, 334);
+            this.lstTakeIn.Size = new System.Drawing.Size(196, 314);
             this.lstTakeIn.TabIndex = 0;
             this.lstTakeIn.SelectedIndexChanged += new System.EventHandler(this.lstTakeIn_SelectedIndexChanged);
             // 
@@ -806,6 +835,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierTaxCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSuppierID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTakeInBillNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttakeInRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTakeInCurrency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInID.Properties)).EndInit();
@@ -899,5 +929,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit2View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.TextEdit txtTakeInBillNumber;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

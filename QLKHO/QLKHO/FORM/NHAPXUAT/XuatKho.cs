@@ -14,5 +14,10 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             InitializeComponent();
         }
+
+        private void txtSuppierID_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
