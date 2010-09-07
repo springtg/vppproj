@@ -88,6 +88,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Cancel {
+            get {
+                object obj = ResourceManager.GetObject("Cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ChuyenKho {
             get {
                 object obj = ResourceManager.GetObject("ChuyenKho", resourceCulture);
@@ -217,6 +224,13 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap report1 {
             get {
                 object obj = ResourceManager.GetObject("report1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap save_icon {
+            get {
+                object obj = ResourceManager.GetObject("save-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
