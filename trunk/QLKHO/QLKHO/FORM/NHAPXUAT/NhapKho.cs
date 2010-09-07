@@ -29,7 +29,7 @@ namespace QLKHO.FORM.NHAPXUAT
             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("usp_SelectVPP_SUPPLIER");
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
-            DATAOBJECT.ItemDao _item=new DATAOBJECT.ItemDao(_ConfigItem);
+            DATAOBJECT.ItemDao _item = new DATAOBJECT.ItemDao(_ConfigItem);
             repositoryItemGridLookUpEdit1.DataSource = _item.GetList();
             DATAOBJECT.UnitDao _unit = new DATAOBJECT.UnitDao(_ConfigItem);
             repositoryItemGridLookUpEdit2.DataSource = _unit.GetList();
@@ -52,17 +52,19 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private bool TakeIn(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis)
+        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = null;
+            System.Data.SqlClient.SqlTransaction _sqlTransaction = null;
             try
             {
                 int _iNumberItem = tbDetail.Rows.Count;
                 _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
+                _sqlTransaction = _sqlConnection.BeginTransaction();
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
                 _providerSQL.Connect(_sqlConnection, _ConfigItem);
-                string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis", "@Remark" };
-                object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis ,""};
+                string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis", "@Remark", "@BillNumber" };
+                object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis, "", _BillNumber };
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, "USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
                 {
@@ -90,11 +92,13 @@ namespace QLKHO.FORM.NHAPXUAT
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
                 }
+                _sqlTransaction.Commit();
                 _providerSQL.Disconnect(_sqlConnection);
                 return true;
             }
             catch (Exception ex)
             {
+                _sqlTransaction.Rollback();
                 AppDebug(ex);
                 if (_providerSQL != null)
                     if (_sqlConnection != null)
@@ -135,6 +139,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 tbTmp = LoadData("DETAIL", _idMaster);
                 grdTakeInDetail.DataSource = tbTmp;
             }
+            this.CurrStateForm = EVENT_FORM_NONE;
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -148,7 +153,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
                 //grvTakeInDetail.GroupSummary[0].SummaryValue
-                TakeIn(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text);
+                InsertData(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text);
             }
         }
 
@@ -167,12 +172,34 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show(CnvToString(getValue(txtSuppierID, "Id")));
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                AppDebug(ex);
+            }
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                if (lstTakeIn.ItemCount > 0)
+                {
+                    DataRow dr = ((DataRowView)lstTakeIn.SelectedItem).Row;
+                    if (DeleteTakeIn(CnvToInt32(dr["Id"])))
+                    {
+                        lstTakeIn.DataSource = LoadData("MASTER", -1);
+                        lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppDebug(ex);
+            }
         }
 
         private void btnNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -190,9 +217,9 @@ namespace QLKHO.FORM.NHAPXUAT
                         DateTime l_date = CnvToDateTime(txtTakeInDate.EditValue);
                         int l_supplier = CnvToInt32(getValue(txtSuppierID, txtSuppierID.Properties.ValueMember));
                         string l_takeinid = txtTakeInID.Text;
-                        int L_MoneyType = 1;
-
-                        TakeIn(l_tb, l_idwh, 0, l_supplier, l_date, l_takeinid);
+                        int l_totalamt = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryText);
+                        //int L_MoneyType = 1;
+                        InsertData(l_tb, l_idwh, 0, l_supplier, l_date, l_takeinid, txtTakeInBillNumber.Text);
 
                     }
                 }
@@ -254,6 +281,79 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns["ROWID"].AutoIncrementStep = 1;
             tb.Columns["ROWID"].AutoIncrementSeed = 1;
             return tb;
+        }
+
+        private bool DeleteTakeIn(int p_IdTakeIn)
+        {
+            System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection); ;
+            if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
+            System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
+            try
+            {
+                _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
+                string[] arrName = new string[] { "@Id", "@Mod_By", "@Mod_Dt" };
+                object[] arrValue = new object[] { p_IdTakeIn, _ConfigItem.Login_UserName, DateTime.Now };
+                _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_DEL_TAKE_IN", arrName, arrValue);
+                _sqlTransaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _sqlTransaction.Rollback();
+                AppDebug(ex);
+                if (_sqlConnection.State != ConnectionState.Closed) _sqlConnection.Close();
+                return false;
+            }
+        }
+
+        private bool DeleteItem(int[] p_selectRow, DataTable p_datasource)
+        {
+            System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection); ;
+            if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
+            System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
+            try
+            {
+                _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
+                string[] arrName = new string[] { "@Id", "@Mod_By", "@Mod_Dt" };
+                for (int i = 0; i < p_selectRow.Length; i++)
+                {
+                    object[] arrValue = new object[] { p_datasource.Rows[i]["Id"], _ConfigItem.Login_UserName, DateTime.Now };
+                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_DEL_TAKE_IN_DETAIL", arrName, arrValue);
+                }
+                _sqlTransaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _sqlTransaction.Rollback();
+                AppDebug(ex);
+                if (_sqlConnection.State != ConnectionState.Closed) _sqlConnection.Close();
+                return false;
+            }
+        }
+
+        private void grvTakeInDetail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData.Equals(Keys.Delete))
+            {
+                int[] l_selectRow = grvTakeInDetail.GetSelectedRows();
+                DataTable l_tmp = ((DataView)grvTakeInDetail.DataSource).Table;
+                if (CurrStateForm.Equals(EVENT_FORM_NEW))//Neu la truong hop them moi thi remote row do ra khoi grid
+                {
+                    for (int i = 0; i < l_selectRow.Length; i++)
+                    {
+                        l_tmp.Rows.RemoveAt(i);
+                    }
+                }
+                //neu la truong hop cu du lieu o Db troi, thi goi cau update
+                else
+                {
+                    if (DeleteItem(l_selectRow, l_tmp))
+                    {
+                        lstTakeIn.DataSource = LoadData("MASTER", -1);
+                    }
+                }
+            }
         }
 
     }
