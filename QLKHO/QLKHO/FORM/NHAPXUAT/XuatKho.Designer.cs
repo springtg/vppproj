@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtTakeInBillNumber = new DevExpress.XtraEditors.TextEdit();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
@@ -90,7 +89,7 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeIn = new DevExpress.XtraEditors.ListBoxControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_TakeOut_CapNhat = new DevExpress.XtraBars.BarButtonItem();
             this.btn_TakeOut_Xoa = new DevExpress.XtraBars.BarButtonItem();

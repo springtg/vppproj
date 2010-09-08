@@ -54,18 +54,16 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber)
         {
-            System.Data.SqlClient.SqlConnection _sqlConnection = null;
-            System.Data.SqlClient.SqlTransaction _sqlTransaction = null;
+            System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
+            if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
+            System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
             try
             {
-                int _iNumberItem = tbDetail.Rows.Count;
-                _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
-                _sqlTransaction = _sqlConnection.BeginTransaction();
-                _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-                _providerSQL.Connect(_sqlConnection, _ConfigItem);
+                int _iNumberItem = tbDetail.Rows.Count;                
                 string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis", "@Remark", "@BillNumber" };
                 object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis, "", _BillNumber };
-                int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, "USP_INS_TAKE_IN", arrName, arrValue);
+                _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
+                int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection,_sqlTransaction ,"USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
                 {
                     arrName = new string[] { 
@@ -90,7 +88,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         tbDetail.Rows[i]["Item_Pk"],
                         tbDetail.Rows[i]["Unit_Pk"]
                     };
-                    _providerSQL.ExecuteNonQuery(_sqlConnection, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
+                    _providerSQL.ExecuteNonQuery(_sqlConnection,_sqlTransaction, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
                 }
                 _sqlTransaction.Commit();
                 _providerSQL.Disconnect(_sqlConnection);
@@ -153,7 +151,11 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
                 //grvTakeInDetail.GroupSummary[0].SummaryValue
-                InsertData(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text);
+                if (InsertData(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text))
+                {
+                    lstTakeIn.DataSource = LoadData("MASTER", -1);
+                    lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
+                }
             }
         }
 
