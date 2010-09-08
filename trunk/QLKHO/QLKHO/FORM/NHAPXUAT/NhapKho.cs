@@ -150,8 +150,8 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataTable l_Detail = (DataTable)grdTakeInDetail.DataSource;
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
-                //grvTakeInDetail.GroupSummary[0].SummaryValue
-                if (InsertData(l_Detail, l_WareHouse, 100, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text))
+                int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
