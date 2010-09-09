@@ -214,6 +214,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Refresh_icon {
+            get {
+                object obj = ResourceManager.GetObject("Refresh-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap reminders {
             get {
                 object obj = ResourceManager.GetObject("reminders", resourceCulture);
