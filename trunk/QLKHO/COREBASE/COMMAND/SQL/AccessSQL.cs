@@ -433,13 +433,10 @@ namespace COREBASE.COMMAND.SQL
             SqlConnection cn = new SqlConnection(configSys.StrConnection);
             try
             {
+                if (cn.State != ConnectionState.Open) cn.Open();
                 _sqlTransaction = cn.BeginTransaction();
                 SqlCommand cm = new SqlCommand(sProcedureName, cn, _sqlTransaction);
                 cm.CommandType = CommandType.StoredProcedure;
-                // If connection is not connected then connect
-                if (cn.State != ConnectionState.Open)
-                    cn.Open();
-
                 SqlParameter par = null;
                 for (int i = 0; i < arrNames.Length; i++)
                 {
