@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
@@ -226,20 +227,20 @@
             // barDockControlBottom
             // 
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 488);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 544);
             this.barDockControlBottom.Size = new System.Drawing.Size(872, 22);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 446);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 502);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(872, 42);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 446);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
             // 
             // splitContainerControl1
             // 
@@ -252,7 +253,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(872, 446);
+            this.splitContainerControl1.Size = new System.Drawing.Size(872, 502);
             this.splitContainerControl1.SplitterPosition = 122;
             this.splitContainerControl1.TabIndex = 9;
             // 
@@ -268,6 +269,8 @@
             // 
             // splitContainerControl2
             // 
+            this.splitContainerControl2.AlwaysScrollActiveControlIntoView = false;
+            this.splitContainerControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl2.Location = new System.Drawing.Point(2, 22);
@@ -307,7 +310,7 @@
             this.txtSupplierPhone.Location = new System.Drawing.Point(240, 70);
             this.txtSupplierPhone.MenuManager = this.barManager1;
             this.txtSupplierPhone.Name = "txtSupplierPhone";
-            this.txtSupplierPhone.Size = new System.Drawing.Size(324, 20);
+            this.txtSupplierPhone.Size = new System.Drawing.Size(320, 20);
             this.txtSupplierPhone.TabIndex = 10;
             // 
             // txtSupplierTaxCode
@@ -327,7 +330,7 @@
             this.txtSupplierAddress.Location = new System.Drawing.Point(50, 40);
             this.txtSupplierAddress.MenuManager = this.barManager1;
             this.txtSupplierAddress.Name = "txtSupplierAddress";
-            this.txtSupplierAddress.Size = new System.Drawing.Size(514, 20);
+            this.txtSupplierAddress.Size = new System.Drawing.Size(510, 20);
             this.txtSupplierAddress.TabIndex = 8;
             // 
             // labelControl8
@@ -379,7 +382,7 @@
             this.txtSuppierID.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.txtSuppierID.Properties.ValueMember = "Id_Dis";
             this.txtSuppierID.Properties.EditValueChanged += new System.EventHandler(this.txtSuppierID_Properties_EditValueChanged);
-            this.txtSuppierID.Size = new System.Drawing.Size(514, 20);
+            this.txtSuppierID.Size = new System.Drawing.Size(510, 20);
             this.txtSuppierID.TabIndex = 6;
             this.txtSuppierID.TabStop = false;
             // 
@@ -529,7 +532,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(200, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(672, 318);
+            this.panelControl2.Size = new System.Drawing.Size(672, 374);
             this.panelControl2.TabIndex = 2;
             // 
             // grdTakeInDetail
@@ -548,7 +551,7 @@
             this.repositoryItemPopupContainerEdit1,
             this.repositoryItemGridLookUpEdit1,
             this.repositoryItemGridLookUpEdit2});
-            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 314);
+            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 370);
             this.grdTakeInDetail.TabIndex = 0;
             this.grdTakeInDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTakeInDetail});
@@ -799,7 +802,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 318);
+            this.panelControl1.Size = new System.Drawing.Size(200, 374);
             this.panelControl1.TabIndex = 1;
             // 
             // lstTakeIn
@@ -807,7 +810,7 @@
             this.lstTakeIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstTakeIn.Location = new System.Drawing.Point(2, 2);
             this.lstTakeIn.Name = "lstTakeIn";
-            this.lstTakeIn.Size = new System.Drawing.Size(196, 314);
+            this.lstTakeIn.Size = new System.Drawing.Size(196, 370);
             this.lstTakeIn.TabIndex = 0;
             this.lstTakeIn.SelectedIndexChanged += new System.EventHandler(this.lstTakeIn_SelectedIndexChanged);
             // 
@@ -815,7 +818,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 510);
+            this.ClientSize = new System.Drawing.Size(872, 566);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
