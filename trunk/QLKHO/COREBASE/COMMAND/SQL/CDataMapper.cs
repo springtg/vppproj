@@ -47,7 +47,7 @@ namespace COREBASE.COMMAND.SQL
                             propertyInfo.SetValue(target, new Guid(value.ToString()), null);
                         else if (pType.IsEnum && vType.Equals(typeof(string)))
                             propertyInfo.SetValue(target, Enum.Parse(pType, value.ToString()), null);
-                        else if (value=="" && vType.Equals(typeof(string)))
+                        else if (value.Equals("") && vType.Equals(typeof(string)))
                             propertyInfo.SetValue(target, null, null);
                         else
                             propertyInfo.SetValue(target, Convert.Convert.CnvChangeType(value, pType), null);
@@ -56,7 +56,8 @@ namespace COREBASE.COMMAND.SQL
             }
             catch (Exception ex)
             {
-                string info = string.Format("Database.DataMapper.SetPropertyValue[class:{0} property:{1}]", className, propertyName); 
+                string info = string.Format("Database.DataMapper.SetPropertyValue[class:{0} property:{1}]", className, propertyName);
+                throw ex;
            
             }
         }

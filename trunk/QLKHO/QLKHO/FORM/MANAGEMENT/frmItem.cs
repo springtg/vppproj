@@ -71,7 +71,8 @@ namespace QLKHO.FORM.MANAGEMENT
                     0,
                     row["Remark"],
                     row["Id_Unit_Pk"],
-                    row["Id_Supplier_Pk"]
+                    row["Id_Supplier_Pk"],
+                    row["slton"]
                 };
                 DaoItem.Insert(arrValue: arrParaValue);
             }
@@ -114,7 +115,8 @@ namespace QLKHO.FORM.MANAGEMENT
                     0,
                     row["Remark"],
                     row["Id_Unit_Pk"],
-                    row["Id_Supplier_Pk"]
+                    row["Id_Supplier_Pk"],
+                    row["slton"]
                 };
                 DaoItem.Update(arrValue: arrParaValue);
                 return true;
@@ -174,6 +176,11 @@ namespace QLKHO.FORM.MANAGEMENT
                     throw ex;
                 }
             }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
 
     }

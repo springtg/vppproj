@@ -94,6 +94,7 @@
             this.barButtonItem2.Glyph = global::QLKHO.Properties.Resources.Add;
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // btnDelete
             // 

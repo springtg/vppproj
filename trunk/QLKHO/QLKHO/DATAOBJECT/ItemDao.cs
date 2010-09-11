@@ -43,7 +43,8 @@ namespace QLKHO.DATAOBJECT
 	                "@Is_Del",
 	                "@Remark",
                     "@Id_Unit_Pk",
-                    "@Id_Supplier_Pk"
+                    "@Id_Supplier_Pk",
+                    "@number_in"
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
@@ -70,7 +71,8 @@ namespace QLKHO.DATAOBJECT
 	                "@Is_Del",
 	                "@Remark",
                     "@Id_Unit_Pk",
-                    "@Id_Supplier_Pk"};
+                    "@Id_Supplier_Pk",
+                    "@number_in"   };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
                 _sql.ExecuteNonQuery("usp_UpdateVPP_ITEM", arrNames: arrParaName, arrValues: arrValue);

@@ -1,7 +1,7 @@
 ﻿using System;
 using DevExpress.XtraBars;
 using QLKHO.FORM.MANAGEMENT;
-
+using System.Windows.Forms;
 namespace QLKHO
 {
     public partial class frmMain : COREBASE.FORM.BASEMDIPARENT// DevExpress.XtraBars.Ribbon.RibbonForm
@@ -157,6 +157,51 @@ namespace QLKHO
             {
                 //TODO: active page suo mo roi
             }
+        }
+
+        private void bar3tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            frp.ShowRibbonPreview();
+        }
+
+        private void bar3tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.NHAPXUAT.XuatKho f = new FORM.NHAPXUAT.XuatKho(_ConfigItem);
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        
+
+        private void bar3tab2btn4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //goi sp usp_vpp_ketchuyenkho
+
+            if(COREBASE.COMMAND.VPP_COMMAND.CInventory.ketchuyen(_ConfigItem)==true)
+                MessageBox.Show("Đã kết chuyển thành công", MessageBoxManager.Caption);
+            else
+                MessageBox.Show("Tháng này kết chuyển rồi", MessageBoxManager.Caption);
+           
+            
+        }
+
+        private void bar1tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.NHAPXUAT.rptNhapKho f = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            f.ShowPreviewDialog();
+        }
+
+        private void bar1tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
 
 

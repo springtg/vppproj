@@ -96,6 +96,7 @@
             this.bntUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
             this.bntUpdate.Id = 2;
             this.bntUpdate.Name = "bntUpdate";
+            this.bntUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntUpdate_ItemClick);
             // 
             // btnDelete
             // 
