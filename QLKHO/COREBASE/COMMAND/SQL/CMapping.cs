@@ -109,12 +109,13 @@ namespace COREBASE.COMMAND.SQL
             try
             {
                 ds.ReadXml(new StringReader(xmlData));
+                return ds;
             }
             catch (Exception ex)
             {
-               
+                throw ex;
             }
-            return ds;
+            
         }
         #endregion
     }

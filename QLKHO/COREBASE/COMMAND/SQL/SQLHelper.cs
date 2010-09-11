@@ -1272,7 +1272,7 @@ namespace COREBASE.COMMAND.SQL
 				cn.Open();
 				SqlCommand cmd = new SqlCommand("sp_procedure_params_rowset",cn);
 				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.Add("@procedure_name", spName);
+				cmd.Parameters.AddWithValue("@procedure_name", spName);
 
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				da.Fill(paramDescriptions);

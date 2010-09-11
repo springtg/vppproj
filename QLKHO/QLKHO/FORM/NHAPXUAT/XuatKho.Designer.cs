@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -59,6 +59,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdTakeOutDetail = new DevExpress.XtraGrid.GridControl();
             this.grvTakeOutDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -74,7 +75,6 @@
             this.repositoryItemCalcEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCalcEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
-            this.bandedGridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCalcEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.bandedGridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCalcEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
@@ -259,7 +259,7 @@
             this.txtDeparmentID.Properties.NullText = "";
             this.txtDeparmentID.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.txtDeparmentID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtDeparmentID.Properties.ValueMember = "id";
+            this.txtDeparmentID.Properties.ValueMember = "Id";
             this.txtDeparmentID.Properties.EditValueChanged += new System.EventHandler(this.txtSuppierID_Properties_EditValueChanged);
             this.txtDeparmentID.Size = new System.Drawing.Size(497, 20);
             this.txtDeparmentID.TabIndex = 6;
@@ -319,7 +319,7 @@
             this.txtTakeOutDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTakeOutDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtTakeOutDate.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutDate.TabIndex = 3;
             this.txtTakeOutDate.TabStop = false;
@@ -381,7 +381,8 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn7});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -402,6 +403,14 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "SL Tồn";
+            this.gridColumn7.FieldName = "slton";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 2;
             // 
             // bandedGridColumn2
             // 
@@ -432,6 +441,7 @@
             this.grdTakeOutDetail.TabIndex = 0;
             this.grdTakeOutDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTakeOutDetail});
+            this.grdTakeOutDetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdTakeOutDetail_KeyDown);
             // 
             // grvTakeOutDetail
             // 
@@ -442,7 +452,6 @@
             this.bandedGridColumn4,
             this.bandedGridColumn5,
             this.bandedGridColumn6,
-            this.bandedGridColumn7,
             this.bandedGridColumn8});
             this.grvTakeOutDetail.CustomizationFormBounds = new System.Drawing.Rectangle(889, 423, 208, 170);
             this.grvTakeOutDetail.GridControl = this.grdTakeOutDetail;
@@ -576,18 +585,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemCalcEdit3.Name = "repositoryItemCalcEdit3";
             // 
-            // bandedGridColumn7
-            // 
-            this.bandedGridColumn7.Caption = "VAT";
-            this.bandedGridColumn7.ColumnEdit = this.repositoryItemCalcEdit4;
-            this.bandedGridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.bandedGridColumn7.FieldName = "Vat";
-            this.bandedGridColumn7.Name = "bandedGridColumn7";
-            this.bandedGridColumn7.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
-            this.bandedGridColumn7.Visible = true;
-            this.bandedGridColumn7.VisibleIndex = 6;
-            this.bandedGridColumn7.Width = 54;
-            // 
             // repositoryItemCalcEdit4
             // 
             this.repositoryItemCalcEdit4.AutoHeight = false;
@@ -609,7 +606,7 @@
             this.bandedGridColumn8.UnboundExpression = "([Price] * [Number_Real])";
             this.bandedGridColumn8.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.bandedGridColumn8.Visible = true;
-            this.bandedGridColumn8.VisibleIndex = 7;
+            this.bandedGridColumn8.VisibleIndex = 6;
             this.bandedGridColumn8.Width = 97;
             // 
             // repositoryItemCalcEdit5
@@ -736,6 +733,7 @@
             this.btn_TakeOut_Luu.Glyph = global::QLKHO.Properties.Resources.save_icon;
             this.btn_TakeOut_Luu.Id = 3;
             this.btn_TakeOut_Luu.Name = "btn_TakeOut_Luu";
+            this.btn_TakeOut_Luu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TakeOut_Luu_ItemClick);
             // 
             // btn_TakeOut_Huy
             // 
@@ -743,6 +741,7 @@
             this.btn_TakeOut_Huy.Glyph = global::QLKHO.Properties.Resources.Cancel;
             this.btn_TakeOut_Huy.Id = 4;
             this.btn_TakeOut_Huy.Name = "btn_TakeOut_Huy";
+            this.btn_TakeOut_Huy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TakeOut_Huy_ItemClick);
             // 
             // btn_TakeOut_Refresh
             // 
@@ -798,6 +797,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "XuatKho";
+            this.Text = "Xuất kho";
             this.Load += new System.EventHandler(this.XuatKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -879,7 +879,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn6;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit3;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn7;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit4;
         private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn8;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit5;
@@ -904,5 +903,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraBars.BarButtonItem btn_TakeOut_Refresh;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

@@ -48,8 +48,7 @@ namespace QLKHO
             //Office 2010 Silver
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin ());
-
+            Application.Run(new frmLogin());
         }
     }
 }

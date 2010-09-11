@@ -65,6 +65,7 @@
             this.bar4tab2btn1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4tab2btn2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3tab2btn4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,6 +80,7 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -92,6 +94,7 @@
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.SuspendLayout();
@@ -177,17 +180,20 @@
             this.bar4tab1btn3,
             this.bar4tab2btn1,
             this.bar4tab2btn2,
-            this.bar1tab2btn3});
+            this.bar1tab2btn3,
+            this.bar3tab2btn4});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 56;
+            this.ribbon.MaxItemId = 63;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.bar1,
             this.ribbonPage2,
             this.ribbonPage3,
             this.ribbonPage4});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.ribbonPage2;
+            this.ribbon.SelectedPage = this.bar1;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -200,6 +206,7 @@
             this.bar4tab1btn1.Id = 0;
             this.bar4tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab1btn1.LargeGlyph")));
             this.bar4tab1btn1.Name = "bar4tab1btn1";
+            this.bar4tab1btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar4tab1btn1_ItemClick);
             // 
             // bar4tab1btn2
             // 
@@ -238,6 +245,7 @@
             this.bar1tab1btn2.Id = 11;
             this.bar1tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn2.LargeGlyph")));
             this.bar1tab1btn2.Name = "bar1tab1btn2";
+            this.bar1tab1btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab1btn2_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -259,6 +267,7 @@
             this.bar1tab3btn1.Name = "bar1tab3btn1";
             this.bar1tab3btn1.Width = 100;
             this.bar1tab3btn1.EditValueChanged += new System.EventHandler(this.barEditItem1_EditValueChanged);
+            this.bar1tab3btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab3btn1_ItemClick);
             // 
             // bar1tab1btn3
             // 
@@ -280,6 +289,7 @@
             this.bar3tab1btn1.Id = 22;
             this.bar3tab1btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar3tab1btn1.LargeGlyph")));
             this.bar3tab1btn1.Name = "bar3tab1btn1";
+            this.bar3tab1btn1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar3tab1btn1_ItemClick);
             // 
             // bar3tab1btn2
             // 
@@ -287,6 +297,7 @@
             this.bar3tab1btn2.Id = 23;
             this.bar3tab1btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar3tab1btn2.LargeGlyph")));
             this.bar3tab1btn2.Name = "bar3tab1btn2";
+            this.bar3tab1btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar3tab1btn2_ItemClick);
             // 
             // bar2tab1btn1
             // 
@@ -412,6 +423,13 @@
             this.bar1tab2btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab2btn3.LargeGlyph")));
             this.bar1tab2btn3.Name = "bar1tab2btn3";
             // 
+            // bar3tab2btn4
+            // 
+            this.bar3tab2btn4.Caption = "KC";
+            this.bar3tab2btn4.Id = 62;
+            this.bar3tab2btn4.Name = "bar3tab2btn4";
+            this.bar3tab2btn4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar3tab2btn4_ItemClick);
+            // 
             // bar1
             // 
             this.bar1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -496,7 +514,6 @@
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn1, false, "NH", "", true);
             this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn2, "XU");
-            this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn3, false, "CH", "", true);
             this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn4, "T");
             this.ribbonPageGroup7.KeyTip = "K";
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
@@ -507,6 +524,7 @@
             this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn1, "NẬ");
             this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn2, false, "XẤ", "", true);
             this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn3, "CU");
+            this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn4);
             this.ribbonPageGroup8.KeyTip = "CỨ";
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Chứng từ";
@@ -537,6 +555,13 @@
             this.ribbonPageGroup11.KeyTip = "T";
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Tổng hợp";
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // tabMdi
             // 
@@ -650,6 +675,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.ResumeLayout(false);
@@ -716,5 +742,7 @@
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn2;
         private DevExpress.XtraBars.BarButtonItem bar1tab2btn3;
         private DevExpress.XtraBars.BarButtonItem bar4tab2btn3;
+        private DevExpress.XtraBars.BarButtonItem bar3tab2btn4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
     }
 }

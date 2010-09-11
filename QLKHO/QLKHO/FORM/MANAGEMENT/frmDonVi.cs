@@ -181,6 +181,11 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
+        private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
 
     }
 }
