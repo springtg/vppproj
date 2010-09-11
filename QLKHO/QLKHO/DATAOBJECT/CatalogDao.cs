@@ -20,7 +20,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGsAll");
+                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGsAll");
 
             }
             catch (Exception ex)
@@ -36,7 +36,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGForCombo");
+                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGForCombo");
 
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace QLKHO.DATAOBJECT
                     "@Id"
                 };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_CATALOGbyId", arrParaName, arrValue);
+                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGbyId", arrParaName, arrValue);
 
             }
             catch (Exception ex)

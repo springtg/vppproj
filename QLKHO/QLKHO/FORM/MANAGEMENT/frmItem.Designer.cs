@@ -51,12 +51,15 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpUnitStyle = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUnitStyle)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -142,7 +145,8 @@
             this.grdItem.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lookUpGroup,
             this.lookUpUnit,
-            this.lookUpSupplier});
+            this.lookUpSupplier,
+            this.LookUpUnitStyle});
             this.grdItem.Size = new System.Drawing.Size(827, 399);
             this.grdItem.TabIndex = 4;
             this.grdItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -154,6 +158,7 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
+            this.gridColumn9,
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
@@ -192,6 +197,7 @@
             this.gridColumn3.ColumnEdit = this.lookUpGroup;
             this.gridColumn3.FieldName = "Id_Group_Pk";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
@@ -212,10 +218,12 @@
             // 
             this.gridColumn4.Caption = "Đơn vị tính";
             this.gridColumn4.ColumnEdit = this.lookUpUnit;
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "Id_Unit_Pk";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 4;
             // 
             // lookUpUnit
             // 
@@ -237,7 +245,7 @@
             this.gridColumn5.FieldName = "Id_Supplier_Pk";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 5;
             // 
             // lookUpSupplier
             // 
@@ -255,10 +263,13 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Ngày tạo";
+            this.gridColumn6.DisplayFormat.FormatString = "d";
+            this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn6.FieldName = "Crt_Dt";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 6;
             // 
             // gridColumn7
             // 
@@ -266,15 +277,31 @@
             this.gridColumn7.FieldName = "Remark";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 7;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "SL Tồn";
             this.gridColumn8.FieldName = "slton";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 8;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Quy Cách";
+            this.gridColumn9.ColumnEdit = this.LookUpUnitStyle;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 3;
+            // 
+            // LookUpUnitStyle
+            // 
+            this.LookUpUnitStyle.AutoHeight = false;
+            this.LookUpUnitStyle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUnitStyle.Name = "LookUpUnitStyle";
             // 
             // frmItem
             // 
@@ -294,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUnitStyle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -322,6 +350,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpGroup;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnitStyle;
 
     }
 }
