@@ -132,7 +132,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataTable l_Detail = (DataTable)grdTakeOutDetail.DataSource;
                 dr = ((DataRowView)txtDeparmentID.GetSelectedDataRow()).Row;
                 int l_Deparment = CnvToInt32(dr["Id"]);
-                //int l_totalmat = CnvToInt32(grdTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 //if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_Deparment, l_date, txttakeOutRemark.Text, txtTakeOutID.Text))
                 //{
                 //    lstTakeOut.DataSource = LoadData("MASTER", -1);
@@ -194,26 +194,26 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void grdTakeOutDetail_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.KeyData.Equals(Keys.Delete))
-            //{
-            //    int[] l_selectRow = grdTakeOutDetail.GetSelectedRows();
-            //    DataTable l_tmp = ((DataView)grdTakeOutDetail.DataSource).Table;
-            //    if (CurFormState.Equals(EVENT_FORM_NEW))//Neu la truong hop them moi thi remote row do ra khoi grid
-            //    {
-            //        for (int i = 0; i < l_selectRow.Length; i++)
-            //        {
-            //            l_tmp.Rows.RemoveAt(i);
-            //        }
-            //    }
-            //    //neu la truong hop cu du lieu o Db troi, thi goi cau update
-            //    else
-            //    {
-            //        if (DeleteItem(l_selectRow, l_tmp))
-            //        {
-            //            lstTakeOut.DataSource = LoadData("MASTER", -1);
-            //        }
-            //    }
-            //}
+            if (e.KeyData.Equals(Keys.Delete))
+            {
+                int[] l_selectRow = grvTakeOutDetail.GetSelectedRows();
+                DataTable l_tmp = ((DataView)grdTakeOutDetail.DataSource).Table;
+                if (CurFormState.Equals(EVENT_FORM_NEW))//Neu la truong hop them moi thi remote row do ra khoi grid
+                {
+                    for (int i = 0; i < l_selectRow.Length; i++)
+                    {
+                        l_tmp.Rows.RemoveAt(i);
+                    }
+                }
+                //neu la truong hop cu du lieu o Db troi, thi goi cau update
+                else
+                {
+                    if (DeleteItem(l_selectRow, l_tmp))
+                    {
+                        lstTakeOut.DataSource = LoadData("MASTER", -1);
+                    }
+                }
+            }
         }
         private bool DeleteItem(int[] p_selectRow, DataTable p_datasource)
         {
