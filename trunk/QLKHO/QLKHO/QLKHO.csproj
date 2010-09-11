@@ -94,6 +94,7 @@
     <Compile Include="BUSOBJECT\Supplier.cs" />
     <Compile Include="BUSOBJECT\User.cs" />
     <Compile Include="DATAOBJECT\CatalogDao.cs" />
+    <Compile Include="DATAOBJECT\TakeInDao.cs" />
     <Compile Include="DATAOBJECT\UnitDao.cs" />
     <Compile Include="DATAOBJECT\ItemDao.cs" />
     <Compile Include="DATAOBJECT\GroupItemDao.cs" />

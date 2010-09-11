@@ -20,7 +20,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_ITEMsAll");
+                dt = _sql.GetDataByStoredProcedure("USP_SEL_ITEM_All");
                 
             }
             catch (Exception ex)
@@ -37,18 +37,18 @@ namespace QLKHO.DATAOBJECT
 
                 string[] arrParaName = new string[] {
                     "@Name",
-                   "@Id_Group_Pk",
+                    "@Group_Pk",
 	                "@Crt_Dt",
 	                "@Crt_By",
 	                "@Is_Del",
 	                "@Remark",
-                    "@Id_Unit_Pk",
-                    "@Id_Supplier_Pk",
+                    "@Unit_Pk",
+                    "@Supplier_Pk",
                     "@number_in"
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                ma = _sql.ExecuteInsert("usp_InsertVPP_ITEM", arrNames: arrParaName, arrValues: arrValue);
+                ma = _sql.ExecuteInsert("USP_INS_ITEM", arrNames: arrParaName, arrValues: arrValue);
             }
             catch (Exception ex)
             {
@@ -65,17 +65,16 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] {
                     "@Id",
                     "@Name",
-                    "@Id_Group_Pk",
+                    "@Group_Pk",
 	                "@Mod_Dt",
 	                "@Mod_By",
 	                "@Is_Del",
 	                "@Remark",
-                    "@Id_Unit_Pk",
-                    "@Id_Supplier_Pk",
+                    "@Unit_Style_Pk",
                     "@number_in"   };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_UpdateVPP_ITEM", arrNames: arrParaName, arrValues: arrValue);
+                _sql.ExecuteNonQuery("USP_UPD_ITEM", arrNames: arrParaName, arrValues: arrValue);
                 return true;
             }
             catch (Exception ex)
@@ -92,7 +91,7 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] { "@Id" };
                 object[] arrParaValue = new object[] { _idSuppiler };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_DeleteVPP_ITEM", arrParaName, arrParaValue);
+                _sql.ExecuteNonQuery("USP_DEL_ITEM", arrParaName, arrParaValue);
                 return true;
             }
             catch (Exception ex)
