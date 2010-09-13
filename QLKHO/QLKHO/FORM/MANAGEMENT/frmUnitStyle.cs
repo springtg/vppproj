@@ -19,14 +19,17 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void frmUnitStyle_Load(object sender, EventArgs e)
         {
-            
+
+            LoadGird();
+        }
+        public void LoadGird()
+        {
             InitData(L_CATALOG);
             InitData(L_SUPPLIER);
             InitData(L_UNIT_OUT);
             InitData(L_UNIT_IN);
             grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem);
         }
-
         #region "Phuong thuc"
 
         private const string l_GROUP  ="GROUP";
@@ -66,6 +69,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     break;
                 case L_SUPPLIER:
                     repositoryItemLookUpEdit_Supplier.DataSource = QLKHO.DATAOBJECT.SupplierDao.GetList(_ConfigItem);
+                    repositoryItemLookUpEdit_sup.DataSource = QLKHO.DATAOBJECT.SupplierDao.GetList(_ConfigItem);
                     break;
                 default:
                     break;
@@ -102,6 +106,122 @@ namespace QLKHO.FORM.MANAGEMENT
                 
             }
             
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            
+        }
+        private void Insert(DataRow row)
+        {
+
+            try
+            {
+                object[] arrParaValue = new object[] {
+                     row["Id"],
+                    row["Name"],
+                    row["Unit_In_Pk"],                
+                                     
+                    row["Unit_Out_Pk"],
+                    row["Remark"],
+                    row["Supplier_Pk"],
+                    row["Item_Pk"],
+                     _ConfigItem.Login_UserName
+                };
+                UnitStyleDao.Insert(_ConfigItem, arrValue: arrParaValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void Delete(int _id)
+        {
+            try
+            {
+                UnitStyleDao.Delete(_ConfigItem, _id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        private bool Update(DataRow row)
+        {
+           
+            try
+            {
+                object[] arrParaValue = new object[] {
+                    row["Id"],
+                    row["Name"],
+                    row["Unit_In_Pk"], 
+                                   
+                    row["Unit_Out_Pk"],
+                    row["Remark"],
+                    row["Supplier_Pk"],
+                    row["Item_Pk"],
+                    _ConfigItem.Login_UserName
+                };
+                UnitStyleDao.Insert(_ConfigItem, arrValue: arrParaValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void grvUnitStyle_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            try
+            {
+
+                DataTable Tmp = (DataTable)(grdUnitStyle.DataSource);
+                for (int i = 0; i < Tmp.Rows.Count; i++)
+                {
+                    DataRow dr = Tmp.Rows[i];
+                    if (isModifedRow(dr))
+                    {
+                        Update(dr);
+                    }
+                    if (isNewRow(dr))
+                    {
+                        Insert(dr);
+                    }
+                    if (isDeletedRow(dr))
+                    {
+                        Delete((int)GetOriginalItemData(dr, "Id"));
+                    }
+                }
+                LoadGird();
+            }
+            catch (Exception ex)
+            {
+                //TODOL Ghi log cho nay
+                throw ex;
+            }
+        }
+
+        private void grvUnitStyle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData.Equals(System.Windows.Forms.Keys.Delete))
+            {
+                try
+                {
+                    int[] _IndexRowSelected = grvUnitStyle.GetSelectedRows();
+                    int _CurIndexRow = _IndexRowSelected[0];
+                    DataTable tmp = (DataTable)grdUnitStyle.DataSource;
+                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                    LoadGird();
+                }
+                catch (Exception ex)
+                {
+                    //TODO: Ghi log tai day nhe
+                    throw ex;
+                }
+            }
         }
     }
 }
