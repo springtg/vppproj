@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(827, 423);
             this.Name = "BASEFORM";
             this.Text = "BASEFORM";
+            this.Load += new System.EventHandler(this.BASEFORM_Load);
             this.ResumeLayout(false);
 
         }

@@ -28,7 +28,7 @@ namespace QLKHO.FORM.NHAPXUAT
             AssignTagValueOnDXControl(this);
             //LAY THONG TIN CHO CAC COMBOBOX
             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
-            txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("usp_SelectVPP_SUPPLIER");
+            txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("USP_SEL_SUPPLIER");
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
             repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
             repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
@@ -125,8 +125,11 @@ namespace QLKHO.FORM.NHAPXUAT
             if (tbTmp.Rows.Count > 0)
             {
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
-                //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG            
+                //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG    
+                //int l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+
                 txtSuppierID.Text = CnvToString(dr["Supplier_Pk"]);
+                
                 txtTakeInID.Text = CnvToString(dr["Id_Dis"]);
                 txtTakeInDate.DateTime = DateTime.Parse(CnvToString(dr["Take_In_Date"]));
                 txttakeInRemark.Text = CnvToString(dr["Remark"]);
