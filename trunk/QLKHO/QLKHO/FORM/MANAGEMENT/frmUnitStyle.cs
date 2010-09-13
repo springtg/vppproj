@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using COREBASE.COMMAND.Config;
 using QLKHO.DATAOBJECT;
+
 namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmUnitStyle : COREBASE.FORM.BASEFORM
@@ -222,6 +219,11 @@ namespace QLKHO.FORM.MANAGEMENT
                     throw ex;
                 }
             }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }
