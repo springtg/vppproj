@@ -170,9 +170,21 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bntDel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                int[] _IndexRowSelected = gridView1.GetSelectedRows();
+                int _CurIndexRow = _IndexRowSelected[0];
+                DataTable tmp = (DataTable)grvUser.DataSource;
+                Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                LoadGrid();
+            }
+            catch (Exception ex)
+            {
+                //TODO: Ghi log tai day nhe
+                throw ex;
+            }
         }
     }
 }
