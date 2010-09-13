@@ -14,12 +14,10 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmNCC : COREBASE.FORM.BASEFORM
     {
-        SupplierDao Dao;
         IList<Supplier> lSupplier = null;
         public frmNCC(ConfigItem _config)
         {
             _ConfigItem = _config;
-            Dao = new SupplierDao(_config);
             InitializeComponent();
             this.Load += new EventHandler(frmNCC_Load);
         }
@@ -30,7 +28,7 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         public void BidingGrid()
         {
-            lSupplier = Dao.GetUserList();
+            lSupplier = SupplierDao.GetList(_ConfigItem);
             grdSupplier.DataSource = lSupplier;
         }
 
@@ -81,12 +79,11 @@ namespace QLKHO.FORM.MANAGEMENT
                 int[] _IndexRowSelected = grvSupplier.GetSelectedRows();
                 int _CurIndexRow = _IndexRowSelected[0];
                 Supplier _supplier =(Supplier) grvSupplier.GetRow(_CurIndexRow);
-                Dao = new SupplierDao(_ConfigItem);
                 object[] obj = new object[1];
                 obj[0] = _supplier.Name;
                 if (ShowMessageBox("FRMADDSUPPLIER_C_002", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM,obj)== System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (Dao.Delete(_supplier.Id))
+                    if (SupplierDao.Delete(_ConfigItem,_supplier.Id))
                     {
                         BidingGrid();
                     }

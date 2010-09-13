@@ -11,14 +11,10 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmGroupItem : COREBASE.FORM.BASEFORM
     {
-        CatalogDao DaoCat;
-        GroupItemDao DaoGroup;
         public frmGroupItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-            DaoCat = new CatalogDao(_ConfigItem);
-            DaoGroup = new GroupItemDao(_ConfigItem);
         }
 
         private void frmGroupItem_Load(object sender, EventArgs e)
@@ -27,31 +23,18 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         public void LoadGird()
         {
-            grdGroup.DataSource = DaoGroup.GetList();
+            grdGroup.DataSource = GroupDao.GetList(_ConfigItem);
             LoadCatalog();
         }
         private void LoadCatalog() {
-            repositoryItemLookUpEdit1.DataSource = DaoCat.GetListCombo();
+            repositoryItemLookUpEdit1.DataSource = CatalogDao.GetList(_ConfigItem);
         }
         private void Insert(DataRow row)
         {
-    //"@Name",
-    //                "@Crt_Dt",
-    //                "@Crt_By",
-    //                "@Is_Del",
-    //                "@Remark",
-    //                "@Id_Cat"
+    
             try
             {
-                object[] arrParaValue = new object[] {
-                    row["Name"],
-                    DateTime.Now,
-                    _ConfigItem.Login_UserName,
-                    0,
-                    row["Remark"],
-                    row["Id_Cat"]
-                };
-                DaoGroup.Insert(arrValue: arrParaValue);
+                GroupDao.Insert(_ConfigItem, row);
             }
             catch (Exception ex)
             {
@@ -62,7 +45,7 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             try
             {
-                DaoGroup.Delete(_id);
+                GroupDao.Delete(_ConfigItem, _id);
             }
             catch (Exception ex)
             {
@@ -72,26 +55,9 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private bool Update(DataRow row)
         {
-            //"@Id",
-            //        "@Name",
-            //        "@Mod_Dt",
-            //        "@Mod_By",
-            //        "@Is_Del",
-            //        "@Remark",
-            //        "@Id_Cat"
             try
             {
-                object[] arrParaValue = new object[] {
-                    row["Id"],
-                    row["Name"],
-                    DateTime.Now,
-                    _ConfigItem.Login_UserName,
-                    0,
-
-                    row["Remark"],
-                    row["Id_Cat"]
-                };
-                DaoGroup.Update(arrValue: arrParaValue);
+                GroupDao.Update(_ConfigItem, row);
                 return true;
             }
             catch (Exception ex)

@@ -1,67 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using COREBASE.COMMAND.Config;
 using System.Data;
 
 namespace QLKHO.DATAOBJECT
 {
-    class CatalogDao
+    internal class CatalogDao
     {
-        public ConfigItem confItem;
-        public CatalogDao(ConfigItem _conf)
+        public static DataTable GetList(ConfigItem p_ConfigItem)
         {
-            this.confItem = _conf;
-        }
-        public DataTable GetList()
-        {
-            DataTable dt = null;
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
             try
             {
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGsAll");
-
+                _sql.Connect(p_ConfigItem);
+                return _sql.GetDataByStoredProcedure("USP_SEL_CATALOG_All");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return dt;
+            finally
+            {
+                _sql.Disconnect();
+            }
         }
-
-        public DataTable GetListCombo()
+        public static DataTable GetList(ConfigItem p_ConfigItem, int p_Catalog_Pk)
         {
-            DataTable dt = null;
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
             try
             {
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGForCombo");
-
+                string[] arrParaName = new string[] { "@Id" };
+                object[] arrValue = new object[] { p_Catalog_Pk };
+                _sql.Connect(p_ConfigItem);
+                return _sql.GetDataByStoredProcedure("USP_SEL_CATALOG_BY_ID", arrParaName, arrValue);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return dt;
-        }
-        public DataTable GetList(object[] arrValue)
-        {
-            DataTable dt = null;
-            try
+            finally
             {
-                string[] arrParaName = new string[] {
-                    "@Id"
-                };
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SEL_CATALOGbyId", arrParaName, arrValue);
-
+                _sql.Disconnect();
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return dt;
         }
     }
 }

@@ -91,11 +91,10 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             try
             {
-                Dao = new SupplierDao(_ConfigItem);
                 if (supplier == null)
                 {
                     GetFormSupplier();
-                    if (Dao.Insert(supplier) != 0)
+                    if (SupplierDao.Insert(_ConfigItem,supplier) != 0)
                     {
                         AssignTagValueOnDXControl(this);
                         ShowMessageBox("FORMMAIN_001");
@@ -106,7 +105,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 else
                 {
                     GetFormSupplier();
-                    if (Dao.Update(supplier))
+                    if (SupplierDao.Update(_ConfigItem, supplier))
                     {
                         AssignTagValueOnDXControl(this);
                         ShowMessageBox("FRMADDSUPPLIER_I_001", COREBASE.COMMAND.MessageUtils.MessageType.INFORM);

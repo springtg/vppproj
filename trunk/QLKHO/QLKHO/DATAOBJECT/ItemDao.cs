@@ -1,27 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using COREBASE.COMMAND.Config;
 using System.Data;
 
 namespace QLKHO.DATAOBJECT
 {
-    class ItemDao
+    internal class ItemDao
     {
-        public ConfigItem confItem;
-        public ItemDao(ConfigItem _conf)
+
+        public static DataTable GetList(ConfigItem p_configItem, int p_GroupID)
         {
-            this.confItem = _conf;
+            COREBASE.COMMAND.SQL.AccessSQL l_sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+            try
+            {
+                l_sql.Connect();
+                string[] l_arrName = new string[] { "@Group_Pk" };
+                object[] l_arrValue = new object[] { p_GroupID };
+                return l_sql.GetDataByStoredProcedure("USP_SEL_ITEM_BY_GROUP_ID", l_arrName, l_arrValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                l_sql.Disconnect();
+            }
         }
-        public DataTable GetList()
+
+        public static DataTable GetList(ConfigItem p_configItem)
         {
             DataTable dt = null;
             try
             {
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
                 dt = _sql.GetDataByStoredProcedure("USP_SEL_ITEM_All");
-                
+
             }
             catch (Exception ex)
             {
@@ -29,7 +42,8 @@ namespace QLKHO.DATAOBJECT
             }
             return dt;
         }
-        public int Insert(object [] arrValue)
+
+        public static int Insert(ConfigItem p_configItem, object[] arrValue)
         {
             int ma = 0;
             try
@@ -47,7 +61,7 @@ namespace QLKHO.DATAOBJECT
                     "@number_in"
                 };
 
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
                 ma = _sql.ExecuteInsert("USP_INS_ITEM", arrNames: arrParaName, arrValues: arrValue);
             }
             catch (Exception ex)
@@ -57,7 +71,7 @@ namespace QLKHO.DATAOBJECT
             return ma;
         }
 
-        public bool Update(object [] arrValue )
+        public static bool Update(ConfigItem p_configItem, object[] arrValue)
         {
             try
             {
@@ -73,7 +87,7 @@ namespace QLKHO.DATAOBJECT
                     "@Unit_Style_Pk",
                     "@number_in"   };
 
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
                 _sql.ExecuteNonQuery("USP_UPD_ITEM", arrNames: arrParaName, arrValues: arrValue);
                 return true;
             }
@@ -83,14 +97,14 @@ namespace QLKHO.DATAOBJECT
 
             }
         }
-        
-        public bool Delete(int _idSuppiler)
+
+        public static bool Delete(ConfigItem p_configItem, int _idSuppiler)
         {
             try
             {
                 string[] arrParaName = new string[] { "@Id" };
                 object[] arrParaValue = new object[] { _idSuppiler };
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
                 _sql.ExecuteNonQuery("USP_DEL_ITEM", arrParaName, arrParaValue);
                 return true;
             }

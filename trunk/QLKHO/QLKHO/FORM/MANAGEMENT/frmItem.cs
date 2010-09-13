@@ -14,16 +14,11 @@ namespace QLKHO.FORM.MANAGEMENT
     {
         UnitDao DaoUnit;
         GroupItemDao DaoGroup;
-        ItemDao DaoItem;
         SupplierDao DaoSupp;
         public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-            DaoUnit = new UnitDao(_ConfigItem);
-            DaoGroup = new GroupItemDao(_ConfigItem);
-            DaoSupp = new SupplierDao(_ConfigItem);
-            DaoItem = new ItemDao(_ConfigItem);
             this.Load += new EventHandler(frmItem_Load);
         }
 
@@ -34,14 +29,14 @@ namespace QLKHO.FORM.MANAGEMENT
 
         public void LoadGird()
         {
-            grdItem.DataSource = DaoItem.GetList();
+            grdItem.DataSource = ItemDao.GetList(_ConfigItem);
             LoadUnit();
             LoadGroup();
             LoadSupplier();
         }
         private void LoadUnit()
         {
-            lookUpUnit.DataSource = DaoUnit.GetList();
+            lookUpUnit.DataSource = UnitDao.GetList(_ConfigItem);
         }
         private void LoadGroup()
         {
@@ -49,18 +44,11 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private void LoadSupplier()
         {
-            lookUpSupplier.DataSource = DaoSupp.GetUserList();
+            lookUpSupplier.DataSource = SupplierDao.GetList(_ConfigItem);
         }
         private void Insert(DataRow row)
         {
-            //"@Name",
-            //        " @Id_Group_Pk",
-            //         "@Crt_Dt",
-            //         "@Crt_By",
-            //         "@Is_Del",
-            //         "@Remark",
-            //         "@Id_Unit_Pk",
-            //         "@Id_Supplier_Pk"
+           
             try
             {
                 object[] arrParaValue = new object[] {
@@ -74,7 +62,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Id_Supplier_Pk"],
                     row["slton"]
                 };
-                DaoItem.Insert(arrValue: arrParaValue);
+                ItemDao.Insert(_ConfigItem, arrValue: arrParaValue);
             }
             catch (Exception ex)
             {
@@ -85,7 +73,7 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             try
             {
-                DaoItem.Delete(_id);
+                ItemDao.Delete(_ConfigItem, _id);
             }
             catch (Exception ex)
             {
@@ -118,7 +106,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Id_Supplier_Pk"],
                     row["slton"]
                 };
-                DaoItem.Update(arrValue: arrParaValue);
+                ItemDao.Update(_ConfigItem,arrValue: arrParaValue);
                 return true;
             }
             catch (Exception ex)
