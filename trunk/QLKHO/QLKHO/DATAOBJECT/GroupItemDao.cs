@@ -14,20 +14,24 @@ namespace QLKHO.DATAOBJECT
         {
             this.confItem = _conf;
         }
-        public DataTable GetList()
+        public static DataTable GetList(ConfigItem p_ConfigItem)
         {
-            DataTable dt = null;
+            
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
             try
             {
-                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_GROUPsAll");
-                
+                _sql.Connect(p_ConfigItem);
+                return _sql.GetDataByStoredProcedure("USP_SEL_GROUP_All");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return dt;
+            finally
+            {
+                _sql.Disconnect();
+            }
+
         }
         public int Insert(object [] arrValue)
         {

@@ -19,7 +19,7 @@ namespace QLKHO.DATAOBJECT
             try
             {
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                dt = _sql.GetDataByStoredProcedure("usp_SelectVPP_DEPARTMENT");
+                dt = _sql.GetDataByStoredProcedure("USP_SEL_DEPARTMENT");
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace QLKHO.DATAOBJECT
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                ma = _sql.ExecuteInsert("usp_InsertVPP_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
+                ma = _sql.ExecuteInsert("USP_INS_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace QLKHO.DATAOBJECT
 	                "@Phone"};
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_UpdateVPP_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
+                _sql.ExecuteNonQuery("USP_UPD_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
                 return true;
             }
             catch (Exception ex)
@@ -85,7 +85,7 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] { "@Id" };
                 object[] arrParaValue = new object[] { _idSuppiler };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_DeleteVPP_DEPARTMENT", arrParaName, arrParaValue);
+                _sql.ExecuteNonQuery("USP_DEL_DEPARTMENT", arrParaName, arrParaValue);
                 return true;
             }
             catch (Exception ex)
