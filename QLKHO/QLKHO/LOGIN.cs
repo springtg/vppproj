@@ -39,6 +39,8 @@ namespace QLKHO
         void LoadUser()
         {
             FLASHSCREEN _flash = new FLASHSCREEN();
+            _flash.TbUser= COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_flash.getConfig);
+            
             if (_flash.ShowDialog() == DialogResult.OK)
             {
                 tbUser = (DataTable)_flash.TbUser;
