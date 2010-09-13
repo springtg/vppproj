@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using COREBASE.COMMAND.Config;
-
+using QLKHO.DATAOBJECT;
 namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmUnitStyle : COREBASE.FORM.BASEFORM
@@ -19,10 +19,12 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void frmUnitStyle_Load(object sender, EventArgs e)
         {
+            
             InitData(L_CATALOG);
             InitData(L_SUPPLIER);
             InitData(L_UNIT_OUT);
             InitData(L_UNIT_IN);
+            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem);
         }
 
         #region "Phuong thuc"
