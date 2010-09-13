@@ -14,12 +14,10 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmUser : COREBASE.FORM.BASEFORM
     {
-        UserDao DaoUser;
         public frmUser(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-            DaoUser = new UserDao(_ConfigItem);
             this.Load += new EventHandler(frmUser_Load);
         }
 
@@ -43,7 +41,7 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private void LoadGrid()
         {
-            grvUser.DataSource = DaoUser.GetList();
+            grvUser.DataSource = UserDao.GetList(_ConfigItem);
         }
         private void Insert(DataRow row)
         {
@@ -64,14 +62,12 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Name_Dis"],
                     row["Name"],
                     row["Password"],
-                    DateTime.Now,
                     _ConfigItem.Login_UserName,
-                    0,
                     row["Remark"],
                     row["Phone"],
                     row["Address"]
                 };
-                DaoUser.Insert(arrValue: arrParaValue);
+                UserDao.Insert(_ConfigItem, arrParaValue);
             }
             catch (Exception ex)
             {
@@ -82,7 +78,7 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             try
             {
-                DaoUser.Delete(_id);
+                UserDao.Delete(_ConfigItem, _id);
             }
             catch (Exception ex)
             {
@@ -109,14 +105,12 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Name_Dis"],
                     row["Name"],
                      row["Password"],
-                    DateTime.Now,
                     _ConfigItem.Login_UserName,
-                    0,
                     row["Remark"],
                     row["Phone"],
                     row["Address"]
                 };
-                DaoUser.Update(arrValue: arrParaValue);
+                UserDao.Update(_ConfigItem, arrParaValue);
                 return true;
             }
             catch (Exception ex)
