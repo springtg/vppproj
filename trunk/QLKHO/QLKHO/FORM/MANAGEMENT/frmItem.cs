@@ -13,7 +13,7 @@ namespace QLKHO.FORM.MANAGEMENT
     public partial class frmItem : COREBASE.FORM.BASEFORM
     {
         UnitDao DaoUnit;
-        GroupItemDao DaoGroup;
+        //GroupItemDao DaoGroup;
         SupplierDao DaoSupp;
         public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
@@ -40,7 +40,8 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private void LoadGroup()
         {
-            lookUpGroup.DataSource = DaoGroup.GetList();
+            lookUpGroup.DataSource = GroupItemDao.GetList(_ConfigItem);
+            
         }
         private void LoadSupplier()
         {

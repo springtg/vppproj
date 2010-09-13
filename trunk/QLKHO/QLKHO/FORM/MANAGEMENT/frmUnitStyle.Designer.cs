@@ -90,6 +90,7 @@
             // 
             this.gridColumn5.Caption = "Đơn Vị Nhập";
             this.gridColumn5.ColumnEdit = this.repositoryItemLookUpEdit_Unit;
+            this.gridColumn5.FieldName = "Unit_In_Pk";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 0;
@@ -112,6 +113,7 @@
             // 
             this.gridColumn6.Caption = "Đơn Vị Xuất";
             this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit_Unit;
+            this.gridColumn6.FieldName = "Unit_Out_Pk";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
@@ -121,6 +123,7 @@
             // 
             this.gridColumn7.Caption = "Nhà Cung Cấp";
             this.gridColumn7.ColumnEdit = this.repositoryItemLookUpEdit_Supplier;
+            this.gridColumn7.FieldName = "Supplier_Pk";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 2;
@@ -154,6 +157,7 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "SL Quy Đổi";
+            this.gridColumn4.FieldName = "Num";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
