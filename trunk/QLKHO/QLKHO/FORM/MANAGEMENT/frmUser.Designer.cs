@@ -167,6 +167,8 @@
             this.gridColumn1.Caption = "Mã";
             this.gridColumn1.FieldName = "Id_Dis";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.AllowFocus = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
