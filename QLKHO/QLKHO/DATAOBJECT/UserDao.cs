@@ -63,7 +63,7 @@ namespace QLKHO.DATAOBJECT
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                ma = _sql.ExecuteInsert("usp_InsertVPP_USER", arrNames: arrParaName, arrValues: arrValue);
+                ma = _sql.ExecuteInsert("usp_INS_VPP_USER", arrNames: arrParaName, arrValues: arrValue);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace QLKHO.DATAOBJECT
                     "@Address"};
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_UpdateVPP_USER", arrNames: arrParaName, arrValues: arrValue);
+                _sql.ExecuteNonQuery("usp_UPD_VPP_USER", arrNames: arrParaName, arrValues: arrValue);
                 return true;
             }
             catch (Exception ex)
@@ -106,7 +106,7 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] { "@Id" };
                 object[] arrParaValue = new object[] { _idSuppiler };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
-                _sql.ExecuteNonQuery("usp_DeleteVPP_USER", arrParaName, arrParaValue);
+                _sql.ExecuteNonQuery("usp_DEL_VPP_USER", arrParaName, arrParaValue);
                 return true;
             }
             catch (Exception ex)
