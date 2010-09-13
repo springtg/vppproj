@@ -17,7 +17,7 @@ namespace QLKHO
         public frmLogin(COREBASE.COMMAND.Config.ConfigItem _confItem)
         {
             InitializeComponent();
-            
+
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -36,7 +36,22 @@ namespace QLKHO
                 Close();
             }
         }
-
+        void LoadUser()
+        {
+            FLASHSCREEN _flash = new FLASHSCREEN();
+            if (_flash.ShowDialog() == DialogResult.OK)
+            {
+                tbUser = (DataTable)_flash.TbUser;
+                lstMember.DisplayMember = "Name_Dis";
+                lstMember.ValueMember = "ID";
+                lstMember.DataSource = tbUser;
+                _ConfigItem = _flash.getConfig;
+            }
+            else
+            {
+                Close();
+            }
+        }
         void config_FormClosed(object sender, FormClosedEventArgs e)
         {
             //if (MessageBox.Show("Bạn có muốn khởi động lại ứng dụng không?", MessageBoxManager.Caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -55,7 +70,8 @@ namespace QLKHO
 
             CheckLogin();
         }
-        private void CheckLogin() {
+        private void CheckLogin()
+        {
             AppDebug("sdfdsfds");
             if (!ValidateForm())
             {
