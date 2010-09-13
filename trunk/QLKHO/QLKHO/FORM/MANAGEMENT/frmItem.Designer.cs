@@ -116,7 +116,7 @@
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(827, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(827, 24);
             // 
             // barDockControlBottom
             // 
@@ -127,19 +127,19 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 401);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 399);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(827, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 401);
+            this.barDockControlRight.Location = new System.Drawing.Point(827, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 399);
             // 
             // grdItem
             // 
             this.grdItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdItem.Location = new System.Drawing.Point(0, 22);
+            this.grdItem.Location = new System.Drawing.Point(0, 24);
             this.grdItem.MainView = this.gridView1;
             this.grdItem.MenuManager = this.barManager1;
             this.grdItem.Name = "grdItem";
@@ -148,7 +148,7 @@
             this.lookUpUnit,
             this.lookUpSupplier,
             this.LookUpUnitStyle});
-            this.grdItem.Size = new System.Drawing.Size(827, 401);
+            this.grdItem.Size = new System.Drawing.Size(827, 399);
             this.grdItem.TabIndex = 4;
             this.grdItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
