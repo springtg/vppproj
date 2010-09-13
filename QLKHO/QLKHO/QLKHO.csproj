@@ -79,6 +79,7 @@
     <Reference Include="DevExpress.XtraPrinting.v10.1.Design, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,12 +95,14 @@
     <Compile Include="BUSOBJECT\Supplier.cs" />
     <Compile Include="BUSOBJECT\User.cs" />
     <Compile Include="DATAOBJECT\CatalogDao.cs" />
+    <Compile Include="DATAOBJECT\GroupDao.cs" />
     <Compile Include="DATAOBJECT\TakeInDao.cs" />
     <Compile Include="DATAOBJECT\UnitDao.cs" />
     <Compile Include="DATAOBJECT\ItemDao.cs" />
     <Compile Include="DATAOBJECT\GroupItemDao.cs" />
     <Compile Include="DATAOBJECT\DepartmentsDao.cs" />
     <Compile Include="DATAOBJECT\SupplierDao.cs" />
+    <Compile Include="DATAOBJECT\UnitStyleDao.cs" />
     <Compile Include="DATAOBJECT\UserDao.cs" />
     <Compile Include="FLASHSCREEN.cs">
       <SubType>Form</SubType>
@@ -166,6 +169,12 @@
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmPhongBan.Designer.cs">
       <DependentUpon>frmPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmUnitStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\MANAGEMENT\frmUnitStyle.Designer.cs">
+      <DependentUpon>frmUnitStyle.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmUser.cs">
       <SubType>Form</SubType>
@@ -238,6 +247,9 @@
     <EmbeddedResource Include="FORM\MANAGEMENT\frmPhongBan.resx">
       <DependentUpon>frmPhongBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\MANAGEMENT\frmUnitStyle.resx">
+      <DependentUpon>frmUnitStyle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +320,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Transfer.gif" />
     <None Include="Resources\Refresh-icon.png" />
     <None Include="Resources\save-icon.png" />
     <None Include="Resources\NoImg.png" />

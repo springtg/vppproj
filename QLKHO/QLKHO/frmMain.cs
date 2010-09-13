@@ -204,6 +204,20 @@ namespace QLKHO
 
         }
 
+        private void bartab2bnt5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                frmUnitStyle f = new frmUnitStyle(_ConfigItem);
+                f.MdiParent = this;
+                f.Show();
+            }
+            catch (Exception ex) 
+            {
+                
+            }
+        }
+
 
     }
 }

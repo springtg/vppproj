@@ -62,6 +62,25 @@ namespace COREBASE.COMMAND.SQL
         /// Thiet lap ket noi
         /// </summary>
         /// 
+        public void Connect(Config.ConfigItem config)
+        {
+            try
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                    _sqlConnection.Close();
+                _sqlConnection = new SqlConnection(config.StrConnection);
+                _sqlConnection.Open();
+            }
+            catch
+            {
+                _sqlConnection.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Thiet lap ket noi
+        /// </summary>
+        /// 
         public void Connect(SqlConnection cn, Config.ConfigItem config)
         {
             try

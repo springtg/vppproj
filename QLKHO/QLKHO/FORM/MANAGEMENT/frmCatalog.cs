@@ -12,12 +12,10 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmCatalog : COREBASE.FORM.BASEFORM
     {
-        CatalogDao DaoCat;
         public frmCatalog(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-            DaoCat = new CatalogDao(_ConfigItem);
             this.Load += new EventHandler(frmCatalog_Load);
         }
 
@@ -27,7 +25,7 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         public void LoadGird()
         {
-            gvCat.DataSource = DaoCat.GetList();
+            gvCat.DataSource = CatalogDao.GetList(_ConfigItem);
 
         }
     }

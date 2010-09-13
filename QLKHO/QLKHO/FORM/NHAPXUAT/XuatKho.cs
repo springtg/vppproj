@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QLKHO.DATAOBJECT;
 
 namespace QLKHO.FORM.NHAPXUAT
 {
@@ -32,11 +33,8 @@ namespace QLKHO.FORM.NHAPXUAT
                 AssignTagValueOnDXControl(this);
                 txtDeparmentID.Properties.DataSource = LoadDataDepartment();
                 cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
-               
-                DATAOBJECT.ItemDao _item = new DATAOBJECT.ItemDao(_ConfigItem);
-                repositoryItemGridLookUpEdit1.DataSource = _item.GetList();
-                DATAOBJECT.UnitDao _unit = new DATAOBJECT.UnitDao(_ConfigItem);
-                repositoryItemGridLookUpEdit2.DataSource = _unit.GetList();
+                repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
+                repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
             }
             catch (Exception ex)
             {
