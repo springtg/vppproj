@@ -53,7 +53,6 @@
             this.txtDebit = new DevExpress.XtraEditors.TextEdit();
             this.bntAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).BeginInit();
@@ -66,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -141,7 +139,7 @@
             this.txtName.Location = new System.Drawing.Point(70, 3);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(406, 20);
-            this.txtName.TabIndex = 5;
+            this.txtName.TabIndex = 0;
             // 
             // txtAddress1
             // 
@@ -167,7 +165,7 @@
             this.txtPhone2.Location = new System.Drawing.Point(70, 103);
             this.txtPhone2.Name = "txtPhone2";
             this.txtPhone2.Size = new System.Drawing.Size(406, 20);
-            this.txtPhone2.TabIndex = 2;
+            this.txtPhone2.TabIndex = 4;
             // 
             // txtAddress2
             // 
@@ -175,7 +173,7 @@
             this.txtAddress2.Location = new System.Drawing.Point(70, 53);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(406, 20);
-            this.txtAddress2.TabIndex = 6;
+            this.txtAddress2.TabIndex = 2;
             // 
             // txtPhone1
             // 
@@ -183,7 +181,7 @@
             this.txtPhone1.Location = new System.Drawing.Point(70, 77);
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(406, 20);
-            this.txtPhone1.TabIndex = 7;
+            this.txtPhone1.TabIndex = 3;
             // 
             // txtFax
             // 
@@ -191,7 +189,7 @@
             this.txtFax.Location = new System.Drawing.Point(70, 127);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(406, 20);
-            this.txtFax.TabIndex = 8;
+            this.txtFax.TabIndex = 5;
             // 
             // c
             // 
@@ -281,7 +279,7 @@
             this.txtEmail.Location = new System.Drawing.Point(70, 151);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(406, 20);
-            this.txtEmail.TabIndex = 20;
+            this.txtEmail.TabIndex = 6;
             // 
             // txtWeb
             // 
@@ -289,7 +287,7 @@
             this.txtWeb.Location = new System.Drawing.Point(70, 177);
             this.txtWeb.Name = "txtWeb";
             this.txtWeb.Size = new System.Drawing.Size(406, 20);
-            this.txtWeb.TabIndex = 21;
+            this.txtWeb.TabIndex = 7;
             // 
             // txtTax
             // 
@@ -297,7 +295,7 @@
             this.txtTax.Location = new System.Drawing.Point(70, 202);
             this.txtTax.Name = "txtTax";
             this.txtTax.Size = new System.Drawing.Size(406, 20);
-            this.txtTax.TabIndex = 22;
+            this.txtTax.TabIndex = 8;
             // 
             // txtCredit
             // 
@@ -305,7 +303,7 @@
             this.txtCredit.Location = new System.Drawing.Point(70, 226);
             this.txtCredit.Name = "txtCredit";
             this.txtCredit.Size = new System.Drawing.Size(406, 20);
-            this.txtCredit.TabIndex = 23;
+            this.txtCredit.TabIndex = 9;
             // 
             // txtDebit
             // 
@@ -313,14 +311,14 @@
             this.txtDebit.Location = new System.Drawing.Point(70, 250);
             this.txtDebit.Name = "txtDebit";
             this.txtDebit.Size = new System.Drawing.Size(406, 20);
-            this.txtDebit.TabIndex = 24;
+            this.txtDebit.TabIndex = 10;
             // 
             // bntAdd
             // 
             this.bntAdd.Location = new System.Drawing.Point(159, 302);
             this.bntAdd.Name = "bntAdd";
             this.bntAdd.Size = new System.Drawing.Size(75, 23);
-            this.bntAdd.TabIndex = 1;
+            this.bntAdd.TabIndex = 0;
             this.bntAdd.Text = "Thêm";
             this.bntAdd.Click += new System.EventHandler(this.bntAdd_Click);
             // 
@@ -332,15 +330,6 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Hủy";
             // 
-            // checkEdit1
-            // 
-            this.checkEdit1.EditValue = System.Drawing.Color.Empty;
-            this.checkEdit1.Location = new System.Drawing.Point(374, 300);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "checkEdit2";
-            this.checkEdit1.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit1.TabIndex = 3;
-            // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +338,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.bntAdd);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.checkEdit1);
+            this.MaximumSize = new System.Drawing.Size(487, 370);
             this.Name = "frmAddSupplier";
             this.Text = "Thông tin nhàcung cấp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddSupplier_FormClosing);
@@ -365,7 +354,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCredit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -397,7 +385,6 @@
         private DevExpress.XtraEditors.TextEdit txtDebit;
         private DevExpress.XtraEditors.SimpleButton bntAdd;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
 
 
     }

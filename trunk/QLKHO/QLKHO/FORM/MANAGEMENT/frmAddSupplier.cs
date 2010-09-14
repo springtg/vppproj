@@ -93,6 +93,7 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 if (supplier == null)
                 {
+                    supplier = new Supplier();
                     GetFormSupplier();
                     if (SupplierDao.Insert(_ConfigItem,supplier) != 0)
                     {
@@ -142,6 +143,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 DialogResult = System.Windows.Forms.DialogResult.Yes;
             }
         }
+
 
 
 
