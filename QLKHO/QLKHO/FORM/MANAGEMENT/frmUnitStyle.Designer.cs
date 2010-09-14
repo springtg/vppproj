@@ -57,6 +57,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_Unit)).BeginInit();
@@ -90,7 +91,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn4,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn7});
             this.grvUnitStyle.GridControl = this.grdUnitStyle;
             this.grvUnitStyle.Name = "grvUnitStyle";
             this.grvUnitStyle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -280,7 +282,7 @@
             // barDockControlTop
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 24);
             this.barDockControlTop.Size = new System.Drawing.Size(1043, 42);
             // 
             // barManager1
@@ -338,7 +340,7 @@
             // 
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Size = new System.Drawing.Size(1043, 22);
+            this.barDockControl1.Size = new System.Drawing.Size(1043, 24);
             // 
             // barDockControlBottom
             // 
@@ -349,20 +351,27 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 744);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 742);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1043, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 744);
+            this.barDockControlRight.Location = new System.Drawing.Point(1043, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 742);
             // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
             this.barSubItem1.Id = 3;
             this.barSubItem1.Name = "barSubItem1";
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "gridColumn7";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
             // 
             // frmUnitStyle
             // 
@@ -427,5 +436,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }
