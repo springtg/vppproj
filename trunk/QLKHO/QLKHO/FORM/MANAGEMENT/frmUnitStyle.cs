@@ -25,7 +25,18 @@ namespace QLKHO.FORM.MANAGEMENT
             InitData(L_SUPPLIER);
             InitData(L_UNIT_OUT);
             InitData(L_UNIT_IN);
-            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem);
+
+
+            int l_Catalog_PK=0;
+            int l_Group_PK=0;
+            int l_Item_PK=0;
+            if( lookUpEdit_Catalog.GetSelectedDataRow()!=null)
+            l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Group.GetSelectedDataRow() != null)
+            l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Item.GetSelectedDataRow() != null)
+            l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem, l_Catalog_PK, l_Group_PK, l_Item_PK);
         }
         #region "Phuong thuc"
 
@@ -79,16 +90,48 @@ namespace QLKHO.FORM.MANAGEMENT
         private void lookUpEdit_Catalog_EditValueChanged(object sender, EventArgs e)
         {
             InitData(l_GROUP);
+
+            int l_Catalog_PK = 0;
+            int l_Group_PK = 0;
+            int l_Item_PK = 0;
+            if (lookUpEdit_Catalog.GetSelectedDataRow() != null)
+                l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Group.GetSelectedDataRow() != null)
+                l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Item.GetSelectedDataRow() != null)
+                l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+
+            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem, l_Catalog_PK, l_Group_PK, l_Item_PK);
         }
 
         private void lookUpEdit_Group_EditValueChanged(object sender, EventArgs e)
         {
             InitData(l_ITEM);
+            int l_Catalog_PK = 0;
+            int l_Group_PK = 0;
+            int l_Item_PK = 0;
+            if (lookUpEdit_Catalog.GetSelectedDataRow() != null)
+                l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Group.GetSelectedDataRow() != null)
+                l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Item.GetSelectedDataRow() != null)
+                l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem, l_Catalog_PK, l_Group_PK, l_Item_PK);
         }
 
         private void lookUpEdit_Item_EditValueChanged(object sender, EventArgs e)
         {
             //TODO: lay thong tin style
+            int l_Catalog_PK = 0;
+            int l_Group_PK = 0;
+            int l_Item_PK = 0;
+            if (lookUpEdit_Catalog.GetSelectedDataRow() != null)
+                l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Group.GetSelectedDataRow() != null)
+                l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+            if (lookUpEdit_Item.GetSelectedDataRow() != null)
+                l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+            grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem, l_Catalog_PK, l_Group_PK, l_Item_PK);
         }
 
         private void repositoryItemLookUpEdit_Unit_EditValueChanged(object sender, EventArgs e)
@@ -115,14 +158,18 @@ namespace QLKHO.FORM.MANAGEMENT
 
             try
             {
+                string remark, supplier_pk,Name;
+                remark = row["Remark"].ToString();
+                supplier_pk = row["Supplier_Pk"].ToString();
+                Name = "";
                 object[] arrParaValue = new object[] {
-                     row["Id"],
-                    row["Name"],
-                    row["Unit_In_Pk"],                
-                                     
+                     0,
+                    Name,
+                    row["Unit_In_Pk"],                                  
                     row["Unit_Out_Pk"],
-                    row["Remark"],
-                    row["Supplier_Pk"],
+                    remark,
+                    row["Num"],
+                    supplier_pk,
                     row["Item_Pk"],
                      _ConfigItem.Login_UserName
                 };
