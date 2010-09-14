@@ -79,6 +79,7 @@
             this.grvSupplier.OptionsBehavior.AutoSelectAllInEditor = false;
             this.grvSupplier.OptionsBehavior.AutoUpdateTotalSummary = false;
             this.grvSupplier.OptionsBehavior.Editable = false;
+            this.grvSupplier.OptionsView.ShowGroupPanel = false;
             // 
             // ID
             // 
