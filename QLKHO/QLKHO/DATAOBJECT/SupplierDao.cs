@@ -34,7 +34,6 @@ namespace QLKHO.DATAOBJECT
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
             try
             {
-
                 string[] arrParaName = new string[] {
                     "@Name",
                     "@Phone",
@@ -62,7 +61,7 @@ namespace QLKHO.DATAOBJECT
                     p_Supplier.Credit,
                     p_Supplier.Debit};
                 _sql.Connect(p_ConfigItem);
-                return _sql.ExecuteInsert("USP_INS_SUPPLIER", arrNames: arrParaName, arrValues: arrParaValue);
+                return _sql.ExecuteInsert("USP_INS_SUPPLIER",arrParaName, arrParaValue);
             }
             catch (Exception ex)
             {
