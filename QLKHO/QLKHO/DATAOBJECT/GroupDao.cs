@@ -55,7 +55,6 @@ namespace QLKHO.DATAOBJECT
                 string[] l_arrName = new string[] { "@Name", "@Crt_By", "@Remark", "@ID_Cat" };
                 object[] l_arrValue = new object[] {
                     p_drGroup["Name"],
-                    DateTime.Now,
                     p_configItem.Login_UserName,
                     p_drGroup["Remark"],
                     p_drGroup["Id_Cat"]
@@ -81,7 +80,7 @@ namespace QLKHO.DATAOBJECT
                 string[] l_arrName = new string[] { "@Id" };
                 object[] l_arrValue = new object[] { p_Group_Pk };
                 l_sql.Connect(p_configItem);
-                return l_sql.ExecuteInsert("USP_DEL_GROUP", l_arrName, l_arrValue);
+                return l_sql.ExecuteNonQuery("USP_DEL_GROUP", l_arrName, l_arrValue);
             }
             catch (Exception ex)
             {
@@ -101,7 +100,7 @@ namespace QLKHO.DATAOBJECT
                 string[] l_arrName = new string[] { "@Id","@Name","@Mod_By","@Remark","@ID_Cat" };
                 object[] l_arrValue = new object[] { p_drGroup["Id"], p_drGroup["Name"], p_configItem.Login_UserName, p_drGroup["Remark"], p_drGroup["Id_Cat"] };
                 l_sql.Connect(p_configItem);
-                return l_sql.ExecuteInsert("USP_UPD_GROUP", l_arrName, l_arrValue);
+                return l_sql.ExecuteNonQuery("USP_UPD_GROUP", l_arrName, l_arrValue);
             }
             catch (Exception ex)
             {
