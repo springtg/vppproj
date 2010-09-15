@@ -35,9 +35,9 @@ namespace QLKHO.DATAOBJECT
 
                 string[] arrParaName = new string[] {
                     "@Name",
-	                "@Crt_Dt",
+	                
 	                "@Crt_By",
-	                "@Is_Del",
+	                
 	                "@Remark",
 	                "@Phone" 
                 };
@@ -60,9 +60,9 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] {
                     "@Id",
                     "@Name",
-	                "@Mod_Dt",
+	                
 	                "@Mod_By",
-	                "@Is_Del",
+	                
 	                "@Remark",
 	                "@Phone"};
 
