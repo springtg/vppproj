@@ -28,5 +28,6 @@ namespace QLKHO.FORM.MANAGEMENT
             gvCat.DataSource = CatalogDao.GetList(_ConfigItem);
 
         }
+
     }
 }

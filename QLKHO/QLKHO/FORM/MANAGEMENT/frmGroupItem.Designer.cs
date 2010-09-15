@@ -155,10 +155,16 @@
             this.gridView1.NewItemRowText = "Click vào đây để thêm dòng mới";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
-            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gridColumn1.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridColumn1.AppearanceCell.BorderColor = System.Drawing.Color.Indigo;
+            this.gridColumn1.AppearanceCell.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.gridColumn1.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceCell.Options.UseBorderColor = true;
             this.gridColumn1.Caption = "Mã ";
             this.gridColumn1.FieldName = "Id_Dis";
             this.gridColumn1.Name = "gridColumn1";
@@ -167,6 +173,7 @@
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 100;
             // 
             // gridColumn2
             // 
@@ -176,6 +183,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 200;
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -184,8 +192,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NameCat", "Tên")});
-            this.repositoryItemLookUpEdit1.DisplayMember = "NameCat";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
+            this.repositoryItemLookUpEdit1.DisplayMember = "Name";
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             this.repositoryItemLookUpEdit1.NullText = "---Chọn giá trị---";
             this.repositoryItemLookUpEdit1.ValueMember = "Id";
@@ -197,6 +205,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 250;
             // 
             // gridColumn4
             // 
@@ -205,6 +214,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 256;
             // 
             // frmGroupItem
             // 
