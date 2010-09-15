@@ -54,13 +54,11 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 object[] arrParaValue = new object[] {
                     row["Name"],
-                    row["Id_Group_Pk"],
+                    row["Group_Pk"],
                     DateTime.Now,
                     _ConfigItem.Login_UserName,
                     0,
                     row["Remark"],
-                    row["Id_Unit_Pk"],
-                    row["Id_Supplier_Pk"],
                     row["slton"]
                 };
                 ItemDao.Insert(_ConfigItem, arrValue: arrParaValue);
@@ -98,13 +96,11 @@ namespace QLKHO.FORM.MANAGEMENT
                 object[] arrParaValue = new object[] {
                     row["Id"],
                     row["Name"],
-                     row["Id_Group_Pk"],
+                     row["Group_Pk"],
                     DateTime.Now,
                     _ConfigItem.Login_UserName,
                     0,
                     row["Remark"],
-                    row["Id_Unit_Pk"],
-                    row["Id_Supplier_Pk"],
                     row["slton"]
                 };
                 ItemDao.Update(_ConfigItem,arrValue: arrParaValue);
