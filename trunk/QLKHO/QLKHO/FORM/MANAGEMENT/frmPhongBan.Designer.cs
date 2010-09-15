@@ -44,10 +44,6 @@
             this.Id_Dis = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NamePB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Phone = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Crt_By = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Mod_Dt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Mod_By = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Is_Del = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -149,19 +145,17 @@
             this.Id_Dis,
             this.NamePB,
             this.Phone,
-            this.Crt_By,
-            this.gridColumn1,
-            this.Mod_Dt,
-            this.Mod_By,
             this.Remark,
             this.Is_Del});
             this.gridView1.GridControl = this.grdDepartment;
             this.gridView1.Name = "gridView1";
+            this.gridView1.NewItemRowText = "Nhấn vào đây để thêm dòng mới";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsFilter.UseNewCustomFilterDialog = true;
             this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
+            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
@@ -175,6 +169,12 @@
             // 
             // Id_Dis
             // 
+            this.Id_Dis.AppearanceCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Id_Dis.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Id_Dis.AppearanceCell.BorderColor = System.Drawing.Color.Indigo;
+            this.Id_Dis.AppearanceCell.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.Id_Dis.AppearanceCell.Options.UseBackColor = true;
+            this.Id_Dis.AppearanceCell.Options.UseBorderColor = true;
             this.Id_Dis.Caption = "Mã";
             this.Id_Dis.FieldName = "Id_Dis";
             this.Id_Dis.Name = "Id_Dis";
@@ -200,44 +200,13 @@
             this.Phone.Visible = true;
             this.Phone.VisibleIndex = 2;
             // 
-            // Crt_By
-            // 
-            this.Crt_By.Caption = "Tạo bởi";
-            this.Crt_By.FieldName = "Crt_By";
-            this.Crt_By.Name = "Crt_By";
-            this.Crt_By.OptionsColumn.AllowEdit = false;
-            this.Crt_By.OptionsColumn.AllowFocus = false;
-            this.Crt_By.OptionsColumn.ReadOnly = true;
-            this.Crt_By.Visible = true;
-            this.Crt_By.VisibleIndex = 3;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Ngày tạo";
-            this.gridColumn1.FieldName = "Crt_Date";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
-            // 
-            // Mod_Dt
-            // 
-            this.Mod_Dt.Caption = "Ngày sửa";
-            this.Mod_Dt.FieldName = "Mod_Dt";
-            this.Mod_Dt.Name = "Mod_Dt";
-            // 
-            // Mod_By
-            // 
-            this.Mod_By.Caption = "Sửa bởi";
-            this.Mod_By.FieldName = "Mod_By";
-            this.Mod_By.Name = "Mod_By";
-            // 
             // Remark
             // 
             this.Remark.Caption = "Diễn giải";
             this.Remark.FieldName = "Remark";
             this.Remark.Name = "Remark";
             this.Remark.Visible = true;
-            this.Remark.VisibleIndex = 5;
+            this.Remark.VisibleIndex = 3;
             // 
             // Is_Del
             // 
@@ -248,7 +217,7 @@
             this.Is_Del.OptionsColumn.AllowFocus = false;
             this.Is_Del.OptionsColumn.ReadOnly = true;
             this.Is_Del.Visible = true;
-            this.Is_Del.VisibleIndex = 6;
+            this.Is_Del.VisibleIndex = 4;
             // 
             // frmPhongBan
             // 
@@ -288,12 +257,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn Id_Dis;
         private DevExpress.XtraGrid.Columns.GridColumn NamePB;
         private DevExpress.XtraGrid.Columns.GridColumn Phone;
-        private DevExpress.XtraGrid.Columns.GridColumn Crt_By;
-        private DevExpress.XtraGrid.Columns.GridColumn Mod_Dt;
-        private DevExpress.XtraGrid.Columns.GridColumn Mod_By;
         private DevExpress.XtraGrid.Columns.GridColumn Remark;
         private DevExpress.XtraGrid.Columns.GridColumn Is_Del;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 
     }
 }
