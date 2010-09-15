@@ -95,25 +95,6 @@ namespace QLKHO.FORM.MANAGEMENT
                 throw ex;
             }
         }
-        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar.Equals((char)System.Windows.Forms.Keys.Delete))
-            {
-                try
-                {
-                    int[] _IndexRowSelected = gridView1.GetSelectedRows();
-                    int _CurIndexRow = _IndexRowSelected[0];
-                    DataTable tmp = (DataTable)grdGroup.DataSource;
-                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
-                    LoadGird();
-                }
-                catch (Exception ex)
-                {
-                    //TODO: Ghi log tai day nhe
-                    throw ex;
-                }
-            }
-        }
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -134,6 +115,26 @@ namespace QLKHO.FORM.MANAGEMENT
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData.Equals(System.Windows.Forms.Keys.Delete))
+            {
+                try
+                {
+                    int[] _IndexRowSelected = gridView1.GetSelectedRows();
+                    int _CurIndexRow = _IndexRowSelected[0];
+                    DataTable tmp = (DataTable)grdGroup.DataSource;
+                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
+                    LoadGird();
+                }
+                catch (Exception ex)
+                {
+                    //TODO: Ghi log tai day nhe
+                    throw ex;
+                }
+            }
         }
 
   

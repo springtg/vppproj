@@ -65,11 +65,18 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gridColumn1.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridColumn1.AppearanceCell.BorderColor = System.Drawing.Color.Indigo;
+            this.gridColumn1.AppearanceCell.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.gridColumn1.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceCell.Options.UseBorderColor = true;
             this.gridColumn1.Caption = "Mã";
             this.gridColumn1.FieldName = "Id_Dis";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 230;
             // 
             // gridColumn2
             // 
@@ -78,6 +85,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 229;
             // 
             // gridColumn4
             // 
@@ -86,6 +94,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 47;
             // 
             // gridColumn3
             // 
@@ -94,6 +103,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 300;
             // 
             // frmCatalog
             // 
@@ -102,7 +112,7 @@
             this.ClientSize = new System.Drawing.Size(827, 423);
             this.Controls.Add(this.gvCat);
             this.Name = "frmCatalog";
-            this.Text = "frmCatalog";
+            this.Text = "Danh mục quản lý";
             ((System.ComponentModel.ISupportInitialize)(this.gvCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
