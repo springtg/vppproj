@@ -45,7 +45,6 @@
             this.NamePB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Phone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Remark = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Is_Del = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -145,8 +144,7 @@
             this.Id_Dis,
             this.NamePB,
             this.Phone,
-            this.Remark,
-            this.Is_Del});
+            this.Remark});
             this.gridView1.GridControl = this.grdDepartment;
             this.gridView1.Name = "gridView1";
             this.gridView1.NewItemRowText = "Nhấn vào đây để thêm dòng mới";
@@ -208,17 +206,6 @@
             this.Remark.Visible = true;
             this.Remark.VisibleIndex = 3;
             // 
-            // Is_Del
-            // 
-            this.Is_Del.Caption = "Đã xóa";
-            this.Is_Del.FieldName = "Is_Del";
-            this.Is_Del.Name = "Is_Del";
-            this.Is_Del.OptionsColumn.AllowEdit = false;
-            this.Is_Del.OptionsColumn.AllowFocus = false;
-            this.Is_Del.OptionsColumn.ReadOnly = true;
-            this.Is_Del.Visible = true;
-            this.Is_Del.VisibleIndex = 4;
-            // 
             // frmPhongBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,7 +245,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn NamePB;
         private DevExpress.XtraGrid.Columns.GridColumn Phone;
         private DevExpress.XtraGrid.Columns.GridColumn Remark;
-        private DevExpress.XtraGrid.Columns.GridColumn Is_Del;
 
     }
 }
