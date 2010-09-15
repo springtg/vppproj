@@ -294,8 +294,8 @@ namespace QLKHO.FORM.NHAPXUAT
             try
             {
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
-                string[] arrName = new string[] { "@Id", "@Mod_By", "@Mod_Dt" };
-                object[] arrValue = new object[] { p_IdTakeIn, _ConfigItem.Login_UserName, DateTime.Now };
+                string[] arrName = new string[] { "@Id", "@Mod_By"};
+                object[] arrValue = new object[] { p_IdTakeIn, _ConfigItem.Login_UserName };
                 _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_DEL_TAKE_IN", arrName, arrValue);
                 _sqlTransaction.Commit();
                 return true;
