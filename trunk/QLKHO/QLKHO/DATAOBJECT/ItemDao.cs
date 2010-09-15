@@ -56,8 +56,6 @@ namespace QLKHO.DATAOBJECT
 	                "@Crt_By",
 	                "@Is_Del",
 	                "@Remark",
-                    "@Unit_Pk",
-                    "@Supplier_Pk",
                     "@number_in"
                 };
 
@@ -84,7 +82,6 @@ namespace QLKHO.DATAOBJECT
 	                "@Mod_By",
 	                "@Is_Del",
 	                "@Remark",
-                    "@Unit_Style_Pk",
                     "@number_in"   };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
