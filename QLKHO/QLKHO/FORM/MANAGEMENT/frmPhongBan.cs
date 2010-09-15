@@ -40,9 +40,8 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 object[] arrParaValue = new object[] {
                     row["Name"],
-                    DateTime.Now,
+                  
                     _ConfigItem.Login_UserName,
-                    0,
                     row["Remark"],
                     row["Phone"]
                 };
@@ -113,10 +112,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 object[] arrParaValue = new object[] {
                     row["Id"],
                     row["Name"],
-                    DateTime.Now,
-                    _ConfigItem.Login_UserName,
-                    0,
-
+                     _ConfigItem.Login_UserName,
                     row["Remark"],
                     row["Phone"]
                 };
