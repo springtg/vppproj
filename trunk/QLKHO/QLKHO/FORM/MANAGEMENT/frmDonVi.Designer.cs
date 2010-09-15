@@ -182,6 +182,12 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gridColumn1.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridColumn1.AppearanceCell.BorderColor = System.Drawing.Color.Indigo;
+            this.gridColumn1.AppearanceCell.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.gridColumn1.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceCell.Options.UseBorderColor = true;
             this.gridColumn1.Caption = "Mã đơn vị";
             this.gridColumn1.FieldName = "Id_Dis";
             this.gridColumn1.Name = "gridColumn1";
