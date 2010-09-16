@@ -158,7 +158,10 @@ namespace QLKHO.FORM.MANAGEMENT
 
             try
             {
-                string remark, supplier_pk,Name;
+                string remark, supplier_pk, Name;
+                int Item_Pk=0;
+                if (lookUpEdit_Item.GetSelectedDataRow() != null)
+                    Item_Pk = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
                 remark = row["Remark"].ToString();
                 supplier_pk = row["Supplier_Pk"].ToString();
                 Name = "";
@@ -170,7 +173,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     remark,
                     row["Num"],
                     supplier_pk,
-                    row["Item_Pk"],
+                    Item_Pk,
                      _ConfigItem.Login_UserName
                 };
                 UnitStyleDao.Insert(_ConfigItem, arrValue: arrParaValue);
@@ -197,19 +200,29 @@ namespace QLKHO.FORM.MANAGEMENT
            
             try
             {
+                
+
+                string remark, supplier_pk, Name;
+                int Item_Pk = 0;
+                if (lookUpEdit_Item.GetSelectedDataRow() != null)
+                    Item_Pk = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+                remark = row["Remark"].ToString();
+                supplier_pk = row["Supplier_Pk"].ToString();
+                Name = "";
                 object[] arrParaValue = new object[] {
-                    row["Id"],
+                     row["Id"],
                     row["Name"],
-                    row["Unit_In_Pk"], 
-                                   
+                    row["Unit_In_Pk"],                                  
                     row["Unit_Out_Pk"],
-                    row["Remark"],
-                    row["Supplier_Pk"],
-                    row["Item_Pk"],
-                    _ConfigItem.Login_UserName
+                    remark,
+                    row["Num"],
+                    supplier_pk,
+                    Item_Pk,
+                     _ConfigItem.Login_UserName
                 };
                 UnitStyleDao.Insert(_ConfigItem, arrValue: arrParaValue);
                 return true;
+
             }
             catch (Exception ex)
             {
@@ -271,6 +284,21 @@ namespace QLKHO.FORM.MANAGEMENT
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void grdUnitStyle_Click(object sender, EventArgs e)
+        {
+            int[] _IndexRowSelected = grvUnitStyle.GetSelectedRows();
+            int _CurIndexRow = _IndexRowSelected[0];
+            int idgroup, idcat, idhh;
+            DataTable tmp = (DataTable)grdUnitStyle.DataSource;
+            idgroup=(CnvToInt32(tmp.Rows[_CurIndexRow]["Group_Pk"]));
+            idcat = (CnvToInt32(tmp.Rows[_CurIndexRow]["ID_Cat"]));
+            idhh = (CnvToInt32(tmp.Rows[_CurIndexRow]["Item_Pk"]));
+            (((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]) = idgroup;
+      
+
+            
         }
     }
 }

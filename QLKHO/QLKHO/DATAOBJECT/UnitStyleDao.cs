@@ -29,19 +29,29 @@ namespace QLKHO.DATAOBJECT
                 l_sql.Disconnect();
             }
 
-            //try
-            //{
-            //    l_sql.Connect();
-            //    return l_sql.GetDataByStoredProcedure("USP_SEL_UNIT_STYLE");
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-            //finally
-            //{
-            //    l_sql.Disconnect();
-            //}
+           
+        }
+        public static DataTable getList_new(ConfigItem p_configItem, int idsupplier)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL l_sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+
+            try
+            {
+                l_sql.Connect();
+                string[] l_arrName = new string[] { "@id_supplier" };
+                object[] l_arrValue = new object[] { idsupplier};
+                return l_sql.GetDataByStoredProcedure("USP_SEL_UNIT_STYLE_new", l_arrName, l_arrValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                l_sql.Disconnect();
+            }
+
+           
         }
 
         public static int Insert(ConfigItem p_configItem, object[] arrValue)
@@ -52,7 +62,7 @@ namespace QLKHO.DATAOBJECT
             {
 
                 string[] arrParaName = new string[] {
-                    "@Id",
+                    "@Id1",
                     "@Name",
                     "@Unit_In_Pk",
 	                "@Unit_Out_Pk",	                

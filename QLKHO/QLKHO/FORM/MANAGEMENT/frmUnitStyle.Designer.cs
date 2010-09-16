@@ -58,6 +58,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_Unit)).BeginInit();
@@ -82,6 +84,7 @@
             this.grdUnitStyle.TabIndex = 5;
             this.grdUnitStyle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnitStyle});
+            this.grdUnitStyle.Click += new System.EventHandler(this.grdUnitStyle_Click);
             // 
             // grvUnitStyle
             // 
@@ -92,7 +95,9 @@
             this.gridColumn2,
             this.gridColumn4,
             this.gridColumn3,
-            this.gridColumn7});
+            this.gridColumn7,
+            this.gridColumn8,
+            this.gridColumn9});
             this.grvUnitStyle.GridControl = this.grdUnitStyle;
             this.grvUnitStyle.Name = "grvUnitStyle";
             this.grvUnitStyle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -368,10 +373,27 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "gridColumn7";
+            this.gridColumn7.Caption = "groupid";
+            this.gridColumn7.FieldName = "Group_Pk";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Catid";
+            this.gridColumn8.FieldName = "ID_Cat";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 7;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "hanghoa";
+            this.gridColumn9.FieldName = "Item_Pk";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 8;
             // 
             // frmUnitStyle
             // 
@@ -437,5 +459,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }
