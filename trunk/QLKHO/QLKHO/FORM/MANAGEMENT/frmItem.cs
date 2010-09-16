@@ -55,9 +55,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 object[] arrParaValue = new object[] {
                     row["Name"],
                     row["Group_Pk"],
-                    DateTime.Now,
                     _ConfigItem.Login_UserName,
-                    0,
                     row["Remark"],
                     row["slton"]
                 };
