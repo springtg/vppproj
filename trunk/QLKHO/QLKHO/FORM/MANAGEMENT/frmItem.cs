@@ -33,6 +33,7 @@ namespace QLKHO.FORM.MANAGEMENT
             LoadUnit();
             LoadGroup();
             LoadSupplier();
+            LoadUnitStyle(0);
         }
         private void LoadUnit()
         {
@@ -46,6 +47,10 @@ namespace QLKHO.FORM.MANAGEMENT
         private void LoadSupplier()
         {
             lookUpSupplier.DataSource = SupplierDao.GetList(_ConfigItem);
+        }
+        private void LoadUnitStyle(int idsupplier)
+        {
+            LookUpUnitStyle.DataSource = UnitStyleDao.getList_new(_ConfigItem,idsupplier);
         }
         private void Insert(DataRow row)
         {

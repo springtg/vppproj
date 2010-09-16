@@ -44,22 +44,22 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lookUpGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lookUpSupplier = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnitStyle = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lookUpUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lookUpSupplier = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lookUpUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpUnit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -159,9 +159,9 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
+            this.gridColumn5,
             this.gridColumn9,
             this.gridColumn4,
-            this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8});
@@ -221,53 +221,14 @@
             this.lookUpGroup.NullText = "---Chọn giá trị---";
             this.lookUpGroup.ValueMember = "Id";
             // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "Quy Cách";
-            this.gridColumn9.ColumnEdit = this.LookUpUnitStyle;
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 3;
-            // 
-            // LookUpUnitStyle
-            // 
-            this.LookUpUnitStyle.AutoHeight = false;
-            this.LookUpUnitStyle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUnitStyle.Name = "LookUpUnitStyle";
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Đơn vị tính";
-            this.gridColumn4.ColumnEdit = this.lookUpUnit;
-            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn4.FieldName = "Id_Unit_Pk";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            // 
-            // lookUpUnit
-            // 
-            this.lookUpUnit.AutoHeight = false;
-            this.lookUpUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
-            this.lookUpUnit.DisplayMember = "Name";
-            this.lookUpUnit.Name = "lookUpUnit";
-            this.lookUpUnit.NullText = "---Chọn giá trị---";
-            this.lookUpUnit.ValueMember = "Id";
-            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Nhà cung cấp";
             this.gridColumn5.ColumnEdit = this.lookUpSupplier;
-            this.gridColumn5.FieldName = "Id_Supplier_Pk";
+            this.gridColumn5.FieldName = "Supplier_Pk";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.VisibleIndex = 3;
             // 
             // lookUpSupplier
             // 
@@ -281,6 +242,35 @@
             this.lookUpSupplier.Name = "lookUpSupplier";
             this.lookUpSupplier.NullText = "---Chọn giá trị---";
             this.lookUpSupplier.ValueMember = "Id";
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Quy Cách";
+            this.gridColumn9.ColumnEdit = this.LookUpUnitStyle;
+            this.gridColumn9.FieldName = "Unit_Style_Name";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 4;
+            // 
+            // LookUpUnitStyle
+            // 
+            this.LookUpUnitStyle.AutoHeight = false;
+            this.LookUpUnitStyle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUnitStyle.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
+            this.LookUpUnitStyle.DisplayMember = "Name";
+            this.LookUpUnitStyle.Name = "LookUpUnitStyle";
+            this.LookUpUnitStyle.ValueMember = "Id";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "SL DVT";
+            this.gridColumn4.FieldName = "Num";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 5;
             // 
             // gridColumn6
             // 
@@ -310,6 +300,19 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 8;
             // 
+            // lookUpUnit
+            // 
+            this.lookUpUnit.AutoHeight = false;
+            this.lookUpUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
+            this.lookUpUnit.DisplayMember = "Name";
+            this.lookUpUnit.Name = "lookUpUnit";
+            this.lookUpUnit.NullText = "---Chọn giá trị---";
+            this.lookUpUnit.ValueMember = "Id";
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,9 +329,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnitStyle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpUnit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpSupplier)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,7 +352,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpUnit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookUpSupplier;
@@ -359,6 +361,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnitStyle;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
 
     }
 }
