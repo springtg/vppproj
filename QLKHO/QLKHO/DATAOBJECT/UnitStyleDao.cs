@@ -31,6 +31,7 @@ namespace QLKHO.DATAOBJECT
 
            
         }
+        
         public static DataTable getList_new(ConfigItem p_configItem, int idsupplier)
         {
             COREBASE.COMMAND.SQL.AccessSQL l_sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
@@ -52,6 +53,51 @@ namespace QLKHO.DATAOBJECT
             }
 
            
+        }
+
+        public static int Insert(ConfigItem p_configItem, DataRow p_dtRow, int p_SupplierId)
+        {
+            return Insert(p_configItem, p_dtRow, p_SupplierId);
+        }
+
+        public static int Insert(ConfigItem p_configItem,DataRow p_dtRow, int p_SupplierId, int p_Id1)
+        {
+
+            int ma = 0;
+            try
+            {
+                object[] arrValue = new object[] { 
+                    p_Id1,
+                    p_dtRow["Name"],
+                    p_dtRow["Unit_In_Pk"],
+                    p_dtRow["Unit_Out_Pk"],
+                    p_dtRow["Remark"],
+                    p_dtRow["Num"],
+                    p_dtRow["Supplier_Pk"],
+                    p_dtRow["Item_Pk"],
+                    p_configItem.Login_UserName
+                };
+
+                string[] arrParaName = new string[] {
+                    "@Id1",
+                    "@Name",
+                    "@Unit_In_Pk",
+	                "@Unit_Out_Pk",	                
+	                "@Remark",
+                    "@Num",
+                    "@Supplier_Pk",
+                    "@Item_Pk",
+                    "@Crt_By"
+                };
+
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+                ma = _sql.ExecuteInsert("USP_INS_UNIT_STYLE",  arrParaName,  arrValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ma;
         }
 
         public static int Insert(ConfigItem p_configItem, object[] arrValue)
@@ -161,6 +207,47 @@ namespace QLKHO.DATAOBJECT
             {
                 throw ex;
 
+            }
+        }
+
+        public static bool Update(ConfigItem p_configItem, DataRow p_dtRow)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+            try
+            {
+                object[] arrValue = new object[] { 
+                    p_dtRow["Id"],
+                    p_dtRow["Name"],
+                    p_dtRow["Unit_In_Pk"],
+                    p_dtRow["Unit_Out_Pk"],
+                    p_dtRow["Remark"],
+                    p_dtRow["Num"],
+                    p_dtRow["Supplier_Pk"],
+                    p_dtRow["Item_Pk"]
+                };
+
+                string[] arrParaName = new string[] {
+                    "@Id",
+                    "@Name",
+                    "@Unit_In_Pk",
+                    "@Unit_Out_Pk",	                
+                    "@Remark",
+                    "@Num",
+                    "@Supplier_Pk",
+                    "@Item_Pk"
+                };
+
+                _sql.Connect(p_configItem);
+                _sql.ExecuteNonQuery("USP_UPD_ITEM", arrParaName, arrValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
             }
         }
 
