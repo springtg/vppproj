@@ -42,5 +42,11 @@
   <MSG MsgId="NHAPKHO_C_002" MsgValue ="Ban muon xoa '{0}' khong?"/>
   <MSG MsgId="NHAPKHO_C_003" MsgValue ="Du lieu da duoc cap nhat?"/>
   <!--END: FORM THEM NHA CUNG CAP-->
+
+  <!--START: FORM Quy Cach-->
+  <MSG MsgId="UNITSTYLE_C_000" MsgValue ="Du lieu da bi thay sua doi, ban co muon luu lai khong?"/>
+  <MSG MsgId="UNITSTYLE_C_001" MsgValue ="Ban muon xoa '{0}' khong?"/>
+  <MSG MsgId="UNITSTYLE_C_002" MsgValue ="Du lieu da duoc cap nhat?"/>
+  <!--END:  FORM Quy Cach-->
   
 </VXSOFT_ERP_MESSAGE>

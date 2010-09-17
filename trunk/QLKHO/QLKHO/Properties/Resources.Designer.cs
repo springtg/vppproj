@@ -116,6 +116,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap edit_delete_icon32x32 {
+            get {
+                object obj = ResourceManager.GetObject("edit-delete-icon32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap folder_tar {
             get {
                 object obj = ResourceManager.GetObject("folder_tar", resourceCulture);
@@ -238,6 +245,13 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap save_icon {
             get {
                 object obj = ResourceManager.GetObject("save-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Search_2_icon32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Search-2-icon32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
