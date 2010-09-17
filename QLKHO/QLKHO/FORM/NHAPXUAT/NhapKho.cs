@@ -359,5 +359,15 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
+        /// <summary>
+        /// Khi nguoi dung thuc hien thay doi, gia tri cua item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemCalcEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

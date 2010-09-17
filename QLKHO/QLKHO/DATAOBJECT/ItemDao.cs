@@ -52,9 +52,7 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] {
                     "@Name",
                     "@Group_Pk",
-	                "@Crt_Dt",
 	                "@Crt_By",
-	                "@Is_Del",
 	                "@Remark",
                     "@number_in"
                 };

@@ -39,6 +39,9 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit_Supplier = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -57,9 +60,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnitStyle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_Unit)).BeginInit();
@@ -84,7 +84,6 @@
             this.grdUnitStyle.TabIndex = 5;
             this.grdUnitStyle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnitStyle});
-            this.grdUnitStyle.Click += new System.EventHandler(this.grdUnitStyle_Click);
             // 
             // grvUnitStyle
             // 
@@ -119,7 +118,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 0;
-            this.gridColumn5.Width = 107;
+            this.gridColumn5.Width = 89;
             // 
             // repositoryItemLookUpEdit_Unit
             // 
@@ -142,7 +141,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 117;
+            this.gridColumn6.Width = 97;
             // 
             // gridColumn1
             // 
@@ -152,7 +151,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 2;
-            this.gridColumn1.Width = 145;
+            this.gridColumn1.Width = 120;
             // 
             // repositoryItemLookUpEdit_sup
             // 
@@ -177,7 +176,7 @@
             this.gridColumn2.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 3;
-            this.gridColumn2.Width = 164;
+            this.gridColumn2.Width = 136;
             // 
             // gridColumn4
             // 
@@ -186,7 +185,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 100;
+            this.gridColumn4.Width = 83;
             // 
             // gridColumn3
             // 
@@ -195,7 +194,28 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 5;
-            this.gridColumn3.Width = 370;
+            this.gridColumn3.Width = 307;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "groupid";
+            this.gridColumn7.FieldName = "Group_Pk";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Width = 20;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Catid";
+            this.gridColumn8.FieldName = "ID_Cat";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Width = 20;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "hanghoa";
+            this.gridColumn9.FieldName = "Item_Pk";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Width = 20;
             // 
             // repositoryItemLookUpEdit_Supplier
             // 
@@ -287,7 +307,7 @@
             // barDockControlTop
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 22);
             this.barDockControlTop.Size = new System.Drawing.Size(1043, 42);
             // 
             // barManager1
@@ -345,7 +365,7 @@
             // 
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Size = new System.Drawing.Size(1043, 24);
+            this.barDockControl1.Size = new System.Drawing.Size(1043, 22);
             // 
             // barDockControlBottom
             // 
@@ -356,44 +376,20 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 742);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 744);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1043, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 742);
+            this.barDockControlRight.Location = new System.Drawing.Point(1043, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 744);
             // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
             this.barSubItem1.Id = 3;
             this.barSubItem1.Name = "barSubItem1";
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "groupid";
-            this.gridColumn7.FieldName = "Group_Pk";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Catid";
-            this.gridColumn8.FieldName = "ID_Cat";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "hanghoa";
-            this.gridColumn9.FieldName = "Item_Pk";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
             // 
             // frmUnitStyle
             // 

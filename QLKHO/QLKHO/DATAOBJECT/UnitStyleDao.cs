@@ -136,32 +136,33 @@ namespace QLKHO.DATAOBJECT
             //    return false;
             //}
         }
-        //public static bool Update(ConfigItem p_configItem, object[] arrValue)
-        //{
-        //    try
-        //    {
+        
+        public static bool Update(ConfigItem p_configItem, object[] arrValue)
+        {
+            try
+            {
 
-        //        string[] arrParaName = new string[] {
-        //            "@Id",
-        //            "@Name",
-        //            "@Unit_In_Pk",
-        //            "@Unit_Out_Pk",	                
-        //            "@Remark",
-        //            "@Num",
-        //            "@Supplier_Pk",
-        //            "@Item_Pk"
-        //        };
+                string[] arrParaName = new string[] {
+                    "@Id",
+                    "@Name",
+                    "@Unit_In_Pk",
+                    "@Unit_Out_Pk",	                
+                    "@Remark",
+                    "@Num",
+                    "@Supplier_Pk",
+                    "@Item_Pk"
+                };
 
-        //        COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
-        //        _sql.ExecuteNonQuery("USP_UPD_ITEM", arrNames: arrParaName, arrValues: arrValue);
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
+                COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+                _sql.ExecuteNonQuery("USP_UPD_ITEM", arrNames: arrParaName, arrValues: arrValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
 
-        //    }
-        //}
+            }
+        }
 
         public static bool Delete(ConfigItem p_configItem, int _idSuppiler)
         {
