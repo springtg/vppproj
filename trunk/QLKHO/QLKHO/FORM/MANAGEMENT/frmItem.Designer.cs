@@ -259,7 +259,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpUnitStyle.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Num", "SLDVT")});
             this.LookUpUnitStyle.DisplayMember = "Name";
             this.LookUpUnitStyle.Name = "LookUpUnitStyle";
             this.LookUpUnitStyle.ValueMember = "Id";
@@ -269,8 +270,6 @@
             this.gridColumn4.Caption = "SL DVT";
             this.gridColumn4.FieldName = "Num";
             this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
             // 
             // gridColumn6
             // 
@@ -281,7 +280,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.VisibleIndex = 5;
             // 
             // gridColumn7
             // 
@@ -289,7 +288,7 @@
             this.gridColumn7.FieldName = "Remark";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.VisibleIndex = 6;
             // 
             // gridColumn8
             // 
@@ -298,7 +297,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 7;
             // 
             // lookUpUnit
             // 

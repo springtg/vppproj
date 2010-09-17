@@ -27,20 +27,20 @@ namespace QLKHO.FORM.MANAGEMENT
             InitData(L_UNIT_IN);
 
 
-            int l_Catalog_PK=0;
-            int l_Group_PK=0;
-            int l_Item_PK=0;
-            if( lookUpEdit_Catalog.GetSelectedDataRow()!=null)
-            l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
+            int l_Catalog_PK = 0;
+            int l_Group_PK = 0;
+            int l_Item_PK = 0;
+            if (lookUpEdit_Catalog.GetSelectedDataRow() != null)
+                l_Catalog_PK = CnvToInt32(((DataRowView)lookUpEdit_Catalog.GetSelectedDataRow()).Row["Id"]);
             if (lookUpEdit_Group.GetSelectedDataRow() != null)
-            l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+                l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
             if (lookUpEdit_Item.GetSelectedDataRow() != null)
-            l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
+                l_Item_PK = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
             grdUnitStyle.DataSource = UnitStyleDao.getList(_ConfigItem, l_Catalog_PK, l_Group_PK, l_Item_PK);
         }
         #region "Phuong thuc"
 
-        private const string l_GROUP  ="GROUP";
+        private const string l_GROUP = "GROUP";
         private const string l_ITEM = "ITEM";
         private const string L_CATALOG = "CATALOG";
         private const string L_UNIT_IN = "UNIT_IN";
@@ -83,7 +83,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     break;
             }
         }
-        
+
 
         #endregion
 
@@ -142,16 +142,16 @@ namespace QLKHO.FORM.MANAGEMENT
             //string l_name_in = l_dr_in["Name"];
             //string l_name_out = l_dr_out["Name"];
             if (l_dr_in != null)
-            { 
-                
+            {
+
             }
-            
+
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            
+
         }
         private void Insert(DataRow row)
         {
@@ -159,7 +159,7 @@ namespace QLKHO.FORM.MANAGEMENT
             try
             {
                 string remark, supplier_pk, Name;
-                int Item_Pk=0;
+                int Item_Pk = 0;
                 if (lookUpEdit_Item.GetSelectedDataRow() != null)
                     Item_Pk = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
                 remark = row["Remark"].ToString();
@@ -197,27 +197,18 @@ namespace QLKHO.FORM.MANAGEMENT
         }
         private bool Update(DataRow row)
         {
-           
+
             try
             {
-                
-
-                string remark, supplier_pk, Name;
-                int Item_Pk = 0;
-                if (lookUpEdit_Item.GetSelectedDataRow() != null)
-                    Item_Pk = CnvToInt32(((DataRowView)lookUpEdit_Item.GetSelectedDataRow()).Row["Id"]);
-                remark = row["Remark"].ToString();
-                supplier_pk = row["Supplier_Pk"].ToString();
-                Name = "";
                 object[] arrParaValue = new object[] {
                      row["Id"],
                     row["Name"],
                     row["Unit_In_Pk"],                                  
                     row["Unit_Out_Pk"],
-                    remark,
+                    row["Remark"],
                     row["Num"],
-                    supplier_pk,
-                    Item_Pk,
+                    row["supplier_pk"],
+                    row["Item_Pk"],
                      _ConfigItem.Login_UserName
                 };
                 UnitStyleDao.Insert(_ConfigItem, arrValue: arrParaValue);
@@ -286,20 +277,20 @@ namespace QLKHO.FORM.MANAGEMENT
 
         }
 
-        private void grdUnitStyle_Click(object sender, EventArgs e)
-        {
-            int[] _IndexRowSelected = grvUnitStyle.GetSelectedRows();
-            int _CurIndexRow = _IndexRowSelected[0];
-            int idgroup, idcat, idhh;
-            DataTable tmp = (DataTable)grdUnitStyle.DataSource;
-            idgroup=(CnvToInt32(tmp.Rows[_CurIndexRow]["Group_Pk"]));
-            idcat = (CnvToInt32(tmp.Rows[_CurIndexRow]["ID_Cat"]));
-            idhh = (CnvToInt32(tmp.Rows[_CurIndexRow]["Item_Pk"]));
-            (((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]) = idgroup;
-      
+        //private void grdUnitStyle_Click(object sender, EventArgs e)
+        //{
+        //    int[] _IndexRowSelected = grvUnitStyle.GetSelectedRows();
+        //    int _CurIndexRow = _IndexRowSelected[0];
+        //    int idgroup, idcat, idhh;
+        //    DataTable tmp = (DataTable)grdUnitStyle.DataSource;
+        //    idgroup=(CnvToInt32(tmp.Rows[_CurIndexRow]["Group_Pk"]));
+        //    idcat = (CnvToInt32(tmp.Rows[_CurIndexRow]["ID_Cat"]));
+        //    idhh = (CnvToInt32(tmp.Rows[_CurIndexRow]["Item_Pk"]));
+        //    (((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]) = idgroup;
 
-            
-        }
+
+
+        //}
     }
 }
 
