@@ -41,8 +41,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -198,10 +196,9 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAdd,
-            this.btnUpdate,
             this.btnDelete,
-            this.btnNew,
-            this.btnCancel});
+            this.btnNew});
+            this.barManager1.MainMenu = this.bar1;
             this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -215,10 +212,13 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.MultiLine = true;
+            this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
             // 
             // btnNew
             // 
+            this.btnNew.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.btnNew.Caption = "Tạo Mới";
             this.btnNew.Glyph = global::QLKHO.Properties.Resources._new;
             this.btnNew.Id = 4;
@@ -276,22 +276,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(872, 42);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Caption = "Cập Nhật";
-            this.btnUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
-            this.btnUpdate.Id = 1;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Caption = "Hủy Bỏ";
-            this.btnCancel.Glyph = global::QLKHO.Properties.Resources.Cancel;
-            this.btnCancel.Id = 5;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
             // 
             // splitContainerControl1
             // 
@@ -705,6 +689,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemGridLookUpEdit1.DisplayMember = "Name";
             this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
+            this.repositoryItemGridLookUpEdit1.NullText = "[Chọn Vật Tư]";
             this.repositoryItemGridLookUpEdit1.ValueMember = "Id";
             this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
             // 
@@ -1377,7 +1362,6 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl grdTakeInDetail;
         private DevExpress.XtraBars.BarButtonItem btnAdd;
-        private DevExpress.XtraBars.BarButtonItem btnUpdate;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.ComboBoxEdit cboTakeInCurrency;
@@ -1398,7 +1382,6 @@
         private DevExpress.XtraEditors.ListBoxControl lstTakeIn;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraBars.BarButtonItem btnNew;
-        private DevExpress.XtraBars.BarButtonItem btnCancel;
         private DevExpress.XtraEditors.TextEdit txttakeInRemark;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl11;
