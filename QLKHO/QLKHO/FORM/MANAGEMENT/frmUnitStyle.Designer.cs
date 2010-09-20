@@ -227,7 +227,7 @@
             // 
             this.btnSearch.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.btnSearch.Caption = "Nạp lại";
-            this.btnSearch.Glyph = global::QLKHO.Properties.Resources.Search_2_icon32x32;
+            this.btnSearch.Glyph = global::QLKHO.Properties.Resources.reload_icon32x32;
             this.btnSearch.Id = 0;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearch_ItemClick);

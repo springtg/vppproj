@@ -21,7 +21,13 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void frmUnitStyle_Load(object sender, EventArgs e)
         {
-            LoadGird();
+            DataSet ds = UnitStyleDao.GetList(_ConfigItem);
+            DataTable dt = ds.Tables[0];
+            lookUpEdit_Supplier.Properties.DataSource = dt;
+            dt = ds.Tables[1];
+            repositoryItemLookUpEdit_Unit.DataSource = dt;
+            dt = ds.Tables[2];
+            grdUnitStyle.DataSource = dt;
         }
 
         #region "Phuong thuc"

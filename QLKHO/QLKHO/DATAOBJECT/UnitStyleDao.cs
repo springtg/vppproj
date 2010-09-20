@@ -9,6 +9,25 @@ namespace QLKHO.DATAOBJECT
 {
     internal class UnitStyleDao
     {
+        public static DataSet GetList(ConfigItem p_configItem)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL l_sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
+            try
+            {
+                l_sql.Connect();
+                return l_sql.GetDataByStoredProcedure_DS("USP_SEL_UNIT_STYLE_INIT");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                l_sql.Disconnect();
+            }
+
+        }
+
         public static DataTable getList(ConfigItem p_configItem,int idcat,int idgroup,int iditem) 
         {
             COREBASE.COMMAND.SQL.AccessSQL l_sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);

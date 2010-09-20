@@ -228,6 +228,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap reload_icon32x32 {
+            get {
+                object obj = ResourceManager.GetObject("reload-icon32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap reminders {
             get {
                 object obj = ResourceManager.GetObject("reminders", resourceCulture);
