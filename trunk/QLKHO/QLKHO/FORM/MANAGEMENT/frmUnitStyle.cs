@@ -73,6 +73,7 @@ namespace QLKHO.FORM.MANAGEMENT
             try
             {
                 DataTable Tmp = ((DataView)((DevExpress.XtraGrid.Views.Grid.GridView)sender).DataSource).Table;
+                if (Tmp.GetChanges() == null) return;
                 for (int i = 0; i < Tmp.Rows.Count; i++)
                 {
                     DataRow dr = Tmp.Rows[i];
@@ -82,8 +83,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     }
                     if (isNewRow(dr))
                     {
-
-                        // UnitStyleDao.Insert(_ConfigItem, dr);
+                        UnitStyleDao.Insert(_ConfigItem, dr, 0);
                     }
                     if (isDeletedRow(dr))
                     {
@@ -96,6 +96,7 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 AppDebug(ex);
             }
+            
         }
         /// <summary>
         /// Xu ly phim Del
@@ -144,12 +145,10 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void grvUnitStyle_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-            if (isNewRow((DataRow)e.Row))
+            if (isNewRow(((DataRowView)e.Row).Row))
             {
-                if (lookUpEdit_Supplier.GetSelectedDataRow() == null)
-                {
+                
                     e.Valid = false;
-                }
             }
         }
 
@@ -170,6 +169,37 @@ namespace QLKHO.FORM.MANAGEMENT
                     LoadGird();
             }
         }
+
+        private void grvUnitStyle_DataSourceChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DevExpress.XtraGrid.Views.Grid.GridView l_Tmp = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+                DataTable l_TB = (DataTable)l_Tmp.DataSource;
+                if (l_TB == null) return;
+                if (l_TB.Rows.Count < 1) return;
+                for (int i = 0; i < l_TB.Rows.Count; i++)
+                {
+                    if (isUnchangedRow(l_TB.Rows[i]))
+                    { 
+                       // l
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppDebug(ex);
+            }
+        }
+
+        private void grvUnitStyle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.Name.Equals("gridColumn5") || e.Column.Name.Equals("gridColumn6"))
+            {
+                DevExpress.XtraGrid.Views.Grid.GridView l_Tmp = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            }
+        }
+
 
     }
 }

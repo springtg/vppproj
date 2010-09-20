@@ -48,5 +48,13 @@
   <MSG MsgId="UNITSTYLE_C_001" MsgValue ="Ban muon xoa '{0}' khong?"/>
   <MSG MsgId="UNITSTYLE_C_002" MsgValue ="Du lieu da duoc cap nhat?"/>
   <!--END:  FORM Quy Cach-->
+
+  <!--START: FORM ITEM-->
+  <MSG MsgId="ITEM_C_000" MsgValue ="Du lieu da bi thay sua doi, ban co muon luu lai khong?"/>
+  <MSG MsgId="ITEM_C_001" MsgValue ="Ban muon xoa '{0}' khong?"/>
+  <MSG MsgId="ITEM_C_002" MsgValue ="Du lieu da duoc cap nhat?"/>
+  <MSG MsgId="ITEM_E_003" MsgValue ="Có lỗi khi lưu dữ liệu!"/>
+  <MSG MsgId="ITEM_E_004" MsgValue ="Có lỗi khi xóa {0}!"/>
+  <!--END:  FORM ITEM-->
   
 </VXSOFT_ERP_MESSAGE>

@@ -8,10 +8,7 @@ namespace COREBASE.COMMAND.VPP_COMMAND
     public class CInventory
     {
         public static bool ketchuyen(COMMAND.Config.ConfigItem _confItem)
-        {
-
-
-           
+        {           
 
             try
             {

@@ -31,6 +31,20 @@ namespace COREBASE.COMMAND
         }
 
         /// <summary>
+        /// Kiem tra 1 row la khong thay doi
+        /// </summary>
+        /// <param name="dtRow"></param>
+        /// <returns></returns>
+        public static bool isUnchangedRow(DataRow dtRow)
+        {
+            if (dtRow.RowState == DataRowState.Unchanged)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Kiem tra 1 row la moi duoc them vo
         /// </summary>
         /// <param name="dtRow"></param>
