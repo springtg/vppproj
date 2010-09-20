@@ -319,6 +319,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reload-icon32x32.png" />
     <None Include="Resources\Search-2-icon32x32.png" />
     <None Include="Resources\Transfer.gif" />
     <None Include="Resources\Refresh-icon.png" />
