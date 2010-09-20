@@ -12,109 +12,52 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmItem : COREBASE.FORM.BASEFORM
     {
-        UnitDao DaoUnit;
-        //GroupItemDao DaoGroup;
-        SupplierDao DaoSupp;
+        private const string l_Str_Unit = "Unit";
+        private const string l_Str_Group = "Group";
+        private const string l_Str_Supplier = "Supplier";
+        private const string l_Str_UnitStyle = "UnitStyle";
+        private const string l_Str_Item = "Item";
+
         public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-            this.Load += new EventHandler(frmItem_Load);
         }
 
-        void frmItem_Load(object sender, EventArgs e)
+        private void frmItem_Load(object sender, EventArgs e)
         {
-            LoadGird();
-                }
+            Initdata(l_Str_Unit, 0);
+            Initdata(l_Str_Supplier, 0);
+            Initdata(l_Str_Group, 0);
+            Initdata(l_Str_UnitStyle, 0);
+            Initdata(l_Str_Item, 0);
+        }
 
-        public void LoadGird()
+        private void Initdata(string p_Type,int p_idsupplier)
         {
-            grdItem.DataSource = ItemDao.GetList(_ConfigItem);
-            LoadUnit();
-            LoadGroup();
-            LoadSupplier();
-            LoadUnitStyle(0);
-        }
-        private void LoadUnit()
-        {
-            lookUpUnit.DataSource = UnitDao.GetList(_ConfigItem);
-        }
-        private void LoadGroup()
-        {
-            lookUpGroup.DataSource = GroupItemDao.GetList(_ConfigItem);
-            
-        }
-        private void LoadSupplier()
-        {
-            lookUpSupplier.DataSource = SupplierDao.GetList(_ConfigItem);
-        }
-        private void LoadUnitStyle(int idsupplier)
-        {
-            LookUpUnitStyle.DataSource = UnitStyleDao.getList_new(_ConfigItem,idsupplier);
-        }
-        private void Insert(DataRow row)
-        {
-           
-            try
+            switch (p_Type)
             {
-                object[] arrParaValue = new object[] {
-                    row["Name"],
-                    row["Group_Pk"],
-                    _ConfigItem.Login_UserName,
-                    row["Remark"],
-                    row["slton"]
-                };
-                ItemDao.Insert(_ConfigItem, arrValue: arrParaValue);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private void Delete(int _id)
-        {
-            try
-            {
-                ItemDao.Delete(_ConfigItem, _id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                case l_Str_Group:
+                    lookUpGroup.DataSource = GroupItemDao.GetList(_ConfigItem);
+                    break;
+                case l_Str_Unit:
+                    lookUpUnit.DataSource = UnitDao.GetList(_ConfigItem);
+                    break;
+                case l_Str_Supplier:
+                    lookUpSupplier.DataSource = SupplierDao.GetList(_ConfigItem);
+                    break;
+                case l_Str_UnitStyle:
+                    repositoryItemCheckedComboBoxEdit1.DataSource = UnitStyleDao.getList_new(_ConfigItem, p_idsupplier);
+                    break;
+                case l_Str_Item:
+                    grdItem.DataSource = ItemDao.GetList(_ConfigItem);
+                    break;
+                default:
+                    break;
             }
 
         }
-        private bool Update(DataRow row)
-        {
-            //           "@Id",
-            //"@Name",
-            //"@Id_Group_Pk",
-            //"@Mod_Dt",
-            //"@Mod_By",
-            //"@Is_Del",
-            //"@Remark",
-            //"@Id_Unit_Pk",
-            //"@Id_Supplier_Pk"};
-            try
-            {
-                object[] arrParaValue = new object[] {
-                    row["Id"],
-                    row["Name"],
-                     row["Group_Pk"],
-                    DateTime.Now,
-                    _ConfigItem.Login_UserName,
-                    0,
-                    row["Remark"],
-                    row["slton"]
-                };
-                ItemDao.Update(_ConfigItem,arrValue: arrParaValue);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+      
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
             try
@@ -126,23 +69,23 @@ namespace QLKHO.FORM.MANAGEMENT
                     DataRow dr = Tmp.Rows[i];
                     if (isModifedRow(dr))
                     {
-                        Update(dr);
+                       ItemDao.Update(_ConfigItem,dr);
                     }
                     if (isNewRow(dr))
                     {
-                        Insert(dr);
+                        ItemDao.Insert(_ConfigItem, dr);
                     }
                     if (isDeletedRow(dr))
                     {
-                        Delete((int)GetOriginalItemData(dr, "Id"));
+                        ItemDao.Delete(_ConfigItem, (int)GetOriginalItemData(dr, "Id"));
                     }
                 }
-                LoadGird();
+                Initdata(l_Str_Item, 0);
             }
             catch (Exception ex)
             {
-                //TODOL Ghi log cho nay
-                throw ex;
+                AppDebug(ex);
+                ShowMessageBox("ITEM_I_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);
             }
         }
 
@@ -150,31 +93,37 @@ namespace QLKHO.FORM.MANAGEMENT
         {
             if (e.KeyData.Equals(System.Windows.Forms.Keys.Delete))
             {
+                object l_Item_Name = string.Empty;
                 try
                 {
                     int[] _IndexRowSelected = gridView1.GetSelectedRows();
                     int _CurIndexRow = _IndexRowSelected[0];
                     DataTable tmp = (DataTable)grdItem.DataSource;
-                    Delete(CnvToInt32(tmp.Rows[_CurIndexRow]["Id"]));
-                    LoadGird();
+                    l_Item_Name = tmp.Rows[_CurIndexRow]["Name"];
+                    if (ItemDao.Delete(_ConfigItem, CnvToInt32(tmp.Rows[_CurIndexRow]["Id"])))
+                    {
+                        Initdata(l_Str_Item, 0);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    //TODO: Ghi log tai day nhe
-                    throw ex;
+                    AppDebug(ex);
+                    ShowMessageBox("ITEM_E_004", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, l_Item_Name);
                 }
             }
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            
+        }
+
+        private void gridView1_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
 
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
 
-        }
 
     }
 }

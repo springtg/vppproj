@@ -43,18 +43,28 @@ namespace QLKHO.DATAOBJECT
             return dt;
         }
 
-        public static int Insert(ConfigItem p_configItem, object[] arrValue)
+        public static int Insert(ConfigItem p_configItem, DataRow p_row)
         {
             int ma = 0;
             try
             {
-
+                object[] arrValue = new object[] {
+                     p_row["Name"],
+                    p_row["Group_Pk"],
+                    p_configItem.Login_UserName,
+                    p_row["Remark"],
+                    p_row["slton"],
+                    p_row["styleGroup"],
+                    p_row["supplier_pk"]
+                };
                 string[] arrParaName = new string[] {
                     "@Name",
                     "@Group_Pk",
 	                "@Crt_By",
 	                "@Remark",
-                    "@number_in"
+                    "@number_in",
+                    "@styleGroup",
+                    "@supplier_pk"
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
@@ -67,11 +77,20 @@ namespace QLKHO.DATAOBJECT
             return ma;
         }
 
-        public static bool Update(ConfigItem p_configItem, object[] arrValue)
+        public static bool Update(ConfigItem p_configItem, DataRow p_row )
         {
             try
             {
-
+                object[] arrValue = new object[] { 
+                    p_row["Id"],
+                    p_row["Name"],
+                     p_row["Group_Pk"],
+                    DateTime.Now,
+                    p_configItem.Login_UserName,
+                    0,
+                    p_row["Remark"],
+                    p_row["slton"]
+                };
                 string[] arrParaName = new string[] {
                     "@Id",
                     "@Name",
@@ -93,19 +112,18 @@ namespace QLKHO.DATAOBJECT
             }
         }
 
-        public static bool Delete(ConfigItem p_configItem, int _idSuppiler)
+        public static bool Delete(ConfigItem p_configItem, int p_idSuppiler)
         {
             try
             {
                 string[] arrParaName = new string[] { "@Id" };
-                object[] arrParaValue = new object[] { _idSuppiler };
+                object[] arrParaValue = new object[] { p_idSuppiler };
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
                 _sql.ExecuteNonQuery("USP_DEL_ITEM", arrParaName, arrParaValue);
                 return true;
             }
             catch (Exception ex)
             {
-                //TODO: Ghi log cho nay.
                 throw ex;
             }
         }

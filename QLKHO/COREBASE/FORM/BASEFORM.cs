@@ -339,6 +339,16 @@ namespace COREBASE.FORM
         /// </summary>
         /// <param name="dtRow"></param>
         /// <returns></returns>
+        protected bool isUnchangedRow(DataRow dtRow)
+        {
+            return COMMAND.CDataTable.isUnchangedRow(dtRow);
+        }
+
+        /// <summary>
+        /// Kiem tra 1 row la khong thay doi
+        /// </summary>
+        /// <param name="dtRow"></param>
+        /// <returns></returns>
         protected bool isNewRow(DataRow dtRow)
         {
             return COMMAND.CDataTable.isNewRow(dtRow);
@@ -740,6 +750,12 @@ namespace COREBASE.FORM
         }
 
         protected DialogResult ShowMessageBox(string messageId, MessageType messageType, params object[] objParam)
+        {
+            string strMsgTmp = COMMAND.MessageUtils.Message.GetMessageById(messageId);
+            return ShowMessageBox(messageId, string.Format(strMsgTmp, objParam), messageType);
+        }
+
+        protected DialogResult ShowMessageBox(string messageId, MessageType messageType, object objParam)
         {
             string strMsgTmp = COMMAND.MessageUtils.Message.GetMessageById(messageId);
             return ShowMessageBox(messageId, string.Format(strMsgTmp, objParam), messageType);
