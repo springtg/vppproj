@@ -133,7 +133,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 DevExpress.XtraEditors.LookUpEdit l_Tmp = (DevExpress.XtraEditors.LookUpEdit)sender;
                 if (l_Tmp.GetSelectedDataRow() != null)
                 {
-                    l_Supplier_PK = CnvToInt32(((QLKHO.BUSOBJECT.Supplier)lookUpEdit_Supplier.GetSelectedDataRow()).Id);
+                    l_Supplier_PK = CnvToInt32(((DataRowView)lookUpEdit_Supplier.GetSelectedDataRow())["Id"]);
                 }
                 grdUnitStyle.DataSource = UnitStyleDao.getList_new(_ConfigItem, (l_Supplier_PK != 0) ? l_Supplier_PK : 0);
                 l_Curr_Supplier = l_Supplier_PK;
@@ -205,6 +205,8 @@ namespace QLKHO.FORM.MANAGEMENT
                 DevExpress.XtraGrid.Views.Grid.GridView l_Tmp = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
             }
         }
+
+      
 
 
     }
