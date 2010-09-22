@@ -50,16 +50,16 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber)
+        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber, string _Remark, DateTime _billdate)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
             if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
             System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
             try
             {
-                int _iNumberItem = tbDetail.Rows.Count;                
-                string[] arrName = new string[] { "@Number_Item", "@Crt_By", "@TotalAMT", "@Id_WareHouse", "@Id_Supplier_Pk", "@Take_In_Date", "@Id_Use_Dis", "@Remark", "@BillNumber" };
-                object[] arrValue = new object[] { _iNumberItem, _ConfigItem.Login_UserName, _TotalAMT, _id_WareHouse, _iId_Supplier_Pk, _iTake_In_Date, _Id_Use_Dis, "", _BillNumber };
+                int _iNumberItem = tbDetail.Rows.Count;
+                string[] arrName = new string[] { "@Supplier_Pk", "@Id_Use_Dis", "@Take_In_Date", "@Number_Item", "@TotalAMT","@Crt_By",  "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate" };
+                object[] arrValue = new object[] { _iId_Supplier_Pk, _Id_Use_Dis, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate };
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection,_sqlTransaction ,"USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
@@ -72,8 +72,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         "@Number_Real",
                         "@Price", 
                         "@Vat" ,
-                        "@Item_Pk",
-                        "@Unit_Pk"
+                        "@Item_Pk"
                     };
                     arrValue = new object[] {
                         _idMaster,
@@ -83,8 +82,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         tbDetail.Rows[i]["Number_Real"],
                         tbDetail.Rows[i]["Price"],
                         tbDetail.Rows[i]["Vat"],
-                        tbDetail.Rows[i]["Item_Pk"],
-                        tbDetail.Rows[i]["Unit_Pk"]
+                        tbDetail.Rows[i]["Item_Pk"]
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection,_sqlTransaction, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
                 }
@@ -152,7 +150,8 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
                 int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
-                if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier, l_date, txtTakeInID.Text, txtTakeInBillNumber.Text))
+                if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
+                    l_date, txtTakeInID.Text, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
@@ -221,8 +220,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         int l_supplier = CnvToInt32(getValue(txtSuppierID, txtSuppierID.Properties.ValueMember));
                         string l_takeinid = txtTakeInID.Text;
                         int l_totalamt = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryText);
-                        //int L_MoneyType = 1;
-                        InsertData(l_tb, l_idwh, 0, l_supplier, l_date, l_takeinid, txtTakeInBillNumber.Text);
+                        InsertData(l_tb, l_idwh, 0, l_supplier, l_date, l_takeinid, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime);
 
                     }
                 }

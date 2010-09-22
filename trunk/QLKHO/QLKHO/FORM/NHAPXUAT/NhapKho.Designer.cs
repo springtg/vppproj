@@ -63,7 +63,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtTakeInID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.txtBillDate = new DevExpress.XtraEditors.DateEdit();
             this.txtTakeInDate = new DevExpress.XtraEditors.DateEdit();
             this.cboWareHouse = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -146,8 +146,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txttakeInRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTakeInCurrency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInDate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboWareHouse.Properties)).BeginInit();
@@ -330,7 +330,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.labelControl2);
             this.splitContainerControl2.Panel2.Controls.Add(this.txtTakeInID);
             this.splitContainerControl2.Panel2.Controls.Add(this.labelControl1);
-            this.splitContainerControl2.Panel2.Controls.Add(this.dateEdit1);
+            this.splitContainerControl2.Panel2.Controls.Add(this.txtBillDate);
             this.splitContainerControl2.Panel2.Controls.Add(this.txtTakeInDate);
             this.splitContainerControl2.Panel2.Controls.Add(this.cboWareHouse);
             this.splitContainerControl2.Panel2.Text = "Panel2";
@@ -514,18 +514,18 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Mã Phiếu";
             // 
-            // dateEdit1
+            // txtBillDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(338, 40);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtBillDate.EditValue = null;
+            this.txtBillDate.Location = new System.Drawing.Point(338, 40);
+            this.txtBillDate.Name = "txtBillDate";
+            this.txtBillDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtBillDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.dateEdit1.Size = new System.Drawing.Size(99, 20);
-            this.dateEdit1.TabIndex = 3;
-            this.dateEdit1.TabStop = false;
+            this.txtBillDate.Size = new System.Drawing.Size(99, 20);
+            this.txtBillDate.TabIndex = 3;
+            this.txtBillDate.TabStop = false;
             // 
             // txtTakeInDate
             // 
@@ -1310,8 +1310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txttakeInRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTakeInCurrency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInDate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeInDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboWareHouse.Properties)).EndInit();
@@ -1451,6 +1451,6 @@
         private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_bandedGridColumn8;
         private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit txtBillDate;
     }
 }
