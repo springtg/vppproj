@@ -10,7 +10,7 @@ namespace QLKHO
         public frmMain(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             InitializeComponent();
-            _ConfigItem = _ConfItem; 
+            _ConfigItem = _ConfItem;
         }
 
         private bool IsExist(string frmName)

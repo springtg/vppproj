@@ -109,10 +109,10 @@
     <Compile Include="FLASHSCREEN.Designer.cs">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </Compile>
-    <Compile Include="FORM\BAOCAO\NHAPXUAT\frmBaoCao.cs">
+    <Compile Include="FORM\BAOCAO\frmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FORM\BAOCAO\NHAPXUAT\frmBaoCao.Designer.cs">
+    <Compile Include="FORM\BAOCAO\frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.cs">
@@ -213,10 +213,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\Demo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REPORT\Demo.designer.cs">
+      <DependentUpon>Demo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REPORT\dsCat.Designer.cs" />
+    <Compile Include="REPORT\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FLASHSCREEN.resx">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\frmBaoCao.resx">
+    <EmbeddedResource Include="FORM\BAOCAO\frmBaoCao.resx">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.resx">
@@ -275,6 +288,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="REPORT\Demo.resx">
+      <DependentUpon>Demo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -319,6 +338,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="REPORT\dsCat.xsc">
+      <DependentUpon>dsCat.xsd</DependentUpon>
+    </None>
+    <None Include="REPORT\dsCat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCat1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="REPORT\dsCat.xss">
+      <DependentUpon>dsCat.xsd</DependentUpon>
+    </None>
     <None Include="Resources\reload-icon32x32.png" />
     <None Include="Resources\Search-2-icon32x32.png" />
     <None Include="Resources\Transfer.gif" />
