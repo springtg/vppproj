@@ -131,6 +131,7 @@
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeIn = new DevExpress.XtraEditors.ListBoxControl();
+            this.btnPrintTakeIn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -197,9 +198,10 @@
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAdd,
             this.btnDelete,
-            this.btnNew});
+            this.btnNew,
+            this.btnPrintTakeIn});
             this.barManager1.MainMenu = this.bar1;
-            this.barManager1.MaxItemId = 6;
+            this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -211,7 +213,8 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrintTakeIn, true)});
             this.bar1.OptionsBar.MultiLine = true;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
@@ -1282,6 +1285,13 @@
             this.lstTakeIn.TabIndex = 0;
             this.lstTakeIn.SelectedIndexChanged += new System.EventHandler(this.lstTakeIn_SelectedIndexChanged);
             // 
+            // btnPrintTakeIn
+            // 
+            this.btnPrintTakeIn.Caption = "In Phieu Nhap";
+            this.btnPrintTakeIn.Id = 6;
+            this.btnPrintTakeIn.Name = "btnPrintTakeIn";
+            this.btnPrintTakeIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintTakeIn_ItemClick);
+            // 
             // NhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1452,5 +1462,6 @@
         private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit txtBillDate;
+        private DevExpress.XtraBars.BarButtonItem btnPrintTakeIn;
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="BUSOBJECT\User.cs" />
     <Compile Include="DATAOBJECT\CatalogDao.cs" />
     <Compile Include="DATAOBJECT\GroupDao.cs" />
+    <Compile Include="DATAOBJECT\ReportDao.cs" />
     <Compile Include="DATAOBJECT\TakeInDao.cs" />
     <Compile Include="DATAOBJECT\UnitDao.cs" />
     <Compile Include="DATAOBJECT\ItemDao.cs" />
@@ -114,6 +115,11 @@
     </Compile>
     <Compile Include="FORM\BAOCAO\frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsNhapKho.xsd</DependentUpon>
     </Compile>
     <Compile Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.cs">
       <SubType>Component</SubType>
@@ -268,6 +274,17 @@
     </Compile>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.xsc">
+      <DependentUpon>dsNhapKho.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsNhapKho.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.xss">
+      <DependentUpon>dsNhapKho.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
