@@ -168,8 +168,7 @@ namespace QLKHO
 
         private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
-            frp.ShowRibbonPreview();
+           
         }
 
         private void bar3tab1btn2_ItemClick(object sender, ItemClickEventArgs e)

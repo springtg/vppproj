@@ -367,5 +367,25 @@ namespace QLKHO.FORM.NHAPXUAT
 
         }
 
+        private void btnPrintTakeIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (lstTakeIn.SelectedIndex == -1)
+            {
+                return;
+            }
+            int _idMaster = -1;
+            DataTable tbTmp = (DataTable)lstTakeIn.DataSource;
+            if (tbTmp.Rows.Count > 0)
+            {
+                DataRow dr = tbTmp.Rows[lstTakeIn.SelectedIndex];                
+                
+                _idMaster = CnvToInt32(dr["Id"]);
+            }
+            if(_idMaster==-1) return;
+            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
+            f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
+        }
+
     }
 }
