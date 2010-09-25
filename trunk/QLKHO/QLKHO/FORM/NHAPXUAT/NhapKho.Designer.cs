@@ -428,7 +428,7 @@
             this.txtSuppierID.Properties.DisplayMember = "Name_Dis";
             this.txtSuppierID.Properties.NullText = "";
             this.txtSuppierID.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.txtSuppierID.Properties.ValueMember = "Id_Dis";
+            this.txtSuppierID.Properties.ValueMember = "Id";
             this.txtSuppierID.Properties.EditValueChanged += new System.EventHandler(this.txtSuppierID_Properties_EditValueChanged);
             this.txtSuppierID.Size = new System.Drawing.Size(372, 20);
             this.txtSuppierID.TabIndex = 6;
