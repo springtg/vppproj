@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bntDel = new DevExpress.XtraBars.BarButtonItem();
@@ -44,6 +45,7 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpsPhone = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpsPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.printingSystem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +120,8 @@
             this.grvUser.MenuManager = this.barManager1;
             this.grvUser.Name = "grvUser";
             this.grvUser.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTextEdit1});
+            this.repositoryItemTextEdit1,
+            this.rpsPhone});
             this.grvUser.Size = new System.Drawing.Size(827, 381);
             this.grvUser.TabIndex = 4;
             this.grvUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -133,6 +137,8 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6});
+            this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1});
             this.gridView1.GridControl = this.grvUser;
             this.gridView1.GroupPanelText = "Kéo và thả cột vào đây để nhóm hiển thị";
             this.gridView1.Name = "gridView1";
@@ -146,8 +152,12 @@
             this.gridView1.OptionsPrint.SplitCellPreviewAcrossPages = true;
             this.gridView1.OptionsPrint.UsePrintStyles = true;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gridView1.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView1_InvalidRowException);
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
+            this.gridView1.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.gridView1_InvalidValueException);
             // 
             // gridColumn1
             // 
@@ -200,10 +210,19 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Điện thoại";
+            this.gridColumn4.ColumnEdit = this.rpsPhone;
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "Phone";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 4;
+            // 
+            // rpsPhone
+            // 
+            this.rpsPhone.Mask.EditMask = "f0";
+            this.rpsPhone.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpsPhone.MaxLength = 15;
+            this.rpsPhone.Name = "rpsPhone";
             // 
             // gridColumn5
             // 
@@ -237,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpsPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printingSystem1)).EndInit();
             this.ResumeLayout(false);
 
@@ -262,5 +282,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraPrinting.PrintingSystem printingSystem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        internal DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpsPhone;
     }
 }
