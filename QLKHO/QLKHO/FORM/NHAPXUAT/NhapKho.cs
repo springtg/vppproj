@@ -29,6 +29,7 @@ namespace QLKHO.FORM.NHAPXUAT
             //LAY THONG TIN CHO CAC COMBOBOX
             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("USP_SEL_SUPPLIER");
+           
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
             repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
             repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
@@ -101,6 +102,59 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
+        private bool UpdateData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber, string _Remark, DateTime _billdate, int _pk)
+        {
+            System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
+            if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
+            System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
+            try
+            {
+                int _iNumberItem = tbDetail.Rows.Count;
+                string[] arrName = new string[] { "@Supplier_Pk", "@Id_Use_Dis", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@Pk" };
+                object[] arrValue = new object[] { _iId_Supplier_Pk, _Id_Use_Dis, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _pk };
+                _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
+                int _idMaster = _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_IN", arrName, arrValue);
+                for (int i = 0; i < _iNumberItem; i++)
+                {
+                    arrName = new string[] { 
+                        "@Take_In_Pk", 
+                        "@Crt_By", 
+                        "@Remark", 
+                        "@Number_Bill", 
+                        "@Number_Real",
+                        "@Price", 
+                        "@Vat" ,
+                        "@Item_Pk",
+                        "@pk"
+                    };
+                    arrValue = new object[] {
+                        _idMaster,
+                        _ConfigItem.Login_UserName,
+                        string.Empty,
+                        tbDetail.Rows[i]["Number_Bill"],
+                        tbDetail.Rows[i]["Number_Real"],
+                        tbDetail.Rows[i]["Price"],
+                        tbDetail.Rows[i]["Vat"],
+                        tbDetail.Rows[i]["Item_Pk"],
+                        tbDetail.Rows[i]["Id"]
+                    };
+                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_IN_DETAIL", arrName, arrValue);
+                }
+                _sqlTransaction.Commit();
+                _providerSQL.Disconnect(_sqlConnection);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _sqlTransaction.Rollback();
+                AppDebug(ex);
+                if (_providerSQL != null)
+                    if (_sqlConnection != null)
+                        _providerSQL.Disconnect(_sqlConnection);
+                return false;
+            }
+        }
+
         private void lstTakeIn_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CurrStateForm.Equals(EVENT_FORM_NEW) || CurrStateForm.Equals(EVENT_FORM_UPDATE))
@@ -125,8 +179,11 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
                 //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG    
                 //int l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
+            
+              //  txtSuppierID.Properties.edit
 
-                txtSuppierID.Text = CnvToString(dr["Supplier_Pk"]);
+
+               // txtSuppierID.% = dr["Supplier_Pk"].ToString();
                 
                 txtTakeInID.Text = CnvToString(dr["Id_Dis"]);
                 txtTakeInDate.DateTime = DateTime.Parse(CnvToString(dr["Take_In_Date"]));
@@ -152,6 +209,25 @@ namespace QLKHO.FORM.NHAPXUAT
                 int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
                     l_date, txtTakeInID.Text, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
+                {
+                    lstTakeIn.DataSource = LoadData("MASTER", -1);
+                    lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
+                }
+            }
+            else
+            {
+                DataRow dr = ((DataRowView)cboWareHouse.GetSelectedDataRow()).Row;
+                int l_WareHouse = CnvToInt32(dr["Id"]);
+                DateTime l_date = txtTakeInDate.DateTime;
+                DataTable l_Detail = (DataTable)grdTakeInDetail.DataSource;
+                dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
+                int l_supplier = CnvToInt32(dr["Id"]);
+                int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                dr = ((DataRowView)lstTakeIn.SelectedItem).Row;
+                int l_takeinPK = CnvToInt32(dr["Id"]);
+                if (UpdateData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
+                    l_date, txtTakeInID.Text, txtTakeInBillNumber.Text, 
+                    txttakeInRemark.Text, txtBillDate.DateTime,l_takeinPK))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
