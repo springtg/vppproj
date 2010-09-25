@@ -36,6 +36,7 @@
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrintTakeIn = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -131,7 +132,6 @@
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeIn = new DevExpress.XtraEditors.ListBoxControl();
-            this.btnPrintTakeIn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -214,8 +214,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrintTakeIn, true)});
-            this.bar1.OptionsBar.MultiLine = true;
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrintTakeIn, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.DisableCustomization = true;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
             // 
@@ -223,7 +223,7 @@
             // 
             this.btnNew.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.btnNew.Caption = "Tạo Mới";
-            this.btnNew.Glyph = global::QLKHO.Properties.Resources._new;
+            this.btnNew.Glyph = global::QLKHO.Properties.Resources.New_icon16x16;
             this.btnNew.Id = 4;
             this.btnNew.Name = "btnNew";
             this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNew_ItemClick);
@@ -231,7 +231,7 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.Delete_icon16x16;
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -239,10 +239,18 @@
             // btnAdd
             // 
             this.btnAdd.Caption = "Lưu";
-            this.btnAdd.Glyph = global::QLKHO.Properties.Resources.save_icon;
+            this.btnAdd.Glyph = global::QLKHO.Properties.Resources.Save_icon16x16;
             this.btnAdd.Id = 0;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
+            // 
+            // btnPrintTakeIn
+            // 
+            this.btnPrintTakeIn.Caption = "In Phieu Nhap";
+            this.btnPrintTakeIn.Glyph = global::QLKHO.Properties.Resources.print_icon16x16;
+            this.btnPrintTakeIn.Id = 6;
+            this.btnPrintTakeIn.Name = "btnPrintTakeIn";
+            this.btnPrintTakeIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintTakeIn_ItemClick);
             // 
             // bar3
             // 
@@ -260,7 +268,7 @@
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(872, 42);
+            this.barDockControlTop.Size = new System.Drawing.Size(872, 26);
             // 
             // barDockControlBottom
             // 
@@ -271,27 +279,27 @@
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 502);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 518);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(872, 42);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
+            this.barDockControlRight.Location = new System.Drawing.Point(872, 26);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 518);
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 42);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 26);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(872, 502);
+            this.splitContainerControl1.Size = new System.Drawing.Size(872, 518);
             this.splitContainerControl1.SplitterPosition = 122;
             this.splitContainerControl1.TabIndex = 9;
             // 
@@ -593,7 +601,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(200, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(672, 374);
+            this.panelControl2.Size = new System.Drawing.Size(672, 390);
             this.panelControl2.TabIndex = 2;
             // 
             // grdTakeInDetail
@@ -612,7 +620,7 @@
             this.repositoryItemPopupContainerEdit1,
             this.repositoryItemGridLookUpEdit1,
             this.repositoryItemGridLookUpEdit2});
-            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 370);
+            this.grdTakeInDetail.Size = new System.Drawing.Size(668, 386);
             this.grdTakeInDetail.TabIndex = 0;
             this.grdTakeInDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTakeInDetail,
@@ -1273,7 +1281,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 374);
+            this.panelControl1.Size = new System.Drawing.Size(200, 390);
             this.panelControl1.TabIndex = 1;
             // 
             // lstTakeIn
@@ -1281,16 +1289,9 @@
             this.lstTakeIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstTakeIn.Location = new System.Drawing.Point(2, 2);
             this.lstTakeIn.Name = "lstTakeIn";
-            this.lstTakeIn.Size = new System.Drawing.Size(196, 370);
+            this.lstTakeIn.Size = new System.Drawing.Size(196, 386);
             this.lstTakeIn.TabIndex = 0;
             this.lstTakeIn.SelectedIndexChanged += new System.EventHandler(this.lstTakeIn_SelectedIndexChanged);
-            // 
-            // btnPrintTakeIn
-            // 
-            this.btnPrintTakeIn.Caption = "In Phieu Nhap";
-            this.btnPrintTakeIn.Id = 6;
-            this.btnPrintTakeIn.Name = "btnPrintTakeIn";
-            this.btnPrintTakeIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintTakeIn_ItemClick);
             // 
             // NhapKho
             // 

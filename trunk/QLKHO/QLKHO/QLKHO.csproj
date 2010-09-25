@@ -327,6 +327,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\print-icon16x16.png" />
+    <None Include="Resources\Save-icon16x16.png" />
+    <None Include="Resources\New-icon16x16.png" />
+    <None Include="Resources\New-icon24x24.png" />
     <None Include="Resources\reload-icon32x32.png" />
     <None Include="Resources\Search-2-icon32x32.png" />
     <None Include="Resources\Transfer.gif" />
@@ -362,6 +366,8 @@
     <None Include="Resources\del.png" />
     <None Include="Resources\Cancel.png" />
     <None Include="Resources\edit-delete-icon32x32.png" />
+    <None Include="Resources\Delete-icon16x16.png" />
+    <None Include="Resources\Delete-icon16x161.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />

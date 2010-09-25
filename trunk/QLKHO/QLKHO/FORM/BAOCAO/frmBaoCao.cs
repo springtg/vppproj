@@ -23,12 +23,32 @@ namespace QLKHO.FORM.BAOCAO
             p_XtraReport.DataSource = p_DataSource;
             p_XtraReport.FillDataSource();
             printControl1.PrintingSystem = p_XtraReport.PrintingSystem;
-
-            // Generate the report's print document. 
             p_XtraReport.CreateDocument();
-            //  rpt.ShowPreview();
             this.MdiParent = p_Parent;
             this.Show();
         }
+
+        public void ShowBaoCao(XtraReport p_XtraReport, DataTable p_DataSource)
+        {
+            if (p_XtraReport == null)
+                p_XtraReport = new XtraReport();
+            p_XtraReport.DataSource = p_DataSource;
+            p_XtraReport.FillDataSource();
+            printControl1.PrintingSystem = p_XtraReport.PrintingSystem;
+            p_XtraReport.CreateDocument();
+            this.Show();
+        }
+
+        public void ShowBaoCaoDlg(XtraReport p_XtraReport, DataTable p_DataSource)
+        {
+            if (p_XtraReport == null)
+                p_XtraReport = new XtraReport();
+            p_XtraReport.DataSource = p_DataSource;
+            p_XtraReport.FillDataSource();
+            printControl1.PrintingSystem = p_XtraReport.PrintingSystem;
+            p_XtraReport.CreateDocument();
+            this.ShowDialog();
+        }
+
     }
 }

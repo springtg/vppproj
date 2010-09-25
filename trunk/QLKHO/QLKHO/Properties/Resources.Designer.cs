@@ -116,6 +116,20 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Delete_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Delete-icon16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Delete_icon16x161 {
+            get {
+                object obj = ResourceManager.GetObject("Delete-icon16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap edit_delete_icon32x32 {
             get {
                 object obj = ResourceManager.GetObject("edit-delete-icon32x32", resourceCulture);
@@ -200,6 +214,20 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap New_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("New-icon16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap New_icon24x24 {
+            get {
+                object obj = ResourceManager.GetObject("New-icon24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap NhapKho {
             get {
                 object obj = ResourceManager.GetObject("NhapKho", resourceCulture);
@@ -217,6 +245,13 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap PBan {
             get {
                 object obj = ResourceManager.GetObject("PBan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap print_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("print-icon16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -252,6 +287,13 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap save_icon {
             get {
                 object obj = ResourceManager.GetObject("save-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Save_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Save-icon16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
