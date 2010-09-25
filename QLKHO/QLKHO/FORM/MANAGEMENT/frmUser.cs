@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using QLKHO.DATAOBJECT;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLKHO.FORM.MANAGEMENT
 {
@@ -186,5 +187,42 @@ namespace QLKHO.FORM.MANAGEMENT
                 throw ex;
             }
         }
+
+        private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.FocusedColumn.FieldName == "Phone")
+            {
+                //Get the currently edited value 
+                double discount = Convert.ToDouble(e.Value);
+                //Specify validation criteria 
+                if (discount < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Nhập số lớn hơn 0";
+                }
+            }
+
+        }
+
+        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+
+        }
+
+        private void gridView1_InvalidValueException(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
+        {
+            //Do not perform any default action 
+           // e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+            //Show the message with the error text specified 
+           // MessageBox.Show(e.ErrorText);
+
+        }
+
+        private void gridView1_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
     }
 }
