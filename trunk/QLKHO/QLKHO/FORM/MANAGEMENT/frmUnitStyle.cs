@@ -89,7 +89,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     }
                     if (isNewRow(dr))
                     {
-                        UnitStyleDao.Insert(_ConfigItem, dr, 0);
+                        UnitStyleDao.Insert(_ConfigItem, dr, l_Curr_Supplier);
                     }
                     if (isDeletedRow(dr))
                     {
