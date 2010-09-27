@@ -169,7 +169,7 @@ namespace QLKHO.FORM.MANAGEMENT
             int _CurIndexRow = _IndexRowSelected[0];
             DataTable tmp = (DataTable)grdUnitStyle.DataSource;
             object[] obj = new object[] { string.Format("{0} _ {1} _ {2}", tmp.Rows[_CurIndexRow]["Id"], tmp.Rows[_CurIndexRow]["Name"], tmp.Rows[_CurIndexRow]["Num"]) };
-            if (ShowMessageBox("UNITSTYLE_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM, obj) == System.Windows.Forms.DialogResult.OK)
+            if (ShowMessageBox("UNITSTYLE_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM, obj) == System.Windows.Forms.DialogResult.Yes)
             {
                 if (UnitStyleDao.Delete(_ConfigItem, CnvToInt32(tmp.Rows[_CurIndexRow]["Id"])))
                     LoadGird();
