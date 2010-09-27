@@ -146,7 +146,7 @@
             // 
             this.gridColumn5.Caption = "Nhà cung cấp";
             this.gridColumn5.ColumnEdit = this.lookUpSupplier;
-            this.gridColumn5.FieldName = "Supplier_Pk";
+            this.gridColumn5.FieldName = "supplier_pk";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
