@@ -52,10 +52,10 @@ namespace QLKHO.FORM.MANAGEMENT
 
         public void LoadGird()
         {
-            InitData(L_SUPPLIER);
+           // InitData(L_SUPPLIER);
             InitData(L_UNIT_OUT);
             InitData(L_UNIT_IN);
-            grdUnitStyle.DataSource = UnitStyleDao.getList_new(_ConfigItem, 0);
+            grdUnitStyle.DataSource = UnitStyleDao.getList_new(_ConfigItem, l_Curr_Supplier);
         }
 
         #endregion
