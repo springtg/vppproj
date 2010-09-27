@@ -92,7 +92,7 @@ namespace QLKHO.DATAOBJECT
                     p_dtRow["Unit_Out_Pk"],
                     p_dtRow["Remark"],
                     p_dtRow["Num"],
-                    p_dtRow["Supplier_Pk"],
+                    p_SupplierId,
                     p_configItem.Login_UserName
                 };
 
