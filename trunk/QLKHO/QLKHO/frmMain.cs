@@ -217,6 +217,20 @@ namespace QLKHO
             }
         }
 
+        private void bar1tab2btn3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                REPORT.Demo f = new  REPORT.Demo(_ConfigItem);
+                f.MdiParent = this;
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
 
     }
 }
