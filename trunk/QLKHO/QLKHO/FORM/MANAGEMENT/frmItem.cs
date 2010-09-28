@@ -19,6 +19,7 @@ namespace QLKHO.FORM.MANAGEMENT
         private const string l_Str_UnitStyle = "UnitStyle";
         private const string l_Str_Item = "Item";
         private int currl_SupplierID = 0;
+        private string arIdStyle = "";
         public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
@@ -78,7 +79,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     }
                     if (isNewRow(dr))
                     {
-                        ItemDao.Insert(_ConfigItem, dr);
+                        ItemDao.Insert(_ConfigItem, dr,arIdStyle);
                     }
                     if (isDeletedRow(dr))
                     {
@@ -150,7 +151,7 @@ namespace QLKHO.FORM.MANAGEMENT
         private void repositoryItemCheckedComboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
             //obj: 35,36
-            object obj = repositoryItemCheckedComboBoxEdit1.GetCheckedItems();
+            arIdStyle = repositoryItemCheckedComboBoxEdit1.GetCheckedItems().ToString();
         }
 
 
