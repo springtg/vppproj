@@ -147,6 +147,12 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
+        private void repositoryItemCheckedComboBoxEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            //obj: 35,36
+            object obj = repositoryItemCheckedComboBoxEdit1.GetCheckedItems();
+        }
+
 
 
     }

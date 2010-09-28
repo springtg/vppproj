@@ -183,7 +183,8 @@
             this.repositoryItemCheckedComboBoxEdit1.DisplayMember = "Name";
             this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
             this.repositoryItemCheckedComboBoxEdit1.SelectAllItemVisible = false;
-            this.repositoryItemCheckedComboBoxEdit1.ValueMember = "Name";
+            this.repositoryItemCheckedComboBoxEdit1.ValueMember = "Id";
+            this.repositoryItemCheckedComboBoxEdit1.EditValueChanged += new System.EventHandler(this.repositoryItemCheckedComboBoxEdit1_EditValueChanged);
             // 
             // gridColumn4
             // 
