@@ -164,6 +164,7 @@
             this.lookUpSupplier.Name = "lookUpSupplier";
             this.lookUpSupplier.NullText = "---Chọn giá trị---";
             this.lookUpSupplier.ValueMember = "Id";
+            this.lookUpSupplier.EditValueChanged += new System.EventHandler(this.lookUpSupplier_EditValueChanged);
             // 
             // gridColumn9
             // 
