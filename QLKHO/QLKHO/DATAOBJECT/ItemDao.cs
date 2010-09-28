@@ -43,7 +43,7 @@ namespace QLKHO.DATAOBJECT
             return dt;
         }
 
-        public static int Insert(ConfigItem p_configItem, DataRow p_row)
+        public static int Insert(ConfigItem p_configItem, DataRow p_row, string arrIdStyle)
         {
             int ma = 0;
             try
@@ -54,7 +54,7 @@ namespace QLKHO.DATAOBJECT
                     p_configItem.Login_UserName,
                     p_row["Remark"],
                     p_row["slton"],
-                    p_row["styleGroup"],
+                    arrIdStyle,
                     p_row["supplier_pk"]
                 };
                 string[] arrParaName = new string[] {
