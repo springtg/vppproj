@@ -86,14 +86,14 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tabMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -200,7 +200,7 @@
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.bar3;
+            this.ribbon.SelectedPage = this.bar1;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -313,6 +313,7 @@
             this.bar1tab1btn4.Id = 21;
             this.bar1tab1btn4.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab1btn4.LargeGlyph")));
             this.bar1tab1btn4.Name = "bar1tab1btn4";
+            this.bar1tab1btn4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar1tab1btn4_ItemClick);
             // 
             // bar3tab1btn1
             // 
@@ -632,34 +633,6 @@
             this.navBarControl1.TabIndex = 6;
             this.navBarControl1.Text = "Chức năng chính";
             // 
-            // navBarGroup2
-            // 
-            this.navBarGroup2.Caption = "Báo cáo";
-            this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
-            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
-            this.navBarGroup2.Name = "navBarGroup2";
-            // 
-            // navBarItem4
-            // 
-            this.navBarItem4.Caption = "Báo cáo VVP";
-            this.navBarItem4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.LargeImage")));
-            this.navBarItem4.Name = "navBarItem4";
-            // 
-            // navBarItem6
-            // 
-            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
-            this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
-            this.navBarItem6.Name = "navBarItem6";
-            // 
-            // navBarItem3
-            // 
-            this.navBarItem3.Caption = "Báo cáo tồn";
-            this.navBarItem3.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.LargeImage")));
-            this.navBarItem3.Name = "navBarItem3";
-            // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Quản lý kho";
@@ -688,6 +661,34 @@
             this.navBarItem5.Caption = "Chuyển kho";
             this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
+            // 
+            // navBarGroup2
+            // 
+            this.navBarGroup2.Caption = "Báo cáo";
+            this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
+            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
+            this.navBarGroup2.Name = "navBarGroup2";
+            // 
+            // navBarItem4
+            // 
+            this.navBarItem4.Caption = "Báo cáo VVP";
+            this.navBarItem4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.LargeImage")));
+            this.navBarItem4.Name = "navBarItem4";
+            // 
+            // navBarItem6
+            // 
+            this.navBarItem6.Caption = "Báo cáo Phòng Ban";
+            this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
+            this.navBarItem6.Name = "navBarItem6";
+            // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "Báo cáo tồn";
+            this.navBarItem3.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.LargeImage")));
+            this.navBarItem3.Name = "navBarItem3";
             // 
             // bar4tab2btn3
             // 
