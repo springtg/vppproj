@@ -33,6 +33,7 @@ namespace QLKHO.FORM.NHAPXUAT
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
             repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
             repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
+            
         }
 
         private DataTable LoadData(string strParam, int idMaster)
@@ -324,10 +325,12 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             try
             {
+
                 DataRow dr = ((DataRowView)((LookUpEdit)sender).GetSelectedDataRow()).Row;
                 txtSupplierAddress.Text = (CnvToString(dr["Address"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Address1"]);
                 txtSupplierPhone.Text = (CnvToString(dr["Phone"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Phone1"]);
                 txtSupplierTaxCode.Text = CnvToString(dr["TaxCode"]);
+         
             }
             catch (Exception ex)
             {

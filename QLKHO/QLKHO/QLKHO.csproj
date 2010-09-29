@@ -94,6 +94,7 @@
     <Compile Include="BUSOBJECT\Supplier.cs" />
     <Compile Include="BUSOBJECT\User.cs" />
     <Compile Include="DATAOBJECT\CatalogDao.cs" />
+    <Compile Include="DATAOBJECT\UserRoleDao.cs" />
     <Compile Include="DATAOBJECT\GroupDao.cs" />
     <Compile Include="DATAOBJECT\ReportDao.cs" />
     <Compile Include="DATAOBJECT\TakeInDao.cs" />
@@ -193,6 +194,12 @@
     <Compile Include="FORM\NHAPXUAT\XuatKho.Designer.cs">
       <DependentUpon>XuatKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\SYSTEM\frmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\SYSTEM\frmRole.Designer.cs">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,8 +218,30 @@
     <Compile Include="LOGIN.Designer.cs">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\Demo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REPORT\Demo.designer.cs">
+      <DependentUpon>Demo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REPORT\dsCat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCat.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORT\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FLASHSCREEN.resx">
       <DependentUpon>FLASHSCREEN.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,11 +284,18 @@
     <EmbeddedResource Include="FORM\NHAPXUAT\XuatKho.resx">
       <DependentUpon>XuatKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\SYSTEM\frmRole.resx">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -272,6 +308,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="REPORT\Demo.resx">
+      <DependentUpon>Demo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -327,6 +369,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="REPORT\dsCat.xsc">
+      <DependentUpon>dsCat.xsd</DependentUpon>
+    </None>
+    <None Include="REPORT\dsCat.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCat.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORT\dsCat.xss">
+      <DependentUpon>dsCat.xsd</DependentUpon>
+    </None>
     <None Include="Resources\print-icon16x16.png" />
     <None Include="Resources\Save-icon16x16.png" />
     <None Include="Resources\New-icon16x16.png" />
@@ -375,7 +428,6 @@
     <Content Include="bin\Debug\Resources\rsMessage.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FORM\SYSTEM\" />
     <Folder Include="USERCONTROL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
