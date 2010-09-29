@@ -34,8 +34,8 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkCmbEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvUserRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCmbEdit1)).BeginInit();
@@ -64,14 +64,17 @@
             this.gridColumn5});
             this.gridView1.GridControl = this.gvUserRole;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Mã";
             this.gridColumn1.FieldName = "Id_Dis";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -80,6 +83,7 @@
             this.gridColumn2.Caption = "Tên Đăng Nhập";
             this.gridColumn2.FieldName = "Name_Dis";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
@@ -88,6 +92,7 @@
             this.gridColumn3.Caption = "Họ Tên";
             this.gridColumn3.FieldName = "Name";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
@@ -100,14 +105,6 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 4;
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Ghi chú";
-            this.gridColumn5.FieldName = "Remark";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
-            // 
             // chkCmbEdit1
             // 
             this.chkCmbEdit1.AutoHeight = false;
@@ -117,6 +114,15 @@
             this.chkCmbEdit1.Name = "chkCmbEdit1";
             this.chkCmbEdit1.ValueMember = "Id";
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Ghi chú";
+            this.gridColumn5.FieldName = "Remark";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            // 
             // frmRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +131,7 @@
             this.Controls.Add(this.gvUserRole);
             this.Name = "frmRole";
             this.Text = "frmRole";
+            this.Load += new System.EventHandler(this.frmRole_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUserRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCmbEdit1)).EndInit();
