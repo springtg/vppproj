@@ -16,7 +16,7 @@ namespace QLKHO
             DevExpress.UserSkins.OfficeSkins.Register();
             if (!DevExpress.Skins.SkinManager.AllowFormSkins)
                 DevExpress.Skins.SkinManager.EnableFormSkins();
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Money Twins";
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2010 Blue";
             //Coffee
             //Liquid Sky
             //London Liquid Sky
