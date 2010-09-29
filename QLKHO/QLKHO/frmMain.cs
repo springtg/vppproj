@@ -22,6 +22,8 @@ namespace QLKHO
             bar2.Visible = false;
             bar3.Visible = false;
             bar4.Visible = false;
+            navBar1.Visible = false;
+            navBar2.Visible = false;
           
         }
 
@@ -39,6 +41,7 @@ namespace QLKHO
                      {
                          case "bar1":
                              bar1.Visible = true;
+                             navBar1.Visible = true;
                              break;
                          case "bar2":
                              bar2.Visible = true;
@@ -48,6 +51,7 @@ namespace QLKHO
                              break;
                          case "bar4":
                              bar4.Visible = true;
+                             navBar2.Visible = true;
                              break;
 
                      }
