@@ -36,8 +36,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bntLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.bar4tab1btn1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4tab1btn2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1tab1btn1 = new DevExpress.XtraBars.BarButtonItem();
@@ -187,8 +187,8 @@
             this.bar4tab2btn2,
             this.bar1tab2btn3,
             this.bartab2bnt5,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.bntLogin,
+            this.btnLogout});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 66;
             this.ribbon.Name = "ribbon";
@@ -210,26 +210,28 @@
             // applicationMenu1
             // 
             this.applicationMenu1.BottomPaneControlContainer = null;
-            this.applicationMenu1.ItemLinks.Add(this.barButtonItem1);
-            this.applicationMenu1.ItemLinks.Add(this.barButtonItem2);
+            this.applicationMenu1.ItemLinks.Add(this.bntLogin);
+            this.applicationMenu1.ItemLinks.Add(this.btnLogout);
             this.applicationMenu1.Name = "applicationMenu1";
             this.applicationMenu1.Ribbon = this.ribbon;
             this.applicationMenu1.RightPaneControlContainer = null;
             // 
-            // barButtonItem1
+            // bntLogin
             // 
-            this.barButtonItem1.Caption = "Đăng Nhập";
-            this.barButtonItem1.Glyph = global::QLKHO.Properties.Resources.Login150;
-            this.barButtonItem1.Id = 64;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.bntLogin.Caption = "Đăng Nhập";
+            this.bntLogin.Glyph = global::QLKHO.Properties.Resources.Login150;
+            this.bntLogin.Id = 64;
+            this.bntLogin.Name = "bntLogin";
+            this.bntLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntLogin_ItemClick);
             // 
-            // barButtonItem2
+            // btnLogout
             // 
-            this.barButtonItem2.Caption = "Đăng Xuất";
-            this.barButtonItem2.Glyph = global::QLKHO.Properties.Resources.AutoLock150;
-            this.barButtonItem2.Id = 65;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLogout.Caption = "Đăng Xuất";
+            this.btnLogout.Glyph = global::QLKHO.Properties.Resources.AutoLock150;
+            this.btnLogout.Id = 65;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // bar4tab1btn1
             // 
@@ -785,7 +787,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraBars.BarButtonItem bartab2bnt5;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem bntLogin;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
     }
 }

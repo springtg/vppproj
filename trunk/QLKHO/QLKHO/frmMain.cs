@@ -2,6 +2,8 @@
 using DevExpress.XtraBars;
 using QLKHO.FORM.MANAGEMENT;
 using System.Windows.Forms;
+using System.Data;
+using QLKHO.DATAOBJECT;
 namespace QLKHO
 {
     public partial class frmMain : COREBASE.FORM.BASEMDIPARENT// DevExpress.XtraBars.Ribbon.RibbonForm
@@ -11,8 +13,47 @@ namespace QLKHO
         {
             InitializeComponent();
             _ConfigItem = _ConfItem;
+            AccessRole();
+
+        }
+        public void HideTab()
+        {
+            bar1.Visible = false;
+            bar2.Visible = false;
+            bar3.Visible = false;
+            bar4.Visible = false;
+          
         }
 
+        private void AccessRole() {
+            HideTab();
+             object[] arrParaValue = new object[] {
+                  _ConfigItem.Login_ID
+                };
+             DataTable dt = UserRoleDao.GetListRoleByUID(_ConfigItem, arrParaValue);
+             for (int i = 0; i < dt.Rows.Count; i++)
+             {
+                 if (dt.Rows[i]["Is_Active"].ToString() == "1")
+                 {
+                     switch (dt.Rows[i]["NameControl"].ToString().Trim())
+                     {
+                         case "bar1":
+                             bar1.Visible = true;
+                             break;
+                         case "bar2":
+                             bar2.Visible = true;
+                             break;
+                         case "bar3":
+                             bar3.Visible = true;
+                             break;
+                         case "bar4":
+                             bar4.Visible = true;
+                             break;
+
+                     }
+                 }
+             }
+        }
         private bool IsExist(string frmName)
         {
             if (tabMdi.Pages.Count < 1) return false;
@@ -243,6 +284,16 @@ namespace QLKHO
             {
 
             }
+        }
+
+        private void bntLogin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
         }
 
 
