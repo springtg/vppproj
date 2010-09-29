@@ -27,8 +27,29 @@ namespace QLKHO.DATAOBJECT
             }
             return dt;
         }
-        
 
+        public static DataTable GetListRoleByUID(ConfigItem p_ConfigItem, object[] arrValue)
+        {
+            DataTable dt = null;
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
+            try
+            {
+                string[] arrParaName = new string[] {
+                    "@UserId"
+                 };
+                _sql.Connect(p_ConfigItem);
+                dt = _sql.GetDataByStoredProcedure("USP_SEL_USER_ROLE_ByUser", arrParaName, arrValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
+            }
+            return dt;
+        }
         public static DataTable GetList(ConfigItem p_ConfigItem)
         {
             DataTable dt = null;
