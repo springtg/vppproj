@@ -130,7 +130,7 @@
             this.ClientSize = new System.Drawing.Size(827, 423);
             this.Controls.Add(this.gvUserRole);
             this.Name = "frmRole";
-            this.Text = "frmRole";
+            this.Text = "Phân Quyền";
             this.Load += new System.EventHandler(this.frmRole_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUserRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
