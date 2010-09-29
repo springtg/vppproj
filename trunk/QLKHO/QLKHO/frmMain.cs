@@ -231,6 +231,20 @@ namespace QLKHO
             }
         }
 
+        private void bar1tab1btn4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
+                f.MdiParent = this;
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
 
     }
 }
