@@ -48,7 +48,29 @@ namespace QLKHO.DATAOBJECT
             }
             return dt;
         }
-        
+        public static bool Update(ConfigItem p_ConfigItem, object[] arrValue)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
+            try
+            {
+                string[] arrParaName = new string[] {
+                    "@Id",
+                    "@RoleList"
+                 };
+                _sql.Connect(p_ConfigItem);
+                _sql.ExecuteNonQuery("USP_Update_USERROLE", arrParaName, arrValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
+            }
+        }
+
      
     }
 }
