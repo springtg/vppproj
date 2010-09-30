@@ -369,6 +369,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh-icon16x16.png" />
     <None Include="REPORT\dsCat.xsc">
       <DependentUpon>dsCat.xsd</DependentUpon>
     </None>
@@ -421,6 +422,7 @@
     <None Include="Resources\edit-delete-icon32x32.png" />
     <None Include="Resources\Delete-icon16x16.png" />
     <None Include="Resources\Delete-icon16x161.png" />
+    <None Include="Resources\edit-delete-icon16x16.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />
