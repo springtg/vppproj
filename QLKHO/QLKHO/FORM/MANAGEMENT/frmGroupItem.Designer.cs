@@ -228,7 +228,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.KeyPreview = true;
             this.Name = "frmGroupItem";
-            this.Text = "frmGroupItem";
+            this.Text = "Nhóm hàng hóa";
             this.Load += new System.EventHandler(this.frmGroupItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGroup)).EndInit();
