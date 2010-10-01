@@ -15,12 +15,8 @@ namespace QLKHO.FORM.MANAGEMENT
     {
         private const string l_Str_Unit = "Unit";
         private const string l_Str_Group = "Group";
-        private const string l_Str_Supplier = "Supplier";
-        private const string l_Str_UnitStyle = "UnitStyle";
         private const string l_Str_Item = "Item";
-        private int currl_SupplierID = 0;
-        private string arIdStyle = "";
-        public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
+         public frmItem(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
@@ -29,11 +25,8 @@ namespace QLKHO.FORM.MANAGEMENT
         private void frmItem_Load(object sender, EventArgs e)
         {
             Initdata(l_Str_Group, 0);
-            
-            Initdata(l_Str_Supplier, 0);
-           
+     
             Initdata(l_Str_Unit, 0);
-            
             
         //    Initdata(l_Str_UnitStyle, 0);
             Initdata(l_Str_Item, 0);
@@ -48,12 +41,6 @@ namespace QLKHO.FORM.MANAGEMENT
                     break;
                 case l_Str_Unit:
                     lookUpUnit.DataSource = UnitDao.GetList(_ConfigItem);
-                    break;
-                case l_Str_Supplier:
-                    lookUpSupplier.DataSource = SupplierDao.GetList(_ConfigItem);
-                    break;
-                case l_Str_UnitStyle:
-                    repositoryItemCheckedComboBoxEdit1.DataSource = UnitStyleDao.getList_new(_ConfigItem, p_idsupplier);
                     break;
                 case l_Str_Item:
                     grdItem.DataSource = ItemDao.GetList(_ConfigItem);
@@ -79,7 +66,7 @@ namespace QLKHO.FORM.MANAGEMENT
                     }
                     if (isNewRow(dr))
                     {
-                        ItemDao.Insert(_ConfigItem, dr,arIdStyle);
+                        ItemDao.Insert(_ConfigItem, dr);
                     }
                     if (isDeletedRow(dr))
                     {
@@ -128,33 +115,5 @@ namespace QLKHO.FORM.MANAGEMENT
         {
 
         }
-
-        private void lookUpSupplier_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int l_Supplier_PK = 0;
-                DevExpress.XtraEditors.LookUpEdit l_Tmp = (DevExpress.XtraEditors.LookUpEdit)sender;
-                if (l_Tmp.GetSelectedDataRow() != null)
-                {
-                    l_Supplier_PK = ((Supplier)l_Tmp.GetSelectedDataRow()).Id;
-                }
-                Initdata(l_Str_UnitStyle, l_Supplier_PK);
-                currl_SupplierID = l_Supplier_PK;
-            }
-            catch (Exception ex)
-            {
-                AppDebug(ex);
-            }
-        }
-
-        private void repositoryItemCheckedComboBoxEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-            //obj: 35,36
-            arIdStyle = repositoryItemCheckedComboBoxEdit1.GetCheckedItems().ToString();
-        }
-
-
-
     }
 }
