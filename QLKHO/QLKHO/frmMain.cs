@@ -188,6 +188,26 @@ namespace QLKHO
         {
             this.Close();
         }
+        private void bar1tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.SYSTEM.frmBacupkRestore f = new FORM.SYSTEM.frmBacupkRestore(_ConfigItem);
+            f.ShowDialog();
+            //FORM.BAOCAO.NHAPXUAT.rptNhapKho f = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            //f.ShowPreviewDialog();
+        }
+        private void bar1tab1btn4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
+                f.MdiParent = this;
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         #endregion
 
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
@@ -236,15 +256,7 @@ namespace QLKHO
            
             
         }
-
-        private void bar1tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            FORM.SYSTEM.frmBacupkRestore f = new FORM.SYSTEM.frmBacupkRestore(_ConfigItem);
-            f.ShowDialog();
-            //FORM.BAOCAO.NHAPXUAT.rptNhapKho f = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
-            //f.ShowPreviewDialog();
-        }
-
+   
         private void bar1tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
    
@@ -277,20 +289,7 @@ namespace QLKHO
 
             }
         }
-
-        private void bar1tab1btn4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
-                f.MdiParent = this;
-                f.Show();
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+    
 
         private void bntLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
