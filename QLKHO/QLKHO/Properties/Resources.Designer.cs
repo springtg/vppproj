@@ -130,6 +130,27 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Delete_icon16x162 {
+            get {
+                object obj = ResourceManager.GetObject("Delete-icon16x162", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Delete_icon16x163 {
+            get {
+                object obj = ResourceManager.GetObject("Delete-icon16x163", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap edit_delete_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("edit-delete-icon16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap edit_delete_icon32x32 {
             get {
                 object obj = ResourceManager.GetObject("edit-delete-icon32x32", resourceCulture);
@@ -259,6 +280,13 @@ namespace QLKHO.Properties {
         internal static System.Drawing.Bitmap Refresh_icon {
             get {
                 object obj = ResourceManager.GetObject("Refresh-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap refresh_icon16x16 {
+            get {
+                object obj = ResourceManager.GetObject("refresh-icon16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
