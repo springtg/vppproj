@@ -144,11 +144,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
-            this.MaximumSize = new System.Drawing.Size(579, 315);
+            this.MaximumSize = new System.Drawing.Size(579, 322);
             this.MinimumSize = new System.Drawing.Size(579, 315);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng Nhập";
+            this.Text = "..::Đăng Nhập::..";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
