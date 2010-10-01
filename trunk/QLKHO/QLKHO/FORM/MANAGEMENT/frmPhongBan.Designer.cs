@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bntUpdate = new DevExpress.XtraBars.BarButtonItem();
@@ -43,11 +42,14 @@
             this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Id_Dis = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NamePB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lkupUser = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.Phone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Remark = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkupUser)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -132,6 +134,8 @@
             this.grdDepartment.MainView = this.gridView1;
             this.grdDepartment.MenuManager = this.barManager1;
             this.grdDepartment.Name = "grdDepartment";
+            this.grdDepartment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.lkupUser});
             this.grdDepartment.Size = new System.Drawing.Size(827, 381);
             this.grdDepartment.TabIndex = 4;
             this.grdDepartment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -143,6 +147,7 @@
             this.Id,
             this.Id_Dis,
             this.NamePB,
+            this.gridColumn1,
             this.Phone,
             this.Remark});
             this.gridView1.GridControl = this.grdDepartment;
@@ -190,13 +195,34 @@
             this.NamePB.Visible = true;
             this.NamePB.VisibleIndex = 1;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Trưởng phòng";
+            this.gridColumn1.ColumnEdit = this.lkupUser;
+            this.gridColumn1.FieldName = "LeaderId";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 2;
+            // 
+            // lkupUser
+            // 
+            this.lkupUser.AutoHeight = false;
+            this.lkupUser.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkupUser.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_Dis", "Tên")});
+            this.lkupUser.DisplayMember = "Name_Dis";
+            this.lkupUser.Name = "lkupUser";
+            this.lkupUser.ValueMember = "Id";
+            // 
             // Phone
             // 
             this.Phone.Caption = "Điện thoại";
             this.Phone.FieldName = "Phone";
             this.Phone.Name = "Phone";
             this.Phone.Visible = true;
-            this.Phone.VisibleIndex = 2;
+            this.Phone.VisibleIndex = 3;
             // 
             // Remark
             // 
@@ -204,7 +230,7 @@
             this.Remark.FieldName = "Remark";
             this.Remark.Name = "Remark";
             this.Remark.Visible = true;
-            this.Remark.VisibleIndex = 3;
+            this.Remark.VisibleIndex = 4;
             // 
             // frmPhongBan
             // 
@@ -223,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkupUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +272,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn NamePB;
         private DevExpress.XtraGrid.Columns.GridColumn Phone;
         private DevExpress.XtraGrid.Columns.GridColumn Remark;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkupUser;
 
     }
 }

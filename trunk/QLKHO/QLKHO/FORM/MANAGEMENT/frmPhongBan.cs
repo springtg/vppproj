@@ -22,6 +22,7 @@ namespace QLKHO.FORM.MANAGEMENT
 
         private void frmPhongBan_Load(object sender, EventArgs e)
         {
+            lkupUser.DataSource=UserDao.GetList(_ConfigItem);
             LoadGird();
         }
         public void LoadGird()
@@ -43,7 +44,8 @@ namespace QLKHO.FORM.MANAGEMENT
                   
                     _ConfigItem.Login_UserName,
                     row["Remark"],
-                    row["Phone"]
+                    row["Phone"],
+                    row["LeaderId"]
                 };
                 Dao.Insert(arrValue: arrParaValue);
             }
@@ -103,8 +105,6 @@ namespace QLKHO.FORM.MANAGEMENT
             }
 
         }
-
-
         private bool Update(DataRow row)
         {
             try
@@ -114,7 +114,8 @@ namespace QLKHO.FORM.MANAGEMENT
                     row["Name"],
                      _ConfigItem.Login_UserName,
                     row["Remark"],
-                    row["Phone"]
+                    row["Phone"],
+                     row["LeaderId"]
                 };
                 Dao.Update(arrValue: arrParaValue);
                 return true;
