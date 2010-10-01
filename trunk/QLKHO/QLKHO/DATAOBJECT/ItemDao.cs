@@ -43,7 +43,7 @@ namespace QLKHO.DATAOBJECT
             return dt;
         }
 
-        public static int Insert(ConfigItem p_configItem, DataRow p_row, string arrIdStyle)
+        public static int Insert(ConfigItem p_configItem, DataRow p_row)
         {
             int ma = 0;
             try
@@ -53,18 +53,16 @@ namespace QLKHO.DATAOBJECT
                     p_row["Group_Pk"],
                     p_configItem.Login_UserName,
                     p_row["Remark"],
-                    p_row["slton"],
-                    arrIdStyle,
-                    p_row["supplier_pk"]
+                    p_row["Unit_Pk"],
+                    p_row["slton"]
                 };
                 string[] arrParaName = new string[] {
                     "@Name",
                     "@Group_Pk",
 	                "@Crt_By",
 	                "@Remark",
-                    "@number_in",
-                    "@styleGroup",
-                    "@supplier_pk"
+                    "@Unit_Pk",
+                    "@number_in"
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
@@ -85,20 +83,18 @@ namespace QLKHO.DATAOBJECT
                     p_row["Id"],
                     p_row["Name"],
                      p_row["Group_Pk"],
-                    DateTime.Now,
                     p_configItem.Login_UserName,
-                    0,
                     p_row["Remark"],
+                    p_row["Unit_Pk"],
                     p_row["slton"]
                 };
                 string[] arrParaName = new string[] {
                     "@Id",
                     "@Name",
                     "@Group_Pk",
-	                "@Mod_Dt",
 	                "@Mod_By",
-	                "@Is_Del",
 	                "@Remark",
+                    "@Unit_Pk",
                     "@number_in"   };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_configItem);
