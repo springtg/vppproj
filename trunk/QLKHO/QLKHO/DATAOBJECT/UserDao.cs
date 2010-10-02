@@ -62,7 +62,8 @@ namespace QLKHO.DATAOBJECT
 	                "@Crt_By",
 	                "@Remark",
                     "@Phone",
-                    "@Address"
+                    "@Address",
+                    "@Department_Pk"
                 };
                 _sql.Connect(p_ConfigItem);
                 ma = _sql.ExecuteInsert("USP_INS_USER", arrNames: arrParaName, arrValues: arrValue);
@@ -91,7 +92,8 @@ namespace QLKHO.DATAOBJECT
 	                "@Mod_By",
 	                "@Remark",
                     "@Phone",
-                    "@Address"};
+                    "@Address",
+                "@Department_Pk"};
                 _sql.Connect(p_ConfigItem);
                 _sql.ExecuteNonQuery("USP_UPD_USER", arrNames: arrParaName, arrValues: arrValue);
                 return true;
