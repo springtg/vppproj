@@ -210,6 +210,16 @@ namespace QLKHO
         }
         #endregion
 
+        #region "Báo Cáo"
+
+        private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        #endregion
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (!IsExist("frmPhongBan"))
@@ -229,11 +239,6 @@ namespace QLKHO
             FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
             f.MdiParent = this;
             f.Show();
-        }
-
-        private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-           
         }
 
         private void bar3tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
