@@ -193,6 +193,47 @@ namespace COREBASE.COMMAND.SQL
             return dt;
         }
 
+        /// <summary>
+        /// Execute a procedure (Select) with param
+        /// </summary>
+        /// <param name="sProcedureName">Name of stored procedure</param>
+        /// <param name="arrNames">Array of parameter's name</param>
+        /// <param name="arrValues">Array of parameter's value</param>
+        public DataSet GetDataByStoredProcedure_DS(string sProcedureName, string[] arrNames, object[] arrValues)
+        {
+            DataSet ds = new DataSet();
+            Connect();
+            try
+            {
+                _sqlTransaction = _sqlConnection.BeginTransaction();
+                _sqlCommand = new SqlCommand(sProcedureName, _sqlConnection, _sqlTransaction);
+                _sqlCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter par = null;
+                for (int i = 0; i < arrNames.Length; i++)
+                {
+                    par = new SqlParameter(arrNames[i], arrValues[i]);
+                    _sqlCommand.Parameters.Add(par);
+                }
+
+                using (SqlDataAdapter da = new SqlDataAdapter())
+                {
+                    da.SelectCommand = _sqlCommand;
+                    da.Fill(ds);
+                }
+                _sqlTransaction.Commit();
+            }
+            catch (SqlException ex)
+            {
+                _sqlTransaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+
+                Disconnect();
+            }
+            return ds;
+        }
         public DataSet GetDataByStoredProcedure_DS(string sProcedureName)
         {
             DataSet ds = new DataSet();
