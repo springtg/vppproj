@@ -216,9 +216,15 @@ namespace QLKHO
         {
             FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
             f.MdiParent = this;
-            f.Show();
+            f.ShowRPT(1);
         }
 
+        private void bar4tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+            f.MdiParent = this;
+            f.ShowRPT(1);
+        }
         #endregion
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -305,6 +311,7 @@ namespace QLKHO
         {
             this.Close();
         }
+
 
 
 
