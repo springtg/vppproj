@@ -14,24 +14,33 @@ namespace QLKHO.FORM.BAOCAO
 {
     public partial class frmRptNhap : COREBASE.FORM.BASEFORM
     {
+        static int type = 0;
         public frmRptNhap(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
 
         }
-        public DataSet GetData()
+        public void ShowRPT(int _type) {
+            type = _type;
+            this.Show();
+        }
+        public DataSet GetData(int  type)
         {
             DataSet ds = null;
-
+            string store = "USP_RPT_NHAPKHO";
+            if (type == 1)
+                store = "USP_RPT_XUATKHO";
+            else store = "USP_RPT_NHAPKHO";
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             try
             {
-
+                
                 string[] arrParaName = new string[] { "@Item_Id", "@From", "@To" };
                 object[] arrValue = new object[] { 79, dateFrom.EditValue, dateTo.EditValue };
                 _sql.Connect(_ConfigItem);
-                ds = _sql.GetDataByStoredProcedure_DS("USP_RPT_NHAPKHO", arrParaName, arrValue);
+
+                ds = _sql.GetDataByStoredProcedure_DS(store, arrParaName, arrValue);
             }
             catch (Exception ex)
             {
@@ -44,9 +53,13 @@ namespace QLKHO.FORM.BAOCAO
             return ds;
         }
 
-        public void ShowRPT(DataSet ds)
+        public void ShowRPT(DataSet ds, int type)
         {
-            rptNhapHis rpt = new rptNhapHis();
+            DevExpress.XtraReports.UI.XtraReport rpt;
+            if(type==0)
+             rpt = new rptNhapHis();
+            else
+                 rpt = new rptXuatHis();
             rpt.DataSource = ds;
             rpt.FillDataSource();
             printControl1.PrintingSystem = rpt.PrintingSystem;
@@ -57,7 +70,7 @@ namespace QLKHO.FORM.BAOCAO
         }
         private void btnShow_Click(object sender, EventArgs e)
         {
-            ShowRPT(GetData());
+            ShowRPT(GetData(type),type);
         }
     }
 }
