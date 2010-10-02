@@ -10,7 +10,8 @@ namespace QLKHO.DATAOBJECT
     class DepartmentsDao
     {
         public ConfigItem confItem;
-        public DepartmentsDao(ConfigItem _conf) {
+        public DepartmentsDao(ConfigItem _conf)
+        {
             this.confItem = _conf;
         }
         public DataTable GetList()
@@ -27,19 +28,17 @@ namespace QLKHO.DATAOBJECT
             }
             return dt;
         }
-        public int Insert(object [] arrValue)
+        public int Insert(object[] arrValue)
         {
             int ma = 0;
             try
             {
-
                 string[] arrParaName = new string[] {
                     "@Name",
-	                
 	                "@Crt_By",
-	                
 	                "@Remark",
-	                "@Phone" 
+	                "@Phone" ,
+                    "@LeaderId"
                 };
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
@@ -51,8 +50,7 @@ namespace QLKHO.DATAOBJECT
             }
             return ma;
         }
-
-        public bool Update(object [] arrValue )
+        public bool Update(object[] arrValue)
         {
             try
             {
@@ -60,11 +58,10 @@ namespace QLKHO.DATAOBJECT
                 string[] arrParaName = new string[] {
                     "@Id",
                     "@Name",
-	                
 	                "@Mod_By",
-	                
 	                "@Remark",
-	                "@Phone"};
+	                "@Phone",
+                    "@LeaderId"};
 
                 COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(confItem);
                 _sql.ExecuteNonQuery("USP_UPD_DEPARTMENT", arrNames: arrParaName, arrValues: arrValue);
@@ -73,7 +70,6 @@ namespace QLKHO.DATAOBJECT
             catch (Exception ex)
             {
                 throw ex;
-
             }
         }
 
