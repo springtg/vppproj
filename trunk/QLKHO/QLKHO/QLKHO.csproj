@@ -79,6 +79,13 @@
     <Reference Include="DevExpress.XtraPrinting.v10.1.Design, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DICHSO">
+      <HintPath>..\..\..\..\TIEMTHUOC\PROJ_PHARMACY\Pharmacy_HP\Pharmacy_MT\Pharmacy\Pharmacy\bin\Debug\DICHSO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,6 +101,8 @@
     <Compile Include="BUSOBJECT\Supplier.cs" />
     <Compile Include="BUSOBJECT\User.cs" />
     <Compile Include="DATAOBJECT\CatalogDao.cs" />
+    <Compile Include="DATAOBJECT\SystemDao.cs" />
+    <Compile Include="DATAOBJECT\TakeOutDao.cs" />
     <Compile Include="DATAOBJECT\UserRoleDao.cs" />
     <Compile Include="DATAOBJECT\GroupDao.cs" />
     <Compile Include="DATAOBJECT\ReportDao.cs" />
@@ -117,16 +126,55 @@
     <Compile Include="FORM\BAOCAO\frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\BAOCAO\frmRptNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\frmRptNhap.Designer.cs">
+      <DependentUpon>frmRptNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsNhapKho.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.cs">
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.Designer.cs">
-      <DependentUpon>rptNhapKho.cs</DependentUpon>
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.Designer.cs">
+      <DependentUpon>rptTakeIns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\dsXuatPB.Designer.cs">
+      <DependentUpon>dsXuatPB.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptXuatHis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptXuatHis.Designer.cs">
+      <DependentUpon>rptXuatHis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\dsXuat.Designer.cs">
+      <DependentUpon>dsXuat.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\dsNhap.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsNhap.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptNhapHis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptNhapHis.Designer.cs">
+      <DependentUpon>rptNhapHis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptXuatPBHis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptXuatPBHis.Designer.cs">
+      <DependentUpon>rptXuatPBHis.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\MANAGEMENT\frmAddSupplier.cs">
       <SubType>Form</SubType>
@@ -194,6 +242,12 @@
     <Compile Include="FORM\NHAPXUAT\XuatKho.Designer.cs">
       <DependentUpon>XuatKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\SYSTEM\frmBacupkRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\SYSTEM\frmBacupkRestore.Designer.cs">
+      <DependentUpon>frmBacupkRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\SYSTEM\frmRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,8 +302,21 @@
     <EmbeddedResource Include="FORM\BAOCAO\frmBaoCao.resx">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptNhapKho.resx">
-      <DependentUpon>rptNhapKho.cs</DependentUpon>
+    <EmbeddedResource Include="FORM\BAOCAO\frmRptNhap.resx">
+      <DependentUpon>frmRptNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.resx">
+      <DependentUpon>rptTakeIns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptXuatHis.resx">
+      <DependentUpon>rptXuatHis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptNhapHis.resx">
+      <DependentUpon>rptNhapHis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptXuatPBHis.resx">
+      <DependentUpon>rptXuatPBHis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\MANAGEMENT\frmAddSupplier.resx">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
@@ -283,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\NHAPXUAT\XuatKho.resx">
       <DependentUpon>XuatKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\SYSTEM\frmBacupkRestore.resx">
+      <DependentUpon>frmBacupkRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\SYSTEM\frmRole.resx">
       <DependentUpon>frmRole.cs</DependentUpon>
@@ -327,6 +397,39 @@
     </None>
     <None Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.xss">
       <DependentUpon>dsNhapKho.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuatPB.xsc">
+      <DependentUpon>dsXuatPB.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuatPB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsXuatPB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuatPB.xss">
+      <DependentUpon>dsXuatPB.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuat.xsc">
+      <DependentUpon>dsXuat.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsXuat.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsXuat.xss">
+      <DependentUpon>dsXuat.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsNhap.xsc">
+      <DependentUpon>dsNhap.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsNhap.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsNhap.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsNhap.xss">
+      <DependentUpon>dsNhap.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

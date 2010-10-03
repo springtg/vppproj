@@ -234,15 +234,6 @@
   <metadata name="pageFooterBand1.Name" xml:space="preserve">
     <value>pageFooterBand1</value>
   </metadata>
-  <metadata name="xrLine2.Name" xml:space="preserve">
-    <value>xrLine2</value>
-  </metadata>
-  <metadata name="xrPageInfo1.Name" xml:space="preserve">
-    <value>xrPageInfo1</value>
-  </metadata>
-  <metadata name="xrPageInfo2.Name" xml:space="preserve">
-    <value>xrPageInfo2</value>
-  </metadata>
   <metadata name="reportHeaderBand1.Name" xml:space="preserve">
     <value>reportHeaderBand1</value>
   </metadata>
@@ -270,8 +261,8 @@
   <metadata name="topMarginBand1.Name" xml:space="preserve">
     <value>topMarginBand1</value>
   </metadata>
-  <metadata name="xrLabel39.Name" xml:space="preserve">
-    <value>xrLabel39</value>
+  <metadata name="xrLabel42.Name" xml:space="preserve">
+    <value>xrLabel42</value>
   </metadata>
   <metadata name="xrLabel38.Name" xml:space="preserve">
     <value>xrLabel38</value>
@@ -284,6 +275,42 @@
   </metadata>
   <metadata name="bottomMarginBand1.Name" xml:space="preserve">
     <value>bottomMarginBand1</value>
+  </metadata>
+  <metadata name="GroupFooter1.Name" xml:space="preserve">
+    <value>GroupFooter1</value>
+  </metadata>
+  <metadata name="xrLabel50.Name" xml:space="preserve">
+    <value>xrLabel50</value>
+  </metadata>
+  <metadata name="xrLabel49.Name" xml:space="preserve">
+    <value>xrLabel49</value>
+  </metadata>
+  <metadata name="xrLabel48.Name" xml:space="preserve">
+    <value>xrLabel48</value>
+  </metadata>
+  <metadata name="xrTongtien.Name" xml:space="preserve">
+    <value>xrTongtien</value>
+  </metadata>
+  <metadata name="xrLabel46.Name" xml:space="preserve">
+    <value>xrLabel46</value>
+  </metadata>
+  <metadata name="xrLabel45.Name" xml:space="preserve">
+    <value>xrLabel45</value>
+  </metadata>
+  <metadata name="xrLabel44.Name" xml:space="preserve">
+    <value>xrLabel44</value>
+  </metadata>
+  <metadata name="xrLabel43.Name" xml:space="preserve">
+    <value>xrLabel43</value>
+  </metadata>
+  <metadata name="xrTong.Name" xml:space="preserve">
+    <value>xrTong</value>
+  </metadata>
+  <metadata name="xrLabel41.Name" xml:space="preserve">
+    <value>xrLabel41</value>
+  </metadata>
+  <metadata name="xrLabel39.Name" xml:space="preserve">
+    <value>xrLabel39</value>
   </metadata>
   <metadata name="$this.Name" xml:space="preserve">
     <value>rptTakeIns</value>
