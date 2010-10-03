@@ -31,7 +31,9 @@ namespace QLKHO.FORM.BAOCAO
             string store = "USP_RPT_NHAPKHO";
             if (type == 1)
                 store = "USP_RPT_XUATKHO";
-            else store = "USP_RPT_NHAPKHO";
+            else if(type == 0)
+                store = "USP_RPT_NHAPKHO";
+            else  store = "USP_RPT_XUAT_PB";
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             try
             {
@@ -56,10 +58,11 @@ namespace QLKHO.FORM.BAOCAO
         public void ShowRPT(DataSet ds, int type)
         {
             DevExpress.XtraReports.UI.XtraReport rpt;
-            if(type==0)
-             rpt = new rptNhapHis();
-            else
-                 rpt = new rptXuatHis();
+            if (type == 0)
+                rpt = new rptNhapHis();
+            else if (type == 1)
+                rpt = new rptXuatHis();
+            else rpt = new rptXuatPBHis();
             rpt.DataSource = ds;
             rpt.FillDataSource();
             printControl1.PrintingSystem = rpt.PrintingSystem;

@@ -29,11 +29,12 @@ namespace QLKHO.FORM.NHAPXUAT
             //LAY THONG TIN CHO CAC COMBOBOX
             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("USP_SEL_SUPPLIER");
-           
+
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
             lkUser.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_ConfigItem);
-            repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
-            repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
+          
+            replkeditItem.DataSource = ItemDao.GetList(_ConfigItem);
+           replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem);
             
         }
 
@@ -76,7 +77,8 @@ namespace QLKHO.FORM.NHAPXUAT
                         "@Number_Real",
                         "@Price", 
                         "@Vat" ,
-                        "@Item_Pk"
+                        "@Item_Pk",
+                        "@UnitStyle_Pk"
                     };
                     arrValue = new object[] {
                         _idMaster,
@@ -86,7 +88,9 @@ namespace QLKHO.FORM.NHAPXUAT
                         tbDetail.Rows[i]["Number_Real"],
                         tbDetail.Rows[i]["Price"],
                         tbDetail.Rows[i]["Vat"],
-                        tbDetail.Rows[i]["Item_Pk"]
+                        tbDetail.Rows[i]["Item_Pk"],
+                        tbDetail.Rows[i]["UnitStyle_Pk"]
+                        
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection,_sqlTransaction, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
                 }
@@ -104,7 +108,6 @@ namespace QLKHO.FORM.NHAPXUAT
                 return false;
             }
         }
-
         private bool UpdateData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, int _User_Pk, string _BillNumber, string _Remark, DateTime _billdate, int _pk)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
@@ -128,6 +131,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         "@Price", 
                         "@Vat" ,
                         "@Item_Pk",
+                       "@UnitStyle_Pk",
                         "@pk"
                     };
                     arrValue = new object[] {
@@ -139,6 +143,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         tbDetail.Rows[i]["Price"],
                         tbDetail.Rows[i]["Vat"],
                         tbDetail.Rows[i]["Item_Pk"],
+                        tbDetail.Rows[i]["UnitStyle_Pk"],
                         tbDetail.Rows[i]["Id"]
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_IN_DETAIL", arrName, arrValue);
@@ -358,8 +363,8 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns.Add("Price", typeof(float));
             tb.Columns.Add("Vat", typeof(float));
             tb.Columns.Add("Item_Pk", typeof(int));
-            tb.Columns.Add("Unit_Pk", typeof(int));
-            tb.Columns["ROWID"].AutoIncrement = true;
+            tb.Columns.Add("UnitStyle_Pk", typeof(int));
+             tb.Columns["ROWID"].AutoIncrement = true;
             tb.Columns["ROWID"].AutoIncrementStep = 1;
             tb.Columns["ROWID"].AutoIncrementSeed = 1;
             return tb;
@@ -438,7 +443,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 _idMaster = CnvToInt32(dr["Id"]);
             }
             if (_idMaster == -1) return;
-            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            FORM.BAOCAO.NHAPXUAT.rptTakeIns frp = new FORM.BAOCAO.NHAPXUAT.rptTakeIns();
             FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
             f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
         }
@@ -473,6 +478,25 @@ namespace QLKHO.FORM.NHAPXUAT
                     }
                 }
             }
+        }
+
+        private void replkeditItem_EditValueChanged(object sender, EventArgs e)
+        {
+            l_CurItem = (LookUpEdit)sender;
+        }
+        LookUpEdit l_CurItem = null;
+        private void grvTakeInDetail_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+
+            if (e.Column.Name.Equals("bandedGridColumn10"))
+            {
+                if (l_CurItem != null)
+                {
+                    int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
+                    replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+                }
+            }
+       
         }
 
 
