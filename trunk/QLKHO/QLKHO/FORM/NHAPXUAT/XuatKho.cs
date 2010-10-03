@@ -12,7 +12,7 @@ namespace QLKHO.FORM.NHAPXUAT
         private const string L_Load_MASTER = "MASTER";
         private const string L_Load_DETAIL = "DETAIL";
         private DataTable l_dtMaster;
-        private BindingManagerBase l_BindingManagerBase;
+        private BindingSource l_BindingSource;
 
         public XuatKho(COREBASE.COMMAND.Config.ConfigItem _config)
         {
@@ -20,11 +20,22 @@ namespace QLKHO.FORM.NHAPXUAT
             _ConfigItem = _config;
         }
 
+        private void MasterBind()
+        {
+            txtTakeOutDate.DataBindings.Add("DateTime", l_dtMaster, "Take_Out_Date");
+            txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
+
+            txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
+            txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
+        }
         private void XuatKho_Load(object sender, EventArgs e)
         {
+            l_BindingSource = new BindingSource();
+            l_BindingSource.ResetBindings(true);
             try
             {
                 l_dtMaster = LoadData(L_Load_MASTER, -1);
+                l_BindingSource.DataSource = l_dtMaster;
                 lstTakeOut.DataSource = l_dtMaster;
                 lstTakeOut.DisplayMember = "TakeOutDate";
                 lstTakeOut.ValueMember = "Id";
@@ -33,15 +44,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem);
                 //Load Data master
-
-          
-
-
-                txtTakeOutDate.DataBindings.Add("DateTime", l_dtMaster, "Take_Out_Date");
-                txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
-
-                txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
-                txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
+                MasterBind();
                 AssignTagValueOnDXControl(this);
             }
             catch (Exception ex)
@@ -95,7 +98,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 {
                     if (ShowMessageBox("XUATKHO_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        //TODO:GOI HAM SAVE LAI THONG TIN
+                        btn_TakeOut_Luu_ItemClick(btn_TakeOut_Luu, null);
                     }
                 }
             }
@@ -109,23 +112,16 @@ namespace QLKHO.FORM.NHAPXUAT
             if (tbTmp.Rows.Count > 0)
             {
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
-                //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG            
-                // txtDeparment.Text = CnvToString(dr["Department_Pk"]);
-                // txtTakeOutID.Text = CnvToString(dr["Id_Dis"]);
-                //txtTakeOutDate.DateTime = DateTime.Parse(CnvToString(dr["Take_Out_Date"]));
-                // txtTakeOutRemark.Text = CnvToString(dr["Remark"]);
-                //SupplierIDSelected = CnvToInt32(dr["Id"]);
                 int _idMaster = CnvToInt32(dr["Id"]);
                 tbTmp = LoadData("DETAIL", _idMaster);
                 grdTakeOutDetail.DataSource = tbTmp;
             }
             this.CurFormState = EVENT_FORM_NONE;
-
         }
 
         private void btn_TakeOut_Refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            XuatKho_Load(this, new EventArgs());
         }
 
         private void btn_TakeOut_Luu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -141,21 +137,23 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr["Crt_By"] = _ConfigItem.Login_ID;
                 dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
                 dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
-                int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                int l_totalmat = 100;// CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr["PriceTotal"] = l_totalmat;
                 if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
                 {
-
-                    l_dtMaster = TakeOutDao.GetList(_ConfigItem); 
+                    CurFormState = EVENT_FORM_NONE;
+                    lstTakeOut.SelectedIndexChanged -= new EventHandler(lstTakeOut_SelectedIndexChanged);
+                    l_dtMaster = TakeOutDao.GetList(_ConfigItem);
                     lstTakeOut.DataSource = l_dtMaster;
-                    ShowMessageBox("XUATKHO_I_005", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);                    
+                    ShowMessageBox("XUATKHO_I_005", COREBASE.COMMAND.MessageUtils.MessageType.INFORM);
+                    lstTakeOut.SelectedIndexChanged += new EventHandler(lstTakeOut_SelectedIndexChanged);
                 }
                 else
                 {
                     ShowMessageBox("XUATKHO_E_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);
                 }
             }
-            DataRow dr1 = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];            
+            DataRow dr1 = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];
             if (isModifedRow(dr1))
             {
                 CurFormState = EVENT_FORM_UPDATE;
@@ -164,9 +162,12 @@ namespace QLKHO.FORM.NHAPXUAT
             {
                 if (TakeOutDao.Update(_ConfigItem, dr1, l_Detail))
                 {
+                    CurFormState = EVENT_FORM_NONE;
+                    lstTakeOut.SelectedIndexChanged -= new EventHandler(lstTakeOut_SelectedIndexChanged);
                     l_dtMaster = TakeOutDao.GetList(_ConfigItem);
                     lstTakeOut.DataSource = l_dtMaster;
-                    ShowMessageBox("XUATKHO_I_006", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);                    
+                    ShowMessageBox("XUATKHO_I_006", COREBASE.COMMAND.MessageUtils.MessageType.INFORM);
+                    lstTakeOut.SelectedIndexChanged += new EventHandler(lstTakeOut_SelectedIndexChanged);
                 }
                 else
                 {
@@ -286,6 +287,43 @@ namespace QLKHO.FORM.NHAPXUAT
         private void repositoryItemLookUpEdit_Item_EditValueChanged(object sender, EventArgs e)
         {
             l_CurItem = (LookUpEdit)sender;
+
+        }
+
+        private void btn_TakeOut_Xoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CurrencyManager cm = (CurrencyManager)this.BindingContext[l_dtMaster];
+            cm.EndCurrentEdit();
+            if (CurFormState.Equals(EVENT_FORM_NEW))
+            {
+                if (ShowMessageBox("XUATKHO_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    CurFormState = EVENT_FORM_NONE;
+                    l_dtMaster = TakeOutDao.GetList(_ConfigItem);
+                    lstTakeOut.DataSource = l_dtMaster;
+                    l_BindingSource.ResetBindings(true);
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            DataRow dr1 = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];
+            CurFormState = EVENT_FORM_DELETE;
+            if (TakeOutDao.Delete(_ConfigItem, dr1))
+            {
+                CurFormState = EVENT_FORM_NONE;
+                lstTakeOut.SelectedIndexChanged -= new EventHandler(lstTakeOut_SelectedIndexChanged);
+                l_dtMaster = TakeOutDao.GetList(_ConfigItem);
+                lstTakeOut.DataSource = l_dtMaster;
+                ShowMessageBox("XUATKHO_I_006", COREBASE.COMMAND.MessageUtils.MessageType.INFORM);
+                lstTakeOut.SelectedIndexChanged += new EventHandler(lstTakeOut_SelectedIndexChanged);
+            }
+            else
+            {
+                ShowMessageBox("XUATKHO_E_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);
+            }
 
         }
 
