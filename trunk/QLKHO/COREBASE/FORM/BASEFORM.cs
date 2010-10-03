@@ -1052,5 +1052,10 @@ namespace COREBASE.FORM
                 Logger.Configure();
             }
         }
+
+        protected void CloseMe()
+        {
+            this.Close();
+        }
     }
 }
