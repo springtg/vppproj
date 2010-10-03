@@ -241,7 +241,6 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             if (e.Column.Name.Equals("bandedGridColumn2"))
             {
-
                 if (l_CurItem != null)
                 {
                     int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
@@ -249,26 +248,14 @@ namespace QLKHO.FORM.NHAPXUAT
                 }
             }
         }
-
+        LookUpEdit l_CurItem = null;
         private void repositoryItemLookUpEdit_Item_EditValueChanged(object sender, EventArgs e)
         {
-            LookUpEdit l_Tmp = (LookUpEdit)sender;
+            l_CurItem = (LookUpEdit)sender;
              
-                l_CurItem = l_Tmp;   
-            
-            //  int l_Unit_pk = CnvToInt32(((DataRowView)l_Tmp.GetSelectedDataRow()).Row["Unit_Pk"]);
-          //  repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
         }
-        LookUpEdit l_CurItem = null;
-        private void repositoryItemLookUpEdit_Style_Popup(object sender, EventArgs e)
-        {
-          /*  if (l_CurItem != null)
-            {
-                int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
-                repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
-            }*/
-            
-        }
+        
+        
 
 
     }

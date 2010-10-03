@@ -501,7 +501,6 @@
             this.repositoryItemLookUpEdit_Style.DisplayMember = "Name";
             this.repositoryItemLookUpEdit_Style.Name = "repositoryItemLookUpEdit_Style";
             this.repositoryItemLookUpEdit_Style.ValueMember = "Id";
-            this.repositoryItemLookUpEdit_Style.Popup += new System.EventHandler(this.repositoryItemLookUpEdit_Style_Popup);
             // 
             // gridBand2
             // 
