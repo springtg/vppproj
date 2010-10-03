@@ -13,6 +13,7 @@ namespace QLKHO
         {
             InitializeComponent();
             _ConfigItem = _ConfItem;
+            barlblUser.Caption = _ConfigItem.Login_FullName;
             AccessRole();
 
         }
@@ -320,8 +321,13 @@ namespace QLKHO
             this.Close();
         }
 
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://kimhoangad.com");
+        }
 
 
+ 
 
     }
 }
