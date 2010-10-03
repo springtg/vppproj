@@ -771,7 +771,7 @@
             this.xrLabel20.Multiline = true;
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(481.5F, 23F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(488.9381F, 23F);
             this.xrLabel20.StylePriority.UseBorders = false;
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseTextAlignment = false;
@@ -785,11 +785,11 @@
             this.xrTong.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TongTien")});
             this.xrTong.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrTong.LocationFloat = new DevExpress.Utils.PointFloat(481.5001F, 0F);
+            this.xrTong.LocationFloat = new DevExpress.Utils.PointFloat(488.9383F, 0F);
             this.xrTong.Multiline = true;
             this.xrTong.Name = "xrTong";
             this.xrTong.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrTong.SizeF = new System.Drawing.SizeF(168.4999F, 23F);
+            this.xrTong.SizeF = new System.Drawing.SizeF(161.0617F, 23F);
             this.xrTong.StylePriority.UseBorders = false;
             this.xrTong.StylePriority.UseFont = false;
             this.xrTong.StylePriority.UseTextAlignment = false;
