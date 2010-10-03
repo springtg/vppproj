@@ -9,9 +9,11 @@ namespace QLKHO.FORM.NHAPXUAT
     public partial class XuatKho : COREBASE.FORM.BASEFORM
     {
         private string CurFormState = EVENT_FORM_LOAD;
-        private const string  L_Load_MASTER = "MASTER";
+        private const string L_Load_MASTER = "MASTER";
         private const string L_Load_DETAIL = "DETAIL";
-        
+        private DataTable l_dtMaster;
+        private BindingManagerBase l_BindingManagerBase;
+
         public XuatKho(COREBASE.COMMAND.Config.ConfigItem _config)
         {
             InitializeComponent();
@@ -22,14 +24,25 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             try
             {
-                lstTakeOut.DataSource = LoadData(L_Load_MASTER, -1);
+                l_dtMaster = LoadData(L_Load_MASTER, -1);
+                lstTakeOut.DataSource = l_dtMaster;
                 lstTakeOut.DisplayMember = "TakeOutDate";
                 lstTakeOut.ValueMember = "Id";
-                AssignTagValueOnDXControl(this);
                 txtDeparment.Properties.DataSource = LoadDataDepartment();
                 cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem);
+                //Load Data master
+
+          
+
+
+                txtTakeOutDate.DataBindings.Add("DateTime", l_dtMaster, "Take_Out_Date");
+                txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
+
+                txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
+                txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
+                AssignTagValueOnDXControl(this);
             }
             catch (Exception ex)
             {
@@ -52,24 +65,24 @@ namespace QLKHO.FORM.NHAPXUAT
         }
 
         private DataTable LoadData(string strParam, int idMaster)
-        { 
-             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
+        {
+            _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             switch (strParam)
             {
                 case L_Load_MASTER:
                     return _providerSQL.GetDataByStoredProcedure("USP_SEL_TAKE_OUT");
-                case  L_Load_DETAIL:
+                case L_Load_DETAIL:
                     string[] arrName = new string[] { "@Take_Out_Pk" };
                     object[] arrValue = new object[] { idMaster };
                     return _providerSQL.GetDataByStoredProcedure("USP_SEL_TAKE_OUT_DETAIL", arrName, arrValue);
                 default:
                     return null;
             }
-            
+
         }
 
         private DataTable LoadDataDepartment()
-        { 
+        {
             _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             return _providerSQL.GetDataByStoredProcedure("USP_SEL_DEPARTMENT");
         }
@@ -97,10 +110,10 @@ namespace QLKHO.FORM.NHAPXUAT
             {
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
                 //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG            
-                txtDeparment.Text = CnvToString(dr["Department_Pk"]);
-                txtTakeOutID.Text = CnvToString(dr["Id_Dis"]);
-                txtTakeOutDate.DateTime = DateTime.Parse(CnvToString(dr["Take_Out_Date"]));
-                txtTakeOutRemark.Text = CnvToString(dr["Remark"]);
+                // txtDeparment.Text = CnvToString(dr["Department_Pk"]);
+                // txtTakeOutID.Text = CnvToString(dr["Id_Dis"]);
+                //txtTakeOutDate.DateTime = DateTime.Parse(CnvToString(dr["Take_Out_Date"]));
+                // txtTakeOutRemark.Text = CnvToString(dr["Remark"]);
                 //SupplierIDSelected = CnvToInt32(dr["Id"]);
                 int _idMaster = CnvToInt32(dr["Id"]);
                 tbTmp = LoadData("DETAIL", _idMaster);
@@ -117,6 +130,9 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void btn_TakeOut_Luu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            CurrencyManager cm = (CurrencyManager)this.BindingContext[l_dtMaster];
+            cm.EndCurrentEdit();
+            DataTable l_Detail = (DataTable)grdTakeOutDetail.DataSource;
             if (CurFormState.Equals(EVENT_FORM_NEW))
             {
                 DataRow dr = ((DataTable)lstTakeOut.DataSource).NewRow();
@@ -127,11 +143,30 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
                 int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr["PriceTotal"] = l_totalmat;
-                DataTable l_Detail = (DataTable)grdTakeOutDetail.DataSource;
                 if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
                 {
-                    
-                    lstTakeOut.DataSource = TakeOutDao.GetList(_ConfigItem);
+
+                    l_dtMaster = TakeOutDao.GetList(_ConfigItem); 
+                    lstTakeOut.DataSource = l_dtMaster;
+                    ShowMessageBox("XUATKHO_I_005", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);                    
+                }
+                else
+                {
+                    ShowMessageBox("XUATKHO_E_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);
+                }
+            }
+            DataRow dr1 = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];            
+            if (isModifedRow(dr1))
+            {
+                CurFormState = EVENT_FORM_UPDATE;
+            }
+            if (CurFormState.Equals(EVENT_FORM_UPDATE))
+            {
+                if (TakeOutDao.Update(_ConfigItem, dr1, l_Detail))
+                {
+                    l_dtMaster = TakeOutDao.GetList(_ConfigItem);
+                    lstTakeOut.DataSource = l_dtMaster;
+                    ShowMessageBox("XUATKHO_I_006", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);                    
                 }
                 else
                 {
@@ -140,20 +175,19 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-/*        private void btn_TakeOut_Huy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private DataRow getMasterInfo()
         {
-            if (HasChangedOnControl(this))
-            {
-                if (ShowMessageBox("XUATKHO_C_001", COREBASE.COMMAND.MessageUtils.MessageType.CONFIRM) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    //TODO:GOI HAM SAVE LAI THONG TIN
-                }
-            }
-            NewPage();
-            CurFormState = EVENT_FORM_LOAD;
-            AssignTagValueOnDXControl(this);
-        }*/
-        
+            DataRow dr = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];
+            dr["Number_Item"] = grvTakeOutDetail.RowCount;
+            dr["Remark"] = txtTakeOutRemark.Text;
+            dr["Crt_By"] = _ConfigItem.Login_ID;
+            dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
+            dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
+            int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+            dr["PriceTotal"] = l_totalmat;
+            return dr;
+        }
+
         private void NewPage()
         {
             txtDeparment.Text = string.Empty;
@@ -162,7 +196,7 @@ namespace QLKHO.FORM.NHAPXUAT
             txtTakeOutDate.Text = string.Empty;
             txtTakeOutRemark.Text = string.Empty;
             grdTakeOutDetail.DataSource = makeTableDetail();
-        
+
         }
         private DataTable makeTableDetail()
         {
@@ -252,11 +286,8 @@ namespace QLKHO.FORM.NHAPXUAT
         private void repositoryItemLookUpEdit_Item_EditValueChanged(object sender, EventArgs e)
         {
             l_CurItem = (LookUpEdit)sender;
-             
-        }
-        
-        
 
+        }
 
     }
 }
