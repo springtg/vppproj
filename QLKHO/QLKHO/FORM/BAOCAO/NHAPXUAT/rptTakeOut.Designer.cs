@@ -568,7 +568,10 @@
             this.xrLabel30,
             this.xrLabel27});
             this.reportHeaderBand1.HeightF = 94F;
+            this.reportHeaderBand1.KeepTogether = true;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
+            this.reportHeaderBand1.StylePriority.UseTextAlignment = false;
+            this.reportHeaderBand1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel17
             // 
@@ -634,16 +637,16 @@
             this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(300.5724F, 64F);
             this.xrLabel29.Name = "xrLabel29";
             this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel29.SizeF = new System.Drawing.SizeF(68.54803F, 25F);
+            this.xrLabel29.SizeF = new System.Drawing.SizeF(90.30252F, 25F);
             this.xrLabel29.StylePriority.UseFont = false;
             this.xrLabel29.Text = "xrLabel4";
             // 
             // xrLabel30
             // 
             this.xrLabel30.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(275.5724F, 64F);
+            this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(270.3641F, 64F);
             this.xrLabel30.Name = "xrLabel30";
-            this.xrLabel30.SizeF = new System.Drawing.SizeF(24.6706F, 25F);
+            this.xrLabel30.SizeF = new System.Drawing.SizeF(29.87891F, 25F);
             this.xrLabel30.StylePriority.UseFont = false;
             this.xrLabel30.StylePriority.UseTextAlignment = false;
             this.xrLabel30.Text = "Số:";
