@@ -18,28 +18,23 @@ namespace QLKHO.FORM.NHAPXUAT
             _ConfigItem = _config;
         }
 
-        private void txtSuppierID_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void XuatKho_Load(object sender, EventArgs e)
         {
             try
             {
                 lstTakeOut.DataSource = LoadData(L_Load_MASTER, -1);
-                lstTakeOut.DisplayMember = "Take_Out_Date";
+                lstTakeOut.DisplayMember = "TakeOutDate";
                 lstTakeOut.ValueMember = "Id";
                 AssignTagValueOnDXControl(this);
-                txtDeparmentID.Properties.DataSource = LoadDataDepartment();
+                txtDeparment.Properties.DataSource = LoadDataDepartment();
                 cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
-                repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
-                repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
+                repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
+                repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem);
             }
             catch (Exception ex)
             {
                 AppDebug(ex);
-                this.Close();
+                //BeginInvoke(CloseMe);
             }
         }
 
@@ -47,7 +42,7 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             try
             {
-                ResetForm();
+                NewPage();
                 CurFormState = EVENT_FORM_NEW;
             }
             catch (Exception ex)
@@ -102,10 +97,10 @@ namespace QLKHO.FORM.NHAPXUAT
             {
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
                 //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG            
-                txtDeparmentID.Text = CnvToString(dr["Id_Supplier_Pk"]);
+                txtDeparment.Text = CnvToString(dr["Department_Pk"]);
                 txtTakeOutID.Text = CnvToString(dr["Id_Dis"]);
-                txtTakeOutDate.DateTime = DateTime.Parse(CnvToString(dr["Take_In_Date"]));
-                txttakeOutRemark.Text = CnvToString(dr["Remark"]);
+                txtTakeOutDate.DateTime = DateTime.Parse(CnvToString(dr["Take_Out_Date"]));
+                txtTakeOutRemark.Text = CnvToString(dr["Remark"]);
                 //SupplierIDSelected = CnvToInt32(dr["Id"]);
                 int _idMaster = CnvToInt32(dr["Id"]);
                 tbTmp = LoadData("DETAIL", _idMaster);
@@ -124,22 +119,28 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             if (CurFormState.Equals(EVENT_FORM_NEW))
             {
-                DataRow dr = ((DataRowView)cboWareHouse.GetSelectedDataRow()).Row;
-                int l_WareHouse = CnvToInt32(dr["Id"]);
-                DateTime l_date = txtTakeOutDate.DateTime;
-                DataTable l_Detail = (DataTable)grdTakeOutDetail.DataSource;
-                dr = ((DataRowView)txtDeparmentID.GetSelectedDataRow()).Row;
-                int l_Deparment = CnvToInt32(dr["Id"]);
+                DataRow dr = ((DataTable)lstTakeOut.DataSource).NewRow();
+                dr["Number_Item"] = grvTakeOutDetail.RowCount;
+                dr["Remark"] = txtTakeOutRemark.Text;
+                dr["Crt_By"] = _ConfigItem.Login_ID;
+                dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
+                dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
                 int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
-                //if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_Deparment, l_date, txttakeOutRemark.Text, txtTakeOutID.Text))
-                //{
-                //    lstTakeOut.DataSource = LoadData("MASTER", -1);
-                //    lstTakeOut_SelectedIndexChanged(lstTakeOut, new EventArgs());
-                //}
+                dr["PriceTotal"] = l_totalmat;
+                DataTable l_Detail = (DataTable)grdTakeOutDetail.DataSource;
+                if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
+                {
+                    
+                    lstTakeOut.DataSource = TakeOutDao.GetList(_ConfigItem);
+                }
+                else
+                {
+                    ShowMessageBox("XUATKHO_E_003", COREBASE.COMMAND.MessageUtils.MessageType.ERROR);
+                }
             }
         }
 
-        private void btn_TakeOut_Huy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+/*        private void btn_TakeOut_Huy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (HasChangedOnControl(this))
             {
@@ -148,22 +149,19 @@ namespace QLKHO.FORM.NHAPXUAT
                     //TODO:GOI HAM SAVE LAI THONG TIN
                 }
             }
-            ResetForm();
+            NewPage();
             CurFormState = EVENT_FORM_LOAD;
             AssignTagValueOnDXControl(this);
-        }
-        private void ResetForm()
+        }*/
+        
+        private void NewPage()
         {
-
-            txtDeparmentID.Text = string.Empty;
+            txtDeparment.Text = string.Empty;
             cboWareHouse.Text = string.Empty;
-            txtDepartmentRemark.Text= string.Empty;
-            txtDepartmentPhone.Text = string.Empty;
             txtTakeOutID.Text = COREBASE.COMMAND.VPP_COMMAND.CTakeOut.getNextIDTakeOut(_ConfigItem);
             txtTakeOutDate.Text = string.Empty;
-            txttakeOutRemark.Text = string.Empty;
+            txtTakeOutRemark.Text = string.Empty;
             grdTakeOutDetail.DataSource = makeTableDetail();
-
         
         }
         private DataTable makeTableDetail()
@@ -172,7 +170,7 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns.Add("Id", typeof(int));
             tb.Columns.Add("ROWID", typeof(int));
             tb.Columns.Add("Id_Dis", typeof(string));
-            tb.Columns.Add("Take_In_Pk", typeof(int));
+            tb.Columns.Add("Take_Out_Pk", typeof(int));
             tb.Columns.Add("Crt_By", typeof(string));
             tb.Columns.Add("Crt_Dt", typeof(DateTime));
             tb.Columns.Add("Mod_By", typeof(string));
@@ -181,7 +179,7 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns.Add("Remark", typeof(string));
             tb.Columns.Add("Number_Bill", typeof(int));
             tb.Columns.Add("Number_Real", typeof(int));
-            tb.Columns.Add("Price", typeof(float));            
+            tb.Columns.Add("Price", typeof(float));
             tb.Columns.Add("Item_Pk", typeof(int));
             tb.Columns.Add("Unit_Pk", typeof(int));
             tb.Columns["ROWID"].AutoIncrement = true;
@@ -237,6 +235,39 @@ namespace QLKHO.FORM.NHAPXUAT
                 if (_sqlConnection.State != ConnectionState.Closed) _sqlConnection.Close();
                 return false;
             }
+        }
+
+        private void grvTakeOutDetail_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.Name.Equals("bandedGridColumn2"))
+            {
+
+                if (l_CurItem != null)
+                {
+                    int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
+                    repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+                }
+            }
+        }
+
+        private void repositoryItemLookUpEdit_Item_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit l_Tmp = (LookUpEdit)sender;
+             
+                l_CurItem = l_Tmp;   
+            
+            //  int l_Unit_pk = CnvToInt32(((DataRowView)l_Tmp.GetSelectedDataRow()).Row["Unit_Pk"]);
+          //  repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+        }
+        LookUpEdit l_CurItem = null;
+        private void repositoryItemLookUpEdit_Style_Popup(object sender, EventArgs e)
+        {
+          /*  if (l_CurItem != null)
+            {
+                int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
+                repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+            }*/
+            
         }
 
 
