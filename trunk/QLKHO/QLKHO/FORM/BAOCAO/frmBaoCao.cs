@@ -16,7 +16,7 @@ namespace QLKHO.FORM.BAOCAO
             InitializeComponent();
         }
 
-        public void ShowBaoCao(XtraReport p_XtraReport, DataTable p_DataSource, Form p_Parent)
+        public void ShowBaoCao(XtraReport p_XtraReport, DataSet p_DataSource, Form p_Parent)
         {
             if (p_XtraReport == null)
                 p_XtraReport = new XtraReport();
@@ -28,7 +28,7 @@ namespace QLKHO.FORM.BAOCAO
             this.Show();
         }
 
-        public void ShowBaoCao(XtraReport p_XtraReport, DataTable p_DataSource)
+        public void ShowBaoCao(XtraReport p_XtraReport, DataSet p_DataSource)
         {
             if (p_XtraReport == null)
                 p_XtraReport = new XtraReport();
@@ -39,7 +39,7 @@ namespace QLKHO.FORM.BAOCAO
             this.Show();
         }
 
-        public void ShowBaoCaoDlg(XtraReport p_XtraReport, DataTable p_DataSource)
+        public void ShowBaoCaoDlg(XtraReport p_XtraReport, DataSet p_DataSource)
         {
             if (p_XtraReport == null)
                 p_XtraReport = new XtraReport();
