@@ -31,6 +31,7 @@ namespace QLKHO.FORM.NHAPXUAT
             txtSuppierID.Properties.DataSource = _providerSQL.GetDataByStoredProcedure("USP_SEL_SUPPLIER");
            
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
+            lkUser.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_ConfigItem);
             repositoryItemGridLookUpEdit1.DataSource = ItemDao.GetList(_ConfigItem);
             repositoryItemGridLookUpEdit2.DataSource = UnitDao.GetList(_ConfigItem);
             
@@ -52,16 +53,17 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber, string _Remark, DateTime _billdate)
+        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, int  _User_Pk, string _BillNumber, string _Remark, DateTime _billdate)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
             if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
             System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
             try
             {
-                int _iNumberItem = tbDetail.Rows.Count;
-                string[] arrName = new string[] { "@Supplier_Pk", "@Id_Use_Dis", "@Take_In_Date", "@Number_Item", "@TotalAMT","@Crt_By",  "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate" };
-                object[] arrValue = new object[] { _iId_Supplier_Pk, _Id_Use_Dis, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate };
+             int _iNumberItem = tbDetail.Rows.Count;
+                                                                   
+                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT","@Crt_By",  "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@User_Pk" };
+                object[] arrValue = new object[] { _iId_Supplier_Pk, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _User_Pk };
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection,_sqlTransaction ,"USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
@@ -103,7 +105,7 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private bool UpdateData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, string _Id_Use_Dis, string _BillNumber, string _Remark, DateTime _billdate, int _pk)
+        private bool UpdateData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, int _User_Pk, string _BillNumber, string _Remark, DateTime _billdate, int _pk)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
             if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
@@ -111,8 +113,8 @@ namespace QLKHO.FORM.NHAPXUAT
             try
             {
                 int _iNumberItem = tbDetail.Rows.Count;
-                string[] arrName = new string[] { "@Supplier_Pk", "@Id_Use_Dis", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@Pk" };
-                object[] arrValue = new object[] { _iId_Supplier_Pk, _Id_Use_Dis, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _pk };
+                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@Pk" };
+                object[] arrValue = new object[] { _iId_Supplier_Pk, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _pk };
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
                 int _idMaster = _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
@@ -182,11 +184,8 @@ namespace QLKHO.FORM.NHAPXUAT
                 //int l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
             
               //  txtSuppierID.Properties.edit
-
-
                // txtSuppierID.% = dr["Supplier_Pk"].ToString();
-                
-                txtTakeInID.Text = CnvToString(dr["Id_Dis"]);
+
                 txtTakeInDate.DateTime = DateTime.Parse(CnvToString(dr["Take_In_Date"]));
                 txttakeInRemark.Text = CnvToString(dr["Remark"]);
                 SupplierIDSelected = CnvToInt32(dr["Id"]);
@@ -207,9 +206,12 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataTable l_Detail = (DataTable)grdTakeInDetail.DataSource;
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
+                dr = ((DataRowView)lkUser.GetSelectedDataRow()).Row;
+                int idUser = CnvToInt32(dr["Id"]);
+
                 int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
-                    l_date, txtTakeInID.Text, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
+                    l_date,idUser, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
@@ -223,12 +225,14 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataTable l_Detail = (DataTable)grdTakeInDetail.DataSource;
                 dr = ((DataRowView)txtSuppierID.GetSelectedDataRow()).Row;
                 int l_supplier = CnvToInt32(dr["Id"]);
+                dr = ((DataRowView)lkUser.GetSelectedDataRow()).Row;
+                int idUser = CnvToInt32(dr["Id"]);
                 int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr = ((DataRowView)lstTakeIn.SelectedItem).Row;
                 int l_takeinPK = CnvToInt32(dr["Id"]);
                 if (UpdateData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
-                    l_date, txtTakeInID.Text, txtTakeInBillNumber.Text, 
-                    txttakeInRemark.Text, txtBillDate.DateTime,l_takeinPK))
+                    l_date,idUser, txtTakeInBillNumber.Text,
+                   txttakeInRemark.Text, txtBillDate.DateTime, l_takeinPK))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
@@ -239,11 +243,7 @@ namespace QLKHO.FORM.NHAPXUAT
         private void ResetForm()
         {
             txtSuppierID.Text = string.Empty;
-            txtSupplierAddress.Text = string.Empty;
-            txtSupplierPhone.Text = string.Empty;
-            txtSupplierTaxCode.Text = string.Empty;
             txtTakeInDate.DateTime = DateTime.Now;
-            txtTakeInID.Text = COREBASE.COMMAND.VPP_COMMAND.CTakeIn.getNextIDTakeIn(_ConfigItem);
             grdTakeInDetail.DataSource = makeTableDetail();
             txttakeInRemark.Text = string.Empty;
             SupplierIDSelected = -1;
@@ -295,9 +295,11 @@ namespace QLKHO.FORM.NHAPXUAT
                         string l_remark = txttakeInRemark.Text;
                         DateTime l_date = CnvToDateTime(txtTakeInDate.EditValue);
                         int l_supplier = CnvToInt32(getValue(txtSuppierID, txtSuppierID.Properties.ValueMember));
-                        string l_takeinid = txtTakeInID.Text;
+
+                        int idUser = CnvToInt32(getValue(lkUser, lkUser.Properties.ValueMember));
+                       
                         int l_totalamt = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryText);
-                        InsertData(l_tb, l_idwh, 0, l_supplier, l_date, l_takeinid, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime);
+                        InsertData(l_tb, l_idwh, 0, l_supplier, l_date, idUser, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime);
 
                     }
                 }
@@ -323,19 +325,19 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void txtSuppierID_Properties_EditValueChanged(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
-                DataRow dr = ((DataRowView)((LookUpEdit)sender).GetSelectedDataRow()).Row;
-                txtSupplierAddress.Text = (CnvToString(dr["Address"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Address1"]);
-                txtSupplierPhone.Text = (CnvToString(dr["Phone"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Phone1"]);
-                txtSupplierTaxCode.Text = CnvToString(dr["TaxCode"]);
-         
-            }
-            catch (Exception ex)
-            {
-                AppDebug(ex);
-            }
+            //    DataRow dr = ((DataRowView)((LookUpEdit)sender).GetSelectedDataRow()).Row;
+            //    txtSupplierAddress.Text = (CnvToString(dr["Address"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Address1"]);
+            //    txtSupplierPhone.Text = (CnvToString(dr["Phone"]) == string.Empty) ? CnvToString(dr["Address"]) : CnvToString(dr["Phone1"]);
+            //    txtSupplierTaxCode.Text = CnvToString(dr["TaxCode"]);
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    AppDebug(ex);
+            //}
         }
 
         private DataTable makeTableDetail()
@@ -371,7 +373,7 @@ namespace QLKHO.FORM.NHAPXUAT
             try
             {
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
-                string[] arrName = new string[] { "@Id", "@Mod_By"};
+                string[] arrName = new string[] { "@Id", "@Mod_By" };
                 object[] arrValue = new object[] { p_IdTakeIn, _ConfigItem.Login_UserName };
                 _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_DEL_TAKE_IN", arrName, arrValue);
                 _sqlTransaction.Commit();
@@ -412,7 +414,44 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private void grvTakeInDetail_KeyDown(object sender, KeyEventArgs e)
+        /// <summary>
+        /// Khi nguoi dung thuc hien thay doi, gia tri cua item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemCalcEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrintTakeIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (lstTakeIn.SelectedIndex == -1)
+            {
+                return;
+            }
+            int _idMaster = -1;
+            DataTable tbTmp = (DataTable)lstTakeIn.DataSource;
+            if (tbTmp.Rows.Count > 0)
+            {
+                DataRow dr = tbTmp.Rows[lstTakeIn.SelectedIndex];
+                _idMaster = CnvToInt32(dr["Id"]);
+            }
+            if (_idMaster == -1) return;
+            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
+            FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
+            f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
+        }
+
+        private void repositoryItemGridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+          //  DataRow dr = ((DataRowView)((DevExpress.XtraEditors.GridLookUpEdit)sender).GetSelectedDataRow()).Row;
+          //  int id =CnvToInt32(dr["Unit_Pk"]);
+
+        //   repositoryItemGridLookUpEdit2.DataSource = UnitStyleDao.GetList(_ConfigItem, 9);
+        }
+
+        private void grvTakeInDetail_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyData.Equals(Keys.Delete))
             {
@@ -436,35 +475,7 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        /// <summary>
-        /// Khi nguoi dung thuc hien thay doi, gia tri cua item
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repositoryItemCalcEdit1_EditValueChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void btnPrintTakeIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (lstTakeIn.SelectedIndex == -1)
-            {
-                return;
-            }
-            int _idMaster = -1;
-            DataTable tbTmp = (DataTable)lstTakeIn.DataSource;
-            if (tbTmp.Rows.Count > 0)
-            {
-                DataRow dr = tbTmp.Rows[lstTakeIn.SelectedIndex];                
-                
-                _idMaster = CnvToInt32(dr["Id"]);
-            }
-            if(_idMaster==-1) return;
-            FORM.BAOCAO.NHAPXUAT.rptNhapKho frp = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
-            FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
-            f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
-        }
-
-    }
+     }
 }
