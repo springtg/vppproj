@@ -343,7 +343,7 @@ namespace QLKHO.FORM.NHAPXUAT
             if (_idMaster == -1) return;
             FORM.BAOCAO.NHAPXUAT.rptTakeOut frp = new FORM.BAOCAO.NHAPXUAT.rptTakeOut();
             FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
-            f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
+            f.ShowBaoCao(frp, ReportDao.GetListTakeOut(_idMaster, _ConfigItem), this.ParentForm);
         }
 
     }
