@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -220,6 +220,7 @@
             this.btn_TakeOut_Xoa.Glyph = global::QLKHO.Properties.Resources.edit_delete_icon16x16;
             this.btn_TakeOut_Xoa.Id = 2;
             this.btn_TakeOut_Xoa.Name = "btn_TakeOut_Xoa";
+            this.btn_TakeOut_Xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TakeOut_Xoa_ItemClick);
             // 
             // btn_TakeOut_Luu
             // 
@@ -340,7 +341,7 @@
             this.txtTakeOutDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTakeOutDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtTakeOutDate.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutDate.TabIndex = 3;
             this.txtTakeOutDate.TabStop = false;
@@ -585,11 +586,13 @@
             this.bandedGridColumn8.Caption = "Thành Tiền";
             this.bandedGridColumn8.ColumnEdit = this.repositoryItemCalcEdit1;
             this.bandedGridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn8.FieldName = "bandedGridColumn8";
             this.bandedGridColumn8.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn8.Name = "bandedGridColumn8";
+            this.bandedGridColumn8.OptionsColumn.AllowEdit = false;
+            this.bandedGridColumn8.OptionsColumn.AllowFocus = false;
             this.bandedGridColumn8.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn8.OptionsColumn.TabStop = false;
-            this.bandedGridColumn8.SummaryItem.FieldName = "bandedGridColumn8";
             this.bandedGridColumn8.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
             this.bandedGridColumn8.UnboundExpression = "([Price] * [Number_Real])";
             this.bandedGridColumn8.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
