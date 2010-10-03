@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -154,11 +154,11 @@
             // ribbon
             // 
             this.ribbon.ApplicationButtonDropDownControl = this.applicationMenu1;
-            toolTipTitleItem1.Appearance.Image = global::QLKHO.Properties.Resources.Add;
-            toolTipTitleItem1.Appearance.Options.UseImage = true;
-            toolTipTitleItem1.Image = global::QLKHO.Properties.Resources.Add;
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            this.ribbon.ApplicationButtonSuperTip = superToolTip1;
+            toolTipTitleItem2.Appearance.Image = global::QLKHO.Properties.Resources.Add;
+            toolTipTitleItem2.Appearance.Options.UseImage = true;
+            toolTipTitleItem2.Image = global::QLKHO.Properties.Resources.Add;
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            this.ribbon.ApplicationButtonSuperTip = superToolTip2;
             this.ribbon.ApplicationButtonText = null;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bar4tab1btn1,
@@ -649,7 +649,7 @@
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
             this.navBarControl1.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl1.Size = new System.Drawing.Size(138, 435);
+            this.navBarControl1.Size = new System.Drawing.Size(128, 435);
             this.navBarControl1.TabIndex = 6;
             this.navBarControl1.Text = "Chức năng chính";
             // 
