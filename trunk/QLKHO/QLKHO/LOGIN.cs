@@ -82,9 +82,19 @@ namespace QLKHO
             if (COREBASE.COMMAND.VPP_COMMAND.CUser.LoginUser(_ConfigItem, txtUserName.Text, txtPassword.Text))
             {
                 DataRow rw = tbUser.Rows[lstMember.SelectedIndex];
-                _ConfigItem.Login_FullName = CnvToString(rw["Name_Dis"]);
-                _ConfigItem.Login_ID = CnvToInt32(rw["Id"]);
-                _ConfigItem.Login_UserName = CnvToString(rw["Name"]);
+                int pos = 0;
+                for(int i=0;i<tbUser.Rows.Count;i++)
+                    if (txtUserName.Text.Equals(tbUser.Rows[i]["Name"]) && txtPassword.Text.Equals(tbUser.Rows[i]["Password"]))
+                    {
+                        pos = i;
+                        break;
+                    }
+                _ConfigItem.Login_FullName = CnvToString(tbUser.Rows[pos]["Name_Dis"]);
+                _ConfigItem.Login_UserName=CnvToString(tbUser.Rows[pos]["Name"]);
+                _ConfigItem.Login_ID = CnvToInt32(tbUser.Rows[pos]["Id"]);
+                //_ConfigItem.Login_FullName = CnvToString(rw["Name_Dis"]);
+                //_ConfigItem.Login_ID = CnvToInt32(rw["Id"]);
+                //_ConfigItem.Login_UserName = CnvToString(rw["Name"]);
                 frmMain frmmain = new frmMain(_ConfigItem);
 
                 //formmain.Username = dtLoginInfo.Rows[0]["UserName"].ToString().Trim();
