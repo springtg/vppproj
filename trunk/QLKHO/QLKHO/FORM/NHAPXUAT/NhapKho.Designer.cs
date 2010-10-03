@@ -367,8 +367,8 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "Tên Kho";
-            this.gridColumn9.FieldName = "Name";
+            this.gridColumn9.Caption = "Tên nhân viên";
+            this.gridColumn9.FieldName = "Name_Dis";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 1;
