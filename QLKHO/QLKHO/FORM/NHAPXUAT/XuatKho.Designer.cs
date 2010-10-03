@@ -308,10 +308,9 @@
             this.txtDeparment.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên phòng ban", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-            this.txtDeparment.Properties.DisplayMember = "ID_Name";
+            this.txtDeparment.Properties.DisplayMember = "Name";
             this.txtDeparment.Properties.NullText = "";
             this.txtDeparment.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.txtDeparment.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtDeparment.Properties.ValueMember = "Id";
             this.txtDeparment.Size = new System.Drawing.Size(115, 20);
             this.txtDeparment.TabIndex = 6;
@@ -356,7 +355,6 @@
             this.cboWareHouse.Properties.DisplayMember = "WHNAME";
             this.cboWareHouse.Properties.NullText = "";
             this.cboWareHouse.Properties.PopupSizeable = false;
-            this.cboWareHouse.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cboWareHouse.Properties.ValueMember = "Id";
             this.cboWareHouse.Properties.View = this.gridLookUpEdit1View;
             this.cboWareHouse.Size = new System.Drawing.Size(115, 20);
@@ -450,6 +448,10 @@
             this.bandedGridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn1.FieldName = "ROWID";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
+            this.bandedGridColumn1.OptionsColumn.AllowEdit = false;
+            this.bandedGridColumn1.OptionsColumn.AllowFocus = false;
+            this.bandedGridColumn1.OptionsColumn.ReadOnly = true;
+            this.bandedGridColumn1.OptionsColumn.TabStop = false;
             this.bandedGridColumn1.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.bandedGridColumn1.Visible = true;
             this.bandedGridColumn1.Width = 39;
@@ -476,6 +478,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("slton", "SL Tồn")});
             this.repositoryItemLookUpEdit_Item.DisplayMember = "Name";
             this.repositoryItemLookUpEdit_Item.Name = "repositoryItemLookUpEdit_Item";
+            this.repositoryItemLookUpEdit_Item.NullText = "[Chọn Vật Dụng]";
             this.repositoryItemLookUpEdit_Item.ValueMember = "Id";
             this.repositoryItemLookUpEdit_Item.EditValueChanged += new System.EventHandler(this.repositoryItemLookUpEdit_Item_EditValueChanged);
             // 
@@ -500,6 +503,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
             this.repositoryItemLookUpEdit_Style.DisplayMember = "Name";
             this.repositoryItemLookUpEdit_Style.Name = "repositoryItemLookUpEdit_Style";
+            this.repositoryItemLookUpEdit_Style.NullText = "[Chọn Quy Cách]";
             this.repositoryItemLookUpEdit_Style.ValueMember = "Id";
             // 
             // gridBand2
@@ -537,6 +541,7 @@
             this.repositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemCalcEdit1.Mask.EditMask = "d";
             this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            this.repositoryItemCalcEdit1.NullText = "0";
             // 
             // bandedGridColumn5
             // 
