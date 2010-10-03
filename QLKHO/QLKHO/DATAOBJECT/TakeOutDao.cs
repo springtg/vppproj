@@ -52,7 +52,6 @@ namespace QLKHO.DATAOBJECT
                     p_drValue["PriceTotal"],
                     p_drValue["Take_Out_Date"]
                 };
-                _providerSQL.Connect(_sqlConnection, p_ConfigItem);
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_OUT", arrParaName, arrValue);
                 arrParaName = new string[] { 
                     "@Take_Out_Pk",
@@ -66,14 +65,14 @@ namespace QLKHO.DATAOBJECT
                 {
                     DataRow l_drValue = p_dtValue.Rows[i];
                     arrValue = new object[] { 
-                        l_drValue["Take_Out_Pk"],
+                        _idMaster,
                         p_ConfigItem.Login_ID,
                         l_drValue["Remark"],
-                        l_drValue["Take_Out_Number"],
+                        l_drValue["Number_Real"],
                         l_drValue["Price"],
                         l_drValue["Item_Pk"],
                     };
-                    _providerSQL.ExecuteNonQuery("USP_INS_TAKE_OUT_DETAIL", arrParaName, arrValue);
+                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_OUT_DETAIL", arrParaName, arrValue);
                 }
                 _sqlTransaction.Commit();
                 l_rs =  true;
@@ -106,21 +105,18 @@ namespace QLKHO.DATAOBJECT
                     "@Crt_By",
                     "@Department_pk",
                     "@PriceTotal",
-                    "@Take_Out_Date",
-                    "@Take_Out_Type_Pk"
+                    "@Take_Out_Date"
                 };
                 object[] arrValue = new object[] {
                     p_drValue["Id"],
                     p_drValue["Number_Item"],
                     p_drValue["Remark"],
-                    p_drValue["Crt_By"],
+                    p_ConfigItem.Login_ID,
                     p_drValue["Department_pk"],
                     p_drValue["PriceTotal"],
-                    p_drValue["Take_Out_Date"],
-                    p_drValue["Take_Out_Type_Pk"],
+                    p_drValue["Take_Out_Date"]
                 };
-                 _providerSQL.Connect(_sqlConnection, p_ConfigItem);
-                int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT", arrParaName, arrValue);
+                int _idMaster = _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT", arrParaName, arrValue);
         
                 arrParaName = new string[] { 
                     "@Id",
@@ -137,13 +133,13 @@ namespace QLKHO.DATAOBJECT
                     arrValue = new object[] { 
                         l_drValue["Id"],
                         l_drValue["Take_Out_Pk"],
-                        l_drValue["Number_Item"],
+                        l_drValue["Number_Real"],
                         l_drValue["Remark"],
                         p_ConfigItem.Login_ID,                        
                         l_drValue["Price"],
                         l_drValue["Item_Pk"],
                     };
-                    _providerSQL.ExecuteNonQuery("USP_UPD_TAKE_OUT_DETAIL", arrParaName, arrValue);
+                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT_DETAIL", arrParaName, arrValue);
                 }
                 _sqlTransaction.Commit();
                 l_rs =  true;
@@ -165,8 +161,8 @@ namespace QLKHO.DATAOBJECT
         {
             bool l_rs = false;
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
-            string[] arrParaName = new string[] { "@Id" };
-            object[] arrParaValue = new object[] { p_drValue["Id"] };
+            string[] arrParaName = new string[] { "@Id" ,"@Crt_By"};
+            object[] arrParaValue = new object[] { p_drValue["Id"], p_ConfigItem.Login_ID };
             try
             {
                 _sql.Connect(p_ConfigItem);
@@ -189,8 +185,8 @@ namespace QLKHO.DATAOBJECT
         {
             bool l_rs = false;
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
-            string[] arrParaName = new string[] { "@Id" };
-            object[] arrParaValue = new object[] { p_drValue["Id"] };
+            string[] arrParaName = new string[] { "@Id", "@Crt_By" };
+            object[] arrParaValue = new object[] { p_drValue["Id"] ,p_ConfigItem.Login_ID};
             try
             {
                 _sql.Connect(p_ConfigItem);
