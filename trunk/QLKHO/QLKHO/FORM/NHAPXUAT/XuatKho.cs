@@ -327,5 +327,24 @@ namespace QLKHO.FORM.NHAPXUAT
 
         }
 
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (lstTakeOut.SelectedIndex == -1)
+            {
+                return;
+            }
+            int _idMaster = -1;
+            DataTable tbTmp = (DataTable)lstTakeOut.DataSource;
+            if (tbTmp.Rows.Count > 0)
+            {
+                DataRow dr = tbTmp.Rows[lstTakeOut.SelectedIndex];
+                _idMaster = CnvToInt32(dr["Id"]);
+            }
+            if (_idMaster == -1) return;
+            FORM.BAOCAO.NHAPXUAT.rptTakeOut frp = new FORM.BAOCAO.NHAPXUAT.rptTakeOut();
+            FORM.BAOCAO.frmBaoCao f = new FORM.BAOCAO.frmBaoCao();
+            f.ShowBaoCao(frp, ReportDao.GetListTakeIn(_idMaster, _ConfigItem), this.ParentForm);
+        }
+
     }
 }
