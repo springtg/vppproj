@@ -79,7 +79,6 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bar3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bar4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -209,7 +208,7 @@
             this.repositoryItemHyperLinkEdit2,
             this.repositoryItemHyperLinkEdit3});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.bar4;
+            this.ribbon.SelectedPage = this.bar3;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -465,6 +464,7 @@
             this.bar4tab2btn2.Id = 40;
             this.bar4tab2btn2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab2btn2.LargeGlyph")));
             this.bar4tab2btn2.Name = "bar4tab2btn2";
+            this.bar4tab2btn2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar4tab2btn2_ItemClick);
             // 
             // bar1tab2btn3
             // 
@@ -557,8 +557,7 @@
             // bar3
             // 
             this.bar3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup7});
             this.bar3.KeyTip = "N";
             this.bar3.Name = "bar3";
             this.bar3.Text = "Nhập xuất";
@@ -571,15 +570,6 @@
             this.ribbonPageGroup7.KeyTip = "K";
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Kho";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn1, "NẬ");
-            this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn2, false, "XẤ", "", true);
-            this.ribbonPageGroup8.ItemLinks.Add(this.bar3tab2btn3, "CU");
-            this.ribbonPageGroup8.KeyTip = "CỨ";
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "Chứng từ";
             // 
             // bar4
             // 
@@ -771,7 +761,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.Ribbon.RibbonPage bar3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPage bar4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
