@@ -28,6 +28,8 @@
               <xs:element name="Number_Bill" msprop:Generator_ColumnVarNameInTable="columnNumber_Bill" msprop:Generator_ColumnPropNameInRow="Number_Bill" msprop:Generator_ColumnPropNameInTable="Number_BillColumn" msprop:Generator_UserColumnName="Number_Bill" type="xs:string" minOccurs="0" />
               <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:string" minOccurs="0" />
               <xs:element name="TongTien" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_UserColumnName="TongTien" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Number_Real" msprop:Generator_ColumnVarNameInTable="columnNumber_Real" msprop:Generator_ColumnPropNameInRow="Number_Real" msprop:Generator_ColumnPropNameInTable="Number_RealColumn" msprop:Generator_UserColumnName="Number_Real" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

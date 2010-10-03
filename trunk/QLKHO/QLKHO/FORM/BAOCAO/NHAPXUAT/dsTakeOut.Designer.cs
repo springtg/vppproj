@@ -340,6 +340,10 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             private global::System.Data.DataColumn columnTongTien;
             
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnNumber_Real;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TableDataTable() {
@@ -479,6 +483,22 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Number_RealColumn {
+                get {
+                    return this.columnNumber_Real;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -514,7 +534,7 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TableRow AddTableRow(string ROWID, string Id_Dis, string Take_Out_Date, string Crt_Dt, string NameDepart, string NameWare, string AddressWare, string Take_Out_Pk, string CodeItem, string NameUnit, string Number_Bill, string Price, string TongTien) {
+            public TableRow AddTableRow(string ROWID, string Id_Dis, string Take_Out_Date, string Crt_Dt, string NameDepart, string NameWare, string AddressWare, string Take_Out_Pk, string CodeItem, string NameUnit, string Number_Bill, string Price, string TongTien, string Name, string Number_Real) {
                 TableRow rowTableRow = ((TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ROWID,
@@ -529,7 +549,9 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
                         NameUnit,
                         Number_Bill,
                         Price,
-                        TongTien};
+                        TongTien,
+                        Name,
+                        Number_Real};
                 rowTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTableRow);
                 return rowTableRow;
@@ -565,6 +587,8 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
                 this.columnNumber_Bill = base.Columns["Number_Bill"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnTongTien = base.Columns["TongTien"];
+                this.columnName = base.Columns["Name"];
+                this.columnNumber_Real = base.Columns["Number_Real"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +620,10 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
                 base.Columns.Add(this.columnPrice);
                 this.columnTongTien = new global::System.Data.DataColumn("TongTien", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTongTien);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnNumber_Real = new global::System.Data.DataColumn("Number_Real", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumber_Real);
                 this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
                 this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
                 this.ExtendedProperties.Add("Generator_RowEvHandlerName", "TableRowChangeEventHandler");
@@ -1242,6 +1270,38 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableTable.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Number_Real {
+                get {
+                    try {
+                        return ((string)(this[this.tableTable.Number_RealColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Number_Real\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.Number_RealColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsROWIDNull() {
                 return this.IsNull(this.tableTable.ROWIDColumn);
             }
@@ -1394,6 +1454,30 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTongTienNull() {
                 this[this.tableTable.TongTienColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tableTable.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNameNull() {
+                this[this.tableTable.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNumber_RealNull() {
+                return this.IsNull(this.tableTable.Number_RealColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNumber_RealNull() {
+                this[this.tableTable.Number_RealColumn] = global::System.Convert.DBNull;
             }
         }
         
