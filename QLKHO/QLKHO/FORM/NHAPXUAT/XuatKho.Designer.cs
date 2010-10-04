@@ -351,6 +351,7 @@
             // cboWareHouse
             // 
             this.cboWareHouse.EditValue = "";
+            this.cboWareHouse.Enabled = false;
             this.cboWareHouse.Location = new System.Drawing.Point(199, 29);
             this.cboWareHouse.Name = "cboWareHouse";
             this.cboWareHouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
