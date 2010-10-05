@@ -43,7 +43,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem);
-                //Load Data master
+                //Load Data master                
                 MasterBind();
                 AssignTagValueOnDXControl(this);
             }
@@ -121,7 +121,16 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void btn_TakeOut_Refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XuatKho_Load(this, new EventArgs());
+            try
+            {
+                CurFormState = EVENT_FORM_NONE;
+                l_dtMaster = TakeOutDao.GetList(_ConfigItem);
+                lstTakeOut.DataSource = l_dtMaster;
+            }
+            catch (Exception ex)
+            {
+                AppDebug(ex);
+            }
         }
 
         private void btn_TakeOut_Luu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
