@@ -234,6 +234,14 @@ namespace QLKHO
             f.ShowRPT(2);
         }
 
+        private void bar4tab1btn3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
+            f.MdiParent = this;
+            f.Show();
+        }
+
+
         #endregion
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -325,8 +333,6 @@ namespace QLKHO
         {
             System.Diagnostics.Process.Start("http://kimhoangad.com");
         }
-
-
  
 
     }
