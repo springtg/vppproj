@@ -67,6 +67,7 @@
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.formattingRule1 = new DevExpress.XtraReports.UI.FormattingRule();
             this.formattingRule2 = new DevExpress.XtraReports.UI.FormattingRule();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsXuat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -205,7 +206,8 @@
             this.groupHeaderBand1.BorderWidth = 1;
             this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel8,
-            this.xrLabel2});
+            this.xrLabel2,
+            this.xrLabel12});
             this.groupHeaderBand1.ForeColor = System.Drawing.Color.Maroon;
             this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("NameDis", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
@@ -226,7 +228,7 @@
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(386.0833F, 0F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(261.9166F, 26F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(102.0417F, 26F);
             this.xrLabel8.StylePriority.UseBorders = false;
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseForeColor = false;
@@ -235,7 +237,7 @@
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrLabel8.Summary = xrSummary2;
             this.xrLabel8.Text = "[Number_Real]";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel2
             // 
@@ -257,7 +259,7 @@
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "xrLabel2";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // groupHeaderBand2
             // 
@@ -379,6 +381,7 @@
             // 
             // xrPageInfo1
             // 
+            this.xrPageInfo1.Format = "{0:dd/MM/yyyy}";
             this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 8F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
@@ -507,6 +510,20 @@
             // 
             this.formattingRule2.Name = "formattingRule2";
             // 
+            // xrLabel12
+            // 
+            this.xrLabel12.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(488.125F, 0F);
+            this.xrLabel12.Multiline = true;
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(159.8748F, 26F);
+            this.xrLabel12.StylePriority.UseBorders = false;
+            this.xrLabel12.StylePriority.UseFont = false;
+            this.xrLabel12.StylePriority.UseTextAlignment = false;
+            this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            // 
             // rptXuatHis
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -517,6 +534,7 @@
             this.reportHeaderBand1,
             this.topMarginBand1,
             this.bottomMarginBand1});
+            this.Bookmark = "Danh mục vật tư";
             this.FormattingRuleSheet.AddRange(new DevExpress.XtraReports.UI.FormattingRule[] {
             this.formattingRule1,
             this.formattingRule2});
@@ -570,5 +588,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.FormattingRule formattingRule1;
         private DevExpress.XtraReports.UI.FormattingRule formattingRule2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
     }
 }

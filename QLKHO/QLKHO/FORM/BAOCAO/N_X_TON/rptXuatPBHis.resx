@@ -159,11 +159,17 @@
   <metadata name="groupHeaderBand1.Name" xml:space="preserve">
     <value>groupHeaderBand1</value>
   </metadata>
+  <metadata name="xrLabel8.Name" xml:space="preserve">
+    <value>xrLabel8</value>
+  </metadata>
   <metadata name="xrLabel1.Name" xml:space="preserve">
     <value>xrLabel1</value>
   </metadata>
   <metadata name="xrLabel2.Name" xml:space="preserve">
     <value>xrLabel2</value>
+  </metadata>
+  <metadata name="xrLabel7.Name" xml:space="preserve">
+    <value>xrLabel7</value>
   </metadata>
   <metadata name="groupHeaderBand2.Name" xml:space="preserve">
     <value>groupHeaderBand2</value>
