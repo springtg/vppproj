@@ -225,9 +225,6 @@
   <metadata name="xrLabel24.Name" xml:space="preserve">
     <value>xrLabel24</value>
   </metadata>
-  <metadata name="pageFooterBand1.Name" xml:space="preserve">
-    <value>pageFooterBand1</value>
-  </metadata>
   <metadata name="reportHeaderBand1.Name" xml:space="preserve">
     <value>reportHeaderBand1</value>
   </metadata>
@@ -248,6 +245,21 @@
   </metadata>
   <metadata name="bottomMarginBand1.Name" xml:space="preserve">
     <value>bottomMarginBand1</value>
+  </metadata>
+  <metadata name="xrLabel31.Name" xml:space="preserve">
+    <value>xrLabel31</value>
+  </metadata>
+  <metadata name="pageFooterBand1.Name" xml:space="preserve">
+    <value>pageFooterBand1</value>
+  </metadata>
+  <metadata name="xrLabel32.Name" xml:space="preserve">
+    <value>xrLabel32</value>
+  </metadata>
+  <metadata name="xrLabel33.Name" xml:space="preserve">
+    <value>xrLabel33</value>
+  </metadata>
+  <metadata name="GroupFooter1.Name" xml:space="preserve">
+    <value>GroupFooter1</value>
   </metadata>
   <metadata name="$this.Name" xml:space="preserve">
     <value>rptTonkho</value>
