@@ -268,7 +268,7 @@
             this.repositoryItemHyperLinkEdit2,
             this.repositoryItemHyperLinkEdit3});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.bar3;
+            this.ribbon.SelectedPage = this.bar4;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -510,6 +510,7 @@
             this.bar4tab1btn3.Id = 38;
             this.bar4tab1btn3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar4tab1btn3.LargeGlyph")));
             this.bar4tab1btn3.Name = "bar4tab1btn3";
+            this.bar4tab1btn3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar4tab1btn3_ItemClick);
             // 
             // bar4tab2btn1
             // 
