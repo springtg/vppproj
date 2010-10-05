@@ -287,7 +287,7 @@
             // printPreviewBarItem2
             // 
             this.printPreviewBarItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.printPreviewBarItem2.Caption = "Document Map";
+            this.printPreviewBarItem2.Caption = "Tìm";
             this.printPreviewBarItem2.Command = DevExpress.XtraPrinting.PrintingSystemCommand.DocumentMap;
             this.printPreviewBarItem2.Enabled = false;
             this.printPreviewBarItem2.Hint = "Document Map";

@@ -50,6 +50,7 @@ namespace QLKHO.FORM.BAOCAO
             rpt.CreateDocument();
             rpt.PrintingSystem.ExecCommand(DevExpress.XtraPrinting.PrintingSystemCommand.Parameters, new object[] { true });
 
+        
         }
         private void btnShow_Click_1(object sender, EventArgs e)
         {
