@@ -217,7 +217,7 @@ namespace QLKHO
         {
             FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
             f.MdiParent = this;
-            f.ShowRPT(1);
+            f.ShowRPT(0);
         }
 
         private void bar4tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
