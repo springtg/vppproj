@@ -59,7 +59,8 @@ namespace QLKHO.DATAOBJECT
                     "@Remark",
 	                "@Take_Out_Number",
                     "@Price",
-                    "@Item_Pk"
+                    "@Item_Pk",
+                    "@UnitStyle_Pk"
                 };
                 for (int i = 0; i < p_dtValue.Rows.Count; i++)
                 {
@@ -71,6 +72,7 @@ namespace QLKHO.DATAOBJECT
                         l_drValue["Number_Real"],
                         l_drValue["Price"],
                         l_drValue["Item_Pk"],
+                        l_drValue["UnitStyle_Pk"]
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_OUT_DETAIL", arrParaName, arrValue);
                 }
@@ -125,7 +127,8 @@ namespace QLKHO.DATAOBJECT
 	                "@Remark",
                     "@Crt_By",
                     "@Price",
-                    "@Item_Pk"
+                    "@Item_Pk",
+                    "@UnitStyle_Pk"
                 };
                 for (int i = 0; i < p_dtValue.Rows.Count; i++)
                 {
@@ -138,6 +141,7 @@ namespace QLKHO.DATAOBJECT
                         p_ConfigItem.Login_ID,                        
                         l_drValue["Price"],
                         l_drValue["Item_Pk"],
+                        l_drValue["UnitStyle_Pk"]
                     };
                     _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT_DETAIL", arrParaName, arrValue);
                 }
