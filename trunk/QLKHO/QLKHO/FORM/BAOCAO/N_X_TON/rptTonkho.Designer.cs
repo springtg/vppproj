@@ -356,7 +356,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.todate", "{0:MM/yyyy}")});
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(550.6931F, 25F);
             this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(99.30695F, 25F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(99F, 25F);
             this.xrLabel3.StylePriority.UseBorders = false;
             // 
             // xrLabel1
@@ -422,7 +422,7 @@
                         | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(550.6931F, 0F);
             this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(99.30695F, 25F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(99F, 25F);
             this.xrLabel11.StylePriority.UseBorders = false;
             this.xrLabel11.Text = "Tồn đến";
             // 
