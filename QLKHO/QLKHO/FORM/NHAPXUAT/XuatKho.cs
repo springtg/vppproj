@@ -42,7 +42,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 txtDeparment.Properties.DataSource = LoadDataDepartment();
                 cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
-                repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem);
+                repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem);
                 //Load Data master                
                 MasterBind();
                 AssignTagValueOnDXControl(this);
@@ -225,7 +225,7 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns.Add("Number_Real", typeof(int));
             tb.Columns.Add("Price", typeof(float));
             tb.Columns.Add("Item_Pk", typeof(int));
-            tb.Columns.Add("Unit_Pk", typeof(int));
+            tb.Columns.Add("UnitStyle_Pk", typeof(int));
             tb.Columns["ROWID"].AutoIncrement = true;
             tb.Columns["ROWID"].AutoIncrementStep = 1;
             tb.Columns["ROWID"].AutoIncrementSeed = 1;
@@ -288,7 +288,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 if (l_CurItem != null)
                 {
                     int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
-                    repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+                    repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem, l_Unit_pk);
                 }
             }
         }
