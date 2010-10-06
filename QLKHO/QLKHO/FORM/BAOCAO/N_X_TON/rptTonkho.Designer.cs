@@ -467,7 +467,7 @@
             this.xrLabel25,
             this.xrLabel23,
             this.xrLabel24});
-            this.reportHeaderBand1.HeightF = 83F;
+            this.reportHeaderBand1.HeightF = 82F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             this.reportHeaderBand1.StylePriority.UseTextAlignment = false;
             this.reportHeaderBand1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
