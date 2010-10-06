@@ -772,6 +772,8 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             private global::System.Data.DataColumn columnDebit;
             
+            private global::System.Data.DataColumn columnName_Dis;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Table1DataTable() {
@@ -839,6 +841,14 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Name_DisColumn {
+                get {
+                    return this.columnName_Dis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -874,13 +884,14 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Table1Row AddTable1Row(string Name, string Address, string Credit, string Debit) {
+            public Table1Row AddTable1Row(string Name, string Address, string Credit, string Debit, string Name_Dis) {
                 Table1Row rowTable1Row = ((Table1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
                         Address,
                         Credit,
-                        Debit};
+                        Debit,
+                        Name_Dis};
                 rowTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTable1Row);
                 return rowTable1Row;
@@ -907,6 +918,7 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
                 this.columnAddress = base.Columns["Address"];
                 this.columnCredit = base.Columns["Credit"];
                 this.columnDebit = base.Columns["Debit"];
+                this.columnName_Dis = base.Columns["Name_Dis"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -920,6 +932,8 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
                 base.Columns.Add(this.columnCredit);
                 this.columnDebit = new global::System.Data.DataColumn("Debit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDebit);
+                this.columnName_Dis = new global::System.Data.DataColumn("Name_Dis", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName_Dis);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1561,6 +1575,22 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name_Dis {
+                get {
+                    try {
+                        return ((string)(this[this.tableTable1.Name_DisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name_Dis\' in table \'Table1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable1.Name_DisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableTable1.NameColumn);
             }
@@ -1605,6 +1635,18 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDebitNull() {
                 this[this.tableTable1.DebitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsName_DisNull() {
+                return this.IsNull(this.tableTable1.Name_DisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetName_DisNull() {
+                this[this.tableTable1.Name_DisColumn] = global::System.Convert.DBNull;
             }
         }
         
