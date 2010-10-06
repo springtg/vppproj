@@ -40,7 +40,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 lstTakeOut.DisplayMember = "TakeOutDate";
                 lstTakeOut.ValueMember = "Id";
                 txtDeparment.Properties.DataSource = LoadDataDepartment();
-                cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
+                labelControl3.Text = CnvToString(COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem).Rows[0]["Name"]);
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem);
                 //Load Data master                
@@ -201,7 +201,6 @@ namespace QLKHO.FORM.NHAPXUAT
         private void NewPage()
         {
             txtDeparment.Text = string.Empty;
-            cboWareHouse.Text = string.Empty;
             txtTakeOutID.Text = COREBASE.COMMAND.VPP_COMMAND.CTakeOut.getNextIDTakeOut(_ConfigItem);
             txtTakeOutDate.Text = string.Empty;
             txtTakeOutRemark.Text = string.Empty;
