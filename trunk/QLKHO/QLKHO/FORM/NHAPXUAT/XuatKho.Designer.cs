@@ -57,10 +57,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtTakeOutDate = new DevExpress.XtraEditors.DateEdit();
-            this.cboWareHouse = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdTakeOutDetail = new DevExpress.XtraGrid.GridControl();
             this.grvTakeOutDetail = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -80,6 +76,7 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeOut = new DevExpress.XtraEditors.ListBoxControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutRemark.Properties)).BeginInit();
@@ -88,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDeparment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboWareHouse.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTakeOutDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTakeOutDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_Item)).BeginInit();
@@ -142,6 +137,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.txtTakeOutRemark);
             this.groupControl1.Controls.Add(this.labelControl10);
             this.groupControl1.Controls.Add(this.labelControl11);
@@ -151,7 +147,6 @@
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.txtTakeOutDate);
-            this.groupControl1.Controls.Add(this.cboWareHouse);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
@@ -347,49 +342,6 @@
             this.txtTakeOutDate.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutDate.TabIndex = 3;
             this.txtTakeOutDate.TabStop = false;
-            // 
-            // cboWareHouse
-            // 
-            this.cboWareHouse.EditValue = "";
-            this.cboWareHouse.Enabled = false;
-            this.cboWareHouse.Location = new System.Drawing.Point(199, 29);
-            this.cboWareHouse.Name = "cboWareHouse";
-            this.cboWareHouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboWareHouse.Properties.DisplayMember = "WHNAME";
-            this.cboWareHouse.Properties.NullText = "";
-            this.cboWareHouse.Properties.PopupSizeable = false;
-            this.cboWareHouse.Properties.ValueMember = "Id";
-            this.cboWareHouse.Properties.View = this.gridLookUpEdit1View;
-            this.cboWareHouse.Size = new System.Drawing.Size(115, 20);
-            this.cboWareHouse.TabIndex = 5;
-            this.cboWareHouse.TabStop = false;
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Mã";
-            this.gridColumn1.FieldName = "Id_Dis";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Tên Kho";
-            this.gridColumn2.FieldName = "Name";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
             // 
             // grdTakeOutDetail
             // 
@@ -645,6 +597,15 @@
             this.splitContainerControl1.SplitterPosition = 91;
             this.splitContainerControl1.TabIndex = 14;
             // 
+            // labelControl3
+            // 
+            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl3.Location = new System.Drawing.Point(199, 29);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(115, 20);
+            this.labelControl3.TabIndex = 14;
+            // 
             // XuatKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,8 +627,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDeparment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboWareHouse.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTakeOutDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTakeOutDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_Item)).EndInit();
@@ -700,10 +659,6 @@
         private DevExpress.XtraEditors.TextEdit txtTakeOutID;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit txtTakeOutDate;
-        private DevExpress.XtraEditors.GridLookUpEdit cboWareHouse;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.GridControl grdTakeOutDetail;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -736,5 +691,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn8;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_Item;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_Style;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }
