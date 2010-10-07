@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grdUnitStyle = new DevExpress.XtraGrid.GridControl();
             this.grvUnitStyle = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -37,7 +38,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnSearch = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -75,15 +76,16 @@
             this.gridColumn4,
             this.gridColumn3});
             this.grvUnitStyle.GridControl = this.grdUnitStyle;
+            this.grvUnitStyle.GroupPanelText = "Kéo thả cột vào đây để nhóm hiển thị";
             this.grvUnitStyle.Name = "grvUnitStyle";
+            this.grvUnitStyle.NewItemRowText = "Click vào đây để thêm dòng mới";
             this.grvUnitStyle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvUnitStyle.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvUnitStyle.OptionsBehavior.AllowIncrementalSearch = true;
             this.grvUnitStyle.OptionsFilter.UseNewCustomFilterDialog = true;
             this.grvUnitStyle.OptionsNavigation.AutoFocusNewRow = true;
             this.grvUnitStyle.OptionsNavigation.EnterMoveNextColumn = true;
-            this.grvUnitStyle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.grvUnitStyle.OptionsView.ShowGroupPanel = false;
+            this.grvUnitStyle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.grvUnitStyle.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvUnitStyle_InvalidRowException);
             this.grvUnitStyle.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvUnitStyle_ValidateRow);
             this.grvUnitStyle.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grvUnitStyle_RowUpdated);
