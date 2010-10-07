@@ -271,8 +271,6 @@ namespace QLKHO
             f.Show();
         }
 
-        
-
         private void bar3tab2btn4_ItemClick(object sender, ItemClickEventArgs e)
         {
             //goi sp usp_vpp_ketchuyenkho
@@ -332,6 +330,31 @@ namespace QLKHO
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             System.Diagnostics.Process.Start("http://kimhoangad.com");
+        }
+
+        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bar4tab1btn3_ItemClick(null, null);
+        }
+
+        private void navBarItem6_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bar4tab2btn2_ItemClick(null, null);
+        }
+
+        private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bar4tab1btn1_ItemClick(null, null);
+        }
+
+        private void navBarNhap_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bar3tab1btn1_ItemClick(null, null);
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            bar3tab1btn2_ItemClick(null, null);
         }
  
 
