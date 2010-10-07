@@ -28,7 +28,25 @@ namespace QLKHO.DATAOBJECT
             }
             return lUser;
         }
-
+        public static DataTable GetListTable(ConfigItem p_ConfigItem)
+        {
+            DataTable dt;
+             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
+            try
+            {
+                _sql.Connect(p_ConfigItem);
+                 dt = _sql.GetDataByStoredProcedure("USP_SEL_SUPPLIER");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
+            }
+            return dt;
+        }
         public static int Insert(ConfigItem p_ConfigItem, Supplier p_Supplier)
         {
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
@@ -144,5 +162,65 @@ namespace QLKHO.DATAOBJECT
                 _sql.Disconnect();
             }
         }
+        public static int Insert(ConfigItem p_ConfigItem, object[] parramValue)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
+            try
+            {
+                string[] arrParaName = new string[] {
+                    "@Name",
+                    "@Phone",
+                    "@Address",
+                    "@Fax",
+                    "@Email",
+                    "@Website",
+                    "@Crt_By",
+                    "@TaxCode",
+                    "@Credit",
+                    "@Debit"};
+                  _sql.Connect(p_ConfigItem);
+                  return _sql.ExecuteInsert("USP_INS_SUPPLIER", arrParaName, parramValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
+            }
+        }
+
+        public static bool Update(ConfigItem p_ConfigItem, object[] parramValue)
+        {
+            COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(p_ConfigItem);
+            try
+            {
+                string[] arrParaName = new string[] {
+                    "@Id",
+                    "@Name",
+                    "@Phone",
+                    "@Address",
+                    "@Fax",
+                    "@Email",
+                    "@Website",
+                    "@Mod_By",
+                    "@TaxCode",
+                    "@Credit",
+                    "@Debit"};
+                _sql.Connect(p_ConfigItem);
+                _sql.ExecuteNonQuery("USP_UPD_SUPPLIER", arrNames: arrParaName, arrValues: parramValue);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _sql.Disconnect();
+            }
+        }
+    
     }
 }
