@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using QLKHO.DATAOBJECT;
 
 namespace QLKHO.FORM.SYSTEM
 {
@@ -36,21 +29,18 @@ namespace QLKHO.FORM.SYSTEM
             }
         }
 
-        private void Restore()
-        {
-            if(btnEdit.Text.Trim()!="")
-            SystemDao.Restore(_ConfigItem, btnEdit.Text);
-        }
-
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            if (txtPath.Text.Trim() != "")
-                SystemDao.Backup(_ConfigItem, txtPath.Text);
+            DevExpress.XtraEditors.TextEdit l_Tmp=(DevExpress.XtraEditors.TextEdit)sender;
+            if (l_Tmp.Text.Trim() != "")
+                COREBASE.COMMAND.SQL.BACKUP.CreateBackUp(l_Tmp.Text, _ConfigItem);
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            Restore();
+            DevExpress.XtraEditors.TextEdit l_Tmp = (DevExpress.XtraEditors.TextEdit)sender;
+            if (l_Tmp.Text.Trim() != "")
+                COREBASE.COMMAND.SQL.RESTORE.CreateRestore(l_Tmp.Text, _ConfigItem);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Data;
 
 namespace QLKHO.DATAOBJECT
 {
-    class DepartmentsDao
+    internal class DepartmentsDao
     {
         public ConfigItem confItem;
         public DepartmentsDao(ConfigItem _conf)

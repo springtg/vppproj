@@ -127,6 +127,11 @@ namespace QLKHO.FORM.MANAGEMENT
                     LoadUnitStyle();
             }
         }
+
+        private void grvUnitStyle_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            gridColumn4.View.SetRowCellValue(e.RowHandle, "gridColumn4", 0);
+        }
         /*
         private void grvUnitStyle_DataSourceChanged(object sender, EventArgs e)
         {
