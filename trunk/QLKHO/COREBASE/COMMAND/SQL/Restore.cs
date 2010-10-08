@@ -10,7 +10,7 @@ namespace COREBASE.COMMAND.SQL
 {
     public class RESTORE
     {
-        private static Server srvSql;
+        private static Server srvSql = null;
 
         public static void CreateRestore(string p_FileName, COMMAND.Config.ConfigItem p_confItem)
         {

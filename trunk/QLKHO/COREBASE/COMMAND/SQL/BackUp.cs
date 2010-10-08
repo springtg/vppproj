@@ -9,7 +9,7 @@ namespace COREBASE.COMMAND.SQL
 {
     public class BACKUP
     {
-        private static Server srvSql;
+        private static Server srvSql =null;
 
         public static void CreateBackUp(string p_FileName, COMMAND.Config.ConfigItem p_confItem)
         {
