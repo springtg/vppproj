@@ -132,21 +132,45 @@
     <Compile Include="FORM\BAOCAO\frmRptNhap.Designer.cs">
       <DependentUpon>frmRptNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\BAOCAO\frmRptTonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\frmRptTonKho.Designer.cs">
+      <DependentUpon>frmRptTonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsNhapKho.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.Designer.cs" />
     <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.Designer.cs">
       <DependentUpon>rptTakeIns.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeOut.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeOut.Designer.cs">
+      <DependentUpon>rptTakeOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\dsTonkho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTonkho.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BAOCAO\N_X_TON\dsXuatPB.Designer.cs">
       <DependentUpon>dsXuatPB.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptTonkho.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptTonkho.Designer.cs">
+      <DependentUpon>rptTonkho.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\BAOCAO\N_X_TON\rptXuatHis.cs">
       <SubType>Component</SubType>
@@ -305,8 +329,17 @@
     <EmbeddedResource Include="FORM\BAOCAO\frmRptNhap.resx">
       <DependentUpon>frmRptNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\frmRptTonKho.resx">
+      <DependentUpon>frmRptTonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptTakeIns.resx">
       <DependentUpon>rptTakeIns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptTakeOut.resx">
+      <DependentUpon>rptTakeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptTonkho.resx">
+      <DependentUpon>rptTonkho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptXuatHis.resx">
       <DependentUpon>rptXuatHis.cs</DependentUpon>
@@ -397,6 +430,24 @@
     </None>
     <None Include="FORM\BAOCAO\NHAPXUAT\dsNhapKho.xss">
       <DependentUpon>dsNhapKho.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.xsc">
+      <DependentUpon>dsTakeOut.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.xsd" />
+    <None Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.xss">
+      <DependentUpon>dsTakeOut.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonkho.xsc">
+      <DependentUpon>dsTonkho.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonkho.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTonkho.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonkho.xss">
+      <DependentUpon>dsTonkho.xsd</DependentUpon>
     </None>
     <None Include="FORM\BAOCAO\N_X_TON\dsXuatPB.xsc">
       <DependentUpon>dsXuatPB.xsd</DependentUpon>

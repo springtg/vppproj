@@ -106,8 +106,8 @@
                 _strConnectionString += strUserID;
                 _strConnectionString += ";Password = ";
                 _strConnectionString += strPassword;
-                _strConnectionString += ";Trusted_Connection = ";
-                _strConnectionString += strTrustedConnection;
+                //_strConnectionString += ";Trusted_Connection = ";
+                //_strConnectionString += strTrustedConnection;
                 _strConnectionString += ";";
                 return _strConnectionString;
             }

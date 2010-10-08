@@ -86,6 +86,7 @@
             this.grvUnitStyle.OptionsNavigation.AutoFocusNewRow = true;
             this.grvUnitStyle.OptionsNavigation.EnterMoveNextColumn = true;
             this.grvUnitStyle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.grvUnitStyle.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvUnitStyle_InitNewRow);
             this.grvUnitStyle.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvUnitStyle_InvalidRowException);
             this.grvUnitStyle.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvUnitStyle_ValidateRow);
             this.grvUnitStyle.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grvUnitStyle_RowUpdated);

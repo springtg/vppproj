@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +37,7 @@
             this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtTakeOutRemark = new DevExpress.XtraEditors.MemoEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -76,7 +77,8 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeOut = new DevExpress.XtraEditors.ListBoxControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtUser = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutRemark.Properties)).BeginInit();
@@ -97,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstTakeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -143,7 +146,9 @@
             this.groupControl1.Controls.Add(this.labelControl11);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.txtTakeOutID);
+            this.groupControl1.Controls.Add(this.txtUser);
             this.groupControl1.Controls.Add(this.txtDeparment);
+            this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.txtTakeOutDate);
@@ -154,14 +159,23 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin phiếu xuất";
             // 
+            // labelControl3
+            // 
+            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl3.Location = new System.Drawing.Point(189, 29);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(115, 20);
+            this.labelControl3.TabIndex = 14;
+            // 
             // txtTakeOutRemark
             // 
             this.txtTakeOutRemark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTakeOutRemark.Location = new System.Drawing.Point(389, 29);
+            this.txtTakeOutRemark.Location = new System.Drawing.Point(550, 29);
             this.txtTakeOutRemark.MenuManager = this.barManager1;
             this.txtTakeOutRemark.Name = "txtTakeOutRemark";
-            this.txtTakeOutRemark.Size = new System.Drawing.Size(450, 45);
+            this.txtTakeOutRemark.Size = new System.Drawing.Size(289, 45);
             this.txtTakeOutRemark.TabIndex = 13;
             // 
             // barManager1
@@ -268,7 +282,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(345, 33);
+            this.labelControl10.Location = new System.Drawing.Point(510, 28);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(37, 13);
             this.labelControl10.TabIndex = 12;
@@ -276,7 +290,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(146, 33);
+            this.labelControl11.Location = new System.Drawing.Point(138, 33);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(18, 13);
             this.labelControl11.TabIndex = 4;
@@ -299,7 +313,7 @@
             // 
             // txtDeparment
             // 
-            this.txtDeparment.Location = new System.Drawing.Point(199, 57);
+            this.txtDeparment.Location = new System.Drawing.Point(189, 57);
             this.txtDeparment.Name = "txtDeparment";
             this.txtDeparment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -324,7 +338,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(146, 61);
+            this.labelControl4.Location = new System.Drawing.Point(138, 61);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(51, 13);
             this.labelControl4.TabIndex = 0;
@@ -338,7 +352,7 @@
             this.txtTakeOutDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTakeOutDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtTakeOutDate.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutDate.TabIndex = 3;
             this.txtTakeOutDate.TabStop = false;
@@ -597,14 +611,30 @@
             this.splitContainerControl1.SplitterPosition = 91;
             this.splitContainerControl1.TabIndex = 14;
             // 
-            // labelControl3
+            // labelControl5
             // 
-            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl3.Location = new System.Drawing.Point(199, 29);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(115, 20);
-            this.labelControl3.TabIndex = 14;
+            this.labelControl5.Location = new System.Drawing.Point(307, 32);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(56, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Người Nhận";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(363, 28);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtUser.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_Dis", "Tên người Dùng", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.txtUser.Properties.DisplayMember = "Name_Dis";
+            this.txtUser.Properties.NullText = "";
+            this.txtUser.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.txtUser.Properties.ValueMember = "Id_Dis";
+            this.txtUser.Size = new System.Drawing.Size(115, 20);
+            this.txtUser.TabIndex = 6;
+            this.txtUser.TabStop = false;
             // 
             // XuatKho
             // 
@@ -639,6 +669,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstTakeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -692,5 +723,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_Item;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_Style;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LookUpEdit txtUser;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

@@ -107,7 +107,7 @@ namespace COREBASE.COMMAND.SQL
                 if (_sqlConnection.State != ConnectionState.Closed)
                     _sqlConnection.Close();
                 _sqlConnection = new SqlConnection(configSys.StrConnection);
-                _sqlConnection.Open();
+                _sqlConnection.Open(); 
                 rs = true;
             }
             catch

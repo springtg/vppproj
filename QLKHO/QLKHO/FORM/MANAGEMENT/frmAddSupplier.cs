@@ -14,7 +14,6 @@ namespace QLKHO.FORM.MANAGEMENT
 {
     public partial class frmAddSupplier : COREBASE.FORM.BASEFORM
     {
-        SupplierDao Dao;
         Supplier supplier = null;
 
         public frmAddSupplier(ConfigItem _config, Supplier _SupperCurrEdit)

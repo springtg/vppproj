@@ -40,6 +40,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 lstTakeOut.DisplayMember = "TakeOutDate";
                 lstTakeOut.ValueMember = "Id";
                 txtDeparment.Properties.DataSource = LoadDataDepartment();
+                txtUser.Properties.DataSource = UserDao.GetList(_ConfigItem);
                 labelControl3.Text = CnvToString(COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem).Rows[0]["Name"]);
                 repositoryItemLookUpEdit_Item.DataSource = ItemDao.GetList(_ConfigItem);
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem);

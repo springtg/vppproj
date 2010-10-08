@@ -47,6 +47,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -72,8 +80,10 @@
     <Compile Include="COMMAND\CSVUtils\CSVFile.cs" />
     <Compile Include="COMMAND\CSVUtils\CSVInfo.cs" />
     <Compile Include="COMMAND\OLEDB\OleDbHelper.cs" />
+    <Compile Include="COMMAND\SQL\BACKUP.cs" />
     <Compile Include="COMMAND\SQL\CDataMapper.cs" />
     <Compile Include="COMMAND\SQL\CMapping.cs" />
+    <Compile Include="COMMAND\SQL\RESTORE.cs" />
     <Compile Include="COMMAND\SQL\SQLHelper.cs" />
     <Compile Include="COMMAND\VPP_COMMAND\CInventory.cs" />
     <Compile Include="COMMAND\VPP_COMMAND\CTakeIn.cs" />

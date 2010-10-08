@@ -251,7 +251,7 @@ namespace COREBASE.FORM
                 if ((ctrl.GetType() == typeof(TextEdit)))
                 {
                     TextEdit textBox = (TextEdit)ctrl;
-                    if (!textBox.Text.Trim().Equals(textBox.Tag.ToString().Trim()))
+                    if (!textBox.Text.Trim().Equals(CnvToString( textBox.Tag).Trim()))
                     {
                         return true;
                     }
