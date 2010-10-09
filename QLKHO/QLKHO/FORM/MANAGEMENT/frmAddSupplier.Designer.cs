@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddSupplier));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tc = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -338,6 +339,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.bntAdd);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(487, 370);
             this.Name = "frmAddSupplier";
             this.Text = "Thông tin nhàcung cấp";

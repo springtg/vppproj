@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDonVi));
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -80,15 +81,19 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
             // 
             // btnAdd
             // 
+            this.btnAdd.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.btnAdd.Caption = "Thêm";
-            this.btnAdd.Glyph = global::QLKHO.Properties.Resources._new;
+            this.btnAdd.Glyph = global::QLKHO.Properties.Resources.New_icon16x16;
             this.btnAdd.Id = 0;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
@@ -96,7 +101,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Caption = "Cập nhật";
-            this.btnUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
+            this.btnUpdate.Glyph = global::QLKHO.Properties.Resources.Edit16x16;
             this.btnUpdate.Id = 1;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
@@ -104,7 +109,7 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.edit_delete_icon16x16;
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -226,6 +231,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDonVi";
             this.Text = "Đơn vị Tính";
             this.Load += new System.EventHandler(this.frmDonVi_Load);

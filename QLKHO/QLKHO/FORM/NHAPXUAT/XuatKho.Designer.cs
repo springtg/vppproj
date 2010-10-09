@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XuatKho));
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -54,7 +55,9 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtTakeOutID = new DevExpress.XtraEditors.TextEdit();
+            this.txtUser = new DevExpress.XtraEditors.LookUpEdit();
             this.txtDeparment = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtTakeOutDate = new DevExpress.XtraEditors.DateEdit();
@@ -77,13 +80,12 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lstTakeOut = new DevExpress.XtraEditors.ListBoxControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txtUser = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeparment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties)).BeginInit();
@@ -99,7 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstTakeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -311,6 +312,23 @@
             this.txtTakeOutID.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutID.TabIndex = 1;
             // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(363, 28);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtUser.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_Dis", "Tên người Dùng", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.txtUser.Properties.DisplayMember = "Name_Dis";
+            this.txtUser.Properties.NullText = "";
+            this.txtUser.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.txtUser.Properties.ValueMember = "Id_Dis";
+            this.txtUser.Size = new System.Drawing.Size(115, 20);
+            this.txtUser.TabIndex = 6;
+            this.txtUser.TabStop = false;
+            // 
             // txtDeparment
             // 
             this.txtDeparment.Location = new System.Drawing.Point(189, 57);
@@ -327,6 +345,14 @@
             this.txtDeparment.Size = new System.Drawing.Size(115, 20);
             this.txtDeparment.TabIndex = 6;
             this.txtDeparment.TabStop = false;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(307, 32);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(56, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Người Nhận";
             // 
             // labelControl1
             // 
@@ -352,7 +378,7 @@
             this.txtTakeOutDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTakeOutDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Chọn", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtTakeOutDate.Size = new System.Drawing.Size(99, 20);
             this.txtTakeOutDate.TabIndex = 3;
             this.txtTakeOutDate.TabStop = false;
@@ -611,31 +637,6 @@
             this.splitContainerControl1.SplitterPosition = 91;
             this.splitContainerControl1.TabIndex = 14;
             // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(307, 32);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(56, 13);
-            this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "Người Nhận";
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(363, 28);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtUser.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_Dis", "Tên người Dùng", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-            this.txtUser.Properties.DisplayMember = "Name_Dis";
-            this.txtUser.Properties.NullText = "";
-            this.txtUser.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.txtUser.Properties.ValueMember = "Id_Dis";
-            this.txtUser.Size = new System.Drawing.Size(115, 20);
-            this.txtUser.TabIndex = 6;
-            this.txtUser.TabStop = false;
-            // 
             // XuatKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,6 +646,7 @@
             this.Controls.Add(this.barDockControl1);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XuatKho";
             this.Text = "Xuất kho";
             this.Load += new System.EventHandler(this.XuatKho_Load);
@@ -654,6 +656,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeparment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTakeOutDate.Properties)).EndInit();
@@ -669,7 +672,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstTakeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

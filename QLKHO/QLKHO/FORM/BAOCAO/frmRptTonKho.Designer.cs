@@ -958,6 +958,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRptTonKho";
             this.Text = "Báo cáo tồn kho";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

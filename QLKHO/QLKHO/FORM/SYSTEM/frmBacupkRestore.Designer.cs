@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBacupkRestore));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtPath = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -127,6 +128,7 @@
             this.ClientSize = new System.Drawing.Size(471, 317);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBacupkRestore";
             this.Text = "Sao Lưu & Phục Hồi";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

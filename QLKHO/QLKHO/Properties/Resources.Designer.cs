@@ -158,6 +158,13 @@ namespace QLKHO.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Edit16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Edit16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap folder_tar {
             get {
                 object obj = ResourceManager.GetObject("folder_tar", resourceCulture);

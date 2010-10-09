@@ -855,6 +855,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaoCao";
             this.Text = "Báo cáo";
             ((System.ComponentModel.ISupportInitialize)(this.printBarManager1)).EndInit();
