@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRole));
             this.gvUserRole = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,7 +50,7 @@
             this.gvUserRole.Name = "gvUserRole";
             this.gvUserRole.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chkCmbEdit1});
-            this.gvUserRole.Size = new System.Drawing.Size(827, 423);
+            this.gvUserRole.Size = new System.Drawing.Size(827, 498);
             this.gvUserRole.TabIndex = 0;
             this.gvUserRole.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -127,8 +128,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 423);
+            this.ClientSize = new System.Drawing.Size(827, 498);
             this.Controls.Add(this.gvUserRole);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRole";
             this.Text = "Phân Quyền";
             this.Load += new System.EventHandler(this.frmRole_Load);

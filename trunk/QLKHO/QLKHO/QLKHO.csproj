@@ -52,6 +52,9 @@
   <PropertyGroup>
     <StartupObject>QLKHO.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>inventory16x16.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -393,6 +396,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThongtinUser.resx">
+      <DependentUpon>frmThongtinUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -577,6 +583,8 @@
     <None Include="Resources\Delete-icon16x16.png" />
     <None Include="Resources\Delete-icon16x161.png" />
     <None Include="Resources\edit-delete-icon16x16.png" />
+    <Content Include="inventory16x16.ico" />
+    <None Include="Resources\Edit16x16.png" />
     <Content Include="Resources\Login150.png" />
     <None Include="bin\Debug\Resources\loading.gif" />
     <Content Include="bin\Debug\Resources\Messages.xml" />

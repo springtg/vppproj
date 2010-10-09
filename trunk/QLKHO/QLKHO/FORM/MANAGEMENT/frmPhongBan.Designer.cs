@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhongBan));
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bntUpdate = new DevExpress.XtraBars.BarButtonItem();
@@ -76,13 +78,17 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bntUpdate, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
             // 
             // btnAdd
             // 
+            this.btnAdd.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.btnAdd.Caption = "Add";
-            this.btnAdd.Glyph = global::QLKHO.Properties.Resources._new;
+            this.btnAdd.Glyph = global::QLKHO.Properties.Resources.New_icon16x16;
             this.btnAdd.Id = 0;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
@@ -90,7 +96,7 @@
             // bntUpdate
             // 
             this.bntUpdate.Caption = "Update";
-            this.bntUpdate.Glyph = global::QLKHO.Properties.Resources.Add;
+            this.bntUpdate.Glyph = global::QLKHO.Properties.Resources.Edit16x16;
             this.bntUpdate.Id = 2;
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntUpdate_ItemClick);
@@ -98,7 +104,7 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "Delete";
-            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.edit_delete_icon16x16;
             this.btnDelete.Id = 3;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -107,36 +113,36 @@
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(827, 42);
+            this.barDockControlTop.Size = new System.Drawing.Size(827, 26);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 423);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 464);
             this.barDockControlBottom.Size = new System.Drawing.Size(827, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 438);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(827, 42);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlRight.Location = new System.Drawing.Point(827, 26);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 438);
             // 
             // grdDepartment
             // 
             this.grdDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDepartment.Location = new System.Drawing.Point(0, 42);
+            this.grdDepartment.Location = new System.Drawing.Point(0, 26);
             this.grdDepartment.MainView = this.gridView1;
             this.grdDepartment.MenuManager = this.barManager1;
             this.grdDepartment.Name = "grdDepartment";
             this.grdDepartment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lkupUser});
-            this.grdDepartment.Size = new System.Drawing.Size(827, 381);
+            this.grdDepartment.Size = new System.Drawing.Size(827, 438);
             this.grdDepartment.TabIndex = 4;
             this.grdDepartment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -236,12 +242,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 423);
+            this.ClientSize = new System.Drawing.Size(827, 464);
             this.Controls.Add(this.grdDepartment);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmPhongBan";
             this.Text = "Phòng Ban";

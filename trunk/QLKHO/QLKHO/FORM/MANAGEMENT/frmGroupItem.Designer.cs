@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGroupItem));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -84,14 +85,14 @@
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Thêm";
-            this.barButtonItem1.Glyph = global::QLKHO.Properties.Resources._new;
+            this.barButtonItem1.Glyph = global::QLKHO.Properties.Resources.New_icon16x16;
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Sửa";
-            this.barButtonItem2.Glyph = global::QLKHO.Properties.Resources.Add;
+            this.barButtonItem2.Glyph = global::QLKHO.Properties.Resources.Edit16x16;
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
@@ -99,7 +100,7 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.del;
+            this.btnDelete.Glyph = global::QLKHO.Properties.Resources.edit_delete_icon16x16;
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -108,36 +109,36 @@
             // 
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(827, 42);
+            this.barDockControlTop.Size = new System.Drawing.Size(827, 26);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 423);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 471);
             this.barDockControlBottom.Size = new System.Drawing.Size(827, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 42);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 445);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(827, 42);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlRight.Location = new System.Drawing.Point(827, 26);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 445);
             // 
             // grdGroup
             // 
             this.grdGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdGroup.Location = new System.Drawing.Point(0, 42);
+            this.grdGroup.Location = new System.Drawing.Point(0, 26);
             this.grdGroup.MainView = this.gridView1;
             this.grdGroup.MenuManager = this.barManager1;
             this.grdGroup.Name = "grdGroup";
             this.grdGroup.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
-            this.grdGroup.Size = new System.Drawing.Size(827, 381);
+            this.grdGroup.Size = new System.Drawing.Size(827, 445);
             this.grdGroup.TabIndex = 4;
             this.grdGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -220,12 +221,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 423);
+            this.ClientSize = new System.Drawing.Size(827, 471);
             this.Controls.Add(this.grdGroup);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmGroupItem";
             this.Text = "Nhóm hàng hóa";

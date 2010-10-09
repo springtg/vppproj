@@ -14,6 +14,7 @@ namespace QLKHO
             InitializeComponent();
             _ConfigItem = _ConfItem;
             barlblUser.Caption = _ConfigItem.Login_FullName;
+            bntLogin.Visibility = BarItemVisibility.Never;
             AccessRole();
 
         }
@@ -206,7 +207,7 @@ namespace QLKHO
             }
             catch (Exception ex)
             {
-
+                
             }
         }
         #endregion

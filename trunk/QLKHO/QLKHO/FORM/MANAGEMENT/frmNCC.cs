@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using COREBASE.COMMAND.Config;
 using QLKHO.DATAOBJECT;
 using QLKHO.BUSOBJECT;
@@ -16,9 +12,9 @@ namespace QLKHO.FORM.MANAGEMENT
     {
         IList<Supplier> lSupplier = null;
         public frmNCC(ConfigItem _config)
-        {
-            _ConfigItem = _config;
+        {            
             InitializeComponent();
+            _ConfigItem = _config;
             this.Load += new EventHandler(frmNCC_Load);
         }
 

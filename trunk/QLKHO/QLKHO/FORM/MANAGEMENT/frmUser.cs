@@ -58,7 +58,7 @@ namespace QLKHO.FORM.MANAGEMENT
             this.FindForm().Refresh();
             BaseExportLink link = gridView1.CreateExportLink(provider);
             (link as GridViewExportLink).ExpandAll = false;
-    
+
             link.ExportTo(true);
             provider.Dispose();
 
@@ -99,21 +99,18 @@ namespace QLKHO.FORM.MANAGEMENT
             {"PDF Document", "PDF Files|*.pdf", "pdf"},
             {"MHT Document", "MHT Files|*.mht", "mht"},
             {"Text Document", "Text Files|*.txt", "txt"}};
-         private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            
-        }
-
         void InitExportData()
         {
             for (int i = 0; i < exportData.GetLength(0); i++)
-                cbExport.Properties.Items.Add(exportData.GetValue(i, 0));
-            cbExport.SelectedIndex = 0;
+                repositoryItemComboBox5.Items.Add(exportData.GetValue(i, 0));
+            //repositoryItemComboBox5.se.SelectedIndex = 0;
         }
+
         private void LoadGrid()
         {
             grvUser.DataSource = UserDao.GetList(_ConfigItem);
         }
+
         private void Insert(DataRow row)
         {
             //   "@Name_Dis",
@@ -146,6 +143,7 @@ namespace QLKHO.FORM.MANAGEMENT
                 throw ex;
             }
         }
+
         private void Delete(int _id)
         {
             try
@@ -158,6 +156,7 @@ namespace QLKHO.FORM.MANAGEMENT
             }
 
         }
+
         private bool Update(DataRow row)
         {
             //   "@Id",
@@ -243,7 +242,6 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
- 
         private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
             GridView view = sender as GridView;
@@ -269,9 +267,9 @@ namespace QLKHO.FORM.MANAGEMENT
         private void gridView1_InvalidValueException(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
         {
             //Do not perform any default action 
-           // e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+            // e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
             //Show the message with the error text specified 
-           // MessageBox.Show(e.ErrorText);
+            // MessageBox.Show(e.ErrorText);
 
         }
 
@@ -297,23 +295,27 @@ namespace QLKHO.FORM.MANAGEMENT
             }
         }
 
-        private void cmbExport_Click(object sender, EventArgs e)
+        int l_Select_Index = -1;
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int index = cbExport.SelectedIndex;
-            if (index < 0) return;
-            string fileName = ShowSaveFileDialog(exportData.GetValue(index, 0).ToString(), exportData.GetValue(index, 1).ToString());
+            object val;
+            val = barEditItem1.EditValue;
+            l_Select_Index = repositoryItemComboBox5.Items.IndexOf(val);
+
+            if (l_Select_Index < 0) return;
+            string fileName = ShowSaveFileDialog(exportData.GetValue(l_Select_Index, 0).ToString(), exportData.GetValue(l_Select_Index, 1).ToString());
             if (fileName == string.Empty) return;
-            if (exportData.GetValue(index, 2).Equals("xml"))
+            if (exportData.GetValue(l_Select_Index, 2).Equals("xml"))
             {
                 ExportTo(new ExportXmlProvider(fileName));
                 OpenFile(fileName);
             }
             else
             {
-                ExportToEx(fileName, exportData.GetValue(index, 2).ToString(), gridView1);
+                ExportToEx(fileName, exportData.GetValue(l_Select_Index, 2).ToString(), gridView1);
                 OpenFile(fileName);
             }
         }
- 
+
     }
 }

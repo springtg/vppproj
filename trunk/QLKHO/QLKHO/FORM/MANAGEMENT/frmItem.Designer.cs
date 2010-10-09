@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItem));
             this.grdItem = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,7 +55,7 @@
             this.grdItem.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lookUpGroup,
             this.lookUpUnit});
-            this.grdItem.Size = new System.Drawing.Size(827, 423);
+            this.grdItem.Size = new System.Drawing.Size(827, 489);
             this.grdItem.TabIndex = 4;
             this.grdItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -190,8 +191,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 423);
+            this.ClientSize = new System.Drawing.Size(827, 489);
             this.Controls.Add(this.grdItem);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmItem";
             this.Text = "Hàng Hóa";
             this.Load += new System.EventHandler(this.frmItem_Load);
