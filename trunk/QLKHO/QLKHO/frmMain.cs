@@ -4,11 +4,11 @@ using QLKHO.FORM.MANAGEMENT;
 using System.Windows.Forms;
 using System.Data;
 using QLKHO.DATAOBJECT;
+using System.Collections;
 namespace QLKHO
 {
-    public partial class frmMain : COREBASE.FORM.BASEMDIPARENT// DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : COREBASE.FORM.BASEMDIPARENT
     {
-        
         public frmMain(COREBASE.COMMAND.Config.ConfigItem _ConfItem)
         {
             InitializeComponent();
@@ -16,6 +16,7 @@ namespace QLKHO
             barlblUser.Caption = _ConfigItem.Login_FullName;
             bntLogin.Visibility = BarItemVisibility.Never;
             AccessRole();
+            bar1tab1btn1.Visibility = BarItemVisibility.Never;
 
         }
         public void HideTab()
@@ -26,40 +27,42 @@ namespace QLKHO
             bar4.Visible = false;
             navBar1.Visible = false;
             navBar2.Visible = false;
-          
+
         }
 
-        private void AccessRole() {
+        private void AccessRole()
+        {
             HideTab();
-             object[] arrParaValue = new object[] {
+            object[] arrParaValue = new object[] {
                   _ConfigItem.Login_ID
                 };
-             DataTable dt = UserRoleDao.GetListRoleByUID(_ConfigItem, arrParaValue);
-             for (int i = 0; i < dt.Rows.Count; i++)
-             {
-                 if (dt.Rows[i]["Is_Active"].ToString() == "1")
-                 {
-                     switch (dt.Rows[i]["NameControl"].ToString().Trim())
-                     {
-                         case "bar1":
-                             bar1.Visible = true;
-                             navBar1.Visible = true;
-                             break;
-                         case "bar2":
-                             bar2.Visible = true;
-                             break;
-                         case "bar3":
-                             bar3.Visible = true;
-                             break;
-                         case "bar4":
-                             bar4.Visible = true;
-                             navBar2.Visible = true;
-                             break;
+            DataTable dt = UserRoleDao.GetListRoleByUID(_ConfigItem, arrParaValue);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i]["Is_Active"].ToString() == "1")
+                {
+                    switch (dt.Rows[i]["NameControl"].ToString().Trim())
+                    {
+                        case "bar1":
+                            bar1.Visible = true;
+                            navBar1.Visible = true;
+                            break;
+                        case "bar2":
+                            bar2.Visible = true;
+                            break;
+                        case "bar3":
+                            bar3.Visible = true;
+                            break;
+                        case "bar4":
+                            bar4.Visible = true;
+                            navBar2.Visible = true;
+                            break;
 
-                     }
-                 }
-             }
+                    }
+                }
+            }
         }
+
         private bool IsExist(string frmName)
         {
             if (tabMdi.Pages.Count < 1) return false;
@@ -82,53 +85,95 @@ namespace QLKHO
 
         private void barEditItem1_EditValueChanged(object sender, EventArgs e)
         {
+            BarEditItem tmp = (BarEditItem)sender;
             try
             {
-                BarEditItem tmp = (BarEditItem)sender;
-
-                //DevExpress.UserSkins.BonusSkins.Register();
-                //DevExpress.UserSkins.OfficeSkins.Register();
                 if (!DevExpress.Skins.SkinManager.AllowFormSkins)
                     DevExpress.Skins.SkinManager.EnableFormSkins();
                 DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = tmp.EditValue.ToString(); ;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, tmp.Name);
             }
         }
 
         private void bar1tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-
             frmThongtinUser frm = new frmThongtinUser();
-            frm.MdiParent = this;
-            frm.Show();
-           
+            try
+            {
+                if (!isOpen(frm))
+                {
+                    frm.MdiParent = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmThongtinUser");
+            }
+
         }
 
         #region "Quản lý đối tượng"
+        /// <summary>
+        /// Su kien goi form hien thi nha cung cap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bar2tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-           if ( !IsExist("frmNCC"))
+            try
             {
                 frmNCC frm = new frmNCC(_ConfigItem);
-                frm.MdiParent = this;
-                frm.Show();
+                if (!isOpen(frm))
+                {
+                    frm.MdiParent = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm.Dispose();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //TODO: active page suo mo roi
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmNCC");
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bar2tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-            frmNCC frm = new frmNCC(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
+            try
+            {
+                frmNCC frm = new frmNCC(_ConfigItem);
+                if (!isOpen(frm))
+                {
+                    frm.MdiParent = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmNCC");
+            }
         }
 
         #endregion
@@ -136,48 +181,79 @@ namespace QLKHO
         private void bar2tab2btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmCatalog frm = new frmCatalog(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
-            
+            if (!isOpen(frm))
+            {
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                frm.Dispose();
+            }
         }
+
         private void bar2tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmGroupItem frm = new frmGroupItem(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
+            if (!isOpen(frm))
+            {
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                frm.Dispose();
+            }
         }
 
         private void bar2tab2btn3_ItemClick(object sender, ItemClickEventArgs e)
         {
-
             frmItem frm = new frmItem(_ConfigItem);
-            frm.MdiParent = this;
-            frm.Show();
+            if (!isOpen(frm))
+            {
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                frm.Dispose();
+            }
         }
 
         private void bar2tab2btn4_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //DONVI
-            if (!IsExist("frmDonVi"))
+            frmDonVi f = new frmDonVi(_ConfigItem);
+            if (!isOpen(f))
             {
-                frmDonVi f = new frmDonVi(_ConfigItem);
                 f.MdiParent = this;
                 f.Show();
+            }
+            else
+            {
+                f.Dispose();
             }
         }
         #endregion
         #region "Quản lý tổ chức"
         private void bar2tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!IsExist("frmPhongBan"))
+            try
             {
                 frmPhongBan frm = new frmPhongBan(_ConfigItem);
-                frm.MdiParent = this;
-                frm.Show();
+                if (!isOpen(frm))
+                {
+                    frm.MdiParent = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm.Dispose();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //TODO: active page suo mo roi
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmPhongBan");
             }
         }
         #endregion
@@ -193,21 +269,28 @@ namespace QLKHO
         private void bar1tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
             FORM.SYSTEM.frmBacupkRestore f = new FORM.SYSTEM.frmBacupkRestore(_ConfigItem);
+            f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
-            //FORM.BAOCAO.NHAPXUAT.rptNhapKho f = new FORM.BAOCAO.NHAPXUAT.rptNhapKho();
-            //f.ShowPreviewDialog();
         }
         private void bar1tab1btn4_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
                 QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
-                f.MdiParent = this;
-                f.Show();
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
             }
             catch (Exception ex)
             {
-                
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmRole");
             }
         }
         #endregion
@@ -216,90 +299,201 @@ namespace QLKHO
 
         private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
-            f.MdiParent = this;
-            f.ShowRPT(0);
+            try
+            {
+                FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.ShowRPT(0);
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmRptNhap");
+            }
         }
 
         private void bar4tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
-            f.MdiParent = this;
-            f.ShowRPT(1);
+            try
+            {
+                FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.ShowRPT(1);
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmRptNhap");
+            }
         }
 
         private void bar4tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
-            f.MdiParent = this;
-            f.ShowRPT(2);
+            try
+            {
+                FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.ShowRPT(2);
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmRptNhap");
+            }
         }
 
         private void bar4tab1btn3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
-            f.MdiParent = this;
-            f.Show();
+            try
+            {
+                FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmRptTonKho");
+            }
         }
 
 
         #endregion
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!IsExist("frmPhongBan"))
+            try
             {
-                frmUser frm = new frmUser(_ConfigItem);
-                frm.MdiParent = this;
-                frm.Show();
+                frmUser f = new frmUser(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //TODO: active page suo mo roi
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmUser");
             }
         }
 
         private void bar3tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
-            f.MdiParent = this;
-            f.Show();
+            try
+            {
+                FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "NhapKho");
+            }
         }
 
         private void bar3tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FORM.NHAPXUAT.XuatKho f = new FORM.NHAPXUAT.XuatKho(_ConfigItem);
-            f.MdiParent = this;
-            f.Show();
+            try
+            {
+                FORM.NHAPXUAT.XuatKho f = new FORM.NHAPXUAT.XuatKho(_ConfigItem);
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "XuatKho");
+            }
         }
 
         private void bar3tab2btn4_ItemClick(object sender, ItemClickEventArgs e)
         {
             //goi sp usp_vpp_ketchuyenkho
 
-            if(COREBASE.COMMAND.VPP_COMMAND.CInventory.ketchuyen(_ConfigItem)==true)
+            if (COREBASE.COMMAND.VPP_COMMAND.CInventory.ketchuyen(_ConfigItem) == true)
                 MessageBox.Show("Đã kết chuyển thành công", MessageBoxManager.Caption);
             else
                 MessageBox.Show("Tháng này kết chuyển rồi", MessageBoxManager.Caption);
-           
-            
-        }
-   
-        private void bar1tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-   
+
+
         }
 
+        private void bar1tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Su kien goi form quy cach hang hoa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bartab2bnt5_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
                 frmUnitStyle f = new frmUnitStyle(_ConfigItem);
-                f.MdiParent = this;
-                f.Show();
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, "frmUnitStyle");
             }
         }
 
@@ -316,7 +510,7 @@ namespace QLKHO
 
             //}
         }
-    
+
 
         private void bntLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -357,7 +551,26 @@ namespace QLKHO
         {
             bar3tab1btn2_ItemClick(null, null);
         }
- 
 
+        private bool isOpen(Form p_Form)
+        {
+            foreach (Form f in tabMdi.MdiParent.MdiChildren)
+            {
+                if (f.Name.Equals(p_Form.Name))
+                {
+                    f.Activate();
+                    f.ActiveMdiChild.BringToFront();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -85,6 +85,7 @@
     <Reference Include="DICHSO">
       <HintPath>..\..\..\..\TIEMTHUOC\PROJ_PHARMACY\Pharmacy_HP\Pharmacy_MT\Pharmacy\Pharmacy\bin\Debug\DICHSO.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
@@ -281,6 +282,12 @@
     <Compile Include="FORM\SYSTEM\frmRole.Designer.cs">
       <DependentUpon>frmRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\SYSTEM\Intro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\SYSTEM\Intro.Designer.cs">
+      <DependentUpon>Intro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\SYSTEM\frmRole.resx">
       <DependentUpon>frmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\SYSTEM\Intro.resx">
+      <DependentUpon>Intro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

@@ -655,11 +655,13 @@
             // tabMdi
             // 
             this.tabMdi.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.tabMdi.FloatMDIChildDockDelay = 0;
             this.tabMdi.HeaderButtons = ((DevExpress.XtraTab.TabButtons)((((DevExpress.XtraTab.TabButtons.Prev | DevExpress.XtraTab.TabButtons.Next)
                         | DevExpress.XtraTab.TabButtons.Close)
                         | DevExpress.XtraTab.TabButtons.Default)));
             this.tabMdi.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Always;
             this.tabMdi.MdiParent = this;
+            this.tabMdi.ShowHeaderFocus = DevExpress.Utils.DefaultBoolean.True;
             // 
             // navBarControl1
             // 
