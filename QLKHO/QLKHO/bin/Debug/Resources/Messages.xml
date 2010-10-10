@@ -66,5 +66,9 @@
   <MSG MsgId="XUATKHO_I_005" MsgValue ="Phiếu xuất đã được tạo thành công!"/>
   <MSG MsgId="XUATKHO_I_006" MsgValue ="Phiếu xuất đã được cập nhật thành công!"/>
   <!--END:  FORM ITEM-->
+
+  <!--START: FORM MAIN-->
+  <MSG MsgId="MAIN_E_000" MsgValue ="Có lỗi khi mở form '{0}'! Hãy thử lại!"/>
+  <!--END:  FORM MAIN-->
   
 </VXSOFT_ERP_MESSAGE>
