@@ -27,4 +27,13 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath)\InstallShield\2009\InstallShield.targets"/>
-</Project>
+	<ItemGroup>
+		<ProjectReference Include="">
+			<Name>咬᫣KHO</Name>
+		</ProjectReference>
+		<ProjectReference Include="">
+			<Name>᫥KHO</Name>
+		</ProjectReference>
+	</ItemGroup>
+
+	</Project>
