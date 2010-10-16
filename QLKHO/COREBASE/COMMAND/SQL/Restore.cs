@@ -16,6 +16,7 @@ namespace COREBASE.COMMAND.SQL
         {
 
             // If there was a SQL connection created
+            srvSql = new Server(p_confItem.StrServerName);
             if (srvSql != null)
             {
                 // Create a new database restore operation
@@ -24,7 +25,6 @@ namespace COREBASE.COMMAND.SQL
                 rstDatabase.Action = RestoreActionType.Database;
                 // Set the database that we want to perform the restore on
                 rstDatabase.Database = p_confItem.StrDBName;
-
                 // Set the backup device from which we want to restore, to a file
                 BackupDeviceItem bkpDevice = new BackupDeviceItem(p_FileName, DeviceType.File);
                 // Add the backup device to the restore type

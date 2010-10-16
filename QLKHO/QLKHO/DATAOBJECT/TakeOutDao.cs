@@ -42,7 +42,8 @@ namespace QLKHO.DATAOBJECT
                     "@Crt_By",
                     "@Department_pk",
                     "@PriceTotal",
-                    "@Take_Out_Date"
+                    "@Take_Out_Date",
+                    "@User_Pk"
                 };
                 object[] arrValue = new object[] {
                     p_drValue["Number_Item"],
@@ -50,7 +51,8 @@ namespace QLKHO.DATAOBJECT
                     p_ConfigItem.Login_ID,
                     p_drValue["Department_pk"],
                     p_drValue["PriceTotal"],
-                    p_drValue["Take_Out_Date"]
+                    p_drValue["Take_Out_Date"],
+                    p_drValue["User_Pk"]
                 };
                 int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_OUT", arrParaName, arrValue);
                 arrParaName = new string[] { 
@@ -107,7 +109,8 @@ namespace QLKHO.DATAOBJECT
                     "@Crt_By",
                     "@Department_pk",
                     "@PriceTotal",
-                    "@Take_Out_Date"
+                    "@Take_Out_Date",
+                    "@User_Pk"
                 };
                 object[] arrValue = new object[] {
                     p_drValue["Id"],
@@ -116,7 +119,8 @@ namespace QLKHO.DATAOBJECT
                     p_ConfigItem.Login_ID,
                     p_drValue["Department_pk"],
                     p_drValue["PriceTotal"],
-                    p_drValue["Take_Out_Date"]
+                    p_drValue["Take_Out_Date"],
+                    p_drValue["User_Pk"]
                 };
                 int _idMaster = _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT", arrParaName, arrValue);
         
