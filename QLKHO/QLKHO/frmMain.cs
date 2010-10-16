@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using DevExpress.XtraBars;
 using QLKHO.FORM.MANAGEMENT;
 using System.Windows.Forms;
