@@ -70,5 +70,22 @@
   <!--START: FORM MAIN-->
   <MSG MsgId="MAIN_E_000" MsgValue ="Có lỗi khi mở form '{0}'! Hoặc form{0} đã tồn tại trên màn hình"/>
   <!--END:  FORM MAIN-->
+
+  <!--START: SAO LUU - PHUC HOI-->
+  <MSG MsgId="BKRS_E_000" MsgValue ="Có xảy ra khi thực hiện sao lưu dữ liệu! Hãy thử lại!"/>
+  <MSG MsgId="BKRS_E_001" MsgValue ="Đang sao lưu dữ liệu: {0}%"/>
+  <MSG MsgId="BKRS_E_002" MsgValue ="Sao lưu dữ liệu: {0}%"/>
+  <MSG MsgId="BKRS_E_003" MsgValue ="Sao lưu dữ liệu thành công!"/>
+  <MSG MsgId="BKRS_E_004" MsgValue ="Thực hiện sao lưu dữ liệu!"/>
+  <MSG MsgId="BKRS_E_005" MsgValue ="Đang khởi động quá trình sao lưu dữ liệu..."/>
+
+  <MSG MsgId="BKRS_E_010" MsgValue ="Có xảy ra khi thực hiện phục hồi dữ liệu! Hãy thử lại!"/>
+  <MSG MsgId="BKRS_E_011" MsgValue ="Đang phục hồi dữ liệu: {0}%"/>
+  <MSG MsgId="BKRS_E_012" MsgValue ="Phục hồi dữ liệu: {0}%"/>
+  <MSG MsgId="BKRS_E_013" MsgValue ="Phục hồi dữ liệu thành công!"/>
+  <MSG MsgId="BKRS_E_014" MsgValue ="Thực hiện phục hồi dữ liệu!"/>
+  <MSG MsgId="BKRS_E_015" MsgValue ="Đang khởi động quá trình phục hồi dữ liệu..."/>
+  
+  <!--END:  SAO LUU - PHUC HOI-->
   
 </VXSOFT_ERP_MESSAGE>
