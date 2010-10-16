@@ -26,7 +26,6 @@ namespace QLKHO.FORM.NHAPXUAT
             txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
 
             txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
-            txtUser.DataBindings.Add("EditValue", l_dtMaster, "User_Pk");
             txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
         }
         private void XuatKho_Load(object sender, EventArgs e)
@@ -148,9 +147,8 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr["Crt_By"] = _ConfigItem.Login_ID;
                 dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
                 dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
-                int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                int l_totalmat = 100;// CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr["PriceTotal"] = l_totalmat;
-                dr["User_Pk"] = ((DataRowView)txtUser.GetSelectedDataRow()).Row["Id"];
                 if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
                 {
                     CurFormState = EVENT_FORM_NONE;

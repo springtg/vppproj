@@ -417,11 +417,12 @@
             this.grvTakeOutDetail.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "", this.bandedGridColumn8, "")});
             this.grvTakeOutDetail.Name = "grvTakeOutDetail";
+            this.grvTakeOutDetail.NewItemRowText = "Click vào đây để thêm chi tiết mới";
             this.grvTakeOutDetail.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvTakeOutDetail.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvTakeOutDetail.OptionsBehavior.SummariesIgnoreNullValues = true;
             this.grvTakeOutDetail.OptionsPrint.PrintDetails = true;
-            this.grvTakeOutDetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.grvTakeOutDetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.grvTakeOutDetail.OptionsView.ShowFooter = true;
             this.grvTakeOutDetail.OptionsView.ShowGroupPanel = false;
             this.grvTakeOutDetail.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvTakeOutDetail_CellValueChanged);

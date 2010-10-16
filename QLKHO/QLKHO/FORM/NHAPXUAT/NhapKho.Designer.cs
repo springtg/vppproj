@@ -428,8 +428,6 @@
             // 
             // txtSuppierID
             // 
-            this.txtSuppierID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSuppierID.Location = new System.Drawing.Point(309, 4);
             this.txtSuppierID.MenuManager = this.barManager1;
             this.txtSuppierID.Name = "txtSuppierID";
@@ -594,6 +592,7 @@
             this.bandedGridColumn16});
             this.grvTakeInDetail.GridControl = this.grdTakeInDetail;
             this.grvTakeInDetail.Name = "grvTakeInDetail";
+            this.grvTakeInDetail.NewItemRowText = "Click vào đây để thêm chi tiết mới";
             this.grvTakeInDetail.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvTakeInDetail.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvTakeInDetail.OptionsView.EnableAppearanceEvenRow = true;

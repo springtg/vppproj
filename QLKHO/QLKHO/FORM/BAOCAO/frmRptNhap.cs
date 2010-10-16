@@ -19,7 +19,8 @@ namespace QLKHO.FORM.BAOCAO
         {
             _ConfigItem = _ConfItem;
             InitializeComponent();
-
+            dateFrom.EditValue = DateTime.Now;
+            dateTo.EditValue = DateTime.Now;
         }
         public void ShowRPT(int _type) {
             type = _type;
