@@ -31,15 +31,15 @@ namespace QLKHO.FORM.SYSTEM
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
+
             if (txtPath.Text.Trim() != "")
                 COREBASE.COMMAND.SQL.BACKUP.CreateBackUp(txtPath.Text, _ConfigItem);
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraEditors.TextEdit l_Tmp = (DevExpress.XtraEditors.TextEdit)sender;
-            if (l_Tmp.Text.Trim() != "")
-                COREBASE.COMMAND.SQL.RESTORE.CreateRestore(l_Tmp.Text, _ConfigItem);
+            if (btnEdit.Text.Trim() != "")
+                COREBASE.COMMAND.SQL.RESTORE.CreateRestore(btnEdit.Text, _ConfigItem);
         }
     }
 }

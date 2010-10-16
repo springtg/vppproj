@@ -41,6 +41,7 @@
               <xs:element name="Credit" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:string" minOccurs="0" />
               <xs:element name="Debit" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:string" minOccurs="0" />
               <xs:element name="Name_Dis" msprop:Generator_ColumnVarNameInTable="columnName_Dis" msprop:Generator_ColumnPropNameInRow="Name_Dis" msprop:Generator_ColumnPropNameInTable="Name_DisColumn" msprop:Generator_UserColumnName="Name_Dis" type="xs:string" minOccurs="0" />
+              <xs:element name="FacePart" msprop:Generator_ColumnVarNameInTable="columnFacePart" msprop:Generator_ColumnPropNameInRow="FacePart" msprop:Generator_ColumnPropNameInTable="FacePartColumn" msprop:Generator_UserColumnName="FacePart" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -339,7 +339,7 @@
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.SizeF = new System.Drawing.SizeF(99.72607F, 42.99999F);
             this.xrLabel6.StylePriority.UseBorders = false;
-            this.xrLabel6.Text = "Remark";
+            this.xrLabel6.Text = "Ghi Chu";
             // 
             // xrLabel9
             // 
@@ -534,7 +534,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private dsXuatPB dsXuatPB1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
@@ -566,5 +565,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
     }
 }
