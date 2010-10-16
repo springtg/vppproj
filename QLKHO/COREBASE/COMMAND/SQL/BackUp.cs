@@ -9,14 +9,13 @@ namespace COREBASE.COMMAND.SQL
 {
     public class BACKUP
     {
-        private static Server srvSql = null;
+        private static Server srvSql =null;
 
         public static void CreateBackUp(string p_FileName, COMMAND.Config.ConfigItem p_confItem)
         {
 
             // If there was a SQL connection created
             srvSql = new Server(p_confItem.StrServerName);
-
             if (srvSql != null)
             {
                 // If the user has chosen a path where to save the backup file
@@ -27,7 +26,7 @@ namespace COREBASE.COMMAND.SQL
                 // Set the database that we want to perform a backup on
                 bkpDatabase.Database = p_confItem.StrDBName;
                 // Set the backup device to a file
-                BackupDeviceItem bkpDevice = new BackupDeviceItem(p_FileName , DeviceType.File);
+                BackupDeviceItem bkpDevice = new BackupDeviceItem(p_FileName, DeviceType.File);
                 // Add the backup device to the backup
                 bkpDatabase.Devices.Add(bkpDevice);
                 // Perform the backup
