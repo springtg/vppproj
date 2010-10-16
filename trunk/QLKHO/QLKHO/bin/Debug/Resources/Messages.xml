@@ -68,7 +68,7 @@
   <!--END:  FORM ITEM-->
 
   <!--START: FORM MAIN-->
-  <MSG MsgId="MAIN_E_000" MsgValue ="Có lỗi khi mở form '{0}'! Hãy thử lại!"/>
+  <MSG MsgId="MAIN_E_000" MsgValue ="Có lỗi khi mở form '{0}'! Hoặc form{0} đã tồn tại trên màn hình"/>
   <!--END:  FORM MAIN-->
   
 </VXSOFT_ERP_MESSAGE>
