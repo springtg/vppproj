@@ -33,13 +33,13 @@ namespace QLKHO.FORM.SYSTEM
         {
 
             if (txtPath.Text.Trim() != "")
-                COREBASE.COMMAND.SQL.BACKUP.CreateBackUp(txtPath.Text, _ConfigItem);
+                COREBASE.COMMAND.SQL.BACKUP.CreateBackUp(txtPath.Text, _ConfigItem, this);
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
             if (btnEdit.Text.Trim() != "")
-                COREBASE.COMMAND.SQL.RESTORE.CreateRestore(btnEdit.Text, _ConfigItem);
+                COREBASE.COMMAND.SQL.RESTORE.CreateRestore(btnEdit.Text, _ConfigItem,this);
         }
     }
 }
