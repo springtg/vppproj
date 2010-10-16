@@ -262,7 +262,7 @@
             this.repositoryItemHyperLinkEdit2,
             this.repositoryItemHyperLinkEdit3});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.bar3;
+            this.ribbon.SelectedPage = this.bar1;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -330,6 +330,7 @@
             // bar1tab2btn1
             // 
             this.bar1tab2btn1.Caption = "Cấu hình";
+            this.bar1tab2btn1.Enabled = false;
             this.bar1tab2btn1.Id = 10;
             this.bar1tab2btn1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bar1tab2btn1.LargeGlyph")));
             this.bar1tab2btn1.Name = "bar1tab2btn1";
@@ -359,6 +360,7 @@
             // 
             this.bar1tab3btn1.Caption = "Giao diện";
             this.bar1tab3btn1.Edit = this.repositoryItemComboBox2;
+            this.bar1tab3btn1.Enabled = false;
             this.bar1tab3btn1.Id = 19;
             this.bar1tab3btn1.Name = "bar1tab3btn1";
             this.bar1tab3btn1.Width = 100;
