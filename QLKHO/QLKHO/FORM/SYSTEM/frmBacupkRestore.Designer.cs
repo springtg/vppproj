@@ -142,6 +142,8 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(479, 351);
             this.Name = "frmBacupkRestore";
             this.ShowInTaskbar = false;
             this.Text = "Sao Lưu & Phục Hồi";
