@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBacupkRestore));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblStatus = new DevExpress.XtraEditors.LabelControl();
             this.txtPath = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnBackup = new DevExpress.XtraEditors.SimpleButton();
@@ -47,6 +48,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.lblStatus);
             this.groupControl1.Controls.Add(this.txtPath);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.btnBackup);
@@ -56,6 +58,17 @@
             this.groupControl1.Size = new System.Drawing.Size(471, 155);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Sao lưu dữ liệu";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblStatus.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblStatus.Appearance.Options.UseFont = true;
+            this.lblStatus.Appearance.Options.UseForeColor = true;
+            this.lblStatus.Location = new System.Drawing.Point(5, 136);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 4;
             // 
             // txtPath
             // 
@@ -130,6 +143,7 @@
             this.Controls.Add(this.groupControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBacupkRestore";
+            this.ShowInTaskbar = false;
             this.Text = "Sao Lưu & Phục Hồi";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -153,6 +167,7 @@
         private DevExpress.XtraEditors.TextEdit txtPath;
         private DevExpress.XtraEditors.SimpleButton btnRestore;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl lblStatus;
 
 
 
