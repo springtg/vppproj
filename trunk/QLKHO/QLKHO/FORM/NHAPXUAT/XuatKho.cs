@@ -26,6 +26,7 @@ namespace QLKHO.FORM.NHAPXUAT
             txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
 
             txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
+            txtUser.DataBindings.Add("EditValue", l_dtMaster, "User_Pk");
             txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
         }
         private void XuatKho_Load(object sender, EventArgs e)
@@ -147,8 +148,9 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr["Crt_By"] = _ConfigItem.Login_ID;
                 dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
                 dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
-                int l_totalmat = 100;// CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr["PriceTotal"] = l_totalmat;
+                dr["User_Pk"] = ((DataRowView)txtUser.GetSelectedDataRow()).Row["Id"];
                 if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
                 {
                     CurFormState = EVENT_FORM_NONE;
@@ -280,15 +282,43 @@ namespace QLKHO.FORM.NHAPXUAT
                 return false;
             }
         }
-
+        int l_Number = -1;
         private void grvTakeOutDetail_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            
             if (e.Column.Name.Equals("bandedGridColumn2"))
             {
                 if (l_CurItem != null)
                 {
                     int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
                     repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem, l_Unit_pk);
+                }
+            }
+            if(e.Column.Name.Equals("bandedGridColumn3"))
+            {                
+                if (e.Value == null)
+                {
+                    MessageBox.Show("Vui lòng chọn quy cách hàng hóa");
+                    return;
+                }
+                DataTable l_Tmp = (DataTable)repositoryItemLookUpEdit_Style.DataSource;
+                DataRow[] dr = l_Tmp.Select(string.Format("UnitStyle_pk = {0}", e.Value));
+                if (dr.Length > 0)
+                {
+                    l_Number = CnvToInt32(dr[0]["Num"]);
+                }
+            }
+            //tinh thong tin xuat chan
+            if (e.Column.Name.Equals("bandedGridColumn4"))
+            {
+                if (l_Number == -1)
+                {
+                    MessageBox.Show("Vui lòng chọn quy cách hàng hóa");
+                    return;
+                }
+                if (!grvTakeOutDetail.GetRowCellValue(e.RowHandle, bandedGridColumn5).Equals(l_Number * CnvToInt32(e.Value)))
+                {
+                    grvTakeOutDetail.SetRowCellValue(e.RowHandle,bandedGridColumn5, l_Number * CnvToInt32(e.Value));
                 }
             }
         }
@@ -318,6 +348,7 @@ namespace QLKHO.FORM.NHAPXUAT
                     return;
                 }
             }
+            if (lstTakeOut.SelectedIndex.Equals(-1)) return;
             DataRow dr1 = ((DataTable)lstTakeOut.DataSource).Rows[lstTakeOut.SelectedIndex];
             CurFormState = EVENT_FORM_DELETE;
             if (TakeOutDao.Delete(_ConfigItem, dr1))
