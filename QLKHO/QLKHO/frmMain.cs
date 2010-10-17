@@ -95,7 +95,7 @@ namespace QLKHO
             catch (Exception ex)
             {
                 AppError(ex);
-                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, tmp.Name );
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, tmp.Name);
             }
         }
 
@@ -130,10 +130,10 @@ namespace QLKHO
         /// <param name="e"></param>
         private void bar2tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNCC frm = new frmNCC(_ConfigItem); 
+            frmNCC frm = new frmNCC(_ConfigItem);
             try
             {
-              
+
                 if (!isOpen(frm))
                 {
                     frm.MdiParent = this;
@@ -160,7 +160,7 @@ namespace QLKHO
             frmNCC frm = new frmNCC(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(frm))
                 {
                     frm.MdiParent = this;
@@ -203,10 +203,11 @@ namespace QLKHO
         }
 
         private void bar2tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
-        {  frmGroupItem frm = new frmGroupItem(_ConfigItem);
+        {
+            frmGroupItem frm = new frmGroupItem(_ConfigItem);
             try
             {
-              
+
                 if (!isOpen(frm))
                 {
                     frm.MdiParent = this;
@@ -225,10 +226,11 @@ namespace QLKHO
         }
 
         private void bar2tab2btn3_ItemClick(object sender, ItemClickEventArgs e)
-        {    frmItem frm = new frmItem(_ConfigItem);
+        {
+            frmItem frm = new frmItem(_ConfigItem);
             try
             {
-            
+
                 if (!isOpen(frm))
                 {
                     frm.MdiParent = this;
@@ -271,10 +273,11 @@ namespace QLKHO
         #region "Quản lý tổ chức"
         private void bar2tab3btn1_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
-                frmPhongBan frm = new frmPhongBan(_ConfigItem);
-              try
-            {   if (!isOpen(frm))
+
+            frmPhongBan frm = new frmPhongBan(_ConfigItem);
+            try
+            {
+                if (!isOpen(frm))
                 {
                     frm.MdiParent = this;
                     frm.Show();
@@ -315,10 +318,11 @@ namespace QLKHO
             }
         }
         private void bar1tab1btn4_ItemClick(object sender, ItemClickEventArgs e)
-        { QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
+        {
+            QLKHO.FORM.SYSTEM.frmRole f = new QLKHO.FORM.SYSTEM.frmRole(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -340,11 +344,11 @@ namespace QLKHO
         #region "Báo Cáo"
 
         private void bar4tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
-        { 
+        {
             FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -358,15 +362,16 @@ namespace QLKHO
             catch (Exception ex)
             {
                 AppError(ex);
-                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR,f.Text);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
             }
         }
 
         private void bar4tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
-        {FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+        {
+            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
             try
             {
-                
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -385,10 +390,11 @@ namespace QLKHO
         }
 
         private void bar4tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
-        {FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+        {
+            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
             try
             {
-                
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -407,10 +413,11 @@ namespace QLKHO
         }
 
         private void bar4tab1btn3_ItemClick(object sender, ItemClickEventArgs e)
-        { FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
+        {
+            FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -424,17 +431,18 @@ namespace QLKHO
             catch (Exception ex)
             {
                 AppError(ex);
-                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR,f.Text);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
             }
         }
 
 
         #endregion
         private void bar2tab3btn2_ItemClick(object sender, ItemClickEventArgs e)
-        {  frmUser f = new frmUser(_ConfigItem);
+        {
+            frmUser f = new frmUser(_ConfigItem);
             try
             {
-              
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -453,10 +461,11 @@ namespace QLKHO
         }
 
         private void bar3tab1btn1_ItemClick(object sender, ItemClickEventArgs e)
-        {FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
+        {
+            FORM.NHAPXUAT.NhapKho f = new FORM.NHAPXUAT.NhapKho(_ConfigItem);
             try
             {
-                
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -470,15 +479,16 @@ namespace QLKHO
             catch (Exception ex)
             {
                 AppError(ex);
-                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR,f.Text);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
             }
         }
 
         private void bar3tab1btn2_ItemClick(object sender, ItemClickEventArgs e)
-        { FORM.NHAPXUAT.XuatKho f = new FORM.NHAPXUAT.XuatKho(_ConfigItem);
+        {
+            FORM.NHAPXUAT.XuatKho f = new FORM.NHAPXUAT.XuatKho(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
@@ -519,10 +529,11 @@ namespace QLKHO
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void bartab2bnt5_ItemClick(object sender, ItemClickEventArgs e)
-        { frmUnitStyle f = new frmUnitStyle(_ConfigItem);
+        {
+            frmUnitStyle f = new frmUnitStyle(_ConfigItem);
             try
             {
-               
+
                 if (!isOpen(f))
                 {
                     f.MdiParent = this;
