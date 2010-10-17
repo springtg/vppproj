@@ -146,6 +146,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(579, 322);
             this.MinimumSize = new System.Drawing.Size(579, 315);
             this.Name = "frmLogin";
