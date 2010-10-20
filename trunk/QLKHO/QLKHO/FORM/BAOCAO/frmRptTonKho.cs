@@ -71,7 +71,7 @@ namespace QLKHO.FORM.BAOCAO
         public void Show(DataSet ds,int type)
         {
             DevExpress.XtraReports.UI.XtraReport rpt;
-            if (type == 0)
+            if (type == 1)
                 rpt = new rptTonDetail();
             else 
                 rpt = new rptTonkho();
