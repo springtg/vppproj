@@ -395,15 +395,9 @@ namespace QLKHO
             try
             {
 
-                if (!isOpen(f))
-                {
                     f.MdiParent = this;
                     f.ShowRPT(2);
-                }
-                else
-                {
-                    f.Dispose();
-                }
+            
             }
             catch (Exception ex)
             {
@@ -418,15 +412,9 @@ namespace QLKHO
             try
             {
 
-                if (!isOpen(f))
-                {
                     f.MdiParent = this;
-                    f.Show();
-                }
-                else
-                {
-                    f.Dispose();
-                }
+                    f.ShowRPT(0);
+            
             }
             catch (Exception ex)
             {
@@ -625,6 +613,23 @@ namespace QLKHO
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+
+        private void bar4bnt5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.frmRptTonKho f = new FORM.BAOCAO.frmRptTonKho(_ConfigItem);
+            try
+            {
+
+                    f.MdiParent = this;
+                    f.ShowRPT(1);
+              
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
+            }
         }
     }
 }
