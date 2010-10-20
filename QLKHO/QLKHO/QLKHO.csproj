@@ -198,6 +198,11 @@
     <Compile Include="FORM\BAOCAO\NHAPXUAT\rptTakeOut.Designer.cs">
       <DependentUpon>rptTakeOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\dsTonDetail.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTonDetail.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BAOCAO\N_X_TON\dsTonkho.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -491,6 +496,17 @@
     <None Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.xsd" />
     <None Include="FORM\BAOCAO\NHAPXUAT\dsTakeOut.xss">
       <DependentUpon>dsTakeOut.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonDetail.xsc">
+      <DependentUpon>dsTonDetail.xsd</DependentUpon>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonDetail.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTonDetail.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FORM\BAOCAO\N_X_TON\dsTonDetail.xss">
+      <DependentUpon>dsTonDetail.xsd</DependentUpon>
     </None>
     <None Include="FORM\BAOCAO\N_X_TON\dsTonkho.xsc">
       <DependentUpon>dsTonkho.xsd</DependentUpon>
