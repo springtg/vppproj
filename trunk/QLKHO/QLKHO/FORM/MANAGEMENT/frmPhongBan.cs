@@ -40,6 +40,7 @@ namespace QLKHO.FORM.MANAGEMENT
             try
             {
                 object[] arrParaValue = new object[] {
+                    row["Id_Dis"],
                     row["Name"],
                   
                     _ConfigItem.Login_UserName,
@@ -111,6 +112,7 @@ namespace QLKHO.FORM.MANAGEMENT
             {
                 object[] arrParaValue = new object[] {
                     row["Id"],
+                    row["Id_Dis"],
                     row["Name"],
                      _ConfigItem.Login_UserName,
                     row["Remark"],

@@ -187,9 +187,6 @@
             this.Id_Dis.Caption = "Mã";
             this.Id_Dis.FieldName = "Id_Dis";
             this.Id_Dis.Name = "Id_Dis";
-            this.Id_Dis.OptionsColumn.AllowEdit = false;
-            this.Id_Dis.OptionsColumn.AllowFocus = false;
-            this.Id_Dis.OptionsColumn.ReadOnly = true;
             this.Id_Dis.Visible = true;
             this.Id_Dis.VisibleIndex = 0;
             // 
