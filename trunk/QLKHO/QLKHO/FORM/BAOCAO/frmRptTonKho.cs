@@ -74,7 +74,7 @@ namespace QLKHO.FORM.BAOCAO
             if (type == 1)
                 rpt = new rptTonDetail();
             else 
-                rpt = new rptTonkho();
+                rpt = new rptTonTongHop();
             rpt.DataSource = ds;
             rpt.FillDataSource();
             printControl1.PrintingSystem = rpt.PrintingSystem;
