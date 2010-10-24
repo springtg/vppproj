@@ -372,15 +372,8 @@ namespace QLKHO
             try
             {
 
-                if (!isOpen(f))
-                {
-                    f.MdiParent = this;
-                    f.ShowRPT(1);
-                }
-                else
-                {
-                    f.Dispose();
-                }
+                f.MdiParent = this;
+                f.ShowRPT(1);
             }
             catch (Exception ex)
             {
@@ -389,6 +382,22 @@ namespace QLKHO
             }
         }
 
+        private void bar4bnt6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
+            try
+            {
+
+                f.MdiParent = this;
+                f.ShowRPT(2);
+
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
+            }
+        }
         private void bar4tab2btn2_ItemClick(object sender, ItemClickEventArgs e)
         {
             FORM.BAOCAO.frmRptNhap f = new FORM.BAOCAO.frmRptNhap(_ConfigItem);
@@ -396,7 +405,7 @@ namespace QLKHO
             {
 
                     f.MdiParent = this;
-                    f.ShowRPT(2);
+                    f.ShowRPT(3);
             
             }
             catch (Exception ex)
@@ -631,5 +640,6 @@ namespace QLKHO
                 ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
             }
         }
+
     }
 }

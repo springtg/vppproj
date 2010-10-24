@@ -213,6 +213,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptHangHoaPB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FORM\BAOCAO\N_X_TON\rptHangHoaPB.Designer.cs">
+      <DependentUpon>rptHangHoaPB.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BAOCAO\N_X_TON\rptTonDetail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\BAOCAO\NHAPXUAT\rptTakeOut.resx">
       <DependentUpon>rptTakeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptHangHoaPB.resx">
+      <DependentUpon>rptHangHoaPB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\BAOCAO\N_X_TON\rptTonDetail.resx">
       <DependentUpon>rptTonDetail.cs</DependentUpon>
