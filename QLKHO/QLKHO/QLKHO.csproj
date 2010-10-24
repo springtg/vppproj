@@ -313,6 +313,12 @@
     <Compile Include="FORM\MANAGEMENT\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\NHAPXUAT\ChuyenPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\NHAPXUAT\ChuyenPhong.Designer.cs">
+      <DependentUpon>ChuyenPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\NHAPXUAT\NhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
