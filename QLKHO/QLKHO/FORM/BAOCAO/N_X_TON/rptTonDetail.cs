@@ -39,6 +39,7 @@ namespace QLKHO.FORM.BAOCAO.N_X_TON
                 xrLB6.Text = str[5];
                 xrLB7.Text = str[6];
                 xrLB8.Text = str[7];
+                
                 xrLB9.Text = str[8];
             }
             //xrLB4.Text = str[3];
