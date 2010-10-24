@@ -72,6 +72,7 @@
             this.bar4tab2btn2 = new DevExpress.XtraBars.BarButtonItem();
             this.bartab2bnt5 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4bnt5 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar4bnt6 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -101,6 +102,7 @@
             this.bar4tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -250,9 +252,10 @@
             this.barStaticItem2,
             this.barlblUser,
             this.barStaticItem3,
-            this.bar4bnt5});
+            this.bar4bnt5,
+            this.bar4bnt6});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 77;
+            this.ribbon.MaxItemId = 78;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.bar1,
@@ -528,6 +531,14 @@
             this.bar4bnt5.Name = "bar4bnt5";
             this.bar4bnt5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar4bnt5_ItemClick);
             // 
+            // bar4bnt6
+            // 
+            this.bar4bnt6.Caption = "Thống kê hàng hóa";
+            this.bar4bnt6.Id = 77;
+            this.bar4bnt6.LargeGlyph = global::QLKHO.Properties.Resources.lassists;
+            this.bar4bnt6.Name = "bar4bnt6";
+            this.bar4bnt6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar4bnt6_ItemClick);
+            // 
             // bar1
             // 
             this.bar1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -638,6 +649,7 @@
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.bar4tab2btn2, false, "BH", "", true);
             this.ribbonPageGroup11.ItemLinks.Add(this.bar4bnt5);
+            this.ribbonPageGroup11.ItemLinks.Add(this.bar4bnt6);
             this.ribbonPageGroup11.KeyTip = "T";
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Tổng hợp";
@@ -775,6 +787,13 @@
             this.barButtonItem2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.LargeGlyph")));
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Tồn Kho PB";
+            this.barButtonItem3.Id = 76;
+            this.barButtonItem3.LargeGlyph = global::QLKHO.Properties.Resources.reminders;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -875,5 +894,7 @@
         private DevExpress.XtraBars.BarButtonItem bar1tab2btn3;
         private DevExpress.XtraBars.BarButtonItem bar4bnt5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem bar4bnt6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }
