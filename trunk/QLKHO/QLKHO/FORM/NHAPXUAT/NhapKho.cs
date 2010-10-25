@@ -32,10 +32,10 @@ namespace QLKHO.FORM.NHAPXUAT
 
             cboWareHouse.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CWareHouse.ListWareHouse(_ConfigItem);
             lkUser.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_ConfigItem);
-          
+
             replkeditItem.DataSource = ItemDao.GetList(_ConfigItem);
-           replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem);
-            
+            replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem);
+
         }
 
         private DataTable LoadData(string strParam, int idMaster)
@@ -54,19 +54,19 @@ namespace QLKHO.FORM.NHAPXUAT
             }
         }
 
-        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, int  _User_Pk, string _BillNumber, string _Remark, DateTime _billdate)
+        private bool InsertData(DataTable tbDetail, int _id_WareHouse, int _TotalAMT, int _iId_Supplier_Pk, DateTime _iTake_In_Date, int _User_Pk, string _BillNumber, string _Remark, DateTime _billdate)
         {
             System.Data.SqlClient.SqlConnection _sqlConnection = new System.Data.SqlClient.SqlConnection(_ConfigItem.StrConnection);
             if (_sqlConnection.State != ConnectionState.Open) _sqlConnection.Open();
             System.Data.SqlClient.SqlTransaction _sqlTransaction = _sqlConnection.BeginTransaction();
             try
             {
-             int _iNumberItem = tbDetail.Rows.Count;
-                                                                   
-                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT","@Crt_By",  "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@User_Pk" };
+                int _iNumberItem = tbDetail.Rows.Count;
+
+                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@User_Pk" };
                 object[] arrValue = new object[] { _iId_Supplier_Pk, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _User_Pk };
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
-                int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection,_sqlTransaction ,"USP_INS_TAKE_IN", arrName, arrValue);
+                int _idMaster = _providerSQL.ExecuteInsert(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
                 {
                     arrName = new string[] { 
@@ -92,7 +92,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         tbDetail.Rows[i]["UnitStyle_Pk"]
                         
                     };
-                    _providerSQL.ExecuteNonQuery(_sqlConnection,_sqlTransaction, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
+                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_IN_DETAIL", arrName, arrValue);
                 }
                 _sqlTransaction.Commit();
                 _providerSQL.Disconnect(_sqlConnection);
@@ -116,8 +116,8 @@ namespace QLKHO.FORM.NHAPXUAT
             try
             {
                 int _iNumberItem = tbDetail.Rows.Count;
-                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@Pk" };
-                object[] arrValue = new object[] { _iId_Supplier_Pk, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _pk };
+                string[] arrName = new string[] { "@Supplier_Pk", "@Take_In_Date", "@Number_Item", "@TotalAMT", "@Crt_By", "@WareHouse_Pk", "@Remark", "@BillNumber", "@BillDate", "@Pk", "@User_Pk" };
+                object[] arrValue = new object[] { _iId_Supplier_Pk, _iTake_In_Date, _iNumberItem, _TotalAMT, _ConfigItem.Login_UserName, _id_WareHouse, _Remark, _BillNumber, _billdate, _pk, _User_Pk };
                 _providerSQL = new COREBASE.COMMAND.SQL.AccessSQL();
                 int _idMaster = _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_IN", arrName, arrValue);
                 for (int i = 0; i < _iNumberItem; i++)
@@ -187,11 +187,12 @@ namespace QLKHO.FORM.NHAPXUAT
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
                 //LAY THONG TIN CHUYEN QUA MASTER CONTROL VA LOAD DETAIL CUA PHIEU NHAP TUONG UNG    
                 //int l_Group_PK = CnvToInt32(((DataRowView)lookUpEdit_Group.GetSelectedDataRow()).Row["Id"]);
-            
-              //  txtSuppierID.Properties.edit
-               // txtSuppierID.% = dr["Supplier_Pk"].ToString();
-
+                cboWareHouse.EditValue = dr["WareHouse_Pk"];
+                lkUser.EditValue = dr["User_Pk"];
+                txtSuppierID.EditValue = dr["Supplier_Pk"];
+                txtTakeInBillNumber.Text = CnvToString(dr["BillNumber"]);
                 txtTakeInDate.DateTime = DateTime.Parse(CnvToString(dr["Take_In_Date"]));
+                txtBillDate.DateTime = DateTime.Parse(CnvToString(dr["BillDate"]));
                 txttakeInRemark.Text = CnvToString(dr["Remark"]);
                 SupplierIDSelected = CnvToInt32(dr["Id"]);
                 int _idMaster = CnvToInt32(dr["Id"]);
@@ -216,7 +217,7 @@ namespace QLKHO.FORM.NHAPXUAT
 
                 int l_totalmat = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 if (InsertData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
-                    l_date,idUser, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
+                    l_date, idUser, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
                     lstTakeIn_SelectedIndexChanged(lstTakeIn, new EventArgs());
@@ -236,7 +237,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr = ((DataRowView)lstTakeIn.SelectedItem).Row;
                 int l_takeinPK = CnvToInt32(dr["Id"]);
                 if (UpdateData(l_Detail, l_WareHouse, l_totalmat, l_supplier,
-                    l_date,idUser, txtTakeInBillNumber.Text,
+                    l_date, idUser, txtTakeInBillNumber.Text,
                    txttakeInRemark.Text, txtBillDate.DateTime, l_takeinPK))
                 {
                     lstTakeIn.DataSource = LoadData("MASTER", -1);
@@ -302,7 +303,7 @@ namespace QLKHO.FORM.NHAPXUAT
                         int l_supplier = CnvToInt32(getValue(txtSuppierID, txtSuppierID.Properties.ValueMember));
 
                         int idUser = CnvToInt32(getValue(lkUser, lkUser.Properties.ValueMember));
-                       
+
                         int l_totalamt = CnvToInt32(grvTakeInDetail.Columns["bandedGridColumn8"].SummaryText);
                         InsertData(l_tb, l_idwh, 0, l_supplier, l_date, idUser, txtTakeInBillNumber.Text, txttakeInRemark.Text, txtBillDate.DateTime);
 
@@ -364,7 +365,7 @@ namespace QLKHO.FORM.NHAPXUAT
             tb.Columns.Add("Vat", typeof(float));
             tb.Columns.Add("Item_Pk", typeof(int));
             tb.Columns.Add("UnitStyle_Pk", typeof(int));
-             tb.Columns["ROWID"].AutoIncrement = true;
+            tb.Columns["ROWID"].AutoIncrement = true;
             tb.Columns["ROWID"].AutoIncrementStep = 1;
             tb.Columns["ROWID"].AutoIncrementSeed = 1;
             return tb;
@@ -450,10 +451,10 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void repositoryItemGridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
-          //  DataRow dr = ((DataRowView)((DevExpress.XtraEditors.GridLookUpEdit)sender).GetSelectedDataRow()).Row;
-          //  int id =CnvToInt32(dr["Unit_Pk"]);
+            //  DataRow dr = ((DataRowView)((DevExpress.XtraEditors.GridLookUpEdit)sender).GetSelectedDataRow()).Row;
+            //  int id =CnvToInt32(dr["Unit_Pk"]);
 
-        //   repositoryItemGridLookUpEdit2.DataSource = UnitStyleDao.GetList(_ConfigItem, 9);
+            //   repositoryItemGridLookUpEdit2.DataSource = UnitStyleDao.GetList(_ConfigItem, 9);
         }
 
         private void grvTakeInDetail_KeyDown_1(object sender, KeyEventArgs e)
@@ -496,10 +497,10 @@ namespace QLKHO.FORM.NHAPXUAT
                     replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
                 }
             }
-       
+
         }
 
 
 
-     }
+    }
 }

@@ -24,7 +24,7 @@ namespace QLKHO.FORM.NHAPXUAT
         {
             txtTakeOutDate.DataBindings.Add("DateTime", l_dtMaster, "Take_Out_Date");
             txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
-
+            txtUser.DataBindings.Add("EditValue", l_dtMaster, "User_pk");
             txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
             txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
         }

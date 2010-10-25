@@ -324,7 +324,7 @@
             this.txtUser.Properties.DisplayMember = "Name_Dis";
             this.txtUser.Properties.NullText = "";
             this.txtUser.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.txtUser.Properties.ValueMember = "Id_Dis";
+            this.txtUser.Properties.ValueMember = "Id";
             this.txtUser.Size = new System.Drawing.Size(115, 20);
             this.txtUser.TabIndex = 6;
             this.txtUser.TabStop = false;
