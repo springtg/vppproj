@@ -345,6 +345,7 @@
             this.txtDeparment.Size = new System.Drawing.Size(115, 20);
             this.txtDeparment.TabIndex = 6;
             this.txtDeparment.TabStop = false;
+         
             // 
             // labelControl5
             // 
