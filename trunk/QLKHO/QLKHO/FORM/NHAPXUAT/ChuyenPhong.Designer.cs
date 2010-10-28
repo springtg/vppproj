@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbPBChuyen = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -45,7 +44,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.bntChuyen = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPBChuyen.Properties)).BeginInit();
+            this.cmbPBChuyen = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
@@ -56,16 +55,8 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPBChuyen.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmbPBChuyen
-            // 
-            this.cmbPBChuyen.Location = new System.Drawing.Point(19, 65);
-            this.cmbPBChuyen.Name = "cmbPBChuyen";
-            this.cmbPBChuyen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPBChuyen.Size = new System.Drawing.Size(216, 20);
-            this.cmbPBChuyen.TabIndex = 0;
             // 
             // comboBoxEdit2
             // 
@@ -187,8 +178,8 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.labelControl1);
             this.groupControl2.Controls.Add(this.cmbPBChuyen);
+            this.groupControl2.Controls.Add(this.labelControl1);
             this.groupControl2.Controls.Add(this.comboBoxEdit2);
             this.groupControl2.Controls.Add(this.labelControl2);
             this.groupControl2.Controls.Add(this.labelControl3);
@@ -209,6 +200,24 @@
             this.bntChuyen.TabIndex = 16;
             this.bntChuyen.Text = ">> Chuyển";
             // 
+            // cmbPBChuyen
+            // 
+            this.cmbPBChuyen.Location = new System.Drawing.Point(19, 65);
+            this.cmbPBChuyen.Name = "cmbPBChuyen";
+            this.cmbPBChuyen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPBChuyen.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id_Dis", "Mã", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên phòng ban", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.cmbPBChuyen.Properties.DisplayMember = "Name";
+            this.cmbPBChuyen.Properties.NullText = "";
+            this.cmbPBChuyen.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.cmbPBChuyen.Properties.ValueMember = "Id";
+            this.cmbPBChuyen.Size = new System.Drawing.Size(216, 20);
+            this.cmbPBChuyen.TabIndex = 11;
+            this.cmbPBChuyen.TabStop = false;
+            this.cmbPBChuyen.EditValueChanged += new System.EventHandler(this.cmbPBChuyen_EditValueChanged);
+            // 
             // ChuyenPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,7 +229,6 @@
             this.Name = "ChuyenPhong";
             this.Text = "ChuyenPhong";
             this.Load += new System.EventHandler(this.ChuyenPhong_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPBChuyen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
@@ -233,13 +241,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPBChuyen.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.ComboBoxEdit cmbPBChuyen;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
@@ -256,5 +264,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton bntChuyen;
+        private DevExpress.XtraEditors.LookUpEdit cmbPBChuyen;
     }
 }
