@@ -271,20 +271,20 @@
             // barDockControlBottom
             // 
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 563);
-            this.barDockControlBottom.Size = new System.Drawing.Size(994, 22);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 561);
+            this.barDockControlBottom.Size = new System.Drawing.Size(994, 24);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 537);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 535);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(994, 26);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 537);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 535);
             // 
             // splitContainerControl1
             // 
@@ -297,7 +297,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(994, 537);
+            this.splitContainerControl1.Size = new System.Drawing.Size(994, 535);
             this.splitContainerControl1.SplitterPosition = 136;
             this.splitContainerControl1.TabIndex = 9;
             // 
@@ -546,7 +546,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(200, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(794, 395);
+            this.panelControl2.Size = new System.Drawing.Size(794, 393);
             this.panelControl2.TabIndex = 2;
             // 
             // grdTakeInDetail
@@ -566,7 +566,7 @@
             this.repositoryItemGridLookUpEdit2,
             this.replkeditItem,
             this.replkeditstyle});
-            this.grdTakeInDetail.Size = new System.Drawing.Size(790, 391);
+            this.grdTakeInDetail.Size = new System.Drawing.Size(790, 389);
             this.grdTakeInDetail.TabIndex = 0;
             this.grdTakeInDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTakeInDetail,
@@ -673,11 +673,11 @@
             this.replkeditstyle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.replkeditstyle.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UnitStyle_Pk", "Mã"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên")});
             this.replkeditstyle.DisplayMember = "Name";
             this.replkeditstyle.Name = "replkeditstyle";
-            this.replkeditstyle.ValueMember = "Id";
+            this.replkeditstyle.ValueMember = "UnitStyle_Pk";
             // 
             // gridBand4
             // 
@@ -1251,7 +1251,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 395);
+            this.panelControl1.Size = new System.Drawing.Size(200, 393);
             this.panelControl1.TabIndex = 1;
             // 
             // lstTakeIn
@@ -1259,7 +1259,7 @@
             this.lstTakeIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstTakeIn.Location = new System.Drawing.Point(2, 2);
             this.lstTakeIn.Name = "lstTakeIn";
-            this.lstTakeIn.Size = new System.Drawing.Size(196, 391);
+            this.lstTakeIn.Size = new System.Drawing.Size(196, 389);
             this.lstTakeIn.TabIndex = 0;
             this.lstTakeIn.SelectedIndexChanged += new System.EventHandler(this.lstTakeIn_SelectedIndexChanged);
             // 
