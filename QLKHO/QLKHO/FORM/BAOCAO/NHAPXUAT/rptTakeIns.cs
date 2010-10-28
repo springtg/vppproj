@@ -21,7 +21,11 @@ namespace QLKHO.FORM.BAOCAO.NHAPXUAT
 
         private void xrTongtien_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-          xrTongtien.Text=  XL_DOC_SO.DOC_SO_CHUOI(double.Parse(xrTong.Text), "đồng", "", 0);
+            try
+            {
+                xrTongtien.Text = XL_DOC_SO.DOC_SO_CHUOI(double.Parse(xrTong.Text), "đồng", "", 0);
+            }
+            catch (Exception ex) { }
         }
 
  
