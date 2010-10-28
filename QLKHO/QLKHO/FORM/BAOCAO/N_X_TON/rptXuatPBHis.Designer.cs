@@ -291,7 +291,7 @@
             this.xrLabel10});
             this.groupHeaderBand2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.groupHeaderBand2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupHeaderBand2.HeightF = 50F;
+            this.groupHeaderBand2.HeightF = 49F;
             this.groupHeaderBand2.Level = 1;
             this.groupHeaderBand2.Name = "groupHeaderBand2";
             this.groupHeaderBand2.StyleName = "FieldCaption";
