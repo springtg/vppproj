@@ -384,5 +384,6 @@ namespace QLKHO.FORM.NHAPXUAT
             f.ShowBaoCao(frp, ReportDao.GetListTakeOut(_idMaster, _ConfigItem), this.ParentForm);
         }
 
+
     }
 }
