@@ -34,7 +34,7 @@ namespace QLKHO.FORM.NHAPXUAT
             lkUser.Properties.DataSource = COREBASE.COMMAND.VPP_COMMAND.CUser.ListUser(_ConfigItem);
 
             replkeditItem.DataSource = ItemDao.GetList(_ConfigItem);
-            replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem);
+            replkeditstyle.DataSource = UnitStyleDao.GetList_1(_ConfigItem);
 
         }
 
@@ -494,7 +494,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 if (l_CurItem != null)
                 {
                     int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
-                    replkeditstyle.DataSource = UnitStyleDao.GetList(_ConfigItem, l_Unit_pk);
+                    replkeditstyle.DataSource = UnitStyleDao.GetList_1(_ConfigItem, l_Unit_pk);
                 }
             }
 

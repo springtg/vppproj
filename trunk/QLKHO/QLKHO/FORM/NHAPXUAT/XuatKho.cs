@@ -22,10 +22,15 @@ namespace QLKHO.FORM.NHAPXUAT
 
         private void MasterBind()
         {
+            txtTakeOutDate.DataBindings.Clear();
             txtTakeOutDate.DataBindings.Add("DateTime", l_dtMaster, "Take_Out_Date");
+            txtTakeOutID.DataBindings.Clear();
             txtTakeOutID.DataBindings.Add("Text", l_dtMaster, "Id_Dis");
+            txtUser.DataBindings.Clear();
             txtUser.DataBindings.Add("EditValue", l_dtMaster, "User_pk");
+            txtDeparment.DataBindings.Clear();
             txtDeparment.DataBindings.Add("EditValue", l_dtMaster, "Department_Pk");
+            txtTakeOutRemark.DataBindings.Clear();
             txtTakeOutRemark.DataBindings.Add("Text", l_dtMaster, "Remark");
         }
         private void XuatKho_Load(object sender, EventArgs e)
@@ -46,7 +51,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem);
                 //Load Data master                
                 MasterBind();
-                AssignTagValueOnDXControl(this);
+                //AssignTagValueOnDXControl(this);
             }
             catch (Exception ex)
             {
@@ -112,6 +117,7 @@ namespace QLKHO.FORM.NHAPXUAT
             DataTable tbTmp = (DataTable)lstTmp.DataSource;
             if (tbTmp.Rows.Count > 0)
             {
+                MasterBind();
                 DataRow dr = tbTmp.Rows[lstTmp.SelectedIndex];
                 int _idMaster = CnvToInt32(dr["Id"]);
                 tbTmp = LoadData("DETAIL", _idMaster);
@@ -147,8 +153,9 @@ namespace QLKHO.FORM.NHAPXUAT
                 dr["Crt_By"] = _ConfigItem.Login_ID;
                 dr["Department_pk"] = ((DataRowView)txtDeparment.GetSelectedDataRow()).Row["Id"];
                 dr["Take_Out_Date"] = txtTakeOutDate.DateTime;
-                int l_totalmat = 100;// CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
+                int l_totalmat = CnvToInt32(grvTakeOutDetail.Columns["bandedGridColumn8"].SummaryItem.SummaryValue);
                 dr["PriceTotal"] = l_totalmat;
+                dr["User_pk"] = ((DataRowView)txtUser.GetSelectedDataRow()).Row["Id"]; ;
                 if (TakeOutDao.Insert(_ConfigItem, dr, l_Detail))
                 {
                     CurFormState = EVENT_FORM_NONE;
@@ -288,7 +295,7 @@ namespace QLKHO.FORM.NHAPXUAT
             {
                 if (l_CurItem != null)
                 {
-                    int l_Unit_pk = CnvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
+                    int l_Unit_pk = Cc``    nvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
                     repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem, l_Unit_pk);
                 }
             }
