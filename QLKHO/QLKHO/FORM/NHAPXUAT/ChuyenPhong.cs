@@ -25,6 +25,11 @@ namespace QLKHO.FORM.NHAPXUAT
             //cmbPBChuyen.d
         }
 
+        private void cmbPBChuyen_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
    
     }
 }
