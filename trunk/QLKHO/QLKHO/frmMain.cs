@@ -641,5 +641,28 @@ namespace QLKHO
             }
         }
 
+        private void bar2bnt3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FORM.NHAPXUAT.ChuyenPhong f = new FORM.NHAPXUAT.ChuyenPhong(_ConfigItem);
+            try
+            {
+
+                if (!isOpen(f))
+                {
+                    f.MdiParent = this;
+                    f.Show();
+                }
+                else
+                {
+                    f.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppError(ex);
+                ShowMessageBox("MAIN_E_000", COREBASE.COMMAND.MessageUtils.MessageType.ERROR, f.Text);
+            }
+        }
+
     }
 }

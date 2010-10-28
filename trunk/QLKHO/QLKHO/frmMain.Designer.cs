@@ -103,6 +103,7 @@
             this.bar1tab2btn3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar2bnt3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -253,9 +254,10 @@
             this.barlblUser,
             this.barStaticItem3,
             this.bar4bnt5,
-            this.bar4bnt6});
+            this.bar4bnt6,
+            this.bar2bnt3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 78;
+            this.ribbon.MaxItemId = 79;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.bar1,
@@ -268,7 +270,7 @@
             this.repositoryItemHyperLinkEdit2,
             this.repositoryItemHyperLinkEdit3});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbon.SelectedPage = this.bar4;
+            this.ribbon.SelectedPage = this.bar3;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(816, 143);
@@ -623,6 +625,7 @@
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn1, false, "NH", "", true);
             this.ribbonPageGroup7.ItemLinks.Add(this.bar3tab1btn2, "XU");
+            this.ribbonPageGroup7.ItemLinks.Add(this.bar2bnt3);
             this.ribbonPageGroup7.KeyTip = "K";
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Kho";
@@ -794,6 +797,14 @@
             this.barButtonItem3.LargeGlyph = global::QLKHO.Properties.Resources.reminders;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
+            // bar2bnt3
+            // 
+            this.bar2bnt3.Caption = "Chuyển PB";
+            this.bar2bnt3.Id = 78;
+            this.bar2bnt3.LargeGlyph = global::QLKHO.Properties.Resources.ChuyenKho;
+            this.bar2bnt3.Name = "bar2bnt3";
+            this.bar2bnt3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar2bnt3_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,5 +907,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem bar4bnt6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem bar2bnt3;
     }
 }
