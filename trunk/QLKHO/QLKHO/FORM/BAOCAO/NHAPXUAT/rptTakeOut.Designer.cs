@@ -44,6 +44,7 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel58 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
@@ -243,6 +244,7 @@
             // groupHeaderBand1
             // 
             this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel58,
             this.xrLabel43,
             this.xrLabel41,
             this.xrLabel40,
@@ -261,6 +263,17 @@
             this.groupHeaderBand1.Name = "groupHeaderBand1";
             this.groupHeaderBand1.StylePriority.UseTextAlignment = false;
             this.groupHeaderBand1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel58
+            // 
+            this.xrLabel58.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.NameUser")});
+            this.xrLabel58.LocationFloat = new DevExpress.Utils.PointFloat(110.4167F, 0.00333786F);
+            this.xrLabel58.Name = "xrLabel58";
+            this.xrLabel58.SizeF = new System.Drawing.SizeF(216.9097F, 26.33F);
+            this.xrLabel58.StyleName = "DataField";
+            this.xrLabel58.Text = "xrLabel58";
+            this.xrLabel58.Visible = false;
             // 
             // xrLabel43
             // 
@@ -291,8 +304,8 @@
             // 
             this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel39.Name = "xrLabel39";
-            this.xrLabel39.SizeF = new System.Drawing.SizeF(150F, 26.33334F);
-            this.xrLabel39.Text = "Họ tên người giao (NCC):";
+            this.xrLabel39.SizeF = new System.Drawing.SizeF(110.4167F, 26.33334F);
+            this.xrLabel39.Text = "Họ tên người nhận:";
             // 
             // xrLabel14
             // 
@@ -335,7 +348,7 @@
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.Take_Out_Pk")});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(182.6397F, 12.91666F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(619.4167F, 10.00001F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.SizeF = new System.Drawing.SizeF(20.58334F, 13.08333F);
             this.xrLabel2.StyleName = "DataField";
@@ -1010,5 +1023,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel53;
         private DevExpress.XtraReports.UI.XRLabel xrLabel57;
         private DevExpress.XtraReports.UI.XRLabel xrLabel42;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel58;
     }
 }
