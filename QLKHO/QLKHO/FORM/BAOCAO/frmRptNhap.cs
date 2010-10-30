@@ -35,7 +35,7 @@ namespace QLKHO.FORM.BAOCAO
             else if(type == 0)
                 store = "USP_RPT_NHAPKHO";
             else if(type == 2)
-                store = "USP_RPT_XUAT_HH";
+                store = "USP_RPT_PB_HH";
             else  store = "USP_RPT_XUAT_PB";
             COREBASE.COMMAND.SQL.AccessSQL _sql = new COREBASE.COMMAND.SQL.AccessSQL(_ConfigItem);
             try
