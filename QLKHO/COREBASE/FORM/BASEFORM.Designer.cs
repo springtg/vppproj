@@ -38,6 +38,7 @@
             this.Name = "BASEFORM";
             this.Text = "BASEFORM";
             this.Load += new System.EventHandler(this.BASEFORM_Load);
+            this.Shown += new System.EventHandler(this.BASEFORM_Shown);
             this.ResumeLayout(false);
 
         }

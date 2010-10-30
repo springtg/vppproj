@@ -1058,6 +1058,11 @@ namespace COREBASE.FORM
             this.Close();
         }
 
+        private void BASEFORM_Shown(object sender, EventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("vi-VN");
+        }
+
 
         
     }
