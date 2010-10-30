@@ -290,13 +290,13 @@ namespace QLKHO.FORM.NHAPXUAT
         int l_Number = -1;
         private void grvTakeOutDetail_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            
+            if (this.CurFormState == EVENT_FORM_LOAD || CurFormState == EVENT_FORM_NONE) this.CurFormState = EVENT_FORM_UPDATE;
             if (e.Column.Name.Equals("bandedGridColumn2"))
             {
                 if (l_CurItem != null)
                 {
-                    int l_Unit_pk = Cc``    nvToInt32(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
-                    repositoryItemLookUpEdit_Style.DataSource = UnitStyleDao.GetList_1(_ConfigItem, l_Unit_pk);
+                    string l_Unit_pk = CnvToString(((DataRowView)l_CurItem.GetSelectedDataRow()).Row["Unit_Pk"]);
+                    ((DataTable)repositoryItemLookUpEdit_Style.DataSource).DefaultView.RowFilter = "Unit_Out_Pk=" + l_Unit_pk;
                 }
             }
             if(e.Column.Name.Equals("bandedGridColumn3"))
@@ -312,6 +312,7 @@ namespace QLKHO.FORM.NHAPXUAT
                 {
                     l_Number = CnvToInt32(dr[0]["Num"]);
                 }
+                ((DataTable)repositoryItemLookUpEdit_Style.DataSource).DefaultView.RowFilter = "";
             }
             //tinh thong tin xuat chan
             if (e.Column.Name.Equals("bandedGridColumn4"))
