@@ -137,7 +137,22 @@ namespace QLKHO.DATAOBJECT
                 for (int i = 0; i < p_dtValue.Rows.Count; i++)
                 {
                     DataRow l_drValue = p_dtValue.Rows[i];
-                    arrValue = new object[] { 
+                    if (p_dtValue.Rows[i].RowState == DataRowState.Added)
+                    {
+                        arrValue = new object[] {                         
+                        l_drValue["Take_Out_Pk"],
+                        p_ConfigItem.Login_ID,   
+                        l_drValue["Remark"],
+                        l_drValue["Number_Real"],
+                        l_drValue["Price"],
+                        l_drValue["Item_Pk"],
+                        l_drValue["UnitStyle_Pk"]
+                    };
+                        _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_INS_TAKE_OUT_DETAIL", arrParaName, arrValue);
+                    }
+                    if (p_dtValue.Rows[i].RowState == DataRowState.Modified)
+                    {
+                         arrValue = new object[] { 
                         l_drValue["Id"],
                         l_drValue["Take_Out_Pk"],
                         l_drValue["Number_Real"],
@@ -147,7 +162,9 @@ namespace QLKHO.DATAOBJECT
                         l_drValue["Item_Pk"],
                         l_drValue["UnitStyle_Pk"]
                     };
-                    _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT_DETAIL", arrParaName, arrValue);
+                        _providerSQL.ExecuteNonQuery(_sqlConnection, _sqlTransaction, "USP_UPD_TAKE_OUT_DETAIL", arrParaName, arrValue);
+                    }
+                    
                 }
                 _sqlTransaction.Commit();
                 l_rs =  true;
