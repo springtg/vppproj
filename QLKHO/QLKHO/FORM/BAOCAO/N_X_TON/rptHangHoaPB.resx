@@ -120,6 +120,15 @@
   <metadata name="Detail.Name" xml:space="preserve">
     <value>Detail</value>
   </metadata>
+  <metadata name="xrLabel8.Name" xml:space="preserve">
+    <value>xrLabel8</value>
+  </metadata>
+  <metadata name="xrLabel7.Name" xml:space="preserve">
+    <value>xrLabel7</value>
+  </metadata>
+  <metadata name="xrLabel6.Name" xml:space="preserve">
+    <value>xrLabel6</value>
+  </metadata>
   <metadata name="xrLabel13.Name" xml:space="preserve">
     <value>xrLabel13</value>
   </metadata>
@@ -152,6 +161,15 @@
   </metadata>
   <metadata name="pageHeaderBand1.Name" xml:space="preserve">
     <value>pageHeaderBand1</value>
+  </metadata>
+  <metadata name="xrLabel15.Name" xml:space="preserve">
+    <value>xrLabel15</value>
+  </metadata>
+  <metadata name="xrLabel12.Name" xml:space="preserve">
+    <value>xrLabel12</value>
+  </metadata>
+  <metadata name="xrLabel10.Name" xml:space="preserve">
+    <value>xrLabel10</value>
   </metadata>
   <metadata name="xrLabel5.Name" xml:space="preserve">
     <value>xrLabel5</value>
